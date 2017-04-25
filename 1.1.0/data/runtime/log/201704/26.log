@@ -1,0 +1,1966 @@
+[ 2017-04-26T00:04:08+08:00 ] 211.66.88.153 183.62.38.253 GET /admin/school/major_list.html
+[ log ] zs.flyexp.cn/admin/school/major_list.html [运行时间：0.267034s][吞吐率：3.74req/s] [内存消耗：1,369.03kb] [文件加载：81]
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng/app/lang\zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'school',
+    2 => 'major_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-rewrite-url' => '/admin/school/major_list.html',
+  'cookie' => 'PHPSESSID=t7qj08p9oae51i6lc48rdnjkf0; yf_logged_user=ShQ%3DvljkK3S87j-RI; think_var=zh-cn',
+  'connection' => 'Keep-Alive',
+  'host' => 'zs.flyexp.cn',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729)',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://zs.flyexp.cn/admin/school/school_list.html',
+  'accept' => 'image/gif, image/jpeg, image/pjpeg, application/x-ms-application, application/xaml+xml, application/x-ms-xbap, */*',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.002289s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.013222s ]
+[ info ] [ RUN ] app\admin\controller\School->major_list[ D:\UPUPW_K2.1_64\htdocs\zhaosheng\app\admin\controller\School.php ]
+[ info ] [ VIEW ] D:\UPUPW_K2.1_64\htdocs\zhaosheng/app/admin\view\school\major_list.html [ array (
+  0 => 'lang',
+  1 => 'menus',
+  2 => 'menus_curr',
+  3 => 'menus_child',
+  4 => 'id_curr',
+  5 => 'admin',
+  6 => 'head_title',
+  7 => 'admin_avatar',
+  8 => 'major_list',
+  9 => 'page',
+  10 => 'search_name',
+  11 => 'school_list',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.005552s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001035s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004501s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/major_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000561s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000736s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/major_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000479s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 335 LIMIT 1 [ RunTime:0.000342s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (1,2,6,7,11,12,15,16,25,27,239,37,40,41,42,68,59,69,70,71,72,73,91,92,93,94,95,96,97,98,99,100,101,108,109,110,111,112,113,114,151,156,161,162,170,173,174,175,178,179,180,228,240,327,328,330,331,332,333,334,335,336,337,338,339,395,394,393,345,347,349,355,356,357,358,359,360,361,392,365,366,367,368,369,370,387,386,372,373,374,375,376,377,378,379,380,381,382,383,391)  AND `status` = 1  AND `pid` = 370 ORDER BY `sort` [ RunTime:0.000959s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.004153s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 6 LIMIT 1 [ RunTime:0.000561s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.004114s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.000410s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major` [ RunTime:0.004021s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_major` `m` INNER JOIN `zs_school` `s` ON `s`.`school_id`=`m`.`school_id` INNER JOIN `zs_recruit_major` `rm` ON `rm`.`recruit_major_id`=`m`.`recruit_major_id` LIMIT 1 [ RunTime:0.000466s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major` `m` INNER JOIN `zs_school` `s` ON `s`.`school_id`=`m`.`school_id` INNER JOIN `zs_recruit_major` `rm` ON `rm`.`recruit_major_id`=`m`.`recruit_major_id` ORDER BY `s`.`school_id`  DESC,`m`.`major_id`  DESC LIMIT 0,10 [ RunTime:0.002394s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.003980s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` [ RunTime:0.000292s ]
+
+---------------------------------------------------------------
+[ 2017-04-26T00:04:12+08:00 ] 211.66.88.153 183.62.38.253 GET /admin/school/school_list.html
+[ log ] zs.flyexp.cn/admin/school/school_list.html [运行时间：0.207903s][吞吐率：4.81req/s] [内存消耗：1,022.35kb] [文件加载：81]
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng/app/lang\zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'school',
+    2 => 'school_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-rewrite-url' => '/admin/school/school_list.html',
+  'cookie' => 'PHPSESSID=t7qj08p9oae51i6lc48rdnjkf0; yf_logged_user=ShQ%3DvljkK3S87j-RI; think_var=zh-cn',
+  'connection' => 'Keep-Alive',
+  'host' => 'zs.flyexp.cn',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729)',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://zs.flyexp.cn/admin/school/major_list.html',
+  'accept' => 'image/gif, image/jpeg, image/pjpeg, application/x-ms-application, application/xaml+xml, application/x-ms-xbap, */*',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.001353s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.009610s ]
+[ info ] [ RUN ] app\admin\controller\School->school_list[ D:\UPUPW_K2.1_64\htdocs\zhaosheng\app\admin\controller\School.php ]
+[ info ] [ VIEW ] D:\UPUPW_K2.1_64\htdocs\zhaosheng/app/admin\view\school\school_list.html [ array (
+  0 => 'lang',
+  1 => 'menus',
+  2 => 'menus_curr',
+  3 => 'menus_child',
+  4 => 'id_curr',
+  5 => 'admin',
+  6 => 'head_title',
+  7 => 'admin_avatar',
+  8 => 'search_name',
+  9 => 'school_list',
+  10 => 'page',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.006443s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011146s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.005984s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000871s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000925s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000656s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 328 LIMIT 1 [ RunTime:0.000375s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (1,2,6,7,11,12,15,16,25,27,239,37,40,41,42,68,59,69,70,71,72,73,91,92,93,94,95,96,97,98,99,100,101,108,109,110,111,112,113,114,151,156,161,162,170,173,174,175,178,179,180,228,240,327,328,330,331,332,333,334,335,336,337,338,339,395,394,393,345,347,349,355,356,357,358,359,360,361,392,365,366,367,368,369,370,387,386,372,373,374,375,376,377,378,379,380,381,382,383,391)  AND `status` = 1  AND `pid` = 370 ORDER BY `sort` [ RunTime:0.001193s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.005091s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 6 LIMIT 1 [ RunTime:0.000687s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.005196s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.000487s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.004844s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_school` LIMIT 1 [ RunTime:0.000341s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` ORDER BY `school_id` LIMIT 0,10 [ RunTime:0.000357s ]
+
+---------------------------------------------------------------
+[ 2017-04-26T00:04:20+08:00 ] 211.66.88.153 183.62.38.253 GET /admin/school/school_del/school_id/2.html
+[ log ] zs.flyexp.cn/admin/school/school_del/school_id/2.html [运行时间：0.164934s][吞吐率：6.06req/s] [内存消耗：915.56kb] [文件加载：79]
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng/app/lang\zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'school',
+    2 => 'school_del',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-rewrite-url' => '/admin/school/school_del/school_id/2.html',
+  'cookie' => 'PHPSESSID=t7qj08p9oae51i6lc48rdnjkf0; yf_logged_user=ShQ%3DvljkK3S87j-RI; think_var=zh-cn',
+  'connection' => 'Keep-Alive',
+  'host' => 'zs.flyexp.cn',
+  'user-agent' => 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729)',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://zs.flyexp.cn/admin/school/school_list.html',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+)
+[ info ] [ PARAM ] array (
+  'school_id' => '2',
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.001501s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.010255s ]
+[ info ] [ RUN ] app\admin\controller\School->school_del[ D:\UPUPW_K2.1_64\htdocs\zhaosheng\app\admin\controller\School.php ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.004369s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.004189s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004356s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_del' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000522s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000735s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_del'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000468s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000291s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (1,2,6,7,11,12,15,16,25,27,239,37,40,41,42,68,59,69,70,71,72,73,91,92,93,94,95,96,97,98,99,100,101,108,109,110,111,112,113,114,151,156,161,162,170,173,174,175,178,179,180,228,240,327,328,330,331,332,333,334,335,336,337,338,339,395,394,393,345,347,349,355,356,357,358,359,360,361,392,365,366,367,368,369,370,387,386,372,373,374,375,376,377,378,379,380,381,382,383,391)  AND `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.001203s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.004140s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 6 LIMIT 1 [ RunTime:0.000530s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.004175s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.000387s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` WHERE  `school_id` = 2 LIMIT 1 [ RunTime:0.000387s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_member_list` [ RunTime:0.004156s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_member_list` WHERE  `school_id` = 2 LIMIT 1 [ RunTime:0.000391s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.004004s ]
+[ sql ] [ SQL ] DELETE FROM `zs_school`    WHERE  `school_id` = 2 [ RunTime:0.005584s ]
+
+---------------------------------------------------------------
+[ 2017-04-26T00:04:21+08:00 ] 211.66.88.153 183.62.38.253 GET /admin/school/school_list.html
+[ log ] zs.flyexp.cn/admin/school/school_list.html [运行时间：0.158750s][吞吐率：6.30req/s] [内存消耗：1,020.69kb] [文件加载：81]
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng/app/lang\zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'school',
+    2 => 'school_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-rewrite-url' => '/admin/school/school_list.html',
+  'cookie' => 'PHPSESSID=t7qj08p9oae51i6lc48rdnjkf0; yf_logged_user=ShQ%3DvljkK3S87j-RI; think_var=zh-cn',
+  'connection' => 'Keep-Alive',
+  'host' => 'zs.flyexp.cn',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729)',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://zs.flyexp.cn/admin/school/school_list.html',
+  'accept' => 'image/gif, image/jpeg, image/pjpeg, application/x-ms-application, application/xaml+xml, application/x-ms-xbap, */*',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.001311s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.009721s ]
+[ info ] [ RUN ] app\admin\controller\School->school_list[ D:\UPUPW_K2.1_64\htdocs\zhaosheng\app\admin\controller\School.php ]
+[ info ] [ VIEW ] D:\UPUPW_K2.1_64\htdocs\zhaosheng/app/admin\view\school\school_list.html [ array (
+  0 => 'lang',
+  1 => 'menus',
+  2 => 'menus_curr',
+  3 => 'menus_child',
+  4 => 'id_curr',
+  5 => 'admin',
+  6 => 'head_title',
+  7 => 'admin_avatar',
+  8 => 'search_name',
+  9 => 'school_list',
+  10 => 'page',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.005278s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000551s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004311s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000530s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000720s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000476s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 328 LIMIT 1 [ RunTime:0.000305s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (1,2,6,7,11,12,15,16,25,27,239,37,40,41,42,68,59,69,70,71,72,73,91,92,93,94,95,96,97,98,99,100,101,108,109,110,111,112,113,114,151,156,161,162,170,173,174,175,178,179,180,228,240,327,328,330,331,332,333,334,335,336,337,338,339,395,394,393,345,347,349,355,356,357,358,359,360,361,392,365,366,367,368,369,370,387,386,372,373,374,375,376,377,378,379,380,381,382,383,391)  AND `status` = 1  AND `pid` = 370 ORDER BY `sort` [ RunTime:0.000920s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.004163s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 6 LIMIT 1 [ RunTime:0.000529s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.004678s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.000497s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.004613s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_school` LIMIT 1 [ RunTime:0.001870s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` ORDER BY `school_id` LIMIT 0,10 [ RunTime:0.000372s ]
+
+---------------------------------------------------------------
+[ 2017-04-26T00:04:22+08:00 ] 211.66.88.153 183.62.38.253 GET /admin/school/major_list.html
+[ log ] zs.flyexp.cn/admin/school/major_list.html [运行时间：0.181868s][吞吐率：5.50req/s] [内存消耗：1,030.72kb] [文件加载：81]
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng/app/lang\zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'school',
+    2 => 'major_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-rewrite-url' => '/admin/school/major_list.html',
+  'cookie' => 'PHPSESSID=t7qj08p9oae51i6lc48rdnjkf0; yf_logged_user=ShQ%3DvljkK3S87j-RI; think_var=zh-cn',
+  'connection' => 'Keep-Alive',
+  'host' => 'zs.flyexp.cn',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729)',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://zs.flyexp.cn/admin/school/school_list.html',
+  'accept' => 'image/gif, image/jpeg, image/pjpeg, application/x-ms-application, application/xaml+xml, application/x-ms-xbap, */*',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.001407s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.011276s ]
+[ info ] [ RUN ] app\admin\controller\School->major_list[ D:\UPUPW_K2.1_64\htdocs\zhaosheng\app\admin\controller\School.php ]
+[ info ] [ VIEW ] D:\UPUPW_K2.1_64\htdocs\zhaosheng/app/admin\view\school\major_list.html [ array (
+  0 => 'lang',
+  1 => 'menus',
+  2 => 'menus_curr',
+  3 => 'menus_child',
+  4 => 'id_curr',
+  5 => 'admin',
+  6 => 'head_title',
+  7 => 'admin_avatar',
+  8 => 'major_list',
+  9 => 'page',
+  10 => 'search_name',
+  11 => 'school_list',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.003999s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.015460s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004108s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/major_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.002117s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000730s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/major_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000477s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 335 LIMIT 1 [ RunTime:0.000307s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (1,2,6,7,11,12,15,16,25,27,239,37,40,41,42,68,59,69,70,71,72,73,91,92,93,94,95,96,97,98,99,100,101,108,109,110,111,112,113,114,151,156,161,162,170,173,174,175,178,179,180,228,240,327,328,330,331,332,333,334,335,336,337,338,339,395,394,393,345,347,349,355,356,357,358,359,360,361,392,365,366,367,368,369,370,387,386,372,373,374,375,376,377,378,379,380,381,382,383,391)  AND `status` = 1  AND `pid` = 370 ORDER BY `sort` [ RunTime:0.000925s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.004229s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 6 LIMIT 1 [ RunTime:0.000533s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.004198s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.000389s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major` [ RunTime:0.004514s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_major` `m` INNER JOIN `zs_school` `s` ON `s`.`school_id`=`m`.`school_id` INNER JOIN `zs_recruit_major` `rm` ON `rm`.`recruit_major_id`=`m`.`recruit_major_id` LIMIT 1 [ RunTime:0.000457s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major` `m` INNER JOIN `zs_school` `s` ON `s`.`school_id`=`m`.`school_id` INNER JOIN `zs_recruit_major` `rm` ON `rm`.`recruit_major_id`=`m`.`recruit_major_id` ORDER BY `s`.`school_id`  DESC,`m`.`major_id`  DESC LIMIT 0,10 [ RunTime:0.002379s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.003945s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` [ RunTime:0.000302s ]
+
+---------------------------------------------------------------
+[ 2017-04-26T00:04:32+08:00 ] 211.66.88.153 183.62.38.253 GET /admin/School/ajax_recruit_major?school_id=7
+[ log ] zs.flyexp.cn/admin/School/ajax_recruit_major?school_id=7 [运行时间：0.153111s][吞吐率：6.53req/s] [内存消耗：988.48kb] [文件加载：77]
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng/app/lang\zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'School',
+    2 => 'ajax_recruit_major',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-rewrite-url' => '/admin/School/ajax_recruit_major?school_id=7',
+  'cookie' => 'PHPSESSID=t7qj08p9oae51i6lc48rdnjkf0; yf_logged_user=ShQ%3DvljkK3S87j-RI; think_var=zh-cn',
+  'connection' => 'Keep-Alive',
+  'host' => 'zs.flyexp.cn',
+  'user-agent' => 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729)',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://zs.flyexp.cn/admin/school/major_list.html',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => '*/*',
+)
+[ info ] [ PARAM ] array (
+  'school_id' => '7',
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.001529s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.011323s ]
+[ info ] [ RUN ] app\admin\controller\School->ajax_recruit_major[ D:\UPUPW_K2.1_64\htdocs\zhaosheng\app\admin\controller\School.php ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.004780s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000600s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004192s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/ajax_recruit_major' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.002011s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000782s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/ajax_recruit_major'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000524s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000349s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (1,2,6,7,11,12,15,16,25,27,239,37,40,41,42,68,59,69,70,71,72,73,91,92,93,94,95,96,97,98,99,100,101,108,109,110,111,112,113,114,151,156,161,162,170,173,174,175,178,179,180,228,240,327,328,330,331,332,333,334,335,336,337,338,339,395,394,393,345,347,349,355,356,357,358,359,360,361,392,365,366,367,368,369,370,387,386,372,373,374,375,376,377,378,379,380,381,382,383,391)  AND `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.000980s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.004095s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 6 LIMIT 1 [ RunTime:0.000613s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.003982s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.000972s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_recruit_major` [ RunTime:0.003850s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `rm`.`recruit_major_name`,`rm`.`recruit_major_id` FROM `zs_recruit_major` `rm` INNER JOIN `zs_major` `mj` ON `mj`.`recruit_major_id`=`rm`.`recruit_major_id` INNER JOIN `zs_admin` `am` ON `am`.`major_id`=`mj`.`major_id` WHERE  `am`.`school_id` = '7' [ RunTime:0.000912s ]
+
+---------------------------------------------------------------
+[ 2017-04-26T00:04:32+08:00 ] 211.66.88.153 183.62.38.253 POST /admin/school/major_list.html
+[ log ] zs.flyexp.cn/admin/school/major_list.html [运行时间：0.307778s][吞吐率：3.25req/s] [内存消耗：5,367.30kb] [文件加载：105]
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng/app/lang\zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'school',
+    2 => 'major_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-rewrite-url' => '/admin/school/major_list.html',
+  'content-length' => '11',
+  'cookie' => 'PHPSESSID=t7qj08p9oae51i6lc48rdnjkf0; yf_logged_user=ShQ%3DvljkK3S87j-RI; think_var=zh-cn',
+  'cache-control' => 'no-cache',
+  'connection' => 'Keep-Alive',
+  'host' => 'zs.flyexp.cn',
+  'user-agent' => 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729)',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://zs.flyexp.cn/admin/school/major_list.html',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => '*/*',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+)
+[ info ] [ PARAM ] array (
+  'school_id' => '7',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.161751s ]
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.009752s ]
+[ info ] [ RUN ] app\admin\controller\School->major_list[ D:\UPUPW_K2.1_64\htdocs\zhaosheng\app\admin\controller\School.php ]
+[ info ] [ VIEW ] D:\UPUPW_K2.1_64\htdocs\zhaosheng/app/admin\view\school\ajax_major_list.html [ array (
+  0 => 'lang',
+  1 => 'menus',
+  2 => 'menus_curr',
+  3 => 'menus_child',
+  4 => 'id_curr',
+  5 => 'admin',
+  6 => 'head_title',
+  7 => 'admin_avatar',
+  8 => 'major_list',
+  9 => 'page',
+  10 => 'search_name',
+  11 => 'school_list',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.004132s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000937s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_web_log` [ RunTime:0.004402s ]
+[ sql ] [ SQL ] INSERT INTO `zs_web_log` (`uid` , `ip` , `location` , `os` , `browser` , `url` , `module` , `controller` , `action` , `method` , `data` , `otime`) VALUES (0 , '183.62.38.253' , '中国 广东 广州 ' , 'Windows 10' , 'IE(7.0)' , '/admin/school/major_list.html' , 'admin' , 'School' , 'major_list' , 'Ajax' , 'a:1:{s:9:\"school_id\";s:1:\"7\";}' , 1493136272) [ RunTime:0.000582s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004163s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/major_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000505s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000724s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/major_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000472s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 335 LIMIT 1 [ RunTime:0.000304s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (1,2,6,7,11,12,15,16,25,27,239,37,40,41,42,68,59,69,70,71,72,73,91,92,93,94,95,96,97,98,99,100,101,108,109,110,111,112,113,114,151,156,161,162,170,173,174,175,178,179,180,228,240,327,328,330,331,332,333,334,335,336,337,338,339,395,394,393,345,347,349,355,356,357,358,359,360,361,392,365,366,367,368,369,370,387,386,372,373,374,375,376,377,378,379,380,381,382,383,391)  AND `status` = 1  AND `pid` = 370 ORDER BY `sort` [ RunTime:0.001380s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.004098s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 6 LIMIT 1 [ RunTime:0.000529s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.004175s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.000391s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major` [ RunTime:0.004038s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_major` `m` INNER JOIN `zs_school` `s` ON `s`.`school_id`=`m`.`school_id` INNER JOIN `zs_recruit_major` `rm` ON `rm`.`recruit_major_id`=`m`.`recruit_major_id` WHERE  `m`.`school_id` = '7' LIMIT 1 [ RunTime:0.000388s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major` `m` INNER JOIN `zs_school` `s` ON `s`.`school_id`=`m`.`school_id` INNER JOIN `zs_recruit_major` `rm` ON `rm`.`recruit_major_id`=`m`.`recruit_major_id` WHERE  `m`.`school_id` = '7' ORDER BY `s`.`school_id`  DESC,`m`.`major_id`  DESC LIMIT 0,10 [ RunTime:0.002188s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.003939s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` [ RunTime:0.000296s ]
+
+---------------------------------------------------------------
+[ 2017-04-26T00:04:35+08:00 ] 211.66.88.153 183.62.38.253 GET /admin/admin/secondary_vocat_admin_list.html
+[ log ] zs.flyexp.cn/admin/admin/secondary_vocat_admin_list.html [运行时间：0.220010s][吞吐率：4.55req/s] [内存消耗：1,213.33kb] [文件加载：82]
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng/app/lang\zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'secondary_vocat_admin_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-rewrite-url' => '/admin/admin/secondary_vocat_admin_list.html',
+  'cookie' => 'PHPSESSID=t7qj08p9oae51i6lc48rdnjkf0; yf_logged_user=ShQ%3DvljkK3S87j-RI; think_var=zh-cn',
+  'connection' => 'Keep-Alive',
+  'host' => 'zs.flyexp.cn',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729)',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://zs.flyexp.cn/admin/school/major_list.html',
+  'accept' => 'image/gif, image/jpeg, image/pjpeg, application/x-ms-application, application/xaml+xml, application/x-ms-xbap, */*',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.001328s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.009803s ]
+[ info ] [ RUN ] app\admin\controller\Admin->secondary_vocat_admin_list[ D:\UPUPW_K2.1_64\htdocs\zhaosheng\app\admin\controller\Admin.php ]
+[ info ] [ VIEW ] D:\UPUPW_K2.1_64\htdocs\zhaosheng/app/admin\view\admin\secondary_vocat_admin_list.html [ array (
+  0 => 'lang',
+  1 => 'menus',
+  2 => 'menus_curr',
+  3 => 'menus_child',
+  4 => 'id_curr',
+  5 => 'admin',
+  6 => 'head_title',
+  7 => 'admin_avatar',
+  8 => 'search_name',
+  9 => 'group_id',
+  10 => 'admin_list',
+  11 => 'page',
+) ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.004025s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.007663s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004141s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Admin/secondary_vocat_admin_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.001125s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000775s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Admin/secondary_vocat_admin_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000526s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 373 LIMIT 1 [ RunTime:0.000358s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (1,2,6,7,11,12,15,16,25,27,239,37,40,41,42,68,59,69,70,71,72,73,91,92,93,94,95,96,97,98,99,100,101,108,109,110,111,112,113,114,151,156,161,162,170,173,174,175,178,179,180,228,240,327,328,330,331,332,333,334,335,336,337,338,339,395,394,393,345,347,349,355,356,357,358,359,360,361,392,365,366,367,368,369,370,387,386,372,373,374,375,376,377,378,379,380,381,382,383,391)  AND `status` = 1  AND `pid` = 370 ORDER BY `sort` [ RunTime:0.001072s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.003986s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 6 LIMIT 1 [ RunTime:0.000611s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.004165s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.000451s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `aga` ON `aga`.`uid`=`a`.`admin_id` WHERE  `aga`.`group_id` = 3 LIMIT 1 [ RunTime:0.000484s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `aga` ON `aga`.`uid`=`a`.`admin_id` WHERE  `aga`.`group_id` = 3 ORDER BY `a`.`admin_id` LIMIT 0,10 [ RunTime:0.000548s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.013353s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_group_access` [ RunTime:0.004023s ]
+[ sql ] [ SQL ] SELECT `uid`,`group_id`,`title`,`rules` FROM zs_auth_group_access a INNER JOIN `zs_auth_group` `g` ON `a`.`group_id`=`g`.`id` WHERE  (  a.uid='3' and g.status='1' ) [ RunTime:0.000823s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010348s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SELECT `uid`,`group_id`,`title`,`rules` FROM zs_auth_group_access a INNER JOIN `zs_auth_group` `g` ON `a`.`group_id`=`g`.`id` WHERE  (  a.uid='18' and g.status='1' ) [ RunTime:0.000794s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.014364s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SELECT `uid`,`group_id`,`title`,`rules` FROM zs_auth_group_access a INNER JOIN `zs_auth_group` `g` ON `a`.`group_id`=`g`.`id` WHERE  (  a.uid='22' and g.status='1' ) [ RunTime:0.000428s ]
+
+---------------------------------------------------------------
+[ 2017-04-26T00:04:39+08:00 ] 211.66.88.153 183.62.38.253 GET /admin/school/school_list.html
+[ log ] zs.flyexp.cn/admin/school/school_list.html [运行时间：0.219385s][吞吐率：4.56req/s] [内存消耗：1,020.70kb] [文件加载：81]
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng/app/lang\zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'school',
+    2 => 'school_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-rewrite-url' => '/admin/school/school_list.html',
+  'cookie' => 'PHPSESSID=t7qj08p9oae51i6lc48rdnjkf0; yf_logged_user=ShQ%3DvljkK3S87j-RI; think_var=zh-cn',
+  'connection' => 'Keep-Alive',
+  'host' => 'zs.flyexp.cn',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729)',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://zs.flyexp.cn/admin/admin/secondary_vocat_admin_list.html',
+  'accept' => 'image/gif, image/jpeg, image/pjpeg, application/x-ms-application, application/xaml+xml, application/x-ms-xbap, */*',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.002214s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.009758s ]
+[ info ] [ RUN ] app\admin\controller\School->school_list[ D:\UPUPW_K2.1_64\htdocs\zhaosheng\app\admin\controller\School.php ]
+[ info ] [ VIEW ] D:\UPUPW_K2.1_64\htdocs\zhaosheng/app/admin\view\school\school_list.html [ array (
+  0 => 'lang',
+  1 => 'menus',
+  2 => 'menus_curr',
+  3 => 'menus_child',
+  4 => 'id_curr',
+  5 => 'admin',
+  6 => 'head_title',
+  7 => 'admin_avatar',
+  8 => 'search_name',
+  9 => 'school_list',
+  10 => 'page',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.006549s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003837s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.005171s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000666s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000874s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000621s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 328 LIMIT 1 [ RunTime:0.000369s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (1,2,6,7,11,12,15,16,25,27,239,37,40,41,42,68,59,69,70,71,72,73,91,92,93,94,95,96,97,98,99,100,101,108,109,110,111,112,113,114,151,156,161,162,170,173,174,175,178,179,180,228,240,327,328,330,331,332,333,334,335,336,337,338,339,395,394,393,345,347,349,355,356,357,358,359,360,361,392,365,366,367,368,369,370,387,386,372,373,374,375,376,377,378,379,380,381,382,383,391)  AND `status` = 1  AND `pid` = 370 ORDER BY `sort` [ RunTime:0.001150s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.004964s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 6 LIMIT 1 [ RunTime:0.000684s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.005235s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.000484s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.004794s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_school` LIMIT 1 [ RunTime:0.000339s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` ORDER BY `school_id` LIMIT 0,10 [ RunTime:0.000352s ]
+
+---------------------------------------------------------------
+[ 2017-04-26T00:05:43+08:00 ] 211.66.88.153 183.62.38.253 GET /admin/school/school_add.html
+[ log ] zs.flyexp.cn/admin/school/school_add.html [运行时间：0.205350s][吞吐率：4.87req/s] [内存消耗：1,001.13kb] [文件加载：78]
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng/app/lang\zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'school',
+    2 => 'school_add',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-rewrite-url' => '/admin/school/school_add.html',
+  'cookie' => 'PHPSESSID=t7qj08p9oae51i6lc48rdnjkf0; yf_logged_user=ShQ%3DvljkK3S87j-RI; think_var=zh-cn',
+  'connection' => 'Keep-Alive',
+  'host' => 'zs.flyexp.cn',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729)',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://zs.flyexp.cn/admin/school/school_list.html',
+  'accept' => 'image/gif, image/jpeg, image/pjpeg, application/x-ms-application, application/xaml+xml, application/x-ms-xbap, */*',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.001531s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.010420s ]
+[ info ] [ RUN ] app\admin\controller\School->school_add[ D:\UPUPW_K2.1_64\htdocs\zhaosheng\app\admin\controller\School.php ]
+[ info ] [ VIEW ] D:\UPUPW_K2.1_64\htdocs\zhaosheng/app/admin\view\school\school_add.html [ array (
+  0 => 'lang',
+  1 => 'menus',
+  2 => 'menus_curr',
+  3 => 'menus_child',
+  4 => 'id_curr',
+  5 => 'admin',
+  6 => 'head_title',
+  7 => 'admin_avatar',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.042453s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.007312s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004495s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_add' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000551s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000734s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_add'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000481s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000291s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (1,2,6,7,11,12,15,16,25,27,239,37,40,41,42,68,59,69,70,71,72,73,91,92,93,94,95,96,97,98,99,100,101,108,109,110,111,112,113,114,151,156,161,162,170,173,174,175,178,179,180,228,240,327,328,330,331,332,333,334,335,336,337,338,339,395,394,393,345,347,349,355,356,357,358,359,360,361,392,365,366,367,368,369,370,387,386,372,373,374,375,376,377,378,379,380,381,382,383,391)  AND `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.000950s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.004166s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 6 LIMIT 1 [ RunTime:0.000557s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.004323s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.000402s ]
+
+---------------------------------------------------------------
+[ 2017-04-26T00:05:46+08:00 ] 211.66.88.153 183.62.38.253 POST /admin/school/school_runadd.html
+[ log ] zs.flyexp.cn/admin/school/school_runadd.html [运行时间：0.239921s][吞吐率：4.17req/s] [内存消耗：5,138.42kb] [文件加载：102]
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng/app/lang\zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'school',
+    2 => 'school_runadd',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-rewrite-url' => '/admin/school/school_runadd.html',
+  'content-length' => '138',
+  'cookie' => 'PHPSESSID=t7qj08p9oae51i6lc48rdnjkf0; yf_logged_user=ShQ%3DvljkK3S87j-RI; think_var=zh-cn',
+  'cache-control' => 'no-cache',
+  'connection' => 'Keep-Alive',
+  'host' => 'zs.flyexp.cn',
+  'user-agent' => 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729)',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://zs.flyexp.cn/admin/school/school_add.html',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+)
+[ info ] [ PARAM ] array (
+  'school_name' => '广州市番禺区新造职业技术学校',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.113613s ]
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.009549s ]
+[ info ] [ RUN ] app\admin\controller\School->school_runadd[ D:\UPUPW_K2.1_64\htdocs\zhaosheng\app\admin\controller\School.php ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.004033s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000645s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_web_log` [ RunTime:0.004300s ]
+[ sql ] [ SQL ] INSERT INTO `zs_web_log` (`uid` , `ip` , `location` , `os` , `browser` , `url` , `module` , `controller` , `action` , `method` , `data` , `otime`) VALUES (0 , '183.62.38.253' , '中国 广东 广州 ' , 'Windows 10' , 'IE(7.0)' , '/admin/school/school_runadd.html' , 'admin' , 'School' , 'school_runadd' , 'Ajax' , 'a:1:{s:11:\"school_name\";s:42:\"广州市番禺区新造职业技术学校\";}' , 1493136346) [ RunTime:0.000497s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004058s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_runadd' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000517s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000711s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_runadd'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000472s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000291s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (1,2,6,7,11,12,15,16,25,27,239,37,40,41,42,68,59,69,70,71,72,73,91,92,93,94,95,96,97,98,99,100,101,108,109,110,111,112,113,114,151,156,161,162,170,173,174,175,178,179,180,228,240,327,328,330,331,332,333,334,335,336,337,338,339,395,394,393,345,347,349,355,356,357,358,359,360,361,392,365,366,367,368,369,370,387,386,372,373,374,375,376,377,378,379,380,381,382,383,391)  AND `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.000906s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.004146s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 6 LIMIT 1 [ RunTime:0.000527s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.004270s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.000389s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.004011s ]
+[ sql ] [ SQL ] INSERT INTO `zs_school` (`school_name`) VALUES ('广州市番禺区新造职业技术学校') [ RunTime:0.009799s ]
+
+---------------------------------------------------------------
+[ 2017-04-26T00:05:47+08:00 ] 211.66.88.153 183.62.38.253 GET /admin/school/school_list.html
+[ log ] zs.flyexp.cn/admin/school/school_list.html [运行时间：0.163074s][吞吐率：6.13req/s] [内存消耗：1,021.25kb] [文件加载：81]
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng/app/lang\zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'school',
+    2 => 'school_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-rewrite-url' => '/admin/school/school_list.html',
+  'cookie' => 'PHPSESSID=t7qj08p9oae51i6lc48rdnjkf0; yf_logged_user=ShQ%3DvljkK3S87j-RI; think_var=zh-cn',
+  'connection' => 'Keep-Alive',
+  'host' => 'zs.flyexp.cn',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729)',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://zs.flyexp.cn/admin/school/school_add.html',
+  'accept' => 'image/gif, image/jpeg, image/pjpeg, application/x-ms-application, application/xaml+xml, application/x-ms-xbap, */*',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.001339s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.009678s ]
+[ info ] [ RUN ] app\admin\controller\School->school_list[ D:\UPUPW_K2.1_64\htdocs\zhaosheng\app\admin\controller\School.php ]
+[ info ] [ VIEW ] D:\UPUPW_K2.1_64\htdocs\zhaosheng/app/admin\view\school\school_list.html [ array (
+  0 => 'lang',
+  1 => 'menus',
+  2 => 'menus_curr',
+  3 => 'menus_child',
+  4 => 'id_curr',
+  5 => 'admin',
+  6 => 'head_title',
+  7 => 'admin_avatar',
+  8 => 'search_name',
+  9 => 'school_list',
+  10 => 'page',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.003980s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.009079s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004202s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000523s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000714s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000481s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 328 LIMIT 1 [ RunTime:0.000305s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (1,2,6,7,11,12,15,16,25,27,239,37,40,41,42,68,59,69,70,71,72,73,91,92,93,94,95,96,97,98,99,100,101,108,109,110,111,112,113,114,151,156,161,162,170,173,174,175,178,179,180,228,240,327,328,330,331,332,333,334,335,336,337,338,339,395,394,393,345,347,349,355,356,357,358,359,360,361,392,365,366,367,368,369,370,387,386,372,373,374,375,376,377,378,379,380,381,382,383,391)  AND `status` = 1  AND `pid` = 370 ORDER BY `sort` [ RunTime:0.000978s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.004220s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 6 LIMIT 1 [ RunTime:0.000525s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.004121s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.000389s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.003976s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_school` LIMIT 1 [ RunTime:0.000520s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` ORDER BY `school_id` LIMIT 0,10 [ RunTime:0.000349s ]
+
+---------------------------------------------------------------
+[ 2017-04-26T00:05:53+08:00 ] 211.66.88.153 183.62.38.253 GET /admin/school/school_add.html
+[ log ] zs.flyexp.cn/admin/school/school_add.html [运行时间：0.158037s][吞吐率：6.33req/s] [内存消耗：1,000.00kb] [文件加载：78]
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng/app/lang\zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'school',
+    2 => 'school_add',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-rewrite-url' => '/admin/school/school_add.html',
+  'cookie' => 'PHPSESSID=t7qj08p9oae51i6lc48rdnjkf0; yf_logged_user=ShQ%3DvljkK3S87j-RI; think_var=zh-cn',
+  'connection' => 'Keep-Alive',
+  'host' => 'zs.flyexp.cn',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729)',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://zs.flyexp.cn/admin/school/school_list.html',
+  'accept' => 'image/gif, image/jpeg, image/pjpeg, application/x-ms-application, application/xaml+xml, application/x-ms-xbap, */*',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.001500s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.010316s ]
+[ info ] [ RUN ] app\admin\controller\School->school_add[ D:\UPUPW_K2.1_64\htdocs\zhaosheng\app\admin\controller\School.php ]
+[ info ] [ VIEW ] D:\UPUPW_K2.1_64\htdocs\zhaosheng/app/admin\view\school\school_add.html [ array (
+  0 => 'lang',
+  1 => 'menus',
+  2 => 'menus_curr',
+  3 => 'menus_child',
+  4 => 'id_curr',
+  5 => 'admin',
+  6 => 'head_title',
+  7 => 'admin_avatar',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.004430s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003895s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004242s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_add' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000521s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000708s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_add'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000471s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000289s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (1,2,6,7,11,12,15,16,25,27,239,37,40,41,42,68,59,69,70,71,72,73,91,92,93,94,95,96,97,98,99,100,101,108,109,110,111,112,113,114,151,156,161,162,170,173,174,175,178,179,180,228,240,327,328,330,331,332,333,334,335,336,337,338,339,395,394,393,345,347,349,355,356,357,358,359,360,361,392,365,366,367,368,369,370,387,386,372,373,374,375,376,377,378,379,380,381,382,383,391)  AND `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.000949s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.004100s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 6 LIMIT 1 [ RunTime:0.000537s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.004234s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.000388s ]
+
+---------------------------------------------------------------
+[ 2017-04-26T00:05:56+08:00 ] 211.66.88.153 183.62.38.253 POST /admin/school/school_runadd.html
+[ log ] zs.flyexp.cn/admin/school/school_runadd.html [运行时间：0.362267s][吞吐率：2.76req/s] [内存消耗：5,137.97kb] [文件加载：102]
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng/app/lang\zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'school',
+    2 => 'school_runadd',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-rewrite-url' => '/admin/school/school_runadd.html',
+  'content-length' => '111',
+  'cookie' => 'PHPSESSID=t7qj08p9oae51i6lc48rdnjkf0; yf_logged_user=ShQ%3DvljkK3S87j-RI; think_var=zh-cn',
+  'cache-control' => 'no-cache',
+  'connection' => 'Keep-Alive',
+  'host' => 'zs.flyexp.cn',
+  'user-agent' => 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729)',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://zs.flyexp.cn/admin/school/school_add.html',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+)
+[ info ] [ PARAM ] array (
+  'school_name' => '广州市贸易职业高级中学',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.115653s ]
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.036541s ]
+[ info ] [ RUN ] app\admin\controller\School->school_runadd[ D:\UPUPW_K2.1_64\htdocs\zhaosheng\app\admin\controller\School.php ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.003992s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001089s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_web_log` [ RunTime:0.008622s ]
+[ sql ] [ SQL ] INSERT INTO `zs_web_log` (`uid` , `ip` , `location` , `os` , `browser` , `url` , `module` , `controller` , `action` , `method` , `data` , `otime`) VALUES (0 , '183.62.38.253' , '中国 广东 广州 ' , 'Windows 10' , 'IE(7.0)' , '/admin/school/school_runadd.html' , 'admin' , 'School' , 'school_runadd' , 'Ajax' , 'a:1:{s:11:\"school_name\";s:33:\"广州市贸易职业高级中学\";}' , 1493136356) [ RunTime:0.000806s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.009038s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_runadd' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000775s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.001787s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_runadd'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000749s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000572s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (1,2,6,7,11,12,15,16,25,27,239,37,40,41,42,68,59,69,70,71,72,73,91,92,93,94,95,96,97,98,99,100,101,108,109,110,111,112,113,114,151,156,161,162,170,173,174,175,178,179,180,228,240,327,328,330,331,332,333,334,335,336,337,338,339,395,394,393,345,347,349,355,356,357,358,359,360,361,392,365,366,367,368,369,370,387,386,372,373,374,375,376,377,378,379,380,381,382,383,391)  AND `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.002095s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.009406s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 6 LIMIT 1 [ RunTime:0.001058s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.009942s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.000599s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.009144s ]
+[ sql ] [ SQL ] INSERT INTO `zs_school` (`school_name`) VALUES ('广州市贸易职业高级中学') [ RunTime:0.001072s ]
+
+---------------------------------------------------------------
+[ 2017-04-26T00:05:58+08:00 ] 211.66.88.153 183.62.38.253 GET /admin/school/school_list.html
+[ log ] zs.flyexp.cn/admin/school/school_list.html [运行时间：0.155035s][吞吐率：6.45req/s] [内存消耗：1,021.73kb] [文件加载：81]
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng/app/lang\zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'school',
+    2 => 'school_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-rewrite-url' => '/admin/school/school_list.html',
+  'cookie' => 'PHPSESSID=t7qj08p9oae51i6lc48rdnjkf0; yf_logged_user=ShQ%3DvljkK3S87j-RI; think_var=zh-cn',
+  'connection' => 'Keep-Alive',
+  'host' => 'zs.flyexp.cn',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729)',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://zs.flyexp.cn/admin/school/school_add.html',
+  'accept' => 'image/gif, image/jpeg, image/pjpeg, application/x-ms-application, application/xaml+xml, application/x-ms-xbap, */*',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.001331s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.009682s ]
+[ info ] [ RUN ] app\admin\controller\School->school_list[ D:\UPUPW_K2.1_64\htdocs\zhaosheng\app\admin\controller\School.php ]
+[ info ] [ VIEW ] D:\UPUPW_K2.1_64\htdocs\zhaosheng/app/admin\view\school\school_list.html [ array (
+  0 => 'lang',
+  1 => 'menus',
+  2 => 'menus_curr',
+  3 => 'menus_child',
+  4 => 'id_curr',
+  5 => 'admin',
+  6 => 'head_title',
+  7 => 'admin_avatar',
+  8 => 'search_name',
+  9 => 'school_list',
+  10 => 'page',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.004116s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000563s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004342s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000525s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000721s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000476s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 328 LIMIT 1 [ RunTime:0.000306s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (1,2,6,7,11,12,15,16,25,27,239,37,40,41,42,68,59,69,70,71,72,73,91,92,93,94,95,96,97,98,99,100,101,108,109,110,111,112,113,114,151,156,161,162,170,173,174,175,178,179,180,228,240,327,328,330,331,332,333,334,335,336,337,338,339,395,394,393,345,347,349,355,356,357,358,359,360,361,392,365,366,367,368,369,370,387,386,372,373,374,375,376,377,378,379,380,381,382,383,391)  AND `status` = 1  AND `pid` = 370 ORDER BY `sort` [ RunTime:0.000921s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.004156s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 6 LIMIT 1 [ RunTime:0.000528s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.004175s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.000390s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.003993s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_school` LIMIT 1 [ RunTime:0.000296s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` ORDER BY `school_id` LIMIT 0,10 [ RunTime:0.000300s ]
+
+---------------------------------------------------------------
+[ 2017-04-26T00:06:17+08:00 ] 211.66.88.153 183.62.38.253 GET /admin/school/school_add.html
+[ log ] zs.flyexp.cn/admin/school/school_add.html [运行时间：0.154967s][吞吐率：6.45req/s] [内存消耗：1,000.00kb] [文件加载：78]
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng/app/lang\zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'school',
+    2 => 'school_add',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-rewrite-url' => '/admin/school/school_add.html',
+  'cookie' => 'PHPSESSID=t7qj08p9oae51i6lc48rdnjkf0; yf_logged_user=ShQ%3DvljkK3S87j-RI; think_var=zh-cn',
+  'connection' => 'Keep-Alive',
+  'host' => 'zs.flyexp.cn',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729)',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://zs.flyexp.cn/admin/school/school_list.html',
+  'accept' => 'image/gif, image/jpeg, image/pjpeg, application/x-ms-application, application/xaml+xml, application/x-ms-xbap, */*',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.001498s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.010302s ]
+[ info ] [ RUN ] app\admin\controller\School->school_add[ D:\UPUPW_K2.1_64\htdocs\zhaosheng\app\admin\controller\School.php ]
+[ info ] [ VIEW ] D:\UPUPW_K2.1_64\htdocs\zhaosheng/app/admin\view\school\school_add.html [ array (
+  0 => 'lang',
+  1 => 'menus',
+  2 => 'menus_curr',
+  3 => 'menus_child',
+  4 => 'id_curr',
+  5 => 'admin',
+  6 => 'head_title',
+  7 => 'admin_avatar',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.004321s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000561s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004316s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_add' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000532s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000718s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_add'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000525s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000298s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (1,2,6,7,11,12,15,16,25,27,239,37,40,41,42,68,59,69,70,71,72,73,91,92,93,94,95,96,97,98,99,100,101,108,109,110,111,112,113,114,151,156,161,162,170,173,174,175,178,179,180,228,240,327,328,330,331,332,333,334,335,336,337,338,339,395,394,393,345,347,349,355,356,357,358,359,360,361,392,365,366,367,368,369,370,387,386,372,373,374,375,376,377,378,379,380,381,382,383,391)  AND `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.000908s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.004070s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 6 LIMIT 1 [ RunTime:0.000537s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.004216s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.000390s ]
+
+---------------------------------------------------------------
+[ 2017-04-26T00:06:20+08:00 ] 211.66.88.153 183.62.38.253 POST /admin/school/school_runadd.html
+[ log ] zs.flyexp.cn/admin/school/school_runadd.html [运行时间：0.262877s][吞吐率：3.80req/s] [内存消耗：5,137.97kb] [文件加载：102]
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng/app/lang\zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'school',
+    2 => 'school_runadd',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-rewrite-url' => '/admin/school/school_runadd.html',
+  'content-length' => '111',
+  'cookie' => 'PHPSESSID=t7qj08p9oae51i6lc48rdnjkf0; yf_logged_user=ShQ%3DvljkK3S87j-RI; think_var=zh-cn',
+  'cache-control' => 'no-cache',
+  'connection' => 'Keep-Alive',
+  'host' => 'zs.flyexp.cn',
+  'user-agent' => 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729)',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://zs.flyexp.cn/admin/school/school_add.html',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+)
+[ info ] [ PARAM ] array (
+  'school_name' => '广州市天河职业高级中学',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.112496s ]
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.009539s ]
+[ info ] [ RUN ] app\admin\controller\School->school_runadd[ D:\UPUPW_K2.1_64\htdocs\zhaosheng\app\admin\controller\School.php ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.004009s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000615s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_web_log` [ RunTime:0.004297s ]
+[ sql ] [ SQL ] INSERT INTO `zs_web_log` (`uid` , `ip` , `location` , `os` , `browser` , `url` , `module` , `controller` , `action` , `method` , `data` , `otime`) VALUES (0 , '183.62.38.253' , '中国 广东 广州 ' , 'Windows 10' , 'IE(7.0)' , '/admin/school/school_runadd.html' , 'admin' , 'School' , 'school_runadd' , 'Ajax' , 'a:1:{s:11:\"school_name\";s:33:\"广州市天河职业高级中学\";}' , 1493136380) [ RunTime:0.000472s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.003973s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_runadd' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000503s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000717s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_runadd'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000472s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000290s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (1,2,6,7,11,12,15,16,25,27,239,37,40,41,42,68,59,69,70,71,72,73,91,92,93,94,95,96,97,98,99,100,101,108,109,110,111,112,113,114,151,156,161,162,170,173,174,175,178,179,180,228,240,327,328,330,331,332,333,334,335,336,337,338,339,395,394,393,345,347,349,355,356,357,358,359,360,361,392,365,366,367,368,369,370,387,386,372,373,374,375,376,377,378,379,380,381,382,383,391)  AND `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.000945s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.004172s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 6 LIMIT 1 [ RunTime:0.000525s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.004110s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.000386s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.004027s ]
+[ sql ] [ SQL ] INSERT INTO `zs_school` (`school_name`) VALUES ('广州市天河职业高级中学') [ RunTime:0.035344s ]
+
+---------------------------------------------------------------
+[ 2017-04-26T00:06:21+08:00 ] 211.66.88.153 183.62.38.253 GET /admin/school/school_list.html
+[ log ] zs.flyexp.cn/admin/school/school_list.html [运行时间：0.156715s][吞吐率：6.38req/s] [内存消耗：1,022.60kb] [文件加载：81]
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng/app/lang\zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'school',
+    2 => 'school_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-rewrite-url' => '/admin/school/school_list.html',
+  'cookie' => 'PHPSESSID=t7qj08p9oae51i6lc48rdnjkf0; yf_logged_user=ShQ%3DvljkK3S87j-RI; think_var=zh-cn',
+  'connection' => 'Keep-Alive',
+  'host' => 'zs.flyexp.cn',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729)',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://zs.flyexp.cn/admin/school/school_add.html',
+  'accept' => 'image/gif, image/jpeg, image/pjpeg, application/x-ms-application, application/xaml+xml, application/x-ms-xbap, */*',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.001322s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.009969s ]
+[ info ] [ RUN ] app\admin\controller\School->school_list[ D:\UPUPW_K2.1_64\htdocs\zhaosheng\app\admin\controller\School.php ]
+[ info ] [ VIEW ] D:\UPUPW_K2.1_64\htdocs\zhaosheng/app/admin\view\school\school_list.html [ array (
+  0 => 'lang',
+  1 => 'menus',
+  2 => 'menus_curr',
+  3 => 'menus_child',
+  4 => 'id_curr',
+  5 => 'admin',
+  6 => 'head_title',
+  7 => 'admin_avatar',
+  8 => 'search_name',
+  9 => 'school_list',
+  10 => 'page',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.004019s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000570s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004221s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000531s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000770s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000504s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 328 LIMIT 1 [ RunTime:0.000419s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (1,2,6,7,11,12,15,16,25,27,239,37,40,41,42,68,59,69,70,71,72,73,91,92,93,94,95,96,97,98,99,100,101,108,109,110,111,112,113,114,151,156,161,162,170,173,174,175,178,179,180,228,240,327,328,330,331,332,333,334,335,336,337,338,339,395,394,393,345,347,349,355,356,357,358,359,360,361,392,365,366,367,368,369,370,387,386,372,373,374,375,376,377,378,379,380,381,382,383,391)  AND `status` = 1  AND `pid` = 370 ORDER BY `sort` [ RunTime:0.000967s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.004130s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 6 LIMIT 1 [ RunTime:0.000626s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.003980s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.000486s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.004036s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_school` LIMIT 1 [ RunTime:0.000301s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` ORDER BY `school_id` LIMIT 0,10 [ RunTime:0.000311s ]
+
+---------------------------------------------------------------
+[ 2017-04-26T00:06:49+08:00 ] 211.66.88.153 183.62.38.253 GET /admin/school/school_add.html
+[ log ] zs.flyexp.cn/admin/school/school_add.html [运行时间：0.155933s][吞吐率：6.41req/s] [内存消耗：1,000.00kb] [文件加载：78]
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng/app/lang\zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'school',
+    2 => 'school_add',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-rewrite-url' => '/admin/school/school_add.html',
+  'cookie' => 'PHPSESSID=t7qj08p9oae51i6lc48rdnjkf0; yf_logged_user=ShQ%3DvljkK3S87j-RI; think_var=zh-cn',
+  'connection' => 'Keep-Alive',
+  'host' => 'zs.flyexp.cn',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729)',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://zs.flyexp.cn/admin/school/school_list.html',
+  'accept' => 'image/gif, image/jpeg, image/pjpeg, application/x-ms-application, application/xaml+xml, application/x-ms-xbap, */*',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.001522s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.010353s ]
+[ info ] [ RUN ] app\admin\controller\School->school_add[ D:\UPUPW_K2.1_64\htdocs\zhaosheng\app\admin\controller\School.php ]
+[ info ] [ VIEW ] D:\UPUPW_K2.1_64\htdocs\zhaosheng/app/admin\view\school\school_add.html [ array (
+  0 => 'lang',
+  1 => 'menus',
+  2 => 'menus_curr',
+  3 => 'menus_child',
+  4 => 'id_curr',
+  5 => 'admin',
+  6 => 'head_title',
+  7 => 'admin_avatar',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.004386s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000614s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004436s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_add' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000540s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000723s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_add'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000474s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000291s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (1,2,6,7,11,12,15,16,25,27,239,37,40,41,42,68,59,69,70,71,72,73,91,92,93,94,95,96,97,98,99,100,101,108,109,110,111,112,113,114,151,156,161,162,170,173,174,175,178,179,180,228,240,327,328,330,331,332,333,334,335,336,337,338,339,395,394,393,345,347,349,355,356,357,358,359,360,361,392,365,366,367,368,369,370,387,386,372,373,374,375,376,377,378,379,380,381,382,383,391)  AND `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.000917s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.004347s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 6 LIMIT 1 [ RunTime:0.000555s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.004128s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.000399s ]
+
+---------------------------------------------------------------
+[ 2017-04-26T00:06:52+08:00 ] 211.66.88.153 183.62.38.253 POST /admin/school/school_runadd.html
+[ log ] zs.flyexp.cn/admin/school/school_runadd.html [运行时间：0.249523s][吞吐率：4.01req/s] [内存消耗：5,137.93kb] [文件加载：102]
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng/app/lang\zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'school',
+    2 => 'school_runadd',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-rewrite-url' => '/admin/school/school_runadd.html',
+  'content-length' => '102',
+  'cookie' => 'PHPSESSID=t7qj08p9oae51i6lc48rdnjkf0; yf_logged_user=ShQ%3DvljkK3S87j-RI; think_var=zh-cn',
+  'cache-control' => 'no-cache',
+  'connection' => 'Keep-Alive',
+  'host' => 'zs.flyexp.cn',
+  'user-agent' => 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729)',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://zs.flyexp.cn/admin/school/school_add.html',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+)
+[ info ] [ PARAM ] array (
+  'school_name' => '揭阳捷和职业技术学校',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.113041s ]
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.009558s ]
+[ info ] [ RUN ] app\admin\controller\School->school_runadd[ D:\UPUPW_K2.1_64\htdocs\zhaosheng\app\admin\controller\School.php ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.004050s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000619s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_web_log` [ RunTime:0.004292s ]
+[ sql ] [ SQL ] INSERT INTO `zs_web_log` (`uid` , `ip` , `location` , `os` , `browser` , `url` , `module` , `controller` , `action` , `method` , `data` , `otime`) VALUES (0 , '183.62.38.253' , '中国 广东 广州 ' , 'Windows 10' , 'IE(7.0)' , '/admin/school/school_runadd.html' , 'admin' , 'School' , 'school_runadd' , 'Ajax' , 'a:1:{s:11:\"school_name\";s:30:\"揭阳捷和职业技术学校\";}' , 1493136412) [ RunTime:0.000478s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004026s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_runadd' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000504s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000718s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_runadd'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000497s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000298s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (1,2,6,7,11,12,15,16,25,27,239,37,40,41,42,68,59,69,70,71,72,73,91,92,93,94,95,96,97,98,99,100,101,108,109,110,111,112,113,114,151,156,161,162,170,173,174,175,178,179,180,228,240,327,328,330,331,332,333,334,335,336,337,338,339,395,394,393,345,347,349,355,356,357,358,359,360,361,392,365,366,367,368,369,370,387,386,372,373,374,375,376,377,378,379,380,381,382,383,391)  AND `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.000910s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.004066s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 6 LIMIT 1 [ RunTime:0.000527s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.004240s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.000388s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.003989s ]
+[ sql ] [ SQL ] INSERT INTO `zs_school` (`school_name`) VALUES ('揭阳捷和职业技术学校') [ RunTime:0.017957s ]
+
+---------------------------------------------------------------
+[ 2017-04-26T00:06:53+08:00 ] 211.66.88.153 183.62.38.253 GET /admin/school/school_list.html
+[ log ] zs.flyexp.cn/admin/school/school_list.html [运行时间：0.186810s][吞吐率：5.35req/s] [内存消耗：1,023.13kb] [文件加载：81]
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng/app/lang\zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'school',
+    2 => 'school_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-rewrite-url' => '/admin/school/school_list.html',
+  'cookie' => 'PHPSESSID=t7qj08p9oae51i6lc48rdnjkf0; yf_logged_user=ShQ%3DvljkK3S87j-RI; think_var=zh-cn',
+  'connection' => 'Keep-Alive',
+  'host' => 'zs.flyexp.cn',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729)',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://zs.flyexp.cn/admin/school/school_add.html',
+  'accept' => 'image/gif, image/jpeg, image/pjpeg, application/x-ms-application, application/xaml+xml, application/x-ms-xbap, */*',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.001339s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.009565s ]
+[ info ] [ RUN ] app\admin\controller\School->school_list[ D:\UPUPW_K2.1_64\htdocs\zhaosheng\app\admin\controller\School.php ]
+[ info ] [ VIEW ] D:\UPUPW_K2.1_64\htdocs\zhaosheng/app/admin\view\school\school_list.html [ array (
+  0 => 'lang',
+  1 => 'menus',
+  2 => 'menus_curr',
+  3 => 'menus_child',
+  4 => 'id_curr',
+  5 => 'admin',
+  6 => 'head_title',
+  7 => 'admin_avatar',
+  8 => 'search_name',
+  9 => 'school_list',
+  10 => 'page',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.005661s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000590s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004301s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000524s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000715s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000475s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 328 LIMIT 1 [ RunTime:0.000312s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (1,2,6,7,11,12,15,16,25,27,239,37,40,41,42,68,59,69,70,71,72,73,91,92,93,94,95,96,97,98,99,100,101,108,109,110,111,112,113,114,151,156,161,162,170,173,174,175,178,179,180,228,240,327,328,330,331,332,333,334,335,336,337,338,339,395,394,393,345,347,349,355,356,357,358,359,360,361,392,365,366,367,368,369,370,387,386,372,373,374,375,376,377,378,379,380,381,382,383,391)  AND `status` = 1  AND `pid` = 370 ORDER BY `sort` [ RunTime:0.000920s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.004116s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 6 LIMIT 1 [ RunTime:0.000526s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.004152s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.000387s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.003959s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_school` LIMIT 1 [ RunTime:0.000303s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` ORDER BY `school_id` LIMIT 0,10 [ RunTime:0.000300s ]
+
+---------------------------------------------------------------
+[ 2017-04-26T00:07:00+08:00 ] 211.66.88.153 183.62.38.253 GET /admin/school/school_add.html
+[ log ] zs.flyexp.cn/admin/school/school_add.html [运行时间：0.154444s][吞吐率：6.47req/s] [内存消耗：1,000.00kb] [文件加载：78]
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng/app/lang\zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'school',
+    2 => 'school_add',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-rewrite-url' => '/admin/school/school_add.html',
+  'cookie' => 'PHPSESSID=t7qj08p9oae51i6lc48rdnjkf0; yf_logged_user=ShQ%3DvljkK3S87j-RI; think_var=zh-cn',
+  'connection' => 'Keep-Alive',
+  'host' => 'zs.flyexp.cn',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729)',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://zs.flyexp.cn/admin/school/school_list.html',
+  'accept' => 'image/gif, image/jpeg, image/pjpeg, application/x-ms-application, application/xaml+xml, application/x-ms-xbap, */*',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.001486s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.010298s ]
+[ info ] [ RUN ] app\admin\controller\School->school_add[ D:\UPUPW_K2.1_64\htdocs\zhaosheng\app\admin\controller\School.php ]
+[ info ] [ VIEW ] D:\UPUPW_K2.1_64\htdocs\zhaosheng/app/admin\view\school\school_add.html [ array (
+  0 => 'lang',
+  1 => 'menus',
+  2 => 'menus_curr',
+  3 => 'menus_child',
+  4 => 'id_curr',
+  5 => 'admin',
+  6 => 'head_title',
+  7 => 'admin_avatar',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.004405s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000562s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004278s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_add' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000522s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000712s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_add'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000470s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000290s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (1,2,6,7,11,12,15,16,25,27,239,37,40,41,42,68,59,69,70,71,72,73,91,92,93,94,95,96,97,98,99,100,101,108,109,110,111,112,113,114,151,156,161,162,170,173,174,175,178,179,180,228,240,327,328,330,331,332,333,334,335,336,337,338,339,395,394,393,345,347,349,355,356,357,358,359,360,361,392,365,366,367,368,369,370,387,386,372,373,374,375,376,377,378,379,380,381,382,383,391)  AND `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.000915s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.004104s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 6 LIMIT 1 [ RunTime:0.000527s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.004196s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.000385s ]
+
+---------------------------------------------------------------
+[ 2017-04-26T00:07:03+08:00 ] 211.66.88.153 183.62.38.253 POST /admin/school/school_runadd.html
+[ log ] zs.flyexp.cn/admin/school/school_runadd.html [运行时间：0.263924s][吞吐率：3.79req/s] [内存消耗：5,137.97kb] [文件加载：102]
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng/app/lang\zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'school',
+    2 => 'school_runadd',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-rewrite-url' => '/admin/school/school_runadd.html',
+  'content-length' => '111',
+  'cookie' => 'PHPSESSID=t7qj08p9oae51i6lc48rdnjkf0; yf_logged_user=ShQ%3DvljkK3S87j-RI; think_var=zh-cn',
+  'cache-control' => 'no-cache',
+  'connection' => 'Keep-Alive',
+  'host' => 'zs.flyexp.cn',
+  'user-agent' => 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729)',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://zs.flyexp.cn/admin/school/school_add.html',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+)
+[ info ] [ PARAM ] array (
+  'school_name' => '乐昌市中等职业技术学校',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.115073s ]
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.009747s ]
+[ info ] [ RUN ] app\admin\controller\School->school_runadd[ D:\UPUPW_K2.1_64\htdocs\zhaosheng\app\admin\controller\School.php ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.004048s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002852s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_web_log` [ RunTime:0.004319s ]
+[ sql ] [ SQL ] INSERT INTO `zs_web_log` (`uid` , `ip` , `location` , `os` , `browser` , `url` , `module` , `controller` , `action` , `method` , `data` , `otime`) VALUES (0 , '183.62.38.253' , '中国 广东 广州 ' , 'Windows 10' , 'IE(7.0)' , '/admin/school/school_runadd.html' , 'admin' , 'School' , 'school_runadd' , 'Ajax' , 'a:1:{s:11:\"school_name\";s:33:\"乐昌市中等职业技术学校\";}' , 1493136423) [ RunTime:0.000475s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.012012s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_runadd' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000587s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_runadd'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (1,2,6,7,11,12,15,16,25,27,239,37,40,41,42,68,59,69,70,71,72,73,91,92,93,94,95,96,97,98,99,100,101,108,109,110,111,112,113,114,151,156,161,162,170,173,174,175,178,179,180,228,240,327,328,330,331,332,333,334,335,336,337,338,339,395,394,393,345,347,349,355,356,357,358,359,360,361,392,365,366,367,368,369,370,387,386,372,373,374,375,376,377,378,379,380,381,382,383,391)  AND `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.000937s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.004149s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 6 LIMIT 1 [ RunTime:0.000532s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.004145s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.000393s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.003996s ]
+[ sql ] [ SQL ] INSERT INTO `zs_school` (`school_name`) VALUES ('乐昌市中等职业技术学校') [ RunTime:0.002287s ]
+
+---------------------------------------------------------------
+[ 2017-04-26T00:07:04+08:00 ] 211.66.88.153 183.62.38.253 GET /admin/school/school_list.html
+[ log ] zs.flyexp.cn/admin/school/school_list.html [运行时间：0.164284s][吞吐率：6.09req/s] [内存消耗：1,023.63kb] [文件加载：81]
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng/app/lang\zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'school',
+    2 => 'school_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-rewrite-url' => '/admin/school/school_list.html',
+  'cookie' => 'PHPSESSID=t7qj08p9oae51i6lc48rdnjkf0; yf_logged_user=ShQ%3DvljkK3S87j-RI; think_var=zh-cn',
+  'connection' => 'Keep-Alive',
+  'host' => 'zs.flyexp.cn',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729)',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://zs.flyexp.cn/admin/school/school_add.html',
+  'accept' => 'image/gif, image/jpeg, image/pjpeg, application/x-ms-application, application/xaml+xml, application/x-ms-xbap, */*',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.001327s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.009675s ]
+[ info ] [ RUN ] app\admin\controller\School->school_list[ D:\UPUPW_K2.1_64\htdocs\zhaosheng\app\admin\controller\School.php ]
+[ info ] [ VIEW ] D:\UPUPW_K2.1_64\htdocs\zhaosheng/app/admin\view\school\school_list.html [ array (
+  0 => 'lang',
+  1 => 'menus',
+  2 => 'menus_curr',
+  3 => 'menus_child',
+  4 => 'id_curr',
+  5 => 'admin',
+  6 => 'head_title',
+  7 => 'admin_avatar',
+  8 => 'search_name',
+  9 => 'school_list',
+  10 => 'page',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.004008s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001782s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004317s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000529s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000712s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000472s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 328 LIMIT 1 [ RunTime:0.000312s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (1,2,6,7,11,12,15,16,25,27,239,37,40,41,42,68,59,69,70,71,72,73,91,92,93,94,95,96,97,98,99,100,101,108,109,110,111,112,113,114,151,156,161,162,170,173,174,175,178,179,180,228,240,327,328,330,331,332,333,334,335,336,337,338,339,395,394,393,345,347,349,355,356,357,358,359,360,361,392,365,366,367,368,369,370,387,386,372,373,374,375,376,377,378,379,380,381,382,383,391)  AND `status` = 1  AND `pid` = 370 ORDER BY `sort` [ RunTime:0.000990s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.004142s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 6 LIMIT 1 [ RunTime:0.000533s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.004103s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.000389s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.005769s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_school` LIMIT 1 [ RunTime:0.000299s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` ORDER BY `school_id` LIMIT 0,10 [ RunTime:0.000306s ]
+
+---------------------------------------------------------------
+[ 2017-04-26T00:07:22+08:00 ] 211.66.88.153 183.62.38.253 GET /admin/school/school_add.html
+[ log ] zs.flyexp.cn/admin/school/school_add.html [运行时间：0.155709s][吞吐率：6.42req/s] [内存消耗：1,000.00kb] [文件加载：78]
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng/app/lang\zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'school',
+    2 => 'school_add',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-rewrite-url' => '/admin/school/school_add.html',
+  'cookie' => 'PHPSESSID=t7qj08p9oae51i6lc48rdnjkf0; yf_logged_user=ShQ%3DvljkK3S87j-RI; think_var=zh-cn',
+  'connection' => 'Keep-Alive',
+  'host' => 'zs.flyexp.cn',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729)',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://zs.flyexp.cn/admin/school/school_list.html',
+  'accept' => 'image/gif, image/jpeg, image/pjpeg, application/x-ms-application, application/xaml+xml, application/x-ms-xbap, */*',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.001532s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.010309s ]
+[ info ] [ RUN ] app\admin\controller\School->school_add[ D:\UPUPW_K2.1_64\htdocs\zhaosheng\app\admin\controller\School.php ]
+[ info ] [ VIEW ] D:\UPUPW_K2.1_64\htdocs\zhaosheng/app/admin\view\school\school_add.html [ array (
+  0 => 'lang',
+  1 => 'menus',
+  2 => 'menus_curr',
+  3 => 'menus_child',
+  4 => 'id_curr',
+  5 => 'admin',
+  6 => 'head_title',
+  7 => 'admin_avatar',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.004344s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000558s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004335s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_add' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000524s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000709s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_add'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000472s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000289s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (1,2,6,7,11,12,15,16,25,27,239,37,40,41,42,68,59,69,70,71,72,73,91,92,93,94,95,96,97,98,99,100,101,108,109,110,111,112,113,114,151,156,161,162,170,173,174,175,178,179,180,228,240,327,328,330,331,332,333,334,335,336,337,338,339,395,394,393,345,347,349,355,356,357,358,359,360,361,392,365,366,367,368,369,370,387,386,372,373,374,375,376,377,378,379,380,381,382,383,391)  AND `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.000913s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.004139s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 6 LIMIT 1 [ RunTime:0.000528s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.004239s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.000402s ]
+
+---------------------------------------------------------------
+[ 2017-04-26T00:07:25+08:00 ] 211.66.88.153 183.62.38.253 POST /admin/school/school_runadd.html
+[ log ] zs.flyexp.cn/admin/school/school_runadd.html [运行时间：0.257286s][吞吐率：3.89req/s] [内存消耗：5,138.02kb] [文件加载：102]
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng/app/lang\zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'school',
+    2 => 'school_runadd',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-rewrite-url' => '/admin/school/school_runadd.html',
+  'content-length' => '147',
+  'cookie' => 'PHPSESSID=t7qj08p9oae51i6lc48rdnjkf0; yf_logged_user=ShQ%3DvljkK3S87j-RI; think_var=zh-cn',
+  'cache-control' => 'no-cache',
+  'connection' => 'Keep-Alive',
+  'host' => 'zs.flyexp.cn',
+  'user-agent' => 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729)',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://zs.flyexp.cn/admin/school/school_add.html',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+)
+[ info ] [ PARAM ] array (
+  'school_name' => '乳源瑶族自治县中等职业技术学校',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.127982s ]
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.010225s ]
+[ info ] [ RUN ] app\admin\controller\School->school_runadd[ D:\UPUPW_K2.1_64\htdocs\zhaosheng\app\admin\controller\School.php ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.004056s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.013693s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_web_log` [ RunTime:0.004858s ]
+[ sql ] [ SQL ] INSERT INTO `zs_web_log` (`uid` , `ip` , `location` , `os` , `browser` , `url` , `module` , `controller` , `action` , `method` , `data` , `otime`) VALUES (0 , '183.62.38.253' , '中国 广东 广州 ' , 'Windows 10' , 'IE(7.0)' , '/admin/school/school_runadd.html' , 'admin' , 'School' , 'school_runadd' , 'Ajax' , 'a:1:{s:11:\"school_name\";s:45:\"乳源瑶族自治县中等职业技术学校\";}' , 1493136444) [ RunTime:0.000887s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004212s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_runadd' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000514s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000744s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_runadd'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000492s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000438s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (1,2,6,7,11,12,15,16,25,27,239,37,40,41,42,68,59,69,70,71,72,73,91,92,93,94,95,96,97,98,99,100,101,108,109,110,111,112,113,114,151,156,161,162,170,173,174,175,178,179,180,228,240,327,328,330,331,332,333,334,335,336,337,338,339,395,394,393,345,347,349,355,356,357,358,359,360,361,392,365,366,367,368,369,370,387,386,372,373,374,375,376,377,378,379,380,381,382,383,391)  AND `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.001132s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.004010s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 6 LIMIT 1 [ RunTime:0.000538s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.004438s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.000495s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.004493s ]
+[ sql ] [ SQL ] INSERT INTO `zs_school` (`school_name`) VALUES ('乳源瑶族自治县中等职业技术学校') [ RunTime:0.010276s ]
+
+---------------------------------------------------------------
+[ 2017-04-26T00:08:39+08:00 ] 211.66.88.153 183.62.38.253 GET /admin/school/school_list.html
+[ log ] zs.flyexp.cn/admin/school/school_list.html [运行时间：0.176631s][吞吐率：5.66req/s] [内存消耗：1,023.63kb] [文件加载：81]
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng/app/lang\zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'school',
+    2 => 'school_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-rewrite-url' => '/admin/school/school_list.html',
+  'cookie' => 'PHPSESSID=t7qj08p9oae51i6lc48rdnjkf0; yf_logged_user=ShQ%3DvljkK3S87j-RI; think_var=zh-cn',
+  'connection' => 'Keep-Alive',
+  'host' => 'zs.flyexp.cn',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729)',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://zs.flyexp.cn/admin/school/school_add.html',
+  'accept' => 'image/gif, image/jpeg, image/pjpeg, application/x-ms-application, application/xaml+xml, application/x-ms-xbap, */*',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.001526s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.010363s ]
+[ info ] [ RUN ] app\admin\controller\School->school_list[ D:\UPUPW_K2.1_64\htdocs\zhaosheng\app\admin\controller\School.php ]
+[ info ] [ VIEW ] D:\UPUPW_K2.1_64\htdocs\zhaosheng/app/admin\view\school\school_list.html [ array (
+  0 => 'lang',
+  1 => 'menus',
+  2 => 'menus_curr',
+  3 => 'menus_child',
+  4 => 'id_curr',
+  5 => 'admin',
+  6 => 'head_title',
+  7 => 'admin_avatar',
+  8 => 'search_name',
+  9 => 'school_list',
+  10 => 'page',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.004373s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.008485s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004429s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000538s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000711s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000485s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 328 LIMIT 1 [ RunTime:0.000311s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (1,2,6,7,11,12,15,16,25,27,239,37,40,41,42,68,59,69,70,71,72,73,91,92,93,94,95,96,97,98,99,100,101,108,109,110,111,112,113,114,151,156,161,162,170,173,174,175,178,179,180,228,240,327,328,330,331,332,333,334,335,336,337,338,339,395,394,393,345,347,349,355,356,357,358,359,360,361,392,365,366,367,368,369,370,387,386,372,373,374,375,376,377,378,379,380,381,382,383,391)  AND `status` = 1  AND `pid` = 370 ORDER BY `sort` [ RunTime:0.001016s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.004162s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 6 LIMIT 1 [ RunTime:0.000553s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.004101s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.000404s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.003970s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_school` LIMIT 1 [ RunTime:0.000307s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` ORDER BY `school_id` LIMIT 0,10 [ RunTime:0.000305s ]
+
+---------------------------------------------------------------
+[ 2017-04-26T00:09:07+08:00 ] 211.66.88.153 183.62.38.253 GET /admin/school/major_list.html
+[ log ] zs.flyexp.cn/admin/school/major_list.html [运行时间：0.189316s][吞吐率：5.28req/s] [内存消耗：1,034.27kb] [文件加载：81]
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng/app/lang\zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'school',
+    2 => 'major_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-rewrite-url' => '/admin/school/major_list.html',
+  'cookie' => 'PHPSESSID=t7qj08p9oae51i6lc48rdnjkf0; yf_logged_user=ShQ%3DvljkK3S87j-RI; think_var=zh-cn',
+  'connection' => 'Keep-Alive',
+  'host' => 'zs.flyexp.cn',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729)',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://zs.flyexp.cn/admin/school/school_list.html',
+  'accept' => 'image/gif, image/jpeg, image/pjpeg, application/x-ms-application, application/xaml+xml, application/x-ms-xbap, */*',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.001507s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.010394s ]
+[ info ] [ RUN ] app\admin\controller\School->major_list[ D:\UPUPW_K2.1_64\htdocs\zhaosheng\app\admin\controller\School.php ]
+[ info ] [ VIEW ] D:\UPUPW_K2.1_64\htdocs\zhaosheng/app/admin\view\school\major_list.html [ array (
+  0 => 'lang',
+  1 => 'menus',
+  2 => 'menus_curr',
+  3 => 'menus_child',
+  4 => 'id_curr',
+  5 => 'admin',
+  6 => 'head_title',
+  7 => 'admin_avatar',
+  8 => 'major_list',
+  9 => 'page',
+  10 => 'search_name',
+  11 => 'school_list',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.004398s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012950s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004143s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/major_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000538s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000710s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/major_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000481s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 335 LIMIT 1 [ RunTime:0.000309s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (1,2,6,7,11,12,15,16,25,27,239,37,40,41,42,68,59,69,70,71,72,73,91,92,93,94,95,96,97,98,99,100,101,108,109,110,111,112,113,114,151,156,161,162,170,173,174,175,178,179,180,228,240,327,328,330,331,332,333,334,335,336,337,338,339,395,394,393,345,347,349,355,356,357,358,359,360,361,392,365,366,367,368,369,370,387,386,372,373,374,375,376,377,378,379,380,381,382,383,391)  AND `status` = 1  AND `pid` = 370 ORDER BY `sort` [ RunTime:0.000997s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.004130s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 6 LIMIT 1 [ RunTime:0.000532s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.004117s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.000395s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major` [ RunTime:0.003992s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_major` `m` INNER JOIN `zs_school` `s` ON `s`.`school_id`=`m`.`school_id` INNER JOIN `zs_recruit_major` `rm` ON `rm`.`recruit_major_id`=`m`.`recruit_major_id` LIMIT 1 [ RunTime:0.000450s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major` `m` INNER JOIN `zs_school` `s` ON `s`.`school_id`=`m`.`school_id` INNER JOIN `zs_recruit_major` `rm` ON `rm`.`recruit_major_id`=`m`.`recruit_major_id` ORDER BY `s`.`school_id`  DESC,`m`.`major_id`  DESC LIMIT 0,10 [ RunTime:0.002398s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.003807s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` [ RunTime:0.000304s ]
+
+---------------------------------------------------------------
+[ 2017-04-26T00:18:01+08:00 ] 211.66.88.153 183.62.38.253 GET /admin/index/index.html
+[ log ] zs.flyexp.cn/admin/index/index.html [运行时间：0.615652s][吞吐率：1.62req/s] [内存消耗：1,361.84kb] [文件加载：82]
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\UPUPW_K2.1_64\htdocs\zhaosheng/app/lang\zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-rewrite-url' => '/admin/index/index.html',
+  'cookie' => 'PHPSESSID=t7qj08p9oae51i6lc48rdnjkf0; yf_logged_user=ShQ%3DvljkK3S87j-RI; think_var=zh-cn',
+  'connection' => 'Keep-Alive',
+  'host' => 'zs.flyexp.cn',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729)',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://zs.flyexp.cn/admin/school/major_list.html',
+  'accept' => 'image/gif, image/jpeg, image/pjpeg, application/x-ms-application, application/xaml+xml, application/x-ms-xbap, */*',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.002500s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.013091s ]
+[ info ] [ RUN ] app\admin\controller\Index->index[ D:\UPUPW_K2.1_64\htdocs\zhaosheng\app\admin\controller\Index.php ]
+[ info ] [ VIEW ] D:\UPUPW_K2.1_64\htdocs\zhaosheng/app/admin\view\index\index.html [ array (
+  0 => 'lang',
+  1 => 'menus',
+  2 => 'menus_curr',
+  3 => 'menus_child',
+  4 => 'id_curr',
+  5 => 'admin',
+  6 => 'head_title',
+  7 => 'admin_avatar',
+  8 => 'news_list',
+  9 => 'news_count',
+  10 => 'members_count',
+  11 => 'sugs_count',
+  12 => 'coms_count',
+  13 => 'tonews_count',
+  14 => 'ztnews_count',
+  15 => 'difday',
+  16 => 'tomembers_count',
+  17 => 'ztmembers_count',
+  18 => 'difday_m',
+  19 => 'tosugs_count',
+  20 => 'ztsugs_count',
+  21 => 'difday_s',
+  22 => 'tocoms_count',
+  23 => 'ztcoms_count',
+  24 => 'difday_c',
+) ]
+[ info ] [ VIEW ] D:\UPUPW_K2.1_64\htdocs\zhaosheng\addons\maintain\maintain.html [ array (
+  0 => 'danger_mode_debug',
+  1 => 'weak_setting_db_password',
+  2 => 'weak_setting_admin_last_change_password',
+  3 => 'system_safe',
+  4 => 'system_pageshow',
+  5 => 'log_size',
+  6 => 'log_file_cnt',
+) ]
+[ info ] [ BEHAVIOR ] Run \addons\maintain\Maintain @maintain [ RunTime:0.255062s ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.007222s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000983s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004803s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000789s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = -1 LIMIT 1 [ RunTime:0.000466s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (1,2,6,7,11,12,15,16,25,27,239,37,40,41,42,68,59,69,70,71,72,73,91,92,93,94,95,96,97,98,99,100,101,108,109,110,111,112,113,114,151,156,161,162,170,173,174,175,178,179,180,228,240,327,328,330,331,332,333,334,335,336,337,338,339,395,394,393,345,347,349,355,356,357,358,359,360,361,392,365,366,367,368,369,370,387,386,372,373,374,375,376,377,378,379,380,381,382,383,391)  AND `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.000943s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.004219s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 6 LIMIT 1 [ RunTime:0.000575s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.004276s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.000409s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` WHERE  `news_l` = 'zh-cn' ORDER BY news_hits desc LIMIT 0,10 [ RunTime:0.000860s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` LIMIT 1 [ RunTime:0.000259s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_member_list` [ RunTime:0.004294s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_member_list` LIMIT 1 [ RunTime:0.000254s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_plug_sug` [ RunTime:0.004167s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_plug_sug` LIMIT 1 [ RunTime:0.000257s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_comments` [ RunTime:0.004102s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_comments` LIMIT 1 [ RunTime:0.000252s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_time` BETWEEN 1493136000 AND 1493222399 LIMIT 1 [ RunTime:0.000389s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_time` BETWEEN 1493049600 AND 1493135999 LIMIT 1 [ RunTime:0.000374s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_member_list` WHERE  `member_list_addtime` BETWEEN 1493136000 AND 1493222399 LIMIT 1 [ RunTime:0.000310s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_member_list` WHERE  `member_list_addtime` BETWEEN 1493049600 AND 1493135999 LIMIT 1 [ RunTime:0.000309s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_plug_sug` WHERE  `plug_sug_addtime` BETWEEN 1493136000 AND 1493222399 LIMIT 1 [ RunTime:0.000273s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_plug_sug` WHERE  `plug_sug_addtime` BETWEEN 1493049600 AND 1493135999 LIMIT 1 [ RunTime:0.000317s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_comments` WHERE  `createtime` BETWEEN 1493136000 AND 1493222399 LIMIT 1 [ RunTime:0.000281s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_comments` WHERE  `createtime` BETWEEN 1493049600 AND 1493135999 LIMIT 1 [ RunTime:0.000273s ]
+
+---------------------------------------------------------------

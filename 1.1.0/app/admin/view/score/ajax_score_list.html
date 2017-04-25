@@ -1,0 +1,46 @@
+{if $data}
+
+<tr>
+    <th>中职考生号</th>
+    <th>姓名</th>
+    <th>身份证</th>
+    <th>中职专业</th>
+    {foreach name="$major_score" item="v"}
+    <th>{$v} </th>
+    {/foreach}
+    <th>核定理论成绩</th>
+    <th>成绩审核状态</th>
+</tr>
+
+{foreach name="data" item="v"}
+<tr>
+    <td><a href="{:url('admin/score/score_add',array('member_list_id'=>$v['member_list_id']))}">{$v.ZexamineeNumber}</a></td>
+    <td height="28" >{$v.member_list_nickname}</td>
+    <td>{$v.member_list_username}</td>
+    <td>{$v.major_name}</td>
+    {foreach name="$v['major_score_arr']" item="val"}
+    <td>{$val} </td>
+    {/foreach}
+    </td>
+    <td>{$v.major_score_total}</td>
+    <td>{$v['status_desc']}</td>
+    <!-- <td>
+        <div class="hidden-sm hidden-xs action-buttons">
+            <a class="green" href="{:url('admin/score/score_add',array('member_list_id'=>$v['member_list_id']))}" title="修改">
+                <i class="ace-icon fa fa-pencil bigger-130"></i>
+            </a>
+            <a class="red confirm-rst-url-btn" data-info="你确定要删除吗？" href="{:url('admin/score/score_del',array('member_list_id'=>$v['member_list_id']))}" title="删除">
+                <i class="ace-icon fa fa-trash-o bigger-130"></i>
+            </a>
+        </div>
+    </td> -->
+</tr>
+{/foreach}
+<tr>
+    <td height="50" colspan="20" align="center">{$page}</td>
+</tr>
+{else}
+<tr>
+    <td height="50" colspan="20" align="center">暂无数据，请选择中职学校及中职专业</td>
+</tr>
+{/if}

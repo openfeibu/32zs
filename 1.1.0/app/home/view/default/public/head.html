@@ -1,0 +1,31 @@
+{include file="public:function"/}
+{include file="public:config"/}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-orientation" content="portrait">
+    <title>{$menu.menu_seo_title|default=$site_seo_title} {$site_name}</title>
+    <meta name="keywords" content="{$menu.menu_seo_key|default=$site_seo_keywords}" />
+    <meta name="description" content="{$menu.menu_seo_des|default=$site_seo_description}">
+    <link rel="stylesheet" type="text/css" href="{$yf_theme_path}public/css/css.css">
+    <script type="text/javascript" src="{$yf_theme_path}public/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="{$yf_theme_path}public/js/main.js"></script>
+</head>
+<body>
+    <!-- 头部 S -->
+    <div class="header">
+
+    </div>
+    <!-- 头部 E -->
+    <!-- 导航 -->
+    <div class="nav">
+      {yf:menu top_ul_class="w1000" haschild_a_class="sf-with-ul" haschild_span_class="sf-sub-indicator" nochild_a_class="sf-with-ul"}
+
+    </div>

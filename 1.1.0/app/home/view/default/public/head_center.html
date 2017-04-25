@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-orientation" content="portrait">
+    <title>{$menu.menu_seo_title|default=$site_seo_title} {$site_name}</title>
+    <meta name="keywords" content="{$menu.menu_seo_key|default=$site_seo_keywords}" />
+    <meta name="description" content="{$menu.menu_seo_des|default=$site_seo_description}">
+    <link rel="stylesheet" type="text/css" href="{$yf_theme_path}public/css/css.css">
+    <script type="text/javascript" src="{$yf_theme_path}public/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="{$yf_theme_path}public/js/main.js"></script>
+</head>
+<style type="text/css" media=print>
+.printHide{display : none }
+@page {
+margin: 5px;
+}
+</style>
+<body>
+    <div class="personal_header printHide">
+        <div class="personal_logo">
+            三二分段网上报名系统
+        </div>
+        <div class="personal_r">
+            <span class="nowtime"></span>
+            <p>欢迎你,{$user.member_list_nickname}<a href="{:url('home/login/logout')}">退出系统</a></p>
+        </div>
+    </div>
+      <div class="nav printHide">
+        <ul class=""style="margin-left:20px;">
+          <li ><a href="__ROOT__/">首页</a></li>
+            <li ><a href="{:url('home/center/index')}">我的信息</a></li>
+            <li><a href="{:url('home/center/grade')}">我的成绩</a></li>
+            <li><a href="{:url('home/center/setting')}">我的设置</a></li>
+        </ul>
+    </div>

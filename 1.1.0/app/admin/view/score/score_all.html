@@ -1,0 +1,64 @@
+{extend name="admin@public/base" /}
+{block name="main-content"}
+	<div class="page-content">
+		<div class="row maintop">
+
+			<form name="admin_list_sea" class="form-search" id="list-filter" method="post" action="{:url('admin/score/score_all')}">
+				<div class="col-xs-12 col-sm-4  margintop5">
+					<select name="school_id" class="ajax_change" id="recruit_school">
+						<option value="">选择学校</option>
+						{foreach name="school_list" item="v"}
+							<option value="{$v.school_id}" >{$v.school_name}</option>
+						{/foreach}
+					</select>
+					<select name="recruit_major_id" class="ajax_change" id="recruit_major">
+						<option value="">选择高职专业</option>
+					</select>
+				</div>
+
+			</form>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<div>
+					<form id="score_form" name="leftnav" method="post" action="{:url('admin/Score/score_active')}" >
+						<input type="hidden" name="checkk" id="checkk" value="1" /><!--用于判断操作类型-->
+						<table class="table table-striped table-bordered table-hover" id="dynamic-table">
+							<thead>
+							<tr>
+                                <th class="hidden-xs ">
+                                    <label class="pos-rel">
+                                        <input type="checkbox" class="ace" id="chkAll" onclick="CheckAll(this.form)" value="全选">
+                                        <span class="lbl"></span>
+                                    </label>
+                                    ID
+                                </th>
+								<th>中职考生号</th>
+								<th>姓名</th>
+								<th>身份证</th>
+								<th>中职专业</th>
+                                <th>高职专业</th>
+                                <th>基础理论成绩 </th>
+								<th>核定理论成绩 </th>
+                                <th>成绩审核状态</th>
+							</tr>
+							</thead>
+
+							<tbody id="ajax-data">
+								{include file="score/ajax_score_all"/}
+							</tbody>
+						</table>
+					</form>
+				</div>
+			</div>
+		</div>
+
+	</div><!-- /.page-content -->
+<script>
+    $(".btn-unactive").click(function(){
+        url = "{:url('admin/score/score_unactive')}";
+        $("#score_form").attr('action',url);
+        return true;
+    });
+</script>
+{/block}

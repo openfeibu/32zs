@@ -1,0 +1,49 @@
+{include file="public:head_center" /}
+    <!-- 主体内容 S -->
+    <div class="main w1000" style="background:#fff;">
+
+       <div class="myexam">
+           <!--startprint1-->
+           <table width="800" style="margin:0 auto;border-radio:5px;">
+                <tr class="line-table-height" style="color:#333;font-size:16px;background:#971f21;color:#fff;line-height:35px">
+                   <td class="k-s-content"  width="40%">专业</td>
+                   <td class="k-s-content" >成绩</td>
+               </tr>
+               {if condition="!empty($user['major_score'])"}
+               {foreach name="major_score_key" item="v" key="k"}
+               <tr class="line-table-height">
+                   <td class="k-s-content"  width="40%">{$v}</td>
+                   <td class="k-s-content" >{$major_score_arr[$k]}</td>
+               </tr>
+               {/foreach}
+               <tr class="line-table-height">
+                   <td class="k-s-content" width="40%" >核定理论成绩</td>
+                   <td class="k-s-content" >{$major_score_total}</td>
+               </tr>
+               <tr class="line-table-height">
+                   <td class="k-s-content" width="40%" >技能考核成绩</td>
+                   <td class="k-s-content" >{if condition="!empty($user['recruit_score'])"}{$user.recruit_score}{else}待录入{/if}</td>
+               </tr>
+               <tr class="line-table-height">
+                   <td class="k-s-content" width="40%" >总分</td>
+                   <td class="k-s-content" >{$total_score}</td>
+               </tr>
+               {else/}
+               <tr class="line-table-height">
+                   <td class="k-s-content"  width="40%" colspan="12" >未录入成绩</td>
+               </tr>
+               {/if}
+           </table>
+           <!--endtprint1-->
+           {if $user['recruit_score']}
+           <button class="print printHide" onclick="preview(1)">打印</button>
+           {/if}
+       </div>
+
+    </div>
+
+
+    <!-- 主体内容 E -->
+    <!-- footer S -->
+
+{include  file="public:footer" /}

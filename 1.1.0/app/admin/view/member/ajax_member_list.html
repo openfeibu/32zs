@@ -1,0 +1,93 @@
+{foreach name="member_list" item="v"}
+	<tr>
+		<!--<td class="hidden-xs" height="28" >
+			<label class="pos-rel">
+				<input name="n_id[]" id="navid" class="ace" type="checkbox" value="{$v.member_list_id}">
+				<span class="lbl"></span>
+			</label>{$v.member_list_id}
+		</td>-->
+		<td><a class=""  href="{:url('admin/Member/member_edit',array('member_list_id'=>$v['member_list_id']))}" title="修改">{$v.member_list_nickname}</a></td>
+		<td>{$v.member_list_username}</td>
+		<td>{$v.school_name} {$v.major_name}</td>
+		<td>{$v.recruit_major_name}</td>
+		<td>{$v.major_score_total}</td>
+		<td>{$v.recruit_score}</td>
+		<td>{$v.total_score}</td>
+		<!--<td class="hidden-sm hidden-xs">{$v.member_list_from|default="本地"}</td>
+		<td class="hidden-sm hidden-xs">
+			{if condition="$v.member_list_sex eq 1"}程序猿
+				{elseif condition="$v.member_list_sex eq 2"/}程序媛
+				{else /}保密
+			{/if}
+		</td>
+		<td class="hidden-sm hidden-xs">{$v.member_group_name}</td>
+		<td class="hidden-sm hidden-xs">{$v.score}</td>-->
+
+		<!-- <td class="hidden-xs">
+			{if condition='$v.member_list_open eq 1'}
+				<a class="red open-btn" href="{:url('admin/Member/member_state')}" data-id="{$v.member_list_id}" title="已开启">
+					<div id="zt{$v.member_list_id}"><button class="btn btn-minier btn-yellow">开启</button></div>
+				</a>
+				{else/}
+				<a class="red open-btn" href="{:url('admin/Member/member_state')}" data-id="{$v.member_list_id}" title="已禁用">
+					<div id="zt{$v.member_list_id}"><button class="btn btn-minier btn-danger">禁用</button></div>
+				</a>
+			{/if}
+		</td> -->
+		<td class="hidden-xs">
+			{if condition='$v.user_status eq 1'}
+				<a class="red active-btn" href="{:url('admin/Member/member_active')}" data-id="{$v.member_list_id}" title="已通过">
+					<div id="jh{$v.member_list_id}">
+						<button class="btn btn-minier btn-yellow">已通过</button>
+					</div>
+					<a href="{:url('admin/Score/score_add',array('member_list_id' => $v['member_list_id']))}" class="score_add">录入基础成绩</a>
+				</a>
+				{else/}
+				<a class="red active-btn" href="{:url('admin/Member/member_active')}" data-id="{$v.member_list_id}" title="未通过">
+					<div id="jh{$v.member_list_id}">
+						<button class="btn btn-minier btn-danger">未通过</button>
+					</div>
+					<a href="{:url('admin/Score/score_add',array('member_list_id' => $v['member_list_id']))}" class="score_add" style="display: none;">录入基础成绩</a>
+				</a>
+			{/if}
+		</td>
+		<td>
+			<div class="hidden-sm hidden-xs action-buttons">
+				<a class="green"  href="{:url('admin/Member/member_edit',array('member_list_id'=>$v['member_list_id']))}" title="修改">
+					<i class="ace-icon fa fa-pencil bigger-130"></i>
+				</a>
+				<a class="red confirm-rst-url-btn" href="{:url('admin/Member/member_del',array('member_list_id'=>$v['member_list_id'],'p'=>input('p',1)))}" data-info="你确定要删除吗？" title="删除">
+					<i class="ace-icon fa fa-trash-o bigger-130"></i>
+				</a>
+			</div>
+			<div class="hidden-md hidden-lg">
+				<div class="inline position-relative">
+					<button class="btn btn-minier btn-primary dropdown-toggle" data-toggle="dropdown" data-position="auto">
+						<i class="ace-icon fa fa-cog icon-only bigger-110"></i>
+					</button>
+					<ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
+						<li>
+							<a href="{:url('admin/Member/member_edit',array('member_list_id'=>$v['member_list_id']))}" class="tooltip-success" data-rel="tooltip" title="" data-original-title="修改">
+											<span class="green">
+												<i class="ace-icon fa fa-pencil bigger-120"></i>
+											</span>
+							</a>
+						</li>
+
+						<li>
+							<a href="{:url('admin/Member/member_del',array('member_list_id'=>$v['member_list_id'],'p'=>input('p',1)))}"  class="tooltip-error confirm-rst-url-btn" data-info="你确定要删除吗？" data-rel="tooltip" title="" data-original-title="删除">
+											<span class="red">
+												<i class="ace-icon fa fa-trash-o bigger-120"></i>
+											</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</td>
+	</tr>
+{/foreach}
+<tr>
+	<!--<td align="left" class="hidden-xs center"><button id="btnsubmit" class="btn btn-white btn-blue btn-sm hidden-xs">审核</button>&nbsp;</td>-->
+	<td colspan="12" align="center" class="hidden-xs">{$page}</td>
+</tr>

@@ -1,0 +1,1179 @@
+[ 2017-04-12T00:07:45+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.388472s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.716359s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` INNER JOIN `zs_member_list` `b` ON `a`.`news_auto`=`b`.`member_list_id` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (17) ORDER BY news_time desc LIMIT 7 [ RunTime:0.015512s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` INNER JOIN `zs_member_list` `b` ON `a`.`news_auto`=`b`.`member_list_id` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (18) ORDER BY news_time desc LIMIT 7 [ RunTime:0.002003s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` INNER JOIN `zs_member_list` `b` ON `a`.`news_auto`=`b`.`member_list_id` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (16) ORDER BY news_time desc LIMIT 7 [ RunTime:0.011555s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T00:07:45+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001287s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_member_list` [ RunTime:0.794405s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_member_list` WHERE  `member_list_id` = 1 LIMIT 1 [ RunTime:0.201101s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.233611s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` WHERE  `member_id` = 1 LIMIT 1 [ RunTime:0.048636s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:2.656643s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` INNER JOIN `zs_member_list` `b` ON `a`.`news_auto`=`b`.`member_list_id` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (17) ORDER BY news_time desc LIMIT 7 [ RunTime:0.140969s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` INNER JOIN `zs_member_list` `b` ON `a`.`news_auto`=`b`.`member_list_id` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (18) ORDER BY news_time desc LIMIT 7 [ RunTime:0.094582s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` INNER JOIN `zs_member_list` `b` ON `a`.`news_auto`=`b`.`member_list_id` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (16) ORDER BY news_time desc LIMIT 7 [ RunTime:0.001108s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T15:28:47+08:00 ] [ log ] Cron:clearlog Runat 2017-04-12 15:28:47 Use 0.000270 s
+
+
+[ 2017-04-12T15:28:47+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001592s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.004762s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 16 LIMIT 1 [ RunTime:0.000513s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_model` [ RunTime:0.004112s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_model` WHERE  `model_id` = 0 LIMIT 1 [ RunTime:0.000551s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.004216s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (16) LIMIT 1 [ RunTime:0.000530s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` `a` INNER JOIN `zs_member_list` `b` ON `a`.`news_auto`=`b`.`member_list_id` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (16) LIMIT 1 [ RunTime:0.000496s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_member_list` `b` ON `a`.`news_auto`=`b`.`member_list_id` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (16) ORDER BY news_time desc LIMIT 0,10 [ RunTime:0.001137s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T15:28:51+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001065s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.004394s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 50  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.000733s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.004104s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 16 LIMIT 1 [ RunTime:0.000354s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_action_log` [ RunTime:0.003888s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_action_log` WHERE  `uid` = 0  AND `action` = 'home-News-index'  AND `object` = 'news50' LIMIT 1 [ RunTime:0.000418s ]
+[ sql ] [ SQL ] UPDATE `zs_action_log`  SET `count`=count+1,`last_time`=1491982131,`ip`='93.158.152.15'  WHERE  `uid` = 0  AND `action` = 'home-News-index'  AND `object` = 'news50' [ RunTime:0.000438s ]
+[ sql ] [ SQL ] UPDATE `zs_news`  SET `news_hits`=news_hits+1  WHERE  `n_id` = 50 [ RunTime:0.000348s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` WHERE  `news_time` >= 1490536368  AND `n_id` <> 50  AND `news_open` = '1'  AND `news_back` = 0  AND `news_columnid` = 16 ORDER BY news_time asc LIMIT 1 [ RunTime:0.000585s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` WHERE  `news_time` <= 1490536368  AND `n_id` <> 50  AND `news_open` = '1'  AND `news_back` = 0  AND `news_columnid` = 16 ORDER BY news_time desc LIMIT 1 [ RunTime:0.000548s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_comments` [ RunTime:0.003979s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_comments` `a` INNER JOIN `zs_member_list` `b` ON `a`.`uid`=`b`.`member_list_id` WHERE  `a`.`t_name` = 'news'  AND `a`.`t_id` = '50'  AND `a`.`c_status` = 1 ORDER BY a.createtime ASC [ RunTime:0.000462s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T15:28:55+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.014515s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.007563s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 48  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.000718s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.004138s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 16 LIMIT 1 [ RunTime:0.000358s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_action_log` [ RunTime:0.003925s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_action_log` WHERE  `uid` = 0  AND `action` = 'home-News-index'  AND `object` = 'news48' LIMIT 1 [ RunTime:0.000415s ]
+[ sql ] [ SQL ] UPDATE `zs_action_log`  SET `count`=count+1,`last_time`=1491982135,`ip`='93.158.152.15'  WHERE  `uid` = 0  AND `action` = 'home-News-index'  AND `object` = 'news48' [ RunTime:0.000381s ]
+[ sql ] [ SQL ] UPDATE `zs_news`  SET `news_hits`=news_hits+1  WHERE  `n_id` = 48 [ RunTime:0.000324s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` WHERE  `news_time` >= 1490536161  AND `n_id` <> 48  AND `news_open` = '1'  AND `news_back` = 0  AND `news_columnid` = 16 ORDER BY news_time asc LIMIT 1 [ RunTime:0.000579s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` WHERE  `news_time` <= 1490536161  AND `n_id` <> 48  AND `news_open` = '1'  AND `news_back` = 0  AND `news_columnid` = 16 ORDER BY news_time desc LIMIT 1 [ RunTime:0.000543s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_comments` [ RunTime:0.004072s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_comments` `a` INNER JOIN `zs_member_list` `b` ON `a`.`uid`=`b`.`member_list_id` WHERE  `a`.`t_name` = 'news'  AND `a`.`t_id` = '48'  AND `a`.`c_status` = 1 ORDER BY a.createtime ASC [ RunTime:0.000450s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T16:27:20+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001417s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.004319s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` INNER JOIN `zs_member_list` `b` ON `a`.`news_auto`=`b`.`member_list_id` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (17) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000658s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` INNER JOIN `zs_member_list` `b` ON `a`.`news_auto`=`b`.`member_list_id` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (18) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000732s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` INNER JOIN `zs_member_list` `b` ON `a`.`news_auto`=`b`.`member_list_id` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (16) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000537s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T16:28:23+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001027s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_web_log` [ RunTime:0.004393s ]
+[ sql ] [ SQL ] INSERT INTO `zs_web_log` (`uid` , `ip` , `location` , `os` , `browser` , `url` , `module` , `controller` , `action` , `method` , `data` , `otime`) VALUES (0 , '113.65.225.224' , '中国 广东 广州 ' , 'Linux' , 'Chrome(57.0.2987.133)' , '/home/login/runlogin.html' , 'home' , 'Login' , 'runlogin' , 'Ajax' , 's:12:\"保密数据\";' , 1491985703) [ RunTime:0.000495s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_member_list` [ RunTime:0.004184s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_member_list` WHERE  `member_list_username` = '440514199312143010' LIMIT 1 [ RunTime:0.000492s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T16:28:39+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.011001s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_web_log` [ RunTime:0.004329s ]
+[ sql ] [ SQL ] INSERT INTO `zs_web_log` (`uid` , `ip` , `location` , `os` , `browser` , `url` , `module` , `controller` , `action` , `method` , `data` , `otime`) VALUES (0 , '113.65.225.224' , '中国 广东 广州 ' , 'Linux' , 'Chrome(57.0.2987.133)' , '/home/login/runlogin.html' , 'home' , 'Login' , 'runlogin' , 'Ajax' , 's:12:\"保密数据\";' , 1491985719) [ RunTime:0.000489s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T16:28:44+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001046s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_web_log` [ RunTime:0.004391s ]
+[ sql ] [ SQL ] INSERT INTO `zs_web_log` (`uid` , `ip` , `location` , `os` , `browser` , `url` , `module` , `controller` , `action` , `method` , `data` , `otime`) VALUES (0 , '113.65.225.224' , '中国 广东 广州 ' , 'Linux' , 'Chrome(57.0.2987.133)' , '/home/login/runlogin.html' , 'home' , 'Login' , 'runlogin' , 'Ajax' , 's:12:\"保密数据\";' , 1491985724) [ RunTime:0.000470s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_member_list` [ RunTime:0.004187s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_member_list` WHERE  `member_list_username` = '440514199312143010' LIMIT 1 [ RunTime:0.000488s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T16:28:54+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001013s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_web_log` [ RunTime:0.004242s ]
+[ sql ] [ SQL ] INSERT INTO `zs_web_log` (`uid` , `ip` , `location` , `os` , `browser` , `url` , `module` , `controller` , `action` , `method` , `data` , `otime`) VALUES (0 , '113.65.225.224' , '中国 广东 广州 ' , 'Linux' , 'Chrome(57.0.2987.133)' , '/home/login/runlogin.html' , 'home' , 'Login' , 'runlogin' , 'Ajax' , 's:12:\"保密数据\";' , 1491985734) [ RunTime:0.000467s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T16:29:00+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001015s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_web_log` [ RunTime:0.008535s ]
+[ sql ] [ SQL ] INSERT INTO `zs_web_log` (`uid` , `ip` , `location` , `os` , `browser` , `url` , `module` , `controller` , `action` , `method` , `data` , `otime`) VALUES (0 , '113.65.225.224' , '中国 广东 广州 ' , 'Linux' , 'Chrome(57.0.2987.133)' , '/home/login/runlogin.html' , 'home' , 'Login' , 'runlogin' , 'Ajax' , 's:12:\"保密数据\";' , 1491985740) [ RunTime:0.000472s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_member_list` [ RunTime:0.004532s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_member_list` WHERE  `member_list_username` = '440514199312143010' LIMIT 1 [ RunTime:0.000502s ]
+[ sql ] [ SQL ] UPDATE `zs_member_list`  SET `last_login_time`=1491985740,`last_login_ip`='113.65.225.224'  WHERE  `member_list_id` = 1 [ RunTime:0.000387s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.004021s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` WHERE  `member_id` = 1 LIMIT 1 [ RunTime:0.000399s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T16:29:00+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.015642s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_member_list` [ RunTime:0.004333s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_member_list` WHERE  `member_list_id` = 1 LIMIT 1 [ RunTime:0.000505s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.004006s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` WHERE  `member_id` = 1 LIMIT 1 [ RunTime:0.000400s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_member_info` [ RunTime:0.004443s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_member_info` WHERE  `member_list_id` = 1 LIMIT 1 [ RunTime:0.000446s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major` [ RunTime:0.003877s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major` WHERE  `major_id` = 1 LIMIT 1 [ RunTime:0.000329s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.003805s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 1 LIMIT 1 [ RunTime:0.000323s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_recruit_major` [ RunTime:0.003974s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_recruit_major` WHERE  `recruit_major_id` = 1 LIMIT 1 [ RunTime:0.000316s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T16:38:35+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.016905s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.007607s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.001382s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = -1 LIMIT 1 [ RunTime:0.000370s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.000526s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.004410s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` WHERE  `news_l` = 'zh-cn' ORDER BY news_hits desc LIMIT 0,10 [ RunTime:0.000931s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` LIMIT 1 [ RunTime:0.000285s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_member_list` [ RunTime:0.004235s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_member_list` LIMIT 1 [ RunTime:0.000269s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_plug_sug` [ RunTime:0.004141s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_plug_sug` LIMIT 1 [ RunTime:0.000272s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_comments` [ RunTime:0.004104s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_comments` LIMIT 1 [ RunTime:0.000268s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_time` BETWEEN 1491926400 AND 1492012799 LIMIT 1 [ RunTime:0.000413s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_time` BETWEEN 1491840000 AND 1491926399 LIMIT 1 [ RunTime:0.000387s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_member_list` WHERE  `member_list_addtime` BETWEEN 1491926400 AND 1492012799 LIMIT 1 [ RunTime:0.000339s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_member_list` WHERE  `member_list_addtime` BETWEEN 1491840000 AND 1491926399 LIMIT 1 [ RunTime:0.000337s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_plug_sug` WHERE  `plug_sug_addtime` BETWEEN 1491926400 AND 1492012799 LIMIT 1 [ RunTime:0.000296s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_plug_sug` WHERE  `plug_sug_addtime` BETWEEN 1491840000 AND 1491926399 LIMIT 1 [ RunTime:0.000298s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_comments` WHERE  `createtime` BETWEEN 1491926400 AND 1492012799 LIMIT 1 [ RunTime:0.000296s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_comments` WHERE  `createtime` BETWEEN 1491840000 AND 1491926399 LIMIT 1 [ RunTime:0.000296s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T16:41:26+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.014186s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_member_list` [ RunTime:0.007026s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_member_list` WHERE  `member_list_id` = 1 LIMIT 1 [ RunTime:0.000876s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.004233s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` WHERE  `member_id` = 1 LIMIT 1 [ RunTime:0.000414s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.004135s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` INNER JOIN `zs_member_list` `b` ON `a`.`news_auto`=`b`.`member_list_id` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (17) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000588s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` INNER JOIN `zs_member_list` `b` ON `a`.`news_auto`=`b`.`member_list_id` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (18) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000642s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` INNER JOIN `zs_member_list` `b` ON `a`.`news_auto`=`b`.`member_list_id` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (16) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000526s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T16:41:29+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001082s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_member_list` [ RunTime:0.004370s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_member_list` WHERE  `member_list_id` = 1 LIMIT 1 [ RunTime:0.000515s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.004088s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` WHERE  `member_id` = 1 LIMIT 1 [ RunTime:0.000404s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_member_info` [ RunTime:0.004227s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_member_info` WHERE  `member_list_id` = 1 LIMIT 1 [ RunTime:0.000462s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major` [ RunTime:0.003817s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major` WHERE  `major_id` = 1 LIMIT 1 [ RunTime:0.000373s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.004205s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 1 LIMIT 1 [ RunTime:0.000351s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_recruit_major` [ RunTime:0.003840s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_recruit_major` WHERE  `recruit_major_id` = 1 LIMIT 1 [ RunTime:0.000313s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T16:41:37+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001170s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004266s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/recruit_major_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000540s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000726s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/recruit_major_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000479s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 329 LIMIT 1 [ RunTime:0.000325s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = 327 ORDER BY `sort` [ RunTime:0.000525s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_recruit_major` [ RunTime:0.004241s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_recruit_major` LIMIT 1 [ RunTime:0.000336s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_recruit_major` ORDER BY `recruit_major_id` LIMIT 0,10 [ RunTime:0.000320s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T16:42:42+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001102s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004449s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/recruit_major_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000540s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000733s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/recruit_major_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000477s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 329 LIMIT 1 [ RunTime:0.000324s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = 327 ORDER BY `sort` [ RunTime:0.000515s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_recruit_major` [ RunTime:0.004151s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_recruit_major` LIMIT 1 [ RunTime:0.000327s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_recruit_major` ORDER BY `recruit_major_id` LIMIT 0,10 [ RunTime:0.000315s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T16:44:27+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.004192s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004271s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000548s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000738s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000479s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 328 LIMIT 1 [ RunTime:0.000330s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = 327 ORDER BY `sort` [ RunTime:0.000517s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.004142s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_school` LIMIT 1 [ RunTime:0.000329s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` ORDER BY `school_id` LIMIT 0,10 [ RunTime:0.000323s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T16:44:29+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.009720s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004216s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/major_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000528s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000722s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/major_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000476s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000304s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.000503s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.004285s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 1 LIMIT 1 [ RunTime:0.000370s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major` [ RunTime:0.003819s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_major` WHERE  `school_id` LIKE 0 LIMIT 1 [ RunTime:0.000352s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major` WHERE  `school_id` LIKE 0 ORDER BY `major_id` LIMIT 0,10 [ RunTime:0.000374s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T16:44:32+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001051s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004237s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/recruit_major_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000530s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000723s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/recruit_major_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000478s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 329 LIMIT 1 [ RunTime:0.000324s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = 327 ORDER BY `sort` [ RunTime:0.000516s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_recruit_major` [ RunTime:0.004035s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_recruit_major` LIMIT 1 [ RunTime:0.000326s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_recruit_major` ORDER BY `recruit_major_id` LIMIT 0,10 [ RunTime:0.000315s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T16:44:35+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001043s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004215s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000538s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000709s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000477s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 328 LIMIT 1 [ RunTime:0.000325s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = 327 ORDER BY `sort` [ RunTime:0.000519s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.004015s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_school` LIMIT 1 [ RunTime:0.000317s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` ORDER BY `school_id` LIMIT 0,10 [ RunTime:0.000314s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T16:44:37+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001428s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004205s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/major_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000528s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000713s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/major_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000474s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000305s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.000504s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.004131s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 1 LIMIT 1 [ RunTime:0.000359s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major` [ RunTime:0.003828s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_major` WHERE  `school_id` LIKE 0 LIMIT 1 [ RunTime:0.000334s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major` WHERE  `school_id` LIKE 0 ORDER BY `major_id` LIMIT 0,10 [ RunTime:0.000362s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T16:44:39+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001024s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004234s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000529s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000707s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000612s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 328 LIMIT 1 [ RunTime:0.000333s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = 327 ORDER BY `sort` [ RunTime:0.000530s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.004006s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_school` LIMIT 1 [ RunTime:0.000314s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` ORDER BY `school_id` LIMIT 0,10 [ RunTime:0.000312s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T16:44:41+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.003448s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004103s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/major_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000531s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000715s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/major_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000477s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000312s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.000508s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.003942s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 1 LIMIT 1 [ RunTime:0.000364s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major` [ RunTime:0.003831s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_major` WHERE  `school_id` LIKE 0 LIMIT 1 [ RunTime:0.000336s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major` WHERE  `school_id` LIKE 0 ORDER BY `major_id` LIMIT 0,10 [ RunTime:0.000362s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T16:44:45+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001027s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004262s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000532s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000863s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000494s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 328 LIMIT 1 [ RunTime:0.000326s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = 327 ORDER BY `sort` [ RunTime:0.000519s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.004012s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_school` LIMIT 1 [ RunTime:0.000314s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` ORDER BY `school_id` LIMIT 0,10 [ RunTime:0.000317s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T16:44:55+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001116s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.005117s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/major_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000927s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.001540s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/major_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000535s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000369s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.000566s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.004235s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 1 LIMIT 1 [ RunTime:0.000649s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major` [ RunTime:0.004172s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_major` WHERE  `school_id` LIKE 0 LIMIT 1 [ RunTime:0.000550s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major` WHERE  `school_id` LIKE 0 ORDER BY `major_id` LIMIT 0,10 [ RunTime:0.000370s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T16:45:01+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001040s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004240s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/recruit_major_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000532s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000721s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/recruit_major_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000481s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 329 LIMIT 1 [ RunTime:0.000326s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = 327 ORDER BY `sort` [ RunTime:0.000522s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_recruit_major` [ RunTime:0.004037s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_recruit_major` LIMIT 1 [ RunTime:0.000319s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_recruit_major` ORDER BY `recruit_major_id` LIMIT 0,10 [ RunTime:0.000315s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T16:46:07+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.016751s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.007407s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/recruit_major_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000917s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000734s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/recruit_major_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000482s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 329 LIMIT 1 [ RunTime:0.000326s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = 327 ORDER BY `sort` [ RunTime:0.000530s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_recruit_major` [ RunTime:0.004165s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_recruit_major` LIMIT 1 [ RunTime:0.000340s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_recruit_major` ORDER BY `recruit_major_id` LIMIT 0,10 [ RunTime:0.000324s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T16:49:26+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.002030s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004425s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/recruit_major_add' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000566s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000870s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/recruit_major_add'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000492s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000318s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.000563s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T16:50:44+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.016545s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_web_log` [ RunTime:0.030835s ]
+[ sql ] [ SQL ] INSERT INTO `zs_web_log` (`uid` , `ip` , `location` , `os` , `browser` , `url` , `module` , `controller` , `action` , `method` , `data` , `otime`) VALUES (1 , '113.65.225.224' , '中国 广东 广州 ' , 'Linux' , 'Chrome(57.0.2987.133)' , '/home/center/update_info.html' , 'home' , 'Center' , 'update_info' , 'Ajax' , 'a:2:{s:4:\"name\";s:15:\"GexamineeNumber\";s:5:\"value\";s:6:\"123456\";}' , 1491987044) [ RunTime:0.026406s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_member_list` [ RunTime:0.004239s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_member_list` WHERE  `member_list_id` = 1 LIMIT 1 [ RunTime:0.000515s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.004992s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` WHERE  `member_id` = 1 LIMIT 1 [ RunTime:0.000402s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_member_info` [ RunTime:0.004096s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_member_info` WHERE  `member_list_id` = 1 LIMIT 1 [ RunTime:0.000465s ]
+[ sql ] [ SQL ] UPDATE `zs_member_info`  SET `GexamineeNumber`='123456'  WHERE  `member_list_id` = 1 [ RunTime:0.058480s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T16:50:55+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001069s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_web_log` [ RunTime:0.004247s ]
+[ sql ] [ SQL ] INSERT INTO `zs_web_log` (`uid` , `ip` , `location` , `os` , `browser` , `url` , `module` , `controller` , `action` , `method` , `data` , `otime`) VALUES (1 , '113.65.225.224' , '中国 广东 广州 ' , 'Linux' , 'Chrome(57.0.2987.133)' , '/home/center/update_info.html' , 'home' , 'Center' , 'update_info' , 'Ajax' , 'a:2:{s:4:\"name\";s:15:\"GexamineeNumber\";s:5:\"value\";s:6:\"123456\";}' , 1491987055) [ RunTime:0.000473s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_member_list` [ RunTime:0.004438s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_member_list` WHERE  `member_list_id` = 1 LIMIT 1 [ RunTime:0.000493s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.004149s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` WHERE  `member_id` = 1 LIMIT 1 [ RunTime:0.000431s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_member_info` [ RunTime:0.004024s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_member_info` WHERE  `member_list_id` = 1 LIMIT 1 [ RunTime:0.000439s ]
+[ sql ] [ SQL ] UPDATE `zs_member_info`  SET `GexamineeNumber`='123456'  WHERE  `member_list_id` = 1 [ RunTime:0.080846s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T16:50:59+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.003032s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_web_log` [ RunTime:0.004181s ]
+[ sql ] [ SQL ] INSERT INTO `zs_web_log` (`uid` , `ip` , `location` , `os` , `browser` , `url` , `module` , `controller` , `action` , `method` , `data` , `otime`) VALUES (1 , '113.65.225.224' , '中国 广东 广州 ' , 'Linux' , 'Chrome(57.0.2987.133)' , '/home/center/update_info.html' , 'home' , 'Center' , 'update_info' , 'Ajax' , 'a:2:{s:4:\"name\";s:15:\"GexamineeNumber\";s:5:\"value\";s:6:\"123456\";}' , 1491987059) [ RunTime:0.000481s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_member_list` [ RunTime:0.019235s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_member_list` WHERE  `member_list_id` = 1 LIMIT 1 [ RunTime:0.000519s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.004021s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` WHERE  `member_id` = 1 LIMIT 1 [ RunTime:0.000439s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_member_info` [ RunTime:0.003991s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_member_info` WHERE  `member_list_id` = 1 LIMIT 1 [ RunTime:0.000519s ]
+[ sql ] [ SQL ] UPDATE `zs_member_info`  SET `GexamineeNumber`='123456'  WHERE  `member_list_id` = 1 [ RunTime:0.031810s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T16:51:25+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.011524s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.014692s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Member/member_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000621s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000837s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Member/member_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000608s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 37 LIMIT 1 [ RunTime:0.000439s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = 27 ORDER BY `sort` [ RunTime:0.014607s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_member_list` [ RunTime:0.220850s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_member_list` `a` INNER JOIN `zs_member_group` `b` ON `a`.`member_list_groupid`=`b`.`member_group_id` LEFT JOIN `zs_school` `s` ON `a`.`school_id`=`s`.`school_id` LEFT JOIN `zs_major` `m` ON `a`.`major_id`=`m`.`major_id` LEFT JOIN `zs_recruit_major` `rm` ON `m`.`recruit_major_id`=`rm`.`recruit_major_id` WHERE  ( `member_list_username` LIKE '%%' OR `member_list_nickname` LIKE '%%' ) LIMIT 1 [ RunTime:0.001146s ]
+[ sql ] [ SQL ] SELECT `a`.*,`b`.*,m.score as major_score_key,`m`.`major_name`,`s`.`school_id`,`s`.`school_name`,`rm`.`recruit_major_name` FROM `zs_member_list` `a` INNER JOIN `zs_member_group` `b` ON `a`.`member_list_groupid`=`b`.`member_group_id` LEFT JOIN `zs_school` `s` ON `a`.`school_id`=`s`.`school_id` LEFT JOIN `zs_major` `m` ON `a`.`major_id`=`m`.`major_id` LEFT JOIN `zs_recruit_major` `rm` ON `m`.`recruit_major_id`=`rm`.`recruit_major_id` WHERE  ( `member_list_username` LIKE '%%' OR `member_list_nickname` LIKE '%%' ) ORDER BY member_list_addtime desc LIMIT 0,10 [ RunTime:0.001463s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.073850s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` [ RunTime:0.000995s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T16:51:30+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001780s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004263s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Member/member_edit' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000528s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000710s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Member/member_edit'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000478s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000302s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.000504s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.004239s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 1 LIMIT 1 [ RunTime:0.000565s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_region` [ RunTime:0.003951s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_region` WHERE  `pid` = 1 [ RunTime:0.000898s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_member_group` [ RunTime:0.003882s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_member_group` ORDER BY `member_group_order` [ RunTime:0.000305s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_member_list` [ RunTime:0.004212s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_member_list` WHERE  `member_list_id` = 24 LIMIT 1 [ RunTime:0.000420s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_region` WHERE  `pid` = null [ RunTime:0.000822s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_region` WHERE  `pid` = null [ RunTime:0.000818s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.003943s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` [ RunTime:0.000310s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major` [ RunTime:0.003872s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major` WHERE  `school_id` = 1 [ RunTime:0.000359s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_member_info` [ RunTime:0.004096s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_member_info` WHERE  `member_list_id` = 24 LIMIT 1 [ RunTime:0.000440s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major` WHERE  `major_id` = 1 LIMIT 1 [ RunTime:0.000326s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T17:02:28+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001493s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004340s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/recruit_major_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000854s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000853s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/recruit_major_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000507s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 329 LIMIT 1 [ RunTime:0.000346s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = 327 ORDER BY `sort` [ RunTime:0.000542s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_recruit_major` [ RunTime:0.004631s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_recruit_major` LIMIT 1 [ RunTime:0.000461s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_recruit_major` ORDER BY `recruit_major_id` LIMIT 0,10 [ RunTime:0.000362s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T17:02:31+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001090s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004224s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000536s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000887s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000486s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 328 LIMIT 1 [ RunTime:0.000326s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = 327 ORDER BY `sort` [ RunTime:0.000525s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.004035s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_school` LIMIT 1 [ RunTime:0.000320s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` ORDER BY `school_id` LIMIT 0,10 [ RunTime:0.000312s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T17:02:33+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001071s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004292s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/major_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000525s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000723s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/major_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000475s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000305s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.000521s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.004215s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 1 LIMIT 1 [ RunTime:0.000367s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major` [ RunTime:0.003934s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_major` WHERE  `school_id` LIKE 0 LIMIT 1 [ RunTime:0.000343s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major` WHERE  `school_id` LIKE 0 ORDER BY `major_id` LIMIT 0,10 [ RunTime:0.000369s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T17:02:44+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001073s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004373s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Member/member_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000529s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000712s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Member/member_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000475s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 37 LIMIT 1 [ RunTime:0.000336s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = 27 ORDER BY `sort` [ RunTime:0.000527s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_member_list` [ RunTime:0.004299s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_member_list` `a` INNER JOIN `zs_member_group` `b` ON `a`.`member_list_groupid`=`b`.`member_group_id` LEFT JOIN `zs_school` `s` ON `a`.`school_id`=`s`.`school_id` LEFT JOIN `zs_major` `m` ON `a`.`major_id`=`m`.`major_id` LEFT JOIN `zs_recruit_major` `rm` ON `m`.`recruit_major_id`=`rm`.`recruit_major_id` WHERE  ( `member_list_username` LIKE '%%' OR `member_list_nickname` LIKE '%%' ) LIMIT 1 [ RunTime:0.000551s ]
+[ sql ] [ SQL ] SELECT `a`.*,`b`.*,m.score as major_score_key,`m`.`major_name`,`s`.`school_id`,`s`.`school_name`,`rm`.`recruit_major_name` FROM `zs_member_list` `a` INNER JOIN `zs_member_group` `b` ON `a`.`member_list_groupid`=`b`.`member_group_id` LEFT JOIN `zs_school` `s` ON `a`.`school_id`=`s`.`school_id` LEFT JOIN `zs_major` `m` ON `a`.`major_id`=`m`.`major_id` LEFT JOIN `zs_recruit_major` `rm` ON `m`.`recruit_major_id`=`rm`.`recruit_major_id` WHERE  ( `member_list_username` LIKE '%%' OR `member_list_nickname` LIKE '%%' ) ORDER BY member_list_addtime desc LIMIT 0,10 [ RunTime:0.000828s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.004022s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` [ RunTime:0.000308s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T17:02:47+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001070s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004195s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/score_add' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000528s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000710s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/score_add'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000580s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000315s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.000503s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_member_list` [ RunTime:0.004211s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_member_list` WHERE  `member_list_id` = 23 LIMIT 1 [ RunTime:0.000461s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major_score` [ RunTime:0.003944s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major_score` WHERE  `member_list_id` = 23 LIMIT 1 [ RunTime:0.000407s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major` [ RunTime:0.004078s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major` WHERE  `major_id` = 1 LIMIT 1 [ RunTime:0.000340s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T17:02:59+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.003639s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004283s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000541s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000739s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000483s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 328 LIMIT 1 [ RunTime:0.000330s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = 327 ORDER BY `sort` [ RunTime:0.000524s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.004089s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_school` LIMIT 1 [ RunTime:0.000320s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` ORDER BY `school_id` LIMIT 0,10 [ RunTime:0.000312s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T17:03:01+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001064s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004226s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/major_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000525s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000914s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/major_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000482s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000305s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.000506s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.004040s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 1 LIMIT 1 [ RunTime:0.000352s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major` [ RunTime:0.003983s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_major` WHERE  `school_id` LIKE 0 LIMIT 1 [ RunTime:0.000340s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major` WHERE  `school_id` LIKE 0 ORDER BY `major_id` LIMIT 0,10 [ RunTime:0.000364s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T17:03:03+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.007371s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004380s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/major_edit' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000620s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000793s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/major_edit'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000528s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000355s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.000556s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major` [ RunTime:0.004200s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major` WHERE  `major_id` = 1 LIMIT 1 [ RunTime:0.000370s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.003913s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 1 LIMIT 1 [ RunTime:0.000336s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_recruit_major` [ RunTime:0.003862s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_recruit_major` [ RunTime:0.000315s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T17:03:07+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001064s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004226s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000540s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000732s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000832s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 328 LIMIT 1 [ RunTime:0.000421s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = 327 ORDER BY `sort` [ RunTime:0.000579s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.004118s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_school` LIMIT 1 [ RunTime:0.000318s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` ORDER BY `school_id` LIMIT 0,10 [ RunTime:0.000314s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T17:03:10+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001061s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004498s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/major_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000530s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000723s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/major_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000476s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000306s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.000506s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.004037s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 1 LIMIT 1 [ RunTime:0.000354s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major` [ RunTime:0.003961s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_major` WHERE  `school_id` LIKE 0 LIMIT 1 [ RunTime:0.000338s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major` WHERE  `school_id` LIKE 0 ORDER BY `major_id` LIMIT 0,10 [ RunTime:0.000366s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T17:03:14+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001522s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004260s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/major_edit' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000528s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000726s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/major_edit'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000488s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000303s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.000506s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major` [ RunTime:0.004432s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major` WHERE  `major_id` = 1 LIMIT 1 [ RunTime:0.000378s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.003927s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 1 LIMIT 1 [ RunTime:0.000336s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_recruit_major` [ RunTime:0.003866s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_recruit_major` [ RunTime:0.000314s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T17:04:25+08:00 ] [ error ] [1024]curl[http://api.geetest.com/register.php?gt=admin] error[28:Resolving timed out after 1594 milliseconds]
+
+---------------------------------------------------------------
+[ 2017-04-12T17:05:14+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001785s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_web_log` [ RunTime:0.004404s ]
+[ sql ] [ SQL ] INSERT INTO `zs_web_log` (`uid` , `ip` , `location` , `os` , `browser` , `url` , `module` , `controller` , `action` , `method` , `data` , `otime`) VALUES (1 , '113.65.225.224' , '中国 广东 广州 ' , 'Linux' , 'Chrome(57.0.2987.133)' , '/admin/login/runlogin.html' , 'admin' , 'Login' , 'runlogin' , 'Ajax' , 's:12:\"保密数据\";' , 1491987914) [ RunTime:0.000505s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.004073s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` WHERE  `admin_username` = 'guanggong'  AND `admin_open` = 1 LIMIT 1 [ RunTime:0.000531s ]
+[ sql ] [ SQL ] UPDATE `zs_admin`  SET `admin_hits`=5,`admin_last_ip`='113.65.225.224',`admin_last_time`=1491987914  WHERE  `admin_id` = 3 [ RunTime:0.000424s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` WHERE  `admin_id` = 3 LIMIT 1 [ RunTime:0.000394s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_member_list` [ RunTime:0.004075s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_member_list` WHERE  `member_list_id` IS NULL LIMIT 1 [ RunTime:0.000400s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T17:05:14+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001034s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004220s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000753s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = -1 LIMIT 1 [ RunTime:0.000326s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.000515s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.004482s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` WHERE  `news_l` = 'zh-cn' ORDER BY news_hits desc LIMIT 0,10 [ RunTime:0.000935s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` LIMIT 1 [ RunTime:0.000273s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_member_list` [ RunTime:0.004009s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_member_list` LIMIT 1 [ RunTime:0.000264s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_plug_sug` [ RunTime:0.004012s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_plug_sug` LIMIT 1 [ RunTime:0.000273s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_comments` [ RunTime:0.003932s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_comments` LIMIT 1 [ RunTime:0.000269s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_time` BETWEEN 1491926400 AND 1492012799 LIMIT 1 [ RunTime:0.000406s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_time` BETWEEN 1491840000 AND 1491926399 LIMIT 1 [ RunTime:0.000409s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_member_list` WHERE  `member_list_addtime` BETWEEN 1491926400 AND 1492012799 LIMIT 1 [ RunTime:0.000338s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_member_list` WHERE  `member_list_addtime` BETWEEN 1491840000 AND 1491926399 LIMIT 1 [ RunTime:0.000328s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_plug_sug` WHERE  `plug_sug_addtime` BETWEEN 1491926400 AND 1492012799 LIMIT 1 [ RunTime:0.000297s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_plug_sug` WHERE  `plug_sug_addtime` BETWEEN 1491840000 AND 1491926399 LIMIT 1 [ RunTime:0.000292s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_comments` WHERE  `createtime` BETWEEN 1491926400 AND 1492012799 LIMIT 1 [ RunTime:0.000296s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_comments` WHERE  `createtime` BETWEEN 1491840000 AND 1491926399 LIMIT 1 [ RunTime:0.000293s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T17:06:10+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001089s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004251s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/score_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000530s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000707s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/score_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000481s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 346 LIMIT 1 [ RunTime:0.000323s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = 345 ORDER BY `sort` [ RunTime:0.000522s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.004114s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 3 LIMIT 1 [ RunTime:0.000550s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major_score` [ RunTime:0.003902s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_major_score` `ms` INNER JOIN `zs_member_list` `m` ON `m`.`member_list_id`=`ms`.`member_list_id` WHERE  `m`.`major_id` = 1 LIMIT 1 [ RunTime:0.000562s ]
+[ sql ] [ SQL ] SELECT `ms`.`major_score`,`ms`.`major_score_id`,`ms`.`major_score_status`,`m`.`member_list_nickname`,`m`.`member_list_username`,`m`.`member_list_id` FROM `zs_major_score` `ms` INNER JOIN `zs_member_list` `m` ON `m`.`member_list_id`=`ms`.`member_list_id` WHERE  `m`.`major_id` = 1 ORDER BY m.member_list_id desc,major_score_id desc LIMIT 0,10 [ RunTime:0.002386s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major` [ RunTime:0.003842s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major` WHERE  `major_id` = 1 LIMIT 1 [ RunTime:0.000346s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T17:06:14+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001055s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004309s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Member/member_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000572s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000776s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Member/member_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000480s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 37 LIMIT 1 [ RunTime:0.000324s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = 27 ORDER BY `sort` [ RunTime:0.000530s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_member_list` [ RunTime:0.004250s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_member_list` `a` INNER JOIN `zs_member_group` `b` ON `a`.`member_list_groupid`=`b`.`member_group_id` LEFT JOIN `zs_school` `s` ON `a`.`school_id`=`s`.`school_id` LEFT JOIN `zs_major` `m` ON `a`.`major_id`=`m`.`major_id` LEFT JOIN `zs_recruit_major` `rm` ON `m`.`recruit_major_id`=`rm`.`recruit_major_id` WHERE  ( `member_list_username` LIKE '%%' OR `member_list_nickname` LIKE '%%' ) LIMIT 1 [ RunTime:0.000548s ]
+[ sql ] [ SQL ] SELECT `a`.*,`b`.*,m.score as major_score_key,`m`.`major_name`,`s`.`school_id`,`s`.`school_name`,`rm`.`recruit_major_name` FROM `zs_member_list` `a` INNER JOIN `zs_member_group` `b` ON `a`.`member_list_groupid`=`b`.`member_group_id` LEFT JOIN `zs_school` `s` ON `a`.`school_id`=`s`.`school_id` LEFT JOIN `zs_major` `m` ON `a`.`major_id`=`m`.`major_id` LEFT JOIN `zs_recruit_major` `rm` ON `m`.`recruit_major_id`=`rm`.`recruit_major_id` WHERE  ( `member_list_username` LIKE '%%' OR `member_list_nickname` LIKE '%%' ) ORDER BY member_list_addtime desc LIMIT 0,10 [ RunTime:0.000854s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.003937s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` [ RunTime:0.000313s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T17:12:36+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001515s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_web_log` [ RunTime:0.004488s ]
+[ sql ] [ SQL ] INSERT INTO `zs_web_log` (`uid` , `ip` , `location` , `os` , `browser` , `url` , `module` , `controller` , `action` , `method` , `data` , `otime`) VALUES (0 , '113.65.225.224' , '中国 广东 广州 ' , 'Linux' , 'Chrome(57.0.2987.133)' , '/admin/member/member_active.html' , 'admin' , 'Member' , 'member_active' , 'Ajax' , 'a:1:{s:1:\"x\";s:2:\"24\";}' , 1491988356) [ RunTime:0.000549s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004057s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Member/member_active' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000573s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Member/member_active' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000470s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T17:12:41+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001055s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_web_log` [ RunTime:0.004427s ]
+[ sql ] [ SQL ] INSERT INTO `zs_web_log` (`uid` , `ip` , `location` , `os` , `browser` , `url` , `module` , `controller` , `action` , `method` , `data` , `otime`) VALUES (0 , '113.65.225.224' , '中国 广东 广州 ' , 'Linux' , 'Chrome(57.0.2987.133)' , '/admin/member/member_active.html' , 'admin' , 'Member' , 'member_active' , 'Ajax' , 'a:1:{s:1:\"x\";s:2:\"23\";}' , 1491988360) [ RunTime:0.000488s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.003961s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Member/member_active' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000501s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Member/member_active' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000470s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T17:12:48+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001044s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004306s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Member/member_edit' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000532s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000739s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Member/member_edit'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000476s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000306s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.000503s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.004051s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 3 LIMIT 1 [ RunTime:0.000568s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_region` [ RunTime:0.003886s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_region` WHERE  `pid` = 1 [ RunTime:0.000892s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_member_group` [ RunTime:0.003851s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_member_group` ORDER BY `member_group_order` [ RunTime:0.000327s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_member_list` [ RunTime:0.004109s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_member_list` WHERE  `member_list_id` = 24 LIMIT 1 [ RunTime:0.000432s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_region` WHERE  `pid` = null [ RunTime:0.000828s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_region` WHERE  `pid` = null [ RunTime:0.000834s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.004316s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` [ RunTime:0.000338s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major` [ RunTime:0.003882s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major` WHERE  `school_id` = 1 [ RunTime:0.000388s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_member_info` [ RunTime:0.004116s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_member_info` WHERE  `member_list_id` = 24 LIMIT 1 [ RunTime:0.000458s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major` WHERE  `major_id` = 1 LIMIT 1 [ RunTime:0.000326s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T17:12:54+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.002787s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004234s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Member/member_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000529s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000702s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Member/member_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000476s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 37 LIMIT 1 [ RunTime:0.000325s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = 27 ORDER BY `sort` [ RunTime:0.000521s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_member_list` [ RunTime:0.004317s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_member_list` `a` INNER JOIN `zs_member_group` `b` ON `a`.`member_list_groupid`=`b`.`member_group_id` LEFT JOIN `zs_school` `s` ON `a`.`school_id`=`s`.`school_id` LEFT JOIN `zs_major` `m` ON `a`.`major_id`=`m`.`major_id` LEFT JOIN `zs_recruit_major` `rm` ON `m`.`recruit_major_id`=`rm`.`recruit_major_id` WHERE  ( `member_list_username` LIKE '%%' OR `member_list_nickname` LIKE '%%' ) LIMIT 1 [ RunTime:0.000547s ]
+[ sql ] [ SQL ] SELECT `a`.*,`b`.*,m.score as major_score_key,`m`.`major_name`,`s`.`school_id`,`s`.`school_name`,`rm`.`recruit_major_name` FROM `zs_member_list` `a` INNER JOIN `zs_member_group` `b` ON `a`.`member_list_groupid`=`b`.`member_group_id` LEFT JOIN `zs_school` `s` ON `a`.`school_id`=`s`.`school_id` LEFT JOIN `zs_major` `m` ON `a`.`major_id`=`m`.`major_id` LEFT JOIN `zs_recruit_major` `rm` ON `m`.`recruit_major_id`=`rm`.`recruit_major_id` WHERE  ( `member_list_username` LIKE '%%' OR `member_list_nickname` LIKE '%%' ) ORDER BY member_list_addtime desc LIMIT 0,10 [ RunTime:0.000860s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.004005s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` [ RunTime:0.000306s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T17:18:07+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001591s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004425s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/score_add' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000578s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000730s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/score_add'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000482s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000318s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.000512s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_member_list` [ RunTime:0.004709s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_member_list` WHERE  `member_list_id` = 23 LIMIT 1 [ RunTime:0.000496s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major_score` [ RunTime:0.004063s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major_score` WHERE  `member_list_id` = 23 LIMIT 1 [ RunTime:0.000414s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major` [ RunTime:0.003867s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major` WHERE  `major_id` = 1 LIMIT 1 [ RunTime:0.000348s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T17:18:10+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.002750s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004206s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Member/member_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000534s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000703s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Member/member_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000480s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 37 LIMIT 1 [ RunTime:0.000340s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = 27 ORDER BY `sort` [ RunTime:0.000530s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_member_list` [ RunTime:0.352756s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_member_list` `a` INNER JOIN `zs_member_group` `b` ON `a`.`member_list_groupid`=`b`.`member_group_id` LEFT JOIN `zs_school` `s` ON `a`.`school_id`=`s`.`school_id` LEFT JOIN `zs_major` `m` ON `a`.`major_id`=`m`.`major_id` LEFT JOIN `zs_recruit_major` `rm` ON `m`.`recruit_major_id`=`rm`.`recruit_major_id` WHERE  ( `member_list_username` LIKE '%%' OR `member_list_nickname` LIKE '%%' ) LIMIT 1 [ RunTime:0.000674s ]
+[ sql ] [ SQL ] SELECT `a`.*,`b`.*,m.score as major_score_key,`m`.`major_name`,`s`.`school_id`,`s`.`school_name`,`rm`.`recruit_major_name` FROM `zs_member_list` `a` INNER JOIN `zs_member_group` `b` ON `a`.`member_list_groupid`=`b`.`member_group_id` LEFT JOIN `zs_school` `s` ON `a`.`school_id`=`s`.`school_id` LEFT JOIN `zs_major` `m` ON `a`.`major_id`=`m`.`major_id` LEFT JOIN `zs_recruit_major` `rm` ON `m`.`recruit_major_id`=`rm`.`recruit_major_id` WHERE  ( `member_list_username` LIKE '%%' OR `member_list_nickname` LIKE '%%' ) ORDER BY member_list_addtime desc LIMIT 0,10 [ RunTime:0.000956s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.003981s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` [ RunTime:0.000322s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T17:19:08+08:00 ] [ error ] [1024]curl[http://api.geetest.com/register.php?gt=admin] error[28:Resolving timed out after 1609 milliseconds]
+
+---------------------------------------------------------------
+[ 2017-04-12T17:19:28+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001077s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_web_log` [ RunTime:0.004420s ]
+[ sql ] [ SQL ] INSERT INTO `zs_web_log` (`uid` , `ip` , `location` , `os` , `browser` , `url` , `module` , `controller` , `action` , `method` , `data` , `otime`) VALUES (0 , '113.65.225.224' , '中国 广东 广州 ' , 'Linux' , 'Chrome(57.0.2987.133)' , '/admin/login/runlogin.html' , 'admin' , 'Login' , 'runlogin' , 'Ajax' , 's:12:\"保密数据\";' , 1491988768) [ RunTime:0.000557s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T17:19:34+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001089s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_web_log` [ RunTime:0.004385s ]
+[ sql ] [ SQL ] INSERT INTO `zs_web_log` (`uid` , `ip` , `location` , `os` , `browser` , `url` , `module` , `controller` , `action` , `method` , `data` , `otime`) VALUES (0 , '113.65.225.224' , '中国 广东 广州 ' , 'Linux' , 'Chrome(57.0.2987.133)' , '/admin/login/runlogin.html' , 'admin' , 'Login' , 'runlogin' , 'Ajax' , 's:12:\"保密数据\";' , 1491988774) [ RunTime:0.000488s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T17:19:42+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001151s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_web_log` [ RunTime:0.004437s ]
+[ sql ] [ SQL ] INSERT INTO `zs_web_log` (`uid` , `ip` , `location` , `os` , `browser` , `url` , `module` , `controller` , `action` , `method` , `data` , `otime`) VALUES (0 , '113.65.225.224' , '中国 广东 广州 ' , 'Linux' , 'Chrome(57.0.2987.133)' , '/admin/login/runlogin.html' , 'admin' , 'Login' , 'runlogin' , 'Ajax' , 's:12:\"保密数据\";' , 1491988782) [ RunTime:0.000471s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.004219s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` WHERE  `admin_username` = 'gdaib'  AND `admin_open` = 1 LIMIT 1 [ RunTime:0.000531s ]
+[ sql ] [ SQL ] UPDATE `zs_admin`  SET `admin_hits`=14,`admin_last_ip`='113.65.225.224',`admin_last_time`=1491988782  WHERE  `admin_id` = 6 [ RunTime:0.000365s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` WHERE  `admin_id` = 6 LIMIT 1 [ RunTime:0.000401s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_member_list` [ RunTime:0.004184s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_member_list` WHERE  `member_list_id` IS NULL LIMIT 1 [ RunTime:0.000403s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T17:19:42+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001211s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004264s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000771s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = -1 LIMIT 1 [ RunTime:0.000330s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.000515s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.004446s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` WHERE  `news_l` = 'zh-cn' ORDER BY news_hits desc LIMIT 0,10 [ RunTime:0.001173s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` LIMIT 1 [ RunTime:0.000365s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_member_list` [ RunTime:0.004351s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_member_list` LIMIT 1 [ RunTime:0.000273s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_plug_sug` [ RunTime:0.003971s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_plug_sug` LIMIT 1 [ RunTime:0.000272s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_comments` [ RunTime:0.008048s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_comments` LIMIT 1 [ RunTime:0.000274s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_time` BETWEEN 1491926400 AND 1492012799 LIMIT 1 [ RunTime:0.000426s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_time` BETWEEN 1491840000 AND 1491926399 LIMIT 1 [ RunTime:0.000383s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_member_list` WHERE  `member_list_addtime` BETWEEN 1491926400 AND 1492012799 LIMIT 1 [ RunTime:0.000334s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_member_list` WHERE  `member_list_addtime` BETWEEN 1491840000 AND 1491926399 LIMIT 1 [ RunTime:0.000324s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_plug_sug` WHERE  `plug_sug_addtime` BETWEEN 1491926400 AND 1492012799 LIMIT 1 [ RunTime:0.000293s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_plug_sug` WHERE  `plug_sug_addtime` BETWEEN 1491840000 AND 1491926399 LIMIT 1 [ RunTime:0.000290s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_comments` WHERE  `createtime` BETWEEN 1491926400 AND 1492012799 LIMIT 1 [ RunTime:0.000292s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_comments` WHERE  `createtime` BETWEEN 1491840000 AND 1491926399 LIMIT 1 [ RunTime:0.000296s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T17:20:25+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.007359s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004234s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Member/member_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000539s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000702s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Member/member_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000478s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 37 LIMIT 1 [ RunTime:0.000326s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = 27 ORDER BY `sort` [ RunTime:0.000526s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_member_list` [ RunTime:0.004495s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_member_list` `a` INNER JOIN `zs_member_group` `b` ON `a`.`member_list_groupid`=`b`.`member_group_id` LEFT JOIN `zs_school` `s` ON `a`.`school_id`=`s`.`school_id` LEFT JOIN `zs_major` `m` ON `a`.`major_id`=`m`.`major_id` LEFT JOIN `zs_recruit_major` `rm` ON `m`.`recruit_major_id`=`rm`.`recruit_major_id` WHERE  ( `member_list_username` LIKE '%%' OR `member_list_nickname` LIKE '%%' ) LIMIT 1 [ RunTime:0.000571s ]
+[ sql ] [ SQL ] SELECT `a`.*,`b`.*,m.score as major_score_key,`m`.`major_name`,`s`.`school_id`,`s`.`school_name`,`rm`.`recruit_major_name` FROM `zs_member_list` `a` INNER JOIN `zs_member_group` `b` ON `a`.`member_list_groupid`=`b`.`member_group_id` LEFT JOIN `zs_school` `s` ON `a`.`school_id`=`s`.`school_id` LEFT JOIN `zs_major` `m` ON `a`.`major_id`=`m`.`major_id` LEFT JOIN `zs_recruit_major` `rm` ON `m`.`recruit_major_id`=`rm`.`recruit_major_id` WHERE  ( `member_list_username` LIKE '%%' OR `member_list_nickname` LIKE '%%' ) ORDER BY member_list_addtime desc LIMIT 0,10 [ RunTime:0.000839s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.003879s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` [ RunTime:0.000307s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T17:20:41+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001118s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004309s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/ajax_major' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000546s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000713s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/ajax_major'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000479s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000311s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.000511s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major` [ RunTime:0.003991s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major` WHERE  `school_id` = 1 [ RunTime:0.000414s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T17:20:41+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001204s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_web_log` [ RunTime:0.004270s ]
+[ sql ] [ SQL ] INSERT INTO `zs_web_log` (`uid` , `ip` , `location` , `os` , `browser` , `url` , `module` , `controller` , `action` , `method` , `data` , `otime`) VALUES (0 , '113.65.225.224' , '中国 广东 广州 ' , 'Linux' , 'Chrome(57.0.2987.133)' , '/admin/member/member_list.html' , 'admin' , 'Member' , 'member_list' , 'Ajax' , 'a:5:{s:14:\"opentype_check\";s:0:\"\";s:16:\"activetype_check\";s:0:\"\";s:9:\"school_id\";s:1:\"1\";s:8:\"major_id\";s:0:\"\";s:3:\"key\";s:1:\"9\";}' , 1491988841) [ RunTime:0.000511s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004293s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Member/member_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000514s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000710s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Member/member_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000483s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 37 LIMIT 1 [ RunTime:0.000321s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = 27 ORDER BY `sort` [ RunTime:0.000522s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_member_list` [ RunTime:0.004344s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_member_list` `a` INNER JOIN `zs_member_group` `b` ON `a`.`member_list_groupid`=`b`.`member_group_id` LEFT JOIN `zs_school` `s` ON `a`.`school_id`=`s`.`school_id` LEFT JOIN `zs_major` `m` ON `a`.`major_id`=`m`.`major_id` LEFT JOIN `zs_recruit_major` `rm` ON `m`.`recruit_major_id`=`rm`.`recruit_major_id` WHERE  `a`.`school_id` = '1'  AND ( `member_list_username` LIKE '%9%' OR `member_list_nickname` LIKE '%9%' ) LIMIT 1 [ RunTime:0.000666s ]
+[ sql ] [ SQL ] SELECT `a`.*,`b`.*,m.score as major_score_key,`m`.`major_name`,`s`.`school_id`,`s`.`school_name`,`rm`.`recruit_major_name` FROM `zs_member_list` `a` INNER JOIN `zs_member_group` `b` ON `a`.`member_list_groupid`=`b`.`member_group_id` LEFT JOIN `zs_school` `s` ON `a`.`school_id`=`s`.`school_id` LEFT JOIN `zs_major` `m` ON `a`.`major_id`=`m`.`major_id` LEFT JOIN `zs_recruit_major` `rm` ON `m`.`recruit_major_id`=`rm`.`recruit_major_id` WHERE  `a`.`school_id` = '1'  AND ( `member_list_username` LIKE '%9%' OR `member_list_nickname` LIKE '%9%' ) ORDER BY member_list_addtime desc LIMIT 0,10 [ RunTime:0.000927s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.003985s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` [ RunTime:0.000310s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T17:24:05+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001917s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.006077s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` INNER JOIN `zs_member_list` `b` ON `a`.`news_auto`=`b`.`member_list_id` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (17) ORDER BY news_time desc LIMIT 7 [ RunTime:0.002087s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` INNER JOIN `zs_member_list` `b` ON `a`.`news_auto`=`b`.`member_list_id` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (18) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000623s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` INNER JOIN `zs_member_list` `b` ON `a`.`news_auto`=`b`.`member_list_id` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (16) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000529s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T17:25:56+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001037s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004272s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/recruit_major_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000555s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000725s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/recruit_major_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000481s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 329 LIMIT 1 [ RunTime:0.000324s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = 327 ORDER BY `sort` [ RunTime:0.000529s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_recruit_major` [ RunTime:0.004024s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_recruit_major` LIMIT 1 [ RunTime:0.000342s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_recruit_major` ORDER BY `recruit_major_id` LIMIT 0,10 [ RunTime:0.000316s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T17:26:57+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.002272s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004278s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000527s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000713s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000480s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 328 LIMIT 1 [ RunTime:0.000323s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = 327 ORDER BY `sort` [ RunTime:0.000515s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.004103s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_school` LIMIT 1 [ RunTime:0.000333s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` ORDER BY `school_id` LIMIT 0,10 [ RunTime:0.000319s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T17:26:59+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001088s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004212s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/major_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000528s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000719s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/major_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000472s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000304s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.000699s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.003960s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 1 LIMIT 1 [ RunTime:0.000366s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major` [ RunTime:0.003903s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_major` WHERE  `school_id` LIKE 0 LIMIT 1 [ RunTime:0.000351s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major` WHERE  `school_id` LIKE 0 ORDER BY `major_id` LIMIT 0,10 [ RunTime:0.000368s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T17:27:30+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.011063s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.005818s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/recruit_major_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000888s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.001241s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/recruit_major_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000766s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 329 LIMIT 1 [ RunTime:0.000503s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = 327 ORDER BY `sort` [ RunTime:0.001286s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_recruit_major` [ RunTime:0.004403s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_recruit_major` LIMIT 1 [ RunTime:0.000331s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_recruit_major` ORDER BY `recruit_major_id` LIMIT 0,10 [ RunTime:0.000316s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T17:27:43+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001118s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004574s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/recruit_major_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000533s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000725s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/recruit_major_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000477s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 329 LIMIT 1 [ RunTime:0.000323s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = 327 ORDER BY `sort` [ RunTime:0.000514s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_recruit_major` [ RunTime:0.004030s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_recruit_major` LIMIT 1 [ RunTime:0.000332s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_recruit_major` ORDER BY `recruit_major_id` LIMIT 0,10 [ RunTime:0.000603s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T17:29:19+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001076s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004273s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/recruit_major_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000526s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000719s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/recruit_major_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000479s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 329 LIMIT 1 [ RunTime:0.000328s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = 327 ORDER BY `sort` [ RunTime:0.000531s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_recruit_major` [ RunTime:0.004037s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_recruit_major` LIMIT 1 [ RunTime:0.000326s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_recruit_major` ORDER BY `recruit_major_id` LIMIT 0,10 [ RunTime:0.000313s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T17:31:28+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001130s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004305s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000555s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000714s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000482s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 328 LIMIT 1 [ RunTime:0.000325s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = 327 ORDER BY `sort` [ RunTime:0.000518s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.004040s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_school` LIMIT 1 [ RunTime:0.000336s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` ORDER BY `school_id` LIMIT 0,10 [ RunTime:0.000321s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T17:31:31+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001056s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004207s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/major_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000529s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000711s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/major_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000473s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000311s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.000509s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.003993s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 1 LIMIT 1 [ RunTime:0.000519s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major` [ RunTime:0.003989s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_major` WHERE  `school_id` LIKE 0 LIMIT 1 [ RunTime:0.000350s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major` WHERE  `school_id` LIKE 0 ORDER BY `major_id` LIMIT 0,10 [ RunTime:0.000371s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T17:31:51+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001257s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004301s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/major_edit' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000532s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000716s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/major_edit'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000481s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000312s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.000507s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major` [ RunTime:0.003989s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major` WHERE  `major_id` = 1 LIMIT 1 [ RunTime:0.000374s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.003836s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 1 LIMIT 1 [ RunTime:0.000339s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_recruit_major` [ RunTime:0.003838s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_recruit_major` [ RunTime:0.000320s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T17:31:54+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.008731s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004505s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/major_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000527s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000724s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/major_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000475s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000303s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.000501s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.004043s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 1 LIMIT 1 [ RunTime:0.000354s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major` [ RunTime:0.003879s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_major` WHERE  `school_id` LIKE 0 LIMIT 1 [ RunTime:0.000349s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major` WHERE  `school_id` LIKE 0 ORDER BY `major_id` LIMIT 0,10 [ RunTime:0.000374s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T17:32:00+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001038s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004179s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/major_edit' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000594s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000725s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/major_edit'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000548s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000395s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.000538s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major` [ RunTime:0.004103s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major` WHERE  `major_id` = 1 LIMIT 1 [ RunTime:0.000356s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.003936s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 1 LIMIT 1 [ RunTime:0.000489s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_recruit_major` [ RunTime:0.004105s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_recruit_major` [ RunTime:0.000311s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T17:32:12+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001159s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004306s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/major_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000536s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000705s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/major_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000483s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000304s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.000504s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.004031s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 1 LIMIT 1 [ RunTime:0.000356s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major` [ RunTime:0.003922s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_major` WHERE  `school_id` LIKE 0 LIMIT 1 [ RunTime:0.000339s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major` WHERE  `school_id` LIKE 0 ORDER BY `major_id` LIMIT 0,10 [ RunTime:0.000362s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T17:33:01+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.004402s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004379s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/recruit_major_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000550s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000714s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/recruit_major_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000483s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 329 LIMIT 1 [ RunTime:0.000326s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = 327 ORDER BY `sort` [ RunTime:0.000513s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_recruit_major` [ RunTime:0.004205s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_recruit_major` LIMIT 1 [ RunTime:0.000326s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_recruit_major` ORDER BY `recruit_major_id` LIMIT 0,10 [ RunTime:0.000317s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T17:33:04+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.004086s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004261s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000530s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000706s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000475s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 328 LIMIT 1 [ RunTime:0.000326s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = 327 ORDER BY `sort` [ RunTime:0.000527s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.004170s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_school` LIMIT 1 [ RunTime:0.000327s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` ORDER BY `school_id` LIMIT 0,10 [ RunTime:0.000313s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T17:33:12+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001715s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.005153s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/major_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000534s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000714s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/major_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000492s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000306s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.000504s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.004035s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 1 LIMIT 1 [ RunTime:0.000354s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major` [ RunTime:0.004606s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_major` WHERE  `school_id` LIKE 0 LIMIT 1 [ RunTime:0.000364s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major` WHERE  `school_id` LIKE 0 ORDER BY `major_id` LIMIT 0,10 [ RunTime:0.000365s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T17:33:14+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.006791s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004222s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/major_edit' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000537s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000711s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/major_edit'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000480s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000305s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.000508s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major` [ RunTime:0.003996s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major` WHERE  `major_id` = 1 LIMIT 1 [ RunTime:0.000366s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.003842s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 1 LIMIT 1 [ RunTime:0.000337s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_recruit_major` [ RunTime:0.003893s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_recruit_major` [ RunTime:0.000315s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T17:33:25+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.008667s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004389s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000544s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000705s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000484s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 328 LIMIT 1 [ RunTime:0.000324s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = 327 ORDER BY `sort` [ RunTime:0.000515s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.004173s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_school` LIMIT 1 [ RunTime:0.000324s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` ORDER BY `school_id` LIMIT 0,10 [ RunTime:0.000316s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T17:33:30+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.005980s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004262s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/major_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000528s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000706s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/major_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000477s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000306s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.000503s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.003972s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 1 LIMIT 1 [ RunTime:0.000358s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major` [ RunTime:0.003947s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_major` WHERE  `school_id` LIKE 0 LIMIT 1 [ RunTime:0.000336s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major` WHERE  `school_id` LIKE 0 ORDER BY `major_id` LIMIT 0,10 [ RunTime:0.000363s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T17:33:34+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001049s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004220s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/major_edit' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000534s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000712s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/major_edit'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000474s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000303s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.000662s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major` [ RunTime:0.004033s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major` WHERE  `major_id` = 1 LIMIT 1 [ RunTime:0.000365s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.003859s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 1 LIMIT 1 [ RunTime:0.000336s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_recruit_major` [ RunTime:0.003964s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_recruit_major` [ RunTime:0.000311s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T17:35:09+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.005599s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004452s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Member/member_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000569s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000708s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Member/member_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000485s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 37 LIMIT 1 [ RunTime:0.000339s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = 27 ORDER BY `sort` [ RunTime:0.000525s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_member_list` [ RunTime:0.004216s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_member_list` `a` INNER JOIN `zs_member_group` `b` ON `a`.`member_list_groupid`=`b`.`member_group_id` LEFT JOIN `zs_school` `s` ON `a`.`school_id`=`s`.`school_id` LEFT JOIN `zs_major` `m` ON `a`.`major_id`=`m`.`major_id` LEFT JOIN `zs_recruit_major` `rm` ON `m`.`recruit_major_id`=`rm`.`recruit_major_id` WHERE  ( `member_list_username` LIKE '%%' OR `member_list_nickname` LIKE '%%' ) LIMIT 1 [ RunTime:0.000596s ]
+[ sql ] [ SQL ] SELECT `a`.*,`b`.*,m.score as major_score_key,`m`.`major_name`,`s`.`school_id`,`s`.`school_name`,`rm`.`recruit_major_name` FROM `zs_member_list` `a` INNER JOIN `zs_member_group` `b` ON `a`.`member_list_groupid`=`b`.`member_group_id` LEFT JOIN `zs_school` `s` ON `a`.`school_id`=`s`.`school_id` LEFT JOIN `zs_major` `m` ON `a`.`major_id`=`m`.`major_id` LEFT JOIN `zs_recruit_major` `rm` ON `m`.`recruit_major_id`=`rm`.`recruit_major_id` WHERE  ( `member_list_username` LIKE '%%' OR `member_list_nickname` LIKE '%%' ) ORDER BY member_list_addtime desc LIMIT 0,10 [ RunTime:0.000880s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.003899s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` [ RunTime:0.000308s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T17:38:35+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001390s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.005046s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000656s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000745s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000467s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 328 LIMIT 1 [ RunTime:0.000330s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = 327 ORDER BY `sort` [ RunTime:0.000532s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.004174s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_school` LIMIT 1 [ RunTime:0.000515s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` ORDER BY `school_id` LIMIT 0,10 [ RunTime:0.000368s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T17:40:48+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.015625s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.006320s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/recruit_major_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000946s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.001351s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/recruit_major_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000678s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 329 LIMIT 1 [ RunTime:0.000443s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = 327 ORDER BY `sort` [ RunTime:0.000680s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_recruit_major` [ RunTime:0.004329s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_recruit_major` LIMIT 1 [ RunTime:0.000337s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_recruit_major` ORDER BY `recruit_major_id` LIMIT 0,10 [ RunTime:0.000311s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T17:40:50+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.007249s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004126s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000539s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000715s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/school_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000476s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 328 LIMIT 1 [ RunTime:0.000325s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = 327 ORDER BY `sort` [ RunTime:0.000516s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.004335s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_school` LIMIT 1 [ RunTime:0.000457s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` ORDER BY `school_id` LIMIT 0,10 [ RunTime:0.000368s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T17:40:52+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001048s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004204s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/major_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000526s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000707s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/major_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000473s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000305s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.000507s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.004094s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 1 LIMIT 1 [ RunTime:0.000352s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major` [ RunTime:0.003893s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_major` WHERE  `school_id` LIKE 0 LIMIT 1 [ RunTime:0.000342s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major` WHERE  `school_id` LIKE 0 ORDER BY `major_id` LIMIT 0,10 [ RunTime:0.000386s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T18:04:26+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.005095s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.004690s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/recruit_major_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000645s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.000740s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/School/recruit_major_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.000477s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 329 LIMIT 1 [ RunTime:0.000370s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = 327 ORDER BY `sort` [ RunTime:0.000525s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_recruit_major` [ RunTime:0.004214s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_recruit_major` LIMIT 1 [ RunTime:0.000334s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_recruit_major` ORDER BY `recruit_major_id` LIMIT 0,10 [ RunTime:0.000314s ]
+
+---------------------------------------------------------------
+[ 2017-04-12T22:53:45+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001343s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_options` [ RunTime:0.004964s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_options` WHERE  `option_name` = 'site_options'  AND `option_l` = 'ru-ru' LIMIT 1 [ RunTime:0.000532s ]
+[ error ] [1]Call to a member function toArray() on null
+
+---------------------------------------------------------------
+[ 2017-04-12T22:53:45+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.005601s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_options` [ RunTime:0.008169s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_options` WHERE  `option_name` = 'site_options'  AND `option_l` = 'ru-ru' LIMIT 1 [ RunTime:0.000475s ]
+[ error ] [1]Call to a member function toArray() on null
+
+---------------------------------------------------------------
+[ 2017-04-12T22:53:51+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001051s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_options` [ RunTime:0.004348s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_options` WHERE  `option_name` = 'site_options'  AND `option_l` = 'ru-ru' LIMIT 1 [ RunTime:0.000418s ]
+[ error ] [1]Call to a member function toArray() on null
+
+---------------------------------------------------------------
+[ 2017-04-12T22:53:57+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001063s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_options` [ RunTime:0.004229s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_options` WHERE  `option_name` = 'site_options'  AND `option_l` = 'ru-ru' LIMIT 1 [ RunTime:0.000415s ]
+[ error ] [1]Call to a member function toArray() on null
+
+---------------------------------------------------------------
+[ 2017-04-12T22:53:59+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001082s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_options` [ RunTime:0.004240s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_options` WHERE  `option_name` = 'site_options'  AND `option_l` = 'ru-ru' LIMIT 1 [ RunTime:0.000414s ]
+[ error ] [1]Call to a member function toArray() on null
+
+---------------------------------------------------------------
+[ 2017-04-12T22:54:09+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.001031s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_options` [ RunTime:0.004222s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_options` WHERE  `option_name` = 'site_options'  AND `option_l` = 'ru-ru' LIMIT 1 [ RunTime:0.000416s ]
+[ error ] [1]Call to a member function toArray() on null
+
+---------------------------------------------------------------
