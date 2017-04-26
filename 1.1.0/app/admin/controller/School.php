@@ -250,13 +250,9 @@ class School extends Base
 		{
 			$this->error('不存在该专业');
 		}
-		$score = $_POST['score'];
 		$data = [
 			'major_name' => input('major_name'),
-			'score' => json_encode($score),
 			'major_code' => input('major_code'),
-			'recruit_major_id' => input('recruit_major_id'),
-			'number' => input('number'),
 		];
 		$rst = Db::name('major')->where(array('major_id' => $major['major_id']))->update($data);
 		if($rst!==false){

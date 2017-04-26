@@ -19,6 +19,8 @@ class Matriculate extends Base
 {
     public function index()
     {
+        $min_score = Db::name('min_score')->find();
+        $min_score = $min_score ? $min_score['min_score'] : 0;
         $school_id = input('school_id','');
         $recruit_major_id = input('recruit_major_id','');
         $where['rm.recruit_major_id'] = $recruit_major_id;
@@ -56,7 +58,7 @@ class Matriculate extends Base
 			$data[$key]['major_score_total'] = $major_score_total;
 			$data[$key]['total_score'] = $major_score_total + $value['recruit_score'];
             $data[$key]['admission_status'] = 1;
-            if($value['recruit_score'] < 80)
+            if($value['recruit_score'] < $min_score)
             {
                 $data[$key]['admission_status'] = 0;
             }
@@ -122,15 +124,20 @@ class Matriculate extends Base
         $member_model=new MemberList;
         $member_list=$member_model->alias('a')->join(config('database.prefix').'member_group b','a.member_list_groupid=b.member_group_id')
                 ->join(config('database.prefix').'member_info mi','mi.member_list_id = a.member_list_id')
-			    ->join(config('database.prefix').'school s','a.school_id = s.school_id','left')
-				->join(config('database.prefix').'major m','a.major_id = m.major_id','left')
-				->join(config('database.prefix').'recruit_major rm','m.recruit_major_id = rm.recruit_major_id','left')
+			    ->join(config('database.prefix').'school s','a.school_id = s.school_id')
+				->join(config('database.prefix').'major m','a.major_id = m.major_id')
 				->where($where)
-				->field('a.*,b.*,m.score as major_score_key,m.major_name,s.school_id,s.school_name,rm.recruit_major_name,mi.ZexamineeNumber')
+				->field('a.*,b.*,s.school_id,m.score as major_score_key,m.major_name,s.school_id,s.school_name,mi.ZexamineeNumber')
 				->select();
 		$data = $member_list;
         $ranking = 1;
 		foreach ($data as $key => $value) {
+            $recruit_major = Db::name('recruit_major')->alias('rm')
+                                    ->join(config('database.prefix').'enrollment e','e.recruit_major_id = rm.recruit_major_id')
+                                    ->where(array('e.major_ids' => array('LIKE' , '%,'.$value['major_id'].',%')))
+                                    ->where(array('e.school_id' => $value['school_id']))
+                                    ->find();
+            $data[$key]['recruit_major_name'] = $recruit_major['recruit_major_name'];
 			$major_score_arr = [];
 			$major_score_desc = $major_score_total = '';
 			$major_score_key =array_filter(json_decode($value['major_score_key'],true));
@@ -148,7 +155,7 @@ class Matriculate extends Base
 			$data[$key]['major_score_total'] = $major_score_total;
 			$data[$key]['total_score'] = $major_score_total + $value['recruit_score'];
             $data[$key]['admission_status'] = 1;
-            if($value['recruit_score'] < $recruit_major['min_score'])
+            if($value['recruit_score'] < $min_score)
             {
                 $data[$key]['admission_status'] = 0;
             }
@@ -156,7 +163,7 @@ class Matriculate extends Base
         array_multisort(array_column($data,'admission_status'),SORT_DESC,array_column($data,'total_score'),SORT_DESC,$data);
         foreach ($data as $key => $value) {
             $data[$key]['ranking'] = $ranking;
-            if($value['ranking'] > $recruit_major['zs_number'])
+            if($value['ranking'] > $recruit_major['enrollment_number'])
             {
                 $data[$key]['admission_status'] = 0;
             }
@@ -201,5 +208,21 @@ class Matriculate extends Base
         $objWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
         $objWriter->save('php://output');
         exit;
+    }
+    public function min_score()
+    {
+        $min_score = Db::name('min_score')->find();
+        $this->assign('min_score',$min_score['min_score']);
+        return $this->fetch();
+    }
+    public function min_score_runedit()
+    {
+        $min_score = input('min_score',0);
+        $rst = Db::name('min_score')->where(array('min_score' => array('NEQ','-1')))->update(['min_score' => $min_score]);
+        if($rst!==false){
+			$this->success('修改成功',url('admin/Matriculate/min_score'));
+		}else{
+			$this->error('修改失败',url('admin/Matriculate/min_score'));
+		}
     }
 }
