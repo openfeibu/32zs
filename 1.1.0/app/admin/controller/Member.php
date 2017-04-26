@@ -44,11 +44,11 @@ class Member extends Base
 		}
 		$member_model=new MemberList;
 		$member_list=$member_model->alias('a')->join(config('database.prefix').'member_group b','a.member_list_groupid=b.member_group_id')
-			    ->join(config('database.prefix').'school s','a.school_id = s.school_id','left')
-				->join(config('database.prefix').'major m','a.major_id = m.major_id','left')
-				->join(config('database.prefix').'recruit_major rm','m.recruit_major_id = rm.recruit_major_id','left')
+			    ->join(config('database.prefix').'school s','a.school_id = s.school_id')
+				->join(config('database.prefix').'major m','a.major_id = m.major_id')
+				->join(config('database.prefix').'member_info mi','mi.member_list_id = a.member_list_id')
 				->where($where)->where('member_list_username|member_list_nickname','like',"%".$key."%")
-				->field('a.*,b.*,m.major_name,m.major_code,m.score as major_score_key,m.major_name,s.school_id,s.school_name,rm.recruit_major_name')
+				->field('a.*,b.*,m.major_id,m.major_name,m.major_code,m.score as major_score_key,m.major_name,s.school_id,s.school_name,mi.GexamineeNumber')
 				->order('member_list_addtime desc')->paginate(config('paginate.list_rows'),false,['query'=>get_query()]);
 
 		$show=$member_list->render();
@@ -56,6 +56,12 @@ class Member extends Base
 
 		$data = $member_list->all();
 		foreach ($data as $k => $value) {
+			$recruit_major = Db::name('recruit_major')->alias('rm')
+                                    ->join(config('database.prefix').'enrollment e','e.recruit_major_id = rm.recruit_major_id')
+                                    ->where(array('e.major_ids' => array('LIKE' , '%,'.$value['major_id'].',%')))
+                                    ->where(array('e.school_id' => $value['school_id']))
+                                    ->find();
+            $data[$k]['recruit_major_name'] = $recruit_major['recruit_major_name'];
 			$major_score_arr = [];
 			$major_score_desc = $major_score_total = '';
 			$major_score_key =array_filter(json_decode($value['major_score_key'],true));
@@ -261,6 +267,39 @@ class Member extends Base
 				$this->error('会员修改失败');
 			}
 		}
+	}
+	public function member_edit_GexamineeNumber()
+	{
+		$member_list_id = input('member_list_id');
+        if(!$member_list_id){
+            return [
+				'code' => 0,
+				'msg' => '参数错误'
+			];
+        }
+		$member_list = Db::name('member_info')->where(array('member_list_id' => $member_list_id))->find();
+        if($member_list)
+        {
+			$data = [
+                'GexamineeNumber' => input('GexamineeNumber'),
+            ];
+			$rst = Db::name('member_info')->where(array('member_list_id' => $member_list_id))->update($data);
+			if($rst!==false){
+				return [
+					'code' => 1,
+					'msg' => '提交成功'
+				];
+			}else{
+				return [
+					'code' => 0,
+					'msg' => '提交失败'
+				];
+			}
+		}
+		return [
+			'code' => 0,
+			'msg' => '参数错误'
+		];
 	}
 	/*
      * 会员禁止/取消禁止
