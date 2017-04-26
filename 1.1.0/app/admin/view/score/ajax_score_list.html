@@ -14,7 +14,7 @@
 
 {foreach name="data" item="v"}
 <tr>
-    <td>{if $major_score_status ==1}{$v.ZexamineeNumber}{else}<a href="{:url('admin/score/score_add',array('member_list_id'=>$v['member_list_id']))}">{$v.ZexamineeNumber}</a>{else}</td>
+    <td>{if $major_score_status ==1}{$v.ZexamineeNumber}{else}<a href="{:url('admin/score/score_add',array('member_list_id'=>$v['member_list_id']))}">{$v.ZexamineeNumber}</a>{/if}</td>
     <td height="28" >{$v.member_list_nickname}</td>
     <td>{$v.member_list_username}</td>
     <td>{$v.major_name}</td>

@@ -56,14 +56,15 @@
 
 	</div><!-- /.page-content -->
 <script>
-    $(".btn-unactive").click(function(){
-        url = "{:url('admin/score/score_unactive')}";
-        $("#score_form").attr('action',url);
-        return true;
-    });
-    $(".recruit_score").blur(function(){
+	$('body').on('click','.btn-unactive',function(){
+		url = "{:url('admin/score/score_unactive')}";
+		$("#score_form").attr('action',url);
+		return true;
+	})
+	$('body').on('blur','.recruit_score',function(){
         member_list_id = $(this).attr('data-id');
         recruit_score = $.trim($(this).val());
+		$this = $(this);
         if(recruit_score.length > 0){
             var reg = /^[0-9]+.?[0-9]*$/;
             if(!reg.test(recruit_score)){
