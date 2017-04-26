@@ -264,18 +264,18 @@
 					<td class="k-s-content content"><input type="text" name="domicile" value="{$info.domicile}" /></td>
 					<td class="k-s-content low_width_1 title">所在专业</td>
 					<td class="k-s-content content">
-						<input type="text" name="nowProfessional" value="{$info.nowProfessional}" disabled/>
+						<input type="text" name="nowProfessional" value="{$major.major_name}" disabled/>
 					</td>
 					<td class="k-s-content low_width_3 title">所在学校</td>
 					<td class="k-s-content content">
-						<input type="text" name="school" value="{$info.school}"  disabled/>
+						<input type="text" name="school" value="{$school.school_name}"  disabled/>
 					</td>
 
 				</tr>
 				<tr class="line-table-height">
 					<td class="k-s-content low_width_1 title">报考专业</td>
 					<td class="k-s-content content" colspan="1">
-						<input type="text" name="applyProfessional"  disabled/>
+						<input type="text" name="applyProfessional"  value='{$recruit_major.recruit_major_name}' disabled/>
 					</td>
 					<td class="k-s-content title" colspan="1">中职考生号</td>
 					<td class="k-s-content content">

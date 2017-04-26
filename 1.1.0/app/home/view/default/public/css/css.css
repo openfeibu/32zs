@@ -17,6 +17,11 @@ html,body{font-size:12px;color: #222;font-family: Microsoft YaHei,KaiTi,Helvetic
 input::-moz-placeholder, textarea::-moz-placeholder { color:#fff; }
 input:-ms-input-placeholder, textarea:-ms-input-placeholder { color: #fff }
 input::-webkit-input-placeholder, textarea::-webkit-input-placeholder { color: #fff; }
+input[disabled] {
+    color: #848484!important;
+    background-color: #EEE!important;
+    padding: 7px 0px;
+}
 input:disabled{
     border: 1px solid #fff;
     background-color: #fff;
@@ -158,7 +163,7 @@ body{background: #eeeeee;}
 
 .personal_table{background: #fff;}
 .personal_table table{margin:0 auto;}
-.personal_table table input{width: 100%;height: 100%;border:none;outline:none;text-align: center;color: #666}
+.personal_table table input{width: 100%;height: 100%;border:none;outline:none;text-align: center;/*color: #666*/}
 
 .line-table-height{
     height:30px;
@@ -214,6 +219,10 @@ body{background: #eeeeee;}
 /*  border-color:#ccc; */
     border-width:1px;
     border-collapse:collapse;
+}
+.k-w-table input{
+    font-weight: bold;
+    font-size: 14px;
 }
 
 .print{width: 100px;height: 32px;border:none;background: #971f21;color: #fff;margin:25px auto;display: block;cursor: pointer;}
