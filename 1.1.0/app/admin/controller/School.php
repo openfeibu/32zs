@@ -459,12 +459,15 @@ class School extends Base
 		$this->assign('recruit_major_list',$recruit_major_list);
 		$school_list = Db::name('school')->select();
 		$this->assign('school_list',$school_list);
+		$major_list = Db::name('major')->select();
+		$this->assign('major_list',$major_list);
 		return $this->fetch();
 	}
 	public function enrollment_runadd()
 	{
-		$major_ids = implode(',',$_POST['major_id']);
-		$major_ids = ','.$major_id.',';
+		$major_ids = array_filter($_POST['major_id']);
+		$major_ids = implode(',',$major_ids);
+		$major_ids = ','.$major_ids.',';
 		$data = [
 			'recruit_major_id' => input('recruit_major_id'),
 			'major_ids' => $major_ids,

@@ -13,6 +13,7 @@ use app\admin\model\AuthRule;
 use app\admin\model\SchoolModel;
 use think\Db;
 use think\Cache;
+use app\admin\model\Major as MajorModel;
 
 class Admin extends Base
 {
@@ -131,10 +132,21 @@ class Admin extends Base
 		}
 		$admin_list=Db::name('admin')->alias('a')
 							->join(config('database.prefix').'auth_group_access aga','aga.uid = a.admin_id')
+							->join(config('database.prefix').'school s','s.school_id = a.school_id')
 							->where($map)->order('a.admin_id')->paginate(config('paginate.list_rows'),false,['query'=>get_query()]);
+		$data = $admin_list->all();
+		foreach ($data as $key => $value) {
+			$major_ids = array_filter(json_decode($value['major_id'],true));
+			$major_list = MajorModel::get_secondary_vocat_major_list($major_ids,$value['school_id']);
+			$major_desc = '';
+			foreach ($major_list as $k => $v) {
+				$major_desc .= '<span style="margin-right:10px;">'.$v['major_name'].'</span>';
+			}
+			$data[$key]['major_desc'] = $major_desc;
+		}
 		$page = $admin_list->render();
 		$this->assign('group_id',4);
-		$this->assign('admin_list',$admin_list);
+		$this->assign('admin_list',$data);
 		$this->assign('page',$page);
 		return $this->fetch();
 	}
@@ -225,6 +237,7 @@ class Admin extends Base
 		}
 		$admin_list=Db::name('admin')->alias('a')
 							->join(config('database.prefix').'auth_group_access aga','aga.uid = a.admin_id')
+							->join(config('database.prefix').'recruit_major rm','rm.recruit_major_id = a.recruit_major_id')
 							->where($map)->order('a.admin_id')->paginate(config('paginate.list_rows'),false,['query'=>get_query()]);
 		$page = $admin_list->render();
 		$this->assign('group_id',4);
