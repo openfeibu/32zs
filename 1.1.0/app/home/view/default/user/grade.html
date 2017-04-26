@@ -13,7 +13,7 @@
                {foreach name="major_score_key" item="v" key="k"}
                <tr class="line-table-height">
                    <td class="k-s-content"  width="40%">{$v}</td>
-                   <td class="k-s-content" >{if $major_score_arr[$k]}{$major_score_arr[$k]}{/if}</td>
+                   <td class="k-s-content" >{if isset($major_score_arr[$k])}{$major_score_arr[$k]}{/if}</td>
                </tr>
                {/foreach}
                <tr class="line-table-height">
