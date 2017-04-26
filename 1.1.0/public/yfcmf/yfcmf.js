@@ -1216,11 +1216,7 @@ $(function(){
 
 	});
 	$('.hanle_school_count').click(function(){
-		if(!$('#school_more').val())
-		{
-			layer.alert('请先选择中职学校');
-			return false;
-		}
+
 		var count = $(".major_more").length;
 		console.log(count);
 		if($(this).hasClass('fa-plus-circle'))
