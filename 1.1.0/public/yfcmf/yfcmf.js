@@ -1143,31 +1143,7 @@ $(function(){
 			}
 		});
 	});
-	/*
-	$('.member_GexamineeNumber').blur(function () {
-		var url = $(this).attr('url');
-		GexamineeNumber = $.trim($(this).val());
-		if(GexamineeNumber.length > 0){
-			// var reg = /^[0-9]+.?[0-9]*$/;
-			// if(!reg.test(GexamineeNumber)){
-			//     layer.msg('请输入正确的数字格式！');
-			// }
-			// else{
-				$.ajax({
-					url: url,
-					data:{'GexamineeNumber':GexamineeNumber},
-					success: function(data){
-						if (data.code == 1) {
 
-						}else if(data.code == 0){
-							layer.alert(data.msg, {icon: 5});
-						}
-					}
-				});
-			//}
-		}
-	});
-	*/
 	$('body').on('blur','.member_GexamineeNumber',function () {
 		var url = $(this).attr('url');
 		GexamineeNumber = $.trim($(this).val());
@@ -1177,10 +1153,16 @@ $(function(){
             //     layer.msg('请输入正确的数字格式！');
             // }
             // else{
+			$this = $(this);
+			var html = '<img src="/public/img/loading.gif" id="loading_img">';
+			$(this).after(html);
                 $.ajax({
                     url: url,
                     data:{'GexamineeNumber':GexamineeNumber},
                     success: function(data){
+						$('#loading_img').remove();
+						$this.after('<span class="save_span">已保存</span>');
+						$('.save_span').fadeOut('normal');
                         if (data.code == 1) {
 
                         }else if(data.code == 0){
@@ -1203,18 +1185,7 @@ $(function(){
 			}
 		});
 	});
-	/*
-	$('.school_more').change(function(){
-		var school_id = $(this).val();
-		var $this = $(this);
-		$.ajax({
-			url: "/admin/School/ajax_major",
-			data:{'school_id':school_id},
-			success: function(data){
-				$this.next(".major_more").html(data.html);
-			}
-		});
-	});*/
+
 	$(".personal_table input").blur(function(){
 		var member_list_id = $('#member_list_id').val();
       	var value  = $(this).val();
