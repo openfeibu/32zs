@@ -8,7 +8,7 @@ use think\Cache;
 
 class Major extends Base
 {
-    
+
     public function major_add()
 	{
 		return $this->fetch();
@@ -41,4 +41,3 @@ class Major extends Base
 		$this->success('添加成功',url('admin/School/major_list'));
 	}
 }
-

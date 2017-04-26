@@ -22,27 +22,23 @@ class Matriculate extends Base
         $school_id = input('school_id','');
         $recruit_major_id = input('recruit_major_id','');
         $where['rm.recruit_major_id'] = $recruit_major_id;
-        $recruit_major = Db::name('recruit_major')->alias('rm')
-							->join(config('database.prefix').'major mj','mj.recruit_major_id = rm.recruit_major_id')
-                            ->join(config('database.prefix').'enrollment e','e.recruit_major_id = rm.recruit_major_id')
-							->field(array(
-								'rm.*',
-								'e.enrollment_number as zs_number'
-							))
-							->where($where)
-							->find();
         $member_model=new MemberList;
         $member_list=$member_model->alias('a')->join(config('database.prefix').'member_group b','a.member_list_groupid=b.member_group_id')
                 ->join(config('database.prefix').'member_info mi','mi.member_list_id = a.member_list_id')
-			    ->join(config('database.prefix').'school s','a.school_id = s.school_id','left')
-				->join(config('database.prefix').'major m','a.major_id = m.major_id','left')
-				->join(config('database.prefix').'recruit_major rm','m.recruit_major_id = rm.recruit_major_id','left')
+			    ->join(config('database.prefix').'school s','a.school_id = s.school_id')
+				->join(config('database.prefix').'major m','a.major_id = m.major_id')
 				->where($where)
-				->field('a.*,b.*,m.score as major_score_key,m.major_name,s.school_id,s.school_name,rm.recruit_major_name,mi.ZexamineeNumber')
+				->field('a.*,b.*,s.school_id,m.score as major_score_key,m.major_name,s.school_id,s.school_name,mi.ZexamineeNumber')
 				->select();
 		$data = $member_list;
         $ranking = 1;
 		foreach ($data as $key => $value) {
+            $recruit_major = Db::name('recruit_major')->alias('rm')
+                                    ->join(config('database.prefix').'enrollment e','e.recruit_major_id = rm.recruit_major_id')
+                                    ->where(array('e.major_ids' => array('LIKE' , '%,'.$value['major_id'].',%')))
+                                    ->where(array('e.school_id' => $value['school_id']))
+                                    ->find();
+            $data[$key]['recruit_major_name'] = $recruit_major['recruit_major_name'];
 			$major_score_arr = [];
 			$major_score_desc = $major_score_total = '';
 			$major_score_key =array_filter(json_decode($value['major_score_key'],true));
@@ -60,7 +56,7 @@ class Matriculate extends Base
 			$data[$key]['major_score_total'] = $major_score_total;
 			$data[$key]['total_score'] = $major_score_total + $value['recruit_score'];
             $data[$key]['admission_status'] = 1;
-            if($value['recruit_score'] < $recruit_major['min_score'])
+            if($value['recruit_score'] < 80)
             {
                 $data[$key]['admission_status'] = 0;
             }
@@ -69,7 +65,7 @@ class Matriculate extends Base
         array_multisort(array_column($data,'admission_status'),SORT_DESC,array_column($data,'total_score'),SORT_DESC,$data);
         foreach ($data as $key => $value) {
             $data[$key]['ranking'] = $ranking;
-            if($value['ranking'] > $recruit_major['zs_number'])
+            if($value['ranking'] > $recruit_major['enrollment_number'])
             {
                 $data[$key]['admission_status'] = 0;
             }
@@ -86,6 +82,28 @@ class Matriculate extends Base
         }else{
             return $this->fetch();
         }
+    }
+    public function ajax_enrollment_recruit_major()
+    {
+        if (!request()->isAjax()){
+			$this->error('提交方式不正确');
+		}else{
+			$school_id = input('school_id','0');
+			$recruit_major_list =Db::name('enrollment')->alias('e')
+									->join(config('database.prefix').'recruit_major rm','rm.recruit_major_id = e.recruit_major_id')
+									->where(['e.school_id' => $school_id])
+									->select();
+
+			$html = '<option value="">请选择高职专业</option>';
+			foreach($recruit_major_list as $key => $major)
+			{
+				$html .= "<option value='".$major['recruit_major_id']."'>".$major['recruit_major_name']."</option>";
+			}
+			return [
+				'code' => 200,
+				'html' => $html,
+			];
+		}
     }
     public function export()
     {

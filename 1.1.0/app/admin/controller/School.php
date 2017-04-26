@@ -225,7 +225,7 @@ class School extends Base
 		$data = [
 			'major_name' => input('major_name'),
 			'school_id'	 => $school_id,
-			'recruit_major_id' => input('recruit_major_id'),
+			'recruit_major_id' => input('recruit_major_id',0),
 			'major_code' => input('major_code'),
 			'score' => json_encode($score),
 			'number' => input('number'),
@@ -279,17 +279,11 @@ class School extends Base
 		$search_name = input('search_name');
 		$map=array();
 		if($search_name){
-			$map['rm.major_name']= array('like',"%".$search_name."%");
+			$map['rm.recruit_major_name']= array('like',"%".$search_name."%");
 		}
-		$major_list = Db::name('recruit_major')->alias('rm')
-							->join(config('database.prefix').'major mj','mj.recruit_major_id = rm.recruit_major_id')
-							->field(array(
-								'rm.*',
-								'sum(mj.number) as zs_number'
-							))
+		$major_list = Db::name('recruit_major')
 							->where($map)
-							->order('rm.recruit_major_id')
-							->group('rm.recruit_major_id')
+							->order('recruit_major_id','ASC')
 							->paginate(config('paginate.list_rows'),false,['query'=>get_query()]);
 
 		$page = $major_list->render();
@@ -317,7 +311,8 @@ class School extends Base
 	{
 		$data = [
 			'recruit_major_name' => input('recruit_major_name'),
-			'min_score'
+			'recruit_major_code' => input('recruit_major_code'),
+			// 'min_score'
 		//	'number'	 => input('number'),
 		];
 		RecruitMajorModel::create($data);
@@ -328,6 +323,7 @@ class School extends Base
 		$recruit_major_id= input('recruit_major_id','0');
 		$data = [
 			'recruit_major_name' => input('recruit_major_name'),
+			'recruit_major_code' => input('recruit_major_code'),
 			//'number'	 => input('number'),
 		];
 		$rst = Db::name('recruit_major')->where(array('recruit_major_id' => $recruit_major_id))->update($data);
@@ -343,13 +339,13 @@ class School extends Base
 		$recruit_major_id = input('recruit_major_id','0');
 
 		$data_admin = Db::name('admin')->alias('am')
-						->join(config('database.prefix').'major mj','mj.major_id = am.major_id')
-						->join(config('database.prefix').'recruit_major rm','rm.recruit_major_id = mj.recruit_major_id')
+						->join(config('database.prefix').'enrollment e','e.recruit_major_id = am.recruit_major_id')
+						->join(config('database.prefix').'recruit_major rm','rm.recruit_major_id = am.recruit_major_id')
 						->where(array('rm.recruit_major_id' => $recruit_major_id))
 						->find();
 		if($data_admin)
 		{
-			$this->error('删除失败,请先删除该专业下的中职管理员及用户',url('admin/School/major_list', array('p' => $p)));
+			$this->error('删除失败,请先删除该专业下的高职管理员及招生计划',url('admin/School/recruit_major_list', array('p' => $p)));
 		}
 		$rst=Db::name('recruit_major')->where(array('recruit_major_id'=>$recruit_major_id))->delete();
 		if($rst!==false){
@@ -456,8 +452,11 @@ class School extends Base
 	}
 	public function enrollment_runadd()
 	{
+		$major_ids = implode(',',$_POST['major_id']);
+		$major_ids = ','.$major_id.',';
 		$data = [
 			'recruit_major_id' => input('recruit_major_id'),
+			'major_ids' => $major_ids,
 			'school_id' => input('school_id'),
 			'enrollment_number' => input('enrollment_number'),
 		];
@@ -470,14 +469,12 @@ class School extends Base
 							->join(config('database.prefix').'recruit_major rm','e.recruit_major_id = rm.recruit_major_id')
 							->join(config('database.prefix').'school s','e.school_id = s.school_id')
 							->select();
-		/*
-		$enrollments = Db::name('major')->alias('mj')
-							->join(config('database.prefix').'recruit_major rm','mj.recruit_major_id = rm.recruit_major_id')
-							->join(config('database.prefix').'school s','mj.school_id = s.school_id')
-							->order('mj.school_id')
-							->select();*/
+
+
 		foreach ($enrollments as $key => $enrollment) {
-			$majors = Db::name('major')->where(['recruit_major_id' => $enrollment['recruit_major_id'],'school_id' => $enrollment['school_id']])->select();
+			$major_ids = explode(',',$enrollment['major_ids']);
+			$major_ids = array_filter($major_ids);
+			$majors = Db::name('major')->where(array('major_id' => array('in',$major_ids)))->select();
 			$major_desc = '';
 			foreach ($majors as $k => $major) {
 				$major_desc.= $major['major_name'] . '(' . $major['major_code'] . ') ';
@@ -501,7 +498,9 @@ class School extends Base
 							->join(config('database.prefix').'school s','e.school_id = s.school_id')
 							->select();
 		foreach ($enrollments as $key => $enrollment) {
-			$majors = Db::name('major')->where(['recruit_major_id' => $enrollment['recruit_major_id'],'school_id' => $enrollment['school_id']])->select();
+			$major_ids = explode(',',$enrollment['major_ids']);
+			$major_ids = array_filter($major_ids);
+			$majors = Db::name('major')->where(array('major_id' => array('in',$major_ids)))->select();
 			$major_desc = '';
 			foreach ($majors as $k => $major) {
 				$major_desc.= $major['major_name'] . '(' . $major['major_code'] . ') ';

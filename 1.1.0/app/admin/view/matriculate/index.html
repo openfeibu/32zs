@@ -13,13 +13,13 @@
 			</div>
 			<form name="admin_list_sea" class="form-search" id="list-filter" method="post" action="{:url('admin/Matriculate/index')}">
                 <div class="col-xs-12 col-sm-8  margintop5">
-					<select name="school_id" id="recruit_school">
+					<select name="school_id" id="enrollment_school">
 						<option value="">选择学校</option>
 						{foreach name="school_list" item="v"}
 							<option value="{$v.school_id}" >{$v.school_name}</option>
 						{/foreach}
 					</select>
-					<select name="recruit_major_id" class="ajax_change" id="recruit_major">
+					<select name="recruit_major_id" class="ajax_change" id="enrollment_recruit_major">
 						<option value="">选择高职专业</option>
 					</select>
 				</div>
