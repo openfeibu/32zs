@@ -1143,6 +1143,54 @@ $(function(){
 			}
 		});
 	});
+	/*
+	$('.member_GexamineeNumber').blur(function () {
+		var url = $(this).attr('url');
+		GexamineeNumber = $.trim($(this).val());
+		if(GexamineeNumber.length > 0){
+			// var reg = /^[0-9]+.?[0-9]*$/;
+			// if(!reg.test(GexamineeNumber)){
+			//     layer.msg('请输入正确的数字格式！');
+			// }
+			// else{
+				$.ajax({
+					url: url,
+					data:{'GexamineeNumber':GexamineeNumber},
+					success: function(data){
+						if (data.code == 1) {
+
+						}else if(data.code == 0){
+							layer.alert(data.msg, {icon: 5});
+						}
+					}
+				});
+			//}
+		}
+	});
+	*/
+	$('body').on('blur','.member_GexamineeNumber',function () {
+		var url = $(this).attr('url');
+		GexamineeNumber = $.trim($(this).val());
+        if(GexamineeNumber.length > 0){
+            // var reg = /^[0-9]+.?[0-9]*$/;
+            // if(!reg.test(GexamineeNumber)){
+            //     layer.msg('请输入正确的数字格式！');
+            // }
+            // else{
+                $.ajax({
+                    url: url,
+                    data:{'GexamineeNumber':GexamineeNumber},
+                    success: function(data){
+                        if (data.code == 1) {
+
+                        }else if(data.code == 0){
+                            layer.alert(data.msg, {icon: 5});
+                        }
+                    }
+                });
+            //}
+        }
+	});
 	$('body').on('change','.school_more',function () {
 		var school_id = $(this).val();
 		var $this = $(this);
