@@ -314,15 +314,13 @@ function beforeAjaxForm(){
 function complete(data) {
 	if(typeof load!="undefined"){layer.close(load);}
     if (data.code == 1) {
-        layer.alert(data.msg, {icon: 6}, function (index) {
-            layer.close(index);
-            window.location.href = data.url;
-        });
+		if(typeof index!="undefined"){layer.close(index);}
+		layer.msg(data.msg);
+		window.location.href = data.url;
     } else {
-        layer.alert(data.msg, {icon: 5}, function (index) {
-            layer.close(index);
-            window.location.href = data.url;
-        });
+		if(typeof index!="undefined"){layer.close(index);}
+        layer.msg(data.msg);
+        window.location.href = data.url;
         return false;
     }
 }
@@ -330,14 +328,11 @@ function complete(data) {
 function complete2(data) {
 	if(typeof load!="undefined"){layer.close(load);}
     if (data.code == 1) {
-        layer.alert(data.msg, {icon: 6}, function (index) {
-            layer.close(index);
-            window.location.href = data.url;
-        });
+		if(typeof index!="undefined"){layer.close(index);}
+		layer.msg(data.msg);
+		window.location.href = data.url;
     } else {
-        layer.alert(data.msg, {icon: 5}, function (index) {
-            layer.close(index);
-        });
+        layer.msg(data.msg);
     }
 }
 //失败不跳转,验证码刷新
