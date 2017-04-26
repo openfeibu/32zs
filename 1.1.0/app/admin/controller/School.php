@@ -121,6 +121,7 @@ class School extends Base
 		$data = $major_list->all();
 		foreach($data as $key => $major)
 		{
+			$major = MajorModel::get_major_detail($major['major_id'],$major['school_id']);
 			$data[$key]['major_score'] = json_decode($major['score'],true);
 		}
 		$page = $major_list->render();

@@ -10,6 +10,7 @@ namespace app\admin\controller;
 
 use think\Db;
 use app\admin\model\MemberList;
+use app\admin\model\Major as MajorModel;
 
 class Member extends Base
 {
@@ -48,7 +49,7 @@ class Member extends Base
 				->join(config('database.prefix').'major m','a.major_id = m.major_id')
 				->join(config('database.prefix').'member_info mi','mi.member_list_id = a.member_list_id')
 				->where($where)->where('member_list_username|member_list_nickname','like',"%".$key."%")
-				->field('a.*,b.*,m.major_id,m.major_name,m.major_code,m.score as major_score_key,m.major_name,s.school_id,s.school_name,mi.GexamineeNumber')
+				->field('a.*,b.*,m.major_id,m.major_name,m.major_code,m.major_name,s.school_id,s.school_name,mi.GexamineeNumber')
 				->order('member_list_addtime desc')->paginate(config('paginate.list_rows'),false,['query'=>get_query()]);
 
 		$show=$member_list->render();
@@ -64,7 +65,8 @@ class Member extends Base
             $data[$k]['recruit_major_name'] = $recruit_major['recruit_major_name'];
 			$major_score_arr = [];
 			$major_score_desc = $major_score_total = '';
-			$major_score_key =array_filter(json_decode($value['major_score_key'],true));
+			$major = MajorModel::get_major_detail($value['major_id'],$value['school_id']);
+            $major_score_key = array_filter(json_decode($major['major_score_key'],true));
 			if($value['major_score']){
 				$major_score_arr = json_decode($value['major_score'],true);
 				$major_score_arr = handle_major_score_arr($major_score_key,$major_score_arr);

@@ -10,6 +10,7 @@ namespace app\home\controller;
 
 use think\Db;
 use app\admin\model\MemberList;
+use app\admin\model\Major as MajorModel;
 
 class Center extends Base
 {
@@ -38,7 +39,7 @@ class Center extends Base
     }
 	public function grade()
 	{
-		$major = Db::name('major')->where(array('major_id' => $this->user['major_id']))->find();
+		$major = MajorModel::get_major_detail($this->user['major_id'],$this->user['school_id']);
 		$major_score_key = array_filter(json_decode($major['score'],true));
 		$major_score_arr = [];
 		$major_score_desc = $major_score_total = $total_score = '';
