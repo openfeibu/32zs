@@ -157,7 +157,7 @@ class Score extends Base
             $major_score_val = json_decode($major_score_data['major_score'],true);
             $this->assign('major_score_val',$major_score_val);
         }
-        $major = Db::name('major')->where(array('major_id' => $member_list_edit['major_id']))->find();
+        $major = MajorModel::get_major_detail($member_list_edit['major_id'],$member_list_edit['school_id']);
 		$major_score = json_decode($major['score'],true);
 		$major_score = array_filter($major_score);
 		$this->assign('major_score',$major_score);
