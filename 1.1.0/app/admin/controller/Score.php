@@ -25,11 +25,12 @@ class Score extends Base
 					->where(array('a.admin_id'=>session('admin_auth.aid')))
 					->find();
 
+        $major_ids = json_decode($admin['major_id'],true);
+
         $major_list = [];
 
+        $major_id = input('major_id',$major_ids['0']);
 
-
-        $major_id = input('major_id',0);
         $school_id = input('school_id','');
         $major_score_status = input('major_score_status','');
 
@@ -72,8 +73,9 @@ class Score extends Base
     		$major_score = array_filter($major_score);
     		$this->assign('major_score',$major_score);
         }
-        $major_ids = json_decode($admin['major_id'],true);
+
         $major_list = Db::name('major')->where(array('major_id' => array('in',$major_ids)))->select();
+        $this->assign('major_id',$major_id);
         $this->assign('major_list',$major_list);
 		$this->assign('data',$data);
 		$this->assign('page',$page);
