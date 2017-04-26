@@ -214,12 +214,10 @@ class School extends Base
 			$this->error('不存在该专业');
 		}
 		$school = Db::name('school')->where(array('school_id' => $major['school_id']))->find();
-		$major_score = json_decode($major['score'],true);
-		$recruit_major_list = Db::name('recruit_major')->select();
-		$this->assign('recruit_major_list',$recruit_major_list);
+
 		$this->assign('school',$school);
 		$this->assign('major',$major);
-		$this->assign('major_score',$major_score);
+
 		return $this->fetch();
 	}
 	public function major_runadd()

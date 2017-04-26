@@ -211,9 +211,8 @@ class Member extends Base
 
 		$info =  MemberList::getMember(input('member_list_id'));
 		$major = Db::name('major')->where(array('major_id' => $member_list_edit['major_id']))->find();
-		$major_score = json_decode($major['score'],true);
-		$major_score = array_filter($major_score);
-		$this->assign('major_score',$major_score);
+
+
 		$this->assign('info',$info);
 		$this->assign('school_list',$school_list);
 		$this->assign('major_list',$major_list);
