@@ -1141,7 +1141,7 @@ $(function(){
 	$('#enrollment_school').change(function(){
 		var school_id = $(this).val();
 		$.ajax({
-			url: "/admin/School/ajax_enrollment_recruit_major",
+			url: "/admin/Matriculate/ajax_enrollment_recruit_major",
 			data:{'school_id':school_id},
 			success: function(data){
 				$("#enrollment_recruit_major").html(data.html);
