@@ -102,14 +102,14 @@
 						前台首页
 					</a>
 				</li>
-
+				{if $admin['id'] == 1}
 				<li class="purple">
 					<a data-info="确定要清理缓存吗？" class="confirm-rst-btn" href="{:url('admin/Sys/clear')}">
 						清除缓存
 					</a>
 				</li>
 
-
+				{/if}
 				<!-- 用户菜单开始 -->
 				<li class="light-blue dropdown-modal">
 					<a data-toggle="dropdown" href="#" class="dropdown-toggle">

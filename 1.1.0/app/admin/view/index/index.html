@@ -84,7 +84,9 @@
 					<div class="vspace-12-sm"></div>
 -->
 					<div class="col-sm-5" >
+						{if $admin['id'] == 1 || $admin['id'] == 5}
 						{:hook('maintain')}
+						{/if}
 						<!-- 文章排行开始 -->
 						<!--
 						<div class="widget-box widget-color-blue">
