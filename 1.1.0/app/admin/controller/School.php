@@ -104,6 +104,9 @@ class School extends Base
 		}*/
 		$search_name = input('search_name');
 		$map=array();
+		if($search_name){
+			$map['m.major_name']= array('like',"%".$search_name."%");
+		}
 
 		if($school_id)
 		{
@@ -112,7 +115,6 @@ class School extends Base
 
 		$major_list = Db::name('major')->alias('m')
 					->join(config('database.prefix').'school s','s.school_id = m.school_id')
-					->join(config('database.prefix').'recruit_major rm','rm.recruit_major_id = m.recruit_major_id')
 					->where($map)
 					->order('s.school_id','DESC')
 					->order('m.major_id','DESC')
