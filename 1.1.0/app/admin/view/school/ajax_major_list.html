@@ -1,10 +1,8 @@
 {foreach name="major_list" item="v"}
     <tr>
-        <td height="28" >{$v.school_name}</td>
         <td>{$v.major_name}</td>
         <td>{$v.major_code}</td>
-        <td>{$v.recruit_major_name}</td>
-        <td>{$v.number}</td>
+
         <td>
             {foreach name="$v['major_score']" item="val"}
                 <span>{$val}</span>

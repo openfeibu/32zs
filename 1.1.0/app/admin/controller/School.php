@@ -12,6 +12,7 @@ use app\admin\model\School as SchoolModel;
 use app\admin\model\Major as MajorModel;
 use app\admin\model\Enrollment as EnrollmentModel;
 use app\admin\model\RecruitMajor as RecruitMajorModel;
+use app\admin\model\MajorScoreConfig as MajorScoreConfigModel;
 use think\Db;
 use think\Cache;
 
@@ -144,15 +145,15 @@ class School extends Base
 		$major_ids = json_decode($admin['major_id'],true);
 		$school_major_arr = $major_list = [];
 
-		$major_list = Db::name('major')->alias('mj')
-							->join(config('database.prefix').'school s','s.school_id = mj.school_id')
-							->where(array('major_id' => array('in',$major_ids)))
-							->order('s.school_id','DESC')
-							->select();
+		$major_list = MajorModel::get_secondary_vocat_major_list($major_ids,$school_id);
+
 		foreach($major_list as $key => $val)
 		{
-			$score_arr = json_decode($val['score'],true);
-			$major_list[$key]['score_desc'] = implode(' , ',$score_arr);
+			$major_list[$key]['score_desc'] = '';
+			if($val['score']){
+				$score_arr = json_decode($val['score'],true);
+				$major_list[$key]['score_desc'] = implode(' , ',$score_arr);
+			}
 		}
 		$this->assign('major_list',$major_list);
 
@@ -161,34 +162,41 @@ class School extends Base
 	public function secondary_vocat_major_edit()
 	{
 		$major_id= input('major_id');
-		$major = Db::name('major')->where(array('major_id' => $major_id))->find();
+		$major = MajorModel::get_major_detail($major_id,$this->admin['school_id']);
 		if(!$major)
 		{
 			$this->error('不存在该专业');
 		}
-		$school = Db::name('school')->where(array('school_id' => $major['school_id']))->find();
-		$major_score = json_decode($major['score'],true);
-		$recruit_major_list = Db::name('recruit_major')->select();
-		$this->assign('recruit_major_list',$recruit_major_list);
-		$this->assign('school',$school);
-		$this->assign('major',$major);
+		$major_score = $major['score'] ? json_decode($major['score'],true) : [];
 		$this->assign('major_score',$major_score);
+		$this->assign('major',$major);
 		return $this->fetch();
 	}
 
 	public function secondary_vocat_major_runedit()
 	{
 		$major_id= input('major_id');
-		$major = Db::name('major')->where(array('major_id' => $major_id))->find();
+		$major = MajorModel::get_major_detail($major_id,$this->admin['school_id']);
 		if(!$major)
 		{
 			$this->error('不存在该专业');
 		}
 		$score = $_POST['score'];
-		$data = [
-			'score' => json_encode($score),
-		];
-		$rst = Db::name('major')->where(array('major_id' => $major['major_id']))->update($data);
+
+		if($major['score'])
+		{
+			$data = [
+				'score' => json_encode($score),
+			];
+			$rst = Db::name('major_score_config')->where(array('score_config_id' => $major['score_config_id']))->update($data);
+		}else{
+			$data = [
+				'major_id' => $major_id,
+				'school_id' => $this->admin['school_id'],
+				'score' => json_encode($score),
+			];
+			$rst = MajorScoreConfigModel::create($data);
+		}
 		if($rst!==false){
 			$this->success('修改成功',url('admin/School/secondary_vocat_major_list'));
 		}else{
@@ -383,7 +391,9 @@ class School extends Base
 			$this->error('提交方式不正确');
 		}else{
 			$school_id = input('school_id','0');
-			$major_list = Db::name('major')->where(array('school_id' => $school_id))->select();
+
+			$major_list = MajorModel::get_major_list($school_id);
+
 			$html = '<option value="">请选择中职专业</option>';
 			foreach($major_list as $key => $major)
 			{

@@ -40,7 +40,7 @@
 								<th>身份证</th>
                                 <th>中职学校</th>
                                 <th>中职专业</th>
-                                <th>技能成绩</th>
+                                <th width="300px;">技能成绩</th>
                                 <th>成绩审核状态</th>
 							</tr>
 							</thead>
@@ -65,16 +65,21 @@
         member_list_id = $(this).attr('data-id');
         recruit_score = $.trim($(this).val());
 		$this = $(this);
+		var html = '<img src="/public/img/loading.gif" id="loading_img">';
         if(recruit_score.length > 0){
             var reg = /^[0-9]+.?[0-9]*$/;
             if(!reg.test(recruit_score)){
                 layer.alert('输入正确的数字格式！', {icon: 5});
             }
             else{
+				$(this).after(html);
                 $.ajax({
                     url: "/admin/score/recruit_score_runedit",
                     data:{'member_list_id':member_list_id,'recruit_score':recruit_score},
                     success: function(data){
+						$('#loading_img').remove();
+						$this.after('<span class="save_span">已保存</span>');
+						$('.save_span').fadeOut('normal');
                         if (data.code == 1) {
                             $(".status_" + member_list_id).text('审核中');
                            //  layer.alert(data.msg, {icon: 6});
