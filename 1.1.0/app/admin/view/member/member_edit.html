@@ -1,9 +1,9 @@
 {extend name="admin@public/base" /}
 {block name="main-content"}
 <style>
-.personal_table{background: #fff;margin: 0 auto;width: 656px;}
+.personal_table{background: #fff;margin: auto 10%;width: 656px;}
 
-.personal_table table input{width: 100%;height: 100%;border:none;outline:none;text-align: center;color: #666;}
+.personal_table table input{width: 100%;height: 100%;border:none;outline:none;text-align: center;color: #666;font-weight: bolder;}
 .line-table-height{
     height:30px;
 }
@@ -462,7 +462,7 @@
 
 		</div>
         <div class="clearfix form-actions">
-            <div class="col-md-offset-5 col-md-9"  href="{:url('admin/Member/member_active')}" data-id="{$member_list_edit.member_list_id}">
+            <div class="col-md-offset-3 col-md-9"  href="{:url('admin/Member/member_active')}" data-id="{$member_list_edit.member_list_id}">
                 {if condition='$member_list_edit.user_status eq 1'}
                 <button class="btn btn-info btn-danger member_status_btn" type="button">
                     审核不通过
