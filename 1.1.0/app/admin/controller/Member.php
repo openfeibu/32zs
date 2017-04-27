@@ -51,7 +51,7 @@ class Member extends Base
 				->join(config('database.prefix').'member_info mi','mi.member_list_id = a.member_list_id')
 				->where($where)->where('member_list_username|member_list_nickname','like',"%".$key."%")
 				->field('a.*,b.*,m.major_id,m.major_name,m.major_code,m.major_name,s.school_id,s.school_name,mi.GexamineeNumber')
-				->order('member_list_addtime desc')->paginate(config('paginate.list_rows'),false,['query'=>get_query()]);
+				->order('member_list_id desc')->paginate(config('paginate.list_rows'),false,['query'=>get_query()]);
 
 		$show=$member_list->render();
 		$show=preg_replace("(<a[^>]*page[=|/](\d+).+?>(.+?)<\/a>)","<a href='javascript:ajax_page($1);'>$2</a>",$show);
