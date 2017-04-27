@@ -1637,7 +1637,10 @@ function handle_major_score($arr)
 	foreach ($arr as $key => $value) {
 		$total += $value ;
 	}
-	$total = ($total/count($arr)) * 2;
+	if($arr){
+		$total = ($total/count($arr)) * 2;
+	}
+
 
 	return sprintf("%.2f", $total);
 }
