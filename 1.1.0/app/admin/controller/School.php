@@ -119,7 +119,7 @@ class School extends Base
 					->paginate(config('paginate.list_rows'),false,['query'=>get_query()]);
 
 		$data = $major_list->all();
-	
+
 		$page = $major_list->render();
 		$this->assign('major_list',$data);
 		$this->assign('page',$page);
