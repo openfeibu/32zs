@@ -24,7 +24,7 @@
 					</select>
 				</div>
 				<div class="col-xs-12 col-sm-2  margintop5">
-					<a href="javascript:;" onclick="javascript:var recruit_major_id = $('#recruit_major').val();window.location.href='{:url('admin/Matriculate/export')}?recruit_major_id='+recruit_major_id;"><i class="fa fa-download export"></i></a>
+					<a href="javascript:;" onclick="javascript:var recruit_major_id = $('#enrollment_recruit_major').val();var school_id = $('#enrollment_school').val();window.location.href='{:url('admin/Matriculate/export')}?recruit_major_id='+recruit_major_id+'&school_id='+school_id;"><i class="fa fa-download export"></i></a>
 				</div>
 			</form>
 		</div>

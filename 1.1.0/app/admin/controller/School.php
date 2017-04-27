@@ -114,18 +114,12 @@ class School extends Base
 		}
 
 		$major_list = Db::name('major')->alias('m')
-					->join(config('database.prefix').'school s','s.school_id = m.school_id')
 					->where($map)
-					->order('s.school_id','DESC')
 					->order('m.major_id','DESC')
 					->paginate(config('paginate.list_rows'),false,['query'=>get_query()]);
 
 		$data = $major_list->all();
-		foreach($data as $key => $major)
-		{
-			$major = MajorModel::get_major_detail($major['major_id'],$major['school_id']);
-			$data[$key]['major_score'] = json_decode($major['score'],true);
-		}
+	
 		$page = $major_list->render();
 		$this->assign('major_list',$data);
 		$this->assign('page',$page);
