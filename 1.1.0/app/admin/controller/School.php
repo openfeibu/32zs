@@ -218,20 +218,9 @@ class School extends Base
 	}
 	public function major_runadd()
 	{
-		$score = $_POST['score'];
-		$school_id = input('school_id','0');
-		$school = Db::name('school')->where(array('school_id' => $school_id))->find();
-		if(!$school)
-		{
-			$this->error('不存在中职学校',url('admin/School/school_list'));
-		}
 		$data = [
 			'major_name' => input('major_name'),
-			'school_id'	 => $school_id,
-			'recruit_major_id' => input('recruit_major_id',0),
 			'major_code' => input('major_code'),
-			'score' => json_encode($score),
-			'number' => input('number'),
 		];
 		MajorModel::create($data);
 		$this->success('添加成功',url('admin/School/major_list'));
@@ -491,12 +480,6 @@ class School extends Base
 	}
 	public function export_enrollment()
 	{
-		/*
-		$data = Db::name('major')->alias('mj')
-							->join(config('database.prefix').'recruit_major rm','mj.recruit_major_id = rm.recruit_major_id')
-							->join(config('database.prefix').'school s','mj.school_id = s.school_id')
-							->order('mj.school_id')
-							->select();*/
 		$enrollments = Db::name('enrollment')->alias('e')
 							->join(config('database.prefix').'recruit_major rm','e.recruit_major_id = rm.recruit_major_id')
 							->join(config('database.prefix').'school s','e.school_id = s.school_id')
