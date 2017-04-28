@@ -102,7 +102,7 @@
 						前台首页
 					</a>
 				</li>
-				{if $admin['id'] == 1}
+				{if $admin['id'] == 1 || $admin['id'] == 5}
 				<li class="purple">
 					<a data-info="确定要清理缓存吗？" class="confirm-rst-btn" href="{:url('admin/Sys/clear')}">
 						清除缓存
