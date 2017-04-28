@@ -109,7 +109,7 @@ class Score extends Base
 						->join(config('database.prefix').'major mj','mj.major_id = m.major_id')
 						->where($map)
                         ->order('m.member_list_id desc')
-						->field('mi.ZexamineeNumber,ms.major_score, ms.major_score_status,m.member_list_nickname , m.member_list_username, m.member_list_id,m.major_id,ms.major_score_id,mj.major_name')
+						->field('mi.ZexamineeNumber,ms.major_score, ms.major_score_status,m.member_list_nickname , m.member_list_username, m.member_list_id,m.major_id,ms.major_score_id,mj.major_name,m.school_id')
 						->order('major_score_id desc')->paginate(config('paginate.list_rows'),false,['query'=>get_query()]);
 
 		$data = $score_list->all();
