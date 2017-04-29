@@ -1133,7 +1133,7 @@ $(function(){
 			}
 		});
 	});
-	$('#enrollment_school').change(function(){
+	$('body').on('change','#enrollment_school',function(){
 		var school_id = $(this).val();
 		$.ajax({
 			url: "/admin/Matriculate/ajax_enrollment_recruit_major",
@@ -1143,7 +1143,6 @@ $(function(){
 			}
 		});
 	});
-
 	$('body').on('blur','.member_GexamineeNumber',function () {
 		var url = $(this).attr('url');
 		GexamineeNumber = $.trim($(this).val());
@@ -1216,14 +1215,14 @@ $(function(){
 
 	});
 	$('.hanle_school_count').click(function(){
-
 		var count = $(".major_more").length;
-		console.log(count);
 		if($(this).hasClass('fa-plus-circle'))
 		{
-			var html = '<select name="major_id[]"  class="col-sm-5 major_more" style="width:20%;margin-right:10px;" required>' + $('#major').html() + '</select>';
+			var options = $(this).prev('select').html();
+			var select_option_index =  $(this).prev('select').find("option:selected").index();
+			var html = '<select name="major_id[]"  class="col-sm-5 major_more" style="width:20%;margin-right:10px;" required>' + options + '</select>';
 			$(this).before(html);
-
+			$(this).prev('select').find("option:eq("+select_option_index+")").remove();
 		}
 		if($(this).hasClass('fa-minus-circle'))
 		{
