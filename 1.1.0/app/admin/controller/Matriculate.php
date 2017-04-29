@@ -12,6 +12,7 @@ use app\admin\model\School as SchoolModel;
 use app\admin\model\Major as MajorModel;
 use app\admin\model\RecruitMajor as RecruitMajorModel;
 use app\admin\model\MemberList;
+use app\admin\model\Enrollment as EnrollmentModel;
 use think\Db;
 use think\Cache;
 
@@ -22,7 +23,16 @@ class Matriculate extends Base
         $min_score = Db::name('min_score')->find();
         $min_score = $min_score ? $min_score['min_score'] : 0;
         $school_id = input('school_id','');
+        $school_list = Db::name('school')->select();
+        $first_school_id = $school_list ? $school_list[0]['school_id'] : ''   ;
+        $school_id = $school_id ? $school_id : $first_school_id;
         $recruit_major_id = input('recruit_major_id','');
+        $recruit_major_list = [];
+        if(!$recruit_major_id)
+        {
+            $recruit_major_list = EnrollmentModel::get_enrollment_recruit_major($school_id);
+            $recruit_major_id =  $recruit_major_list ? $recruit_major_list[0]['recruit_major_id'] : '';
+        }
         $recruit_major = Db::name('recruit_major')->where(['recruit_major_id' => $recruit_major_id])->find();
         $enrollment = Db::name('enrollment')->where(['school_id' => $school_id,'recruit_major_id' => $recruit_major_id])->find();
         $data = [];
@@ -31,6 +41,7 @@ class Matriculate extends Base
             $where['s.school_id'] = $school_id;
             $where['a.major_id'] = array('in',$major_ids);
             $member_model=new MemberList;
+
             $member_list=$member_model->alias('a')->join(config('database.prefix').'member_group b','a.member_list_groupid=b.member_group_id')
                     ->join(config('database.prefix').'member_info mi','mi.member_list_id = a.member_list_id')
     			    ->join(config('database.prefix').'school s','a.school_id = s.school_id')
@@ -38,6 +49,7 @@ class Matriculate extends Base
     				->where($where)
     				->field('a.*,b.*,s.school_id,m.major_id,m.major_name,s.school_id,s.school_name,mi.ZexamineeNumber')
     				->select();
+
     		$data = $member_list;
             $ranking = 1;
     		foreach ($data as $key => $value) {
@@ -81,6 +93,9 @@ class Matriculate extends Base
 		$this->assign('school_list',$school_list);
         $this->assign('member_list',$data);
         $this->assign('ranking',1);
+        $this->assign('school_id',$school_id);
+        $this->assign('recruit_major_id',$recruit_major_id);
+        $this->assign('recruit_major_list',$recruit_major_list);
         if(request()->isAjax()){
             return $this->fetch('ajax_list');
         }else{
@@ -93,10 +108,7 @@ class Matriculate extends Base
 			$this->error('提交方式不正确');
 		}else{
 			$school_id = input('school_id','0');
-			$recruit_major_list =Db::name('enrollment')->alias('e')
-									->join(config('database.prefix').'recruit_major rm','rm.recruit_major_id = e.recruit_major_id')
-									->where(['e.school_id' => $school_id])
-									->select();
+            $recruit_major_list = EnrollmentModel::get_enrollment_recruit_major($school_id);
 
 			$html = '<option value="">请选择高职专业</option>';
 			foreach($recruit_major_list as $key => $major)

@@ -91,7 +91,7 @@ class Score extends Base
         $major_id = input('major_id','');
         $recruit_major_id = input('recruit_major_id','');
         $school_id = input('school_id','');
-        $major_score_status = input('major_score_status','0');
+        $major_score_status = input('major_score_status');
         $map = [];
         if($major_id){
             $map['m.major_id'] = $major_id;
@@ -99,9 +99,9 @@ class Score extends Base
         if($school_id){
             $map['m.school_id'] = $school_id;
         }
-
-        $map['ms.major_score_status'] = $major_score_status;
-
+        if($major_score_status){
+            $map['ms.major_score_status'] = $major_score_status;
+        }
 
 		$score_list = Db::name('major_score')->alias("ms")
 						->join(config('database.prefix').'member_list m','m.member_list_id = ms.member_list_id')

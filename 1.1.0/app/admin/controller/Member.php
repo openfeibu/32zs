@@ -267,11 +267,14 @@ class Member extends Base
 			$sl_data['signature']=input('signature');
 			$sl_data['score']=input('score',0,'intval');
 			$sl_data['coin']=input('coin',0,'intval');
-			$sl_data['school_id']=$school_id;
+			if($school_id)
+			{
+				$sl_data['school_id']=$school_id;
+			}
 			$sl_data['major_id']=$major_id;
 			$rst=MemberList::update($sl_data);
 			if($rst!==false){
-				$this->success('学生修改成功');
+				$this->success('学生修改成功',url('admin/Member/member_list'));
 			}else{
 				$this->error('学生修改失败');
 			}
