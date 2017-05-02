@@ -10,6 +10,7 @@ namespace app\home\controller;
 
 use think\Db;
 use app\admin\model\MemberList;
+use app\admin\model\RecruitMajor as RecruitMajorModel;
 use app\admin\model\Major as MajorModel;
 
 class Center extends Base
@@ -30,7 +31,7 @@ class Center extends Base
 		$this->assign('major',$major);
 		$school = Db::name('school')->where(array('school_id' => $this->user['school_id']))->find();
 		$this->assign('school',$school);
-		$recruit_major = Db::name('recruit_major')->where(array('recruit_major_id' => $major['recruit_major_id']))->find();
+		$recruit_major = RecruitMajorModel::get_recruit_major($this->user['school_id'],$this->user['major_id']);
 		$this->assign('recruit_major',$recruit_major);
 		$this->assign($this->user);
 		$this->assign('info',$info);

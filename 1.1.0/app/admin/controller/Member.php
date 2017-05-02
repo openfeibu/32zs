@@ -58,11 +58,7 @@ class Member extends Base
 
 		$data = $member_list->all();
 		foreach ($data as $k => $value) {
-			$recruit_major = Db::name('recruit_major')->alias('rm')
-                                    ->join(config('database.prefix').'enrollment e','e.recruit_major_id = rm.recruit_major_id')
-                                    ->where(array('e.major_ids' => array('LIKE' , '%,'.$value['major_id'].',%')))
-                                    ->where(array('e.school_id' => $value['school_id']))
-                                    ->find();
+			$recruit_major = RecruitMajorModel::get_recruit_major($value['school_id'],$value['major_id']);
             $data[$k]['recruit_major_name'] = $recruit_major['recruit_major_name'];
 			$major_score_arr = [];
 			$major_score_desc = $major_score_total = '';
