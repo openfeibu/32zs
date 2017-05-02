@@ -79,7 +79,9 @@
                     success: function(data){
 						$('#loading_img').remove();
 						$this.after('<span class="save_span">已保存</span>');
-						$('.save_span').fadeOut('normal');
+						$('.save_span').fadeOut('normal',function(){
+							$('.save_span').remove();
+						});
                         if (data.code == 1) {
                             $(".status_" + member_list_id).text('审核中');
                            //  layer.alert(data.msg, {icon: 6});

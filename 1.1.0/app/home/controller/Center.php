@@ -44,22 +44,38 @@ class Center extends Base
 		$major_score_key = array_filter(json_decode($major['score'],true));
 		$major_score_arr = [];
 		$major_score_desc = $major_score_total = $total_score = '';
+		$recruit_score = '';
 		if($this->user['major_score']){
 			$major_score_arr = json_decode($this->user['major_score'],true);
 			$major_score_desc = major_score_desc($major_score_key,$major_score_arr);
 			$major_score_total = handle_major_score($major_score_arr);
-			$total_score = $major_score_total + $this->user['recruit_score'];
+			$recruit_score = $this->user['recruit_score'];
+		}else{
+			$score = Db::name('major_score')->where(['member_list_id' => $this->user['member_list_id']])->find();
+			$major_score_arr = json_decode($score['major_score'],true);
+			$major_score_desc = major_score_desc($major_score_key,$major_score_arr);
+			$recruit_score = $score['recruit_score'];
 		}
-
-
-
+		$total_score = $major_score_total + $recruit_score;
 		$this->assign($this->user);
+		$this->assign('recruit_score',$recruit_score);
 		$this->assign('major_score_desc',$major_score_desc);
 		$this->assign('major_score_total',$major_score_total);
 		$this->assign('total_score',$total_score);
 		$this->assign('major_score_key',$major_score_key);
 		$this->assign('major_score_arr',$major_score_arr);
 		return $this->view->fetch('user:grade');
+	}
+	public function confirm_grade()
+	{
+		$data = Db::name('major_score')->where(array('member_list_id' => $this->user['member_list_id']))->find();
+		if($data && (!$this->user['major_score'] && !$this->user['recruit_score'])){
+			Db::name('member_list')->where(array('member_list_id' => $this->user['member_list_id']))->update(array('major_score' => $data['major_score'],'recruit_score' => $data['recruit_score']));
+		}
+		return [
+			'code' => 200,
+			'msg'  => '操作成功',
+		];
 	}
 	public function setting()
 	{

@@ -537,6 +537,14 @@ class Member extends Base
 		$this->assign('major_list',$major_list);
 		return $this->fetch();
 	}
+	public function admin_member_import()
+	{
+		$major_list = Db::name('major')->select();
+        $this->assign('major_list',$major_list);
+		$school_list = Db::name('school')->select();
+		$this->assign('school_list',$school_list);
+		return $this->fetch();
+	}
 	public function member_runimport()
 	{
 
@@ -546,7 +554,7 @@ class Member extends Base
 						->join(config('database.prefix').'school s','s.school_id')
 						->where(array('a.admin_id'=>session('admin_auth.aid')))
 						->find();
-
+			$school_id = $admin['school_id'] ? $admin['school_id'] : input('school_id');
 			$tmp_file = $_FILES ['file_stu'] ['tmp_name'];
 			$file_types = explode ( ".", $_FILES ['file_stu'] ['name'] );
 			$file_type = $file_types [count ( $file_types ) - 1];

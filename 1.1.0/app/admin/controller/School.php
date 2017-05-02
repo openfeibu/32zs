@@ -75,9 +75,10 @@ class School extends Base
 		$school_id = input('school_id','0');
 		$data_admin = Db::name('admin')->where(array('school_id' => $school_id))->find();
 		$data_member = Db::name('member_list')->where(array('school_id' => $school_id))->find();
-		if($data_admin || $data_member)
+		$enrollment = Db::name('enrollment')->where(array('school_id' => $school_id))->find();
+		if($data_admin || $data_member || $enrollment)
 		{
-			$this->error('删除失败,请先删除该学院下的中职管理员及用户',url('admin/School/major_list', array('p' => $p)));
+			$this->error('删除失败,请先删除该学院下的招生计划、中职管理员及学生',url('admin/School/major_list', array('p' => $p)));
 		}
 		$rst=Db::name('school')->where(array('school_id'=>$school_id))->delete();
 		if($rst!==false){
@@ -108,10 +109,6 @@ class School extends Base
 			$map['m.major_name']= array('like',"%".$search_name."%");
 		}
 
-		if($school_id)
-		{
-			$map['m.school_id']= $school_id;
-		}
 
 		$major_list = Db::name('major')->alias('m')
 					->where($map)

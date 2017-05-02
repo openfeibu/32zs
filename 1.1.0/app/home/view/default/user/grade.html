@@ -9,7 +9,7 @@
                    <td class="k-s-content"  width="40%">科目</td>
                    <td class="k-s-content" >成绩</td>
                </tr>
-               {if condition="!empty($user['major_score'])"}
+               {if condition="!empty($major_score_arr)"}
                {foreach name="major_score_key" item="v" key="k"}
                <tr class="line-table-height">
                    <td class="k-s-content"  width="40%">{$v}</td>
@@ -22,7 +22,7 @@
                </tr>
                <tr class="line-table-height">
                    <td class="k-s-content" width="40%" >技能考核成绩</td>
-                   <td class="k-s-content" >{if condition="!empty($user['recruit_score'])"}{$user.recruit_score}{else}待录入{/if}</td>
+                   <td class="k-s-content" >{$recruit_score}</td>
                </tr>
                <tr class="line-table-height">
                    <td class="k-s-content" width="40%" >总分</td>
@@ -36,7 +36,9 @@
            </table>
            <!--endtprint1-->
            {if $user['recruit_score']}
-           <button class="print printHide" onclick="preview(1)">打印</button>
+           <button class="print printHide preview_btn">打印</button>
+           {else}
+            <button class="print printHide confirm_grade_btn">确认，并打印</button>
            {/if}
        </div>
 
@@ -45,5 +47,22 @@
 
     <!-- 主体内容 E -->
     <!-- footer S -->
-
+<script type="text/javascript">
+    $('body').on('click','.preview_btn',function(){
+        preview(1);
+    });
+    $('.confirm_grade_btn').click(function(){
+        var $this = $(this);
+        $this.text('请稍等...');
+        $.ajax({
+            url: "/home/center/confirm_grade",
+            data:{},
+            success: function(data){
+                $this.text('打印');
+                $this.removeClass('confirm_grade_btn').addClass('preview_btn');
+                preview(1);
+            }
+        });
+    });
+</script>
 {include  file="public:footer" /}

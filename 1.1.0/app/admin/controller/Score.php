@@ -177,7 +177,7 @@ class Score extends Base
         {
             if($major_score_data['major_score_status'] == 1)
             {
-                $this->error('提交失败。已审核通过不能重复提交');
+                $this->error('提交失败。已打印通过不能修改');
             }
             $data = [
                 'major_score' => $major_score,
@@ -185,7 +185,7 @@ class Score extends Base
             ];
             $rst = Db::name('major_score')->where(array('member_list_id' => $member_list_id))->update($data);
 			if($rst!==false){
-            $this->success('提交成功，请等待审核',url('admin/Score/score_list'));
+            $this->success('提交成功，请等待学生打印',url('admin/Score/score_list'));
 			}else{
 				$this->error('提交失败');
 			}
@@ -196,7 +196,7 @@ class Score extends Base
         ];
         $rst = Db::name('major_score')->insert($data);
         if($rst!==false){
-            $this->success('提交成功，请等待审核',url('admin/Score/score_list'));
+            $this->success('提交成功，请等待学生打印',url('admin/Score/score_list'));
         }else{
             $this->error('提交失败');
         }
@@ -312,7 +312,7 @@ class Score extends Base
             {
                 return [
 					'code' => 0,
-					'msg' => '提交失败，已审核通过请勿重复提交'
+					'msg' => '提交失败，已打印通过请勿重复提交'
 				];
             }
 			if($major_score_data['recruit_score'] == input('recruit_score')){
@@ -329,7 +329,7 @@ class Score extends Base
 			if($rst!==false){
 				return [
 					'code' => 1,
-					'msg' => '提交成功，请等待审核'
+					'msg' => '提交成功，请等待学生打印'
 				];
 			}else{
 				return [

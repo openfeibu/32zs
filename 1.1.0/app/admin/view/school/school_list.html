@@ -58,12 +58,9 @@
 							</thead>
 							{foreach name="school_list" item="v"}
 								<tr>
-									<td height="28" ><a href="{:url('admin/School/major_list',array('school_id'=>$v['school_id']))}">{$v.school_name}</a></td>
+									<td height="28" ><a href="{:url('admin/School/school_edit',array('school_id'=>$v['school_id']))}">{$v.school_name}</a></td>
 									<td>
 										<div class="hidden-sm hidden-xs action-buttons">
-											<a class="blue" href="{:url('admin/School/major_add',array('school_id'=>$v['school_id']))}" data-toggle="tooltip" title="" data-original-title="添加中职专业">
-												<i class="ace-icon fa fa-plus-circle bigger-130"></i>
-											</a>
 											<a class="green" href="{:url('admin/School/school_edit',array('school_id'=>$v['school_id']))}" title="修改">
 												<i class="ace-icon fa fa-pencil bigger-130"></i>																</a>
 												<a class="red confirm-rst-url-btn" data-info="你确定要删除吗？" href="{:url('admin/School/school_del',array('school_id'=>$v['school_id']))}" title="删除">
