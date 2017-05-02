@@ -121,6 +121,26 @@ class Admin extends Base
 			$this->error('管理员删除失败',url('admin/Admin/admin_list'));
 		}
 	}
+	public function admin_delall()
+	{
+		$p = input('p');
+		$ids = input('n_id/a');
+		if(empty($ids)){
+			$this -> error("请选择列表",url('admin/Admin/admin_list',array('p'=>$p)));
+		}
+		if(is_array($ids)){
+			$where = 'admin_id in('.implode(',',$ids).')';
+		}else{
+			$where = 'admin_id = '.$ids;
+		}
+		$rst = Db::name('admin')->where($where)->delete();
+		$url = input('return_url','');
+		if($rst!==false){
+			$this->success('管理员删除成功',$url);
+		}else{
+			$this->error('管理员删除失败',$url);
+		}
+	}
 	public function secondary_vocat_admin_list()
 	{
 		$search_name=input('search_name');

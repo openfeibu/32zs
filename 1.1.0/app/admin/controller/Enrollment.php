@@ -34,7 +34,7 @@ class Enrollment extends Base
 			'enrollment_number' => input('enrollment_number'),
 		];
 		EnrollmentModel::create($data);
-		$this->success('添加成功',url('admin/School/enrollment'));
+		$this->success('添加成功',url('admin/Enrollment/enrollment'));
 	}
     public function enrollment_edit()
 	{
@@ -66,13 +66,48 @@ class Enrollment extends Base
 			'enrollment_number' => input('enrollment_number'),
 		];
 		EnrollmentModel::create($data);
-		$this->success('添加成功',url('admin/School/enrollment'));
+		$this->success('添加成功',url('admin/Enrollment/enrollment'));
 	}
+    public function enrollment_del()
+    {
+        $p=input('p');
+        $enrollment_id=input('enrollment_id');
+        $enrollment_model=new EnrollmentModel;
+
+        $rst = $enrollment_model->where(array('enrollment_id'=>$enrollment_id))->delete();
+        if($rst!==false){
+            $this->success('删除成功',url('admin/Enrollment/enrollment', array('p' => $p)));
+        }else{
+            $this->error('删除失败',url('admin/Enrollment/enrollment', array('p' => $p)));
+        }
+
+    }
+    public function enrollment_delall()
+    {
+        $p = input('p');
+        $ids = input('n_id/a');
+        $enrollment_model=new EnrollmentModel;
+        if(empty($ids)){
+            $this -> error("请选择列表",url('admin/Enrollment/enrollment',array('p'=>$p)));
+        }
+        if(is_array($ids)){
+            $where = 'enrollment_id in('.implode(',',$ids).')';
+        }else{
+            $where = 'enrollment_id = '.$ids;
+        }
+        $rst = $enrollment_model->where($where)->delete();
+        if($rst!==false){
+			$this->success('删除成功',url('admin/Enrollment/enrollment', array('p' => $p)));
+		}else{
+			$this->error('删除失败',url('admin/Enrollment/enrollment', array('p' => $p)));
+		}
+    }
 	public function enrollment()
 	{
 		$enrollments = Db::name('enrollment')->alias('e')
 							->join(config('database.prefix').'recruit_major rm','e.recruit_major_id = rm.recruit_major_id')
 							->join(config('database.prefix').'school s','e.school_id = s.school_id')
+                            ->order('e.enrollment_id','desc')
 							->select();
 
 

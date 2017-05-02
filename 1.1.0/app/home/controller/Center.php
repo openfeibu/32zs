@@ -68,9 +68,11 @@ class Center extends Base
 	}
 	public function confirm_grade()
 	{
-		$data = Db::name('major_score')->where(array('member_list_id' => $this->user['member_list_id']))->find();
+		$where = array('member_list_id' => $this->user['member_list_id']);
+		$data = Db::name('major_score')->where($where)->find();
 		if($data && (!$this->user['major_score'] && !$this->user['recruit_score'])){
-			Db::name('member_list')->where(array('member_list_id' => $this->user['member_list_id']))->update(array('major_score' => $data['major_score'],'recruit_score' => $data['recruit_score']));
+			$rst = Db::name('major_score')->where($where)->setField(['major_score_status' => 1,'recruit_score_status' => 1]);
+			Db::name('member_list')->where($where)->update(array('major_score' => $data['major_score'],'recruit_score' => $data['recruit_score']));
 		}
 		return [
 			'code' => 200,

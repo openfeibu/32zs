@@ -88,6 +88,29 @@ class School extends Base
 		}
 
 	}
+	public function school_delall(){
+		$p = input('p');
+		$ids = input('n_id/a');
+		if(empty($ids)){
+			$this -> error("请选择列表",url('admin/school/school_list',array('p'=>$p)));
+		}
+		if(is_array($ids)){
+			$where = 'school_id in('.implode(',',$ids).')';
+		}else{
+			$where = 'school_id = '.$ids;
+		}
+		$enrollment_count = Db::name('enrollment')->where($where)->count();
+		$member_count = Db::name('member_list')->where($where)->count();
+		$admin_count = Db::name('admin')->where($where)->count();
+		if($enrollment_count || $member_count || $admin_count)
+		{
+			$this->error('删除失败,请先删除跟该学校关联的招生计划、学生及中职专业负责人',url('admin/School/school_list', array('p' => $p)));
+		}else{
+			Db::name('school')->where($where)->delete();
+			$this->success('删除成功',url('admin/School/school_list', array('p' => $p)));
+		}
+
+	}
 	public function major_add()
 	{
 		$school_list = Db::name('school')->select();
@@ -97,18 +120,11 @@ class School extends Base
 	public function major_list()
 	{
 		$school_id = input('school_id','0');
-		/*
-		$school = Db::name('school')->where(array('school_id' => $school_id))->find();
-		if(!$school)
-		{
-			$this->error('不存在中职学校',url('admin/School/school_list'));
-		}*/
 		$search_name = input('search_name');
 		$map=array();
 		if($search_name){
 			$map['m.major_name']= array('like',"%".$search_name."%");
 		}
-
 
 		$major_list = Db::name('major')->alias('m')
 					->where($map)
@@ -128,6 +144,27 @@ class School extends Base
         }else{
             return $this->fetch();
         }
+	}
+	public function major_delall(){
+		$p = input('p');
+		$ids = input('n_id/a');
+		if(empty($ids)){
+			$this -> error("请选择列表",url('admin/major/major_list',array('p'=>$p)));
+		}
+		if(is_array($ids)){
+			$where = 'major_id in('.implode(',',$ids).')';
+		}else{
+			$where = 'major_id = '.$ids;
+		}
+		$member_count = Db::name('member_list')->where($where)->count();
+		$admin_count = Db::name('admin')->where($where)->count();
+		if($member_count || $admin_count)
+		{
+			$this->error('删除失败,请先删除跟该中职关联的学生及中职专业负责人',url('admin/school/major_list', array('p' => $p)));
+		}else{
+			Db::name('major')->where($where)->delete();
+			$this->success('删除成功',url('admin/school/major_list', array('p' => $p)));
+		}
 	}
 	public function secondary_vocat_major_list()
 	{
@@ -339,6 +376,25 @@ class School extends Base
 			$this->error('删除失败',url('admin/School/recruit_major_list', array('p' => $p)));
 		}
 
+	}
+	public function recruit_major_delall()
+	{
+		$p = input('p');
+		$ids = input('n_id/a');
+		if(empty($ids)){
+			$this -> error("请选择列表",url('admin/School/recruit_major_list',array('p'=>$p)));
+		}
+		if(is_array($ids)){
+			$where = 'recruit_major_id in('.implode(',',$ids).')';
+		}else{
+			$where = 'recruit_major_id = '.$ids;
+		}
+		$rst=Db::name('recruit_major')->where($where)->delete();
+		if($rst!==false){
+			$this->success('删除成功',url('admin/School/recruit_major_list', array('p' => $p)));
+		}else{
+			$this->error('删除失败',url('admin/School/recruit_major_list', array('p' => $p)));
+		}
 	}
 	public function ajax_recruit_major(){
 		if (!request()->isAjax()){

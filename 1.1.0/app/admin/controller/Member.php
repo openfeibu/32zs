@@ -403,8 +403,49 @@ class Member extends Base
 			if($rst!==false){
 				$this->success('学生删除成功',url('admin/Member/member_list', array('p' => $p)));
 			}else{
-				$this->error('学生删除成功',url('admin/Member/member_list', array('p' => $p)));
+				$this->error('学生删除失败',url('admin/Member/member_list', array('p' => $p)));
 			}
+		}
+	}
+	public function member_delall()
+	{
+		$p = input('p');
+		$ids = input('n_id/a');
+		$member_model=new MemberList;
+		if(empty($ids)){
+			$this -> error("请选择列表",url('admin/Member/member_list',array('p'=>$p)));
+		}
+		if(is_array($ids)){
+			$where = 'member_list_id in('.implode(',',$ids).')';
+		}else{
+			$where = 'member_list_id = '.$ids;
+		}
+		$rst=$member_model->where($where)->delete();
+		if($rst!==false){
+			$this->success('学生删除成功',url('admin/Member/member_list', array('p' => $p)));
+		}else{
+			$this->error('学生删除失败',url('admin/Member/member_list', array('p' => $p)));
+		}
+	}
+	public function sec_vocat_member_delall()
+	{
+		$p = input('p');
+		$ids = input('n_id/a');
+		$member_model=new MemberList;
+		if(empty($ids)){
+			$this -> error("请选择列表",url('admin/Member/member_list',array('p'=>$p)));
+		}
+		if(is_array($ids)){
+			$where = 'member_list_id in('.implode(',',$ids).')';
+		}else{
+			$where = 'member_list_id = '.$ids;
+		}
+
+		$rst = $member_model->where($where)->where('school_id',$this->admin['school_id'])->delete();
+		if($rst!==false){
+			$this->success('学生删除成功',url('admin/Member/member_list', array('p' => $p)));
+		}else{
+			$this->error('学生删除失败',url('admin/Member/member_list', array('p' => $p)));
 		}
 	}
 	/*
