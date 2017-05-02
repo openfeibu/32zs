@@ -1161,7 +1161,7 @@ $(function(){
                     success: function(data){
 						$('#loading_img').remove();
 						$this.after('<span class="save_span">已保存</span>');
-						$('.save_span').fadeOut('normal');
+						$('.save_span').fadeOut('normal').remove();
                         if (data.code == 1) {
 
                         }else if(data.code == 0){
