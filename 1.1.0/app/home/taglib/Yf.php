@@ -48,8 +48,8 @@ class Yf extends Taglib
         $limit  = isset($tag['limit']) ? $tag['limit'] : '';
         $order    = isset($tag['order']) ? $tag['order'] : '';
 		$where    = isset($tag['where']) ? $tag['where'] : '';
-        $ispage    = isset($tag['ispage']) ? $tag['ispage'] : 'false'; 
-		$pagesize    = !empty($tag['ispage']) && !empty($tag['pagesize']) && is_numeric($tag['pagesize']) ? intval($tag['pagesize']) : config('paginate.list_rows'); 
+        $ispage    = isset($tag['ispage']) ? $tag['ispage'] : 'false';
+		$pagesize    = !empty($tag['ispage']) && !empty($tag['pagesize']) && is_numeric($tag['pagesize']) ? intval($tag['pagesize']) : config('paginate.list_rows');
         $type    = isset($tag['type']) ? $tag['type'] : 'null';
 		$key    = isset($tag['key']) ? $tag['key'] : '';
 		$tag_str='';
@@ -145,7 +145,7 @@ class Yf extends Taglib
 		$haschild_span_class=isset($tag['haschild_span_class']) ? $tag['haschild_span_class'] : '';
 		$nochild_a_class=isset($tag['nochild_a_class']) ? $tag['nochild_a_class'] : '';
 		$showlevel=!empty($tag['showlevel']) ? intval($tag['showlevel']) : 6;
-		
+
 		$childtpl='<a href=\'\$href\' class=\''.$nochild_a_class.'\'>\$menu_name</a>';
 		$parenttpl='<a href=\'#\' class=\''.$haschild_a_class.'\'>\$menu_name<span class=\''.$haschild_span_class.'\'>&nbsp;<i class=\'fa fa-angle-down\'></i></span></a>';
 		$parseStr = '<?php ';
@@ -185,5 +185,5 @@ class Yf extends Taglib
             return $parseStr;
         }
         return;
-    }	
+    }
 }

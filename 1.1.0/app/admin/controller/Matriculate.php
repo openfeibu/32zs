@@ -56,7 +56,7 @@ class Matriculate extends Base
                 $major = MajorModel::get_major_detail($value['major_id'],$value['school_id']);
     			$major_score_arr = [];
     			$major_score_desc = $major_score_total = '';
-    			$major_score_key =array_filter(json_decode($major['major_score_key'],true));
+    			$major_score_key = $major['major_score_key'] ? array_filter(json_decode($major['major_score_key'],true)) : [];
     			if($value['major_score']){
     				$major_score_arr = json_decode($value['major_score'],true);
     				$major_score_desc = major_score_desc($major_score_key,$major_score_arr);
@@ -148,7 +148,7 @@ class Matriculate extends Base
             $data[$key]['recruit_major_name'] = $recruit_major['recruit_major_name'];
 			$major_score_arr = [];
 			$major_score_desc = $major_score_total = '';
-			$major_score_key =array_filter(json_decode($major['major_score_key'],true));
+			$major_score_key = $major['major_score_key'] ? array_filter(json_decode($major['major_score_key'],true)) : [];
 			if($value['major_score']){
 				$major_score_arr = json_decode($value['major_score'],true);
 				$major_score_desc = major_score_desc($major_score_key,$major_score_arr);
