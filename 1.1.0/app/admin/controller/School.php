@@ -243,9 +243,6 @@ class School extends Base
 		{
 			$this->error('不存在该专业');
 		}
-		$school = Db::name('school')->where(array('school_id' => $major['school_id']))->find();
-
-		$this->assign('school',$school);
 		$this->assign('major',$major);
 
 		return $this->fetch();

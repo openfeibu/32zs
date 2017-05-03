@@ -29,7 +29,6 @@ class Login extends Base
 	//验证码
 	public function verify()
     {
-
         if (session('hid')) {
             $this->redirect(__ROOT__."/");
         }
