@@ -342,8 +342,8 @@ $configs= [
     ],
     'status' => [
         '-1' => '',
-        '0' => '<span style="color:#3499DB;font-weight: bold;">待打印</span>',
-        '1' => '<span style="color:#1ABD9D;font-weight: bold;">已打印</span>',
+        '0' => '<span style="color:#3499DB;font-weight: bold;">待审核</span>',
+        '1' => '<span style="color:#1ABD9D;font-weight: bold;">已审核</span>',
         //'2' => '<span style="color:#E74C3C;font-weight: bold;">审核不通过</span>'
     ]
 ];
