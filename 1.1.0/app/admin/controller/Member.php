@@ -705,4 +705,142 @@ class Member extends Base
 		Db::name('member_info')->where(array('member_list_id'=>$member_list_id))->update(array($name => $value));
 
 	}
+	public function member_export()
+	{
+		$where = ['a.school_id' => $this->admin['school_id']] ;
+		$member_model = new MemberList;
+		$data = $member_model->alias('a')->join(config('database.prefix').'member_group b','a.member_list_groupid=b.member_group_id')
+			    ->join(config('database.prefix').'school s','a.school_id = s.school_id')
+				->join(config('database.prefix').'major m','a.major_id = m.major_id')
+				->join(config('database.prefix').'member_info mi','mi.member_list_id = a.member_list_id')
+				->where($where)
+				->field('a.*,b.*,m.major_id,m.major_name,m.major_code,m.major_name,s.school_id,s.school_name,mi.*')
+				->order('a.member_list_id','desc')
+				->select();
+		foreach ($data as $k => $value) {
+			$recruit_major = RecruitMajorModel::get_recruit_major($value['school_id'],$value['major_id']);
+			$data[$k]['recruit_major_name'] = $recruit_major['recruit_major_name'];
+			$major_score_arr = [];
+		   	$major_score_total = '';
+			$major = MajorModel::get_major_detail($value['major_id'],$value['school_id']);
+			$major_score_key = $major['major_score_key'] ? array_filter(json_decode($major['major_score_key'],true)) : [];
+			if($value['major_score']){
+				$major_score_arr = json_decode($value['major_score'],true);
+				$major_score_arr = handle_major_score_arr($major_score_key,$major_score_arr);
+				$major_score_total = handle_major_score($major_score_arr);
+			}
+			else{
+				$major_score_arr = json_decode($value['major_score'],true);
+				$major_score_arr = handle_major_score_arr($major_score_key,$major_score_arr);
+			}
+			$data[$k]['major_score_total'] = $major_score_total;
+			$data[$k]['total_score'] = $major_score_total + $value['recruit_score'];
+		}
+		$field_titles = ['中职考生号','高考考生号','姓名','身份证号码','中职所在专业','中职学校','对口高职专业','户口所在地','生源地','考生联系人','联系电话','联系地址','邮编'];
+        $fields = ['ZexamineeNumber','GexamineeNumber','member_list_nickname','member_list_username','major_name','school_name','recruit_major_name','domicile','documentType','addressee','tell','address','zipCode'];
+        $table = '中职学生'.date('YmdHis');
+        error_reporting(E_ALL);
+        date_default_timezone_set('Asia/chongqing');
+        $objPHPExcel = new \PHPExcel();
+        //import("Org.Util.PHPExcel.Reader.Excel5");
+        /*设置excel的属性*/
+        $objPHPExcel->getProperties()->setCreator("wuzhijie")//创建人
+        ->setLastModifiedBy("wuzhijie")//最后修改人
+        ->setKeywords("excel")//关键字
+        ->setCategory("result file");//种类
+
+        //第一行数据
+        $objPHPExcel->setActiveSheetIndex(0);
+        $active = $objPHPExcel->getActiveSheet();
+        foreach($field_titles as $i=>$name){
+            $ck = num2alpha($i++) . '1';
+            $active->setCellValue($ck, $name);
+        }
+        //填充数据
+        foreach($data as $k => $v){
+            $k=$k+1;
+            $num=$k+1;//数据从第二行开始录入
+            $objPHPExcel->setActiveSheetIndex(0);
+            foreach($fields as $i=>$name){
+                $ck = num2alpha($i++) . $num;
+                $active->setCellValue($ck, $v[$name]);
+            }
+        }
+        $objPHPExcel->getActiveSheet()->setTitle($table);
+        $objPHPExcel->setActiveSheetIndex(0);
+        header('Content-Type: application/vnd.ms-excel');
+        header('Content-Disposition: attachment;filename="'.$table.'.xls"');
+        header('Cache-Control: max-age=0');
+        $objWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
+        $objWriter->save('php://output');
+        exit;
+	}
+	public function admin_member_export()
+	{
+		$member_model = new MemberList;
+		$data = $member_model->alias('a')->join(config('database.prefix').'member_group b','a.member_list_groupid=b.member_group_id')
+			    ->join(config('database.prefix').'school s','a.school_id = s.school_id')
+				->join(config('database.prefix').'major m','a.major_id = m.major_id')
+				->join(config('database.prefix').'member_info mi','mi.member_list_id = a.member_list_id')
+				->field('a.*,b.*,m.major_id,m.major_name,m.major_code,m.major_name,s.school_id,s.school_name,mi.*')
+				->order('a.member_list_id','desc')
+				->select();
+		foreach ($data as $k => $value) {
+			$recruit_major = RecruitMajorModel::get_recruit_major($value['school_id'],$value['major_id']);
+			$data[$k]['recruit_major_name'] = $recruit_major['recruit_major_name'];
+			$major_score_arr = [];
+		   	$major_score_total = '';
+			$major = MajorModel::get_major_detail($value['major_id'],$value['school_id']);
+			$major_score_key = $major['major_score_key'] ? array_filter(json_decode($major['major_score_key'],true)) : [];
+			if($value['major_score']){
+				$major_score_arr = json_decode($value['major_score'],true);
+				$major_score_arr = handle_major_score_arr($major_score_key,$major_score_arr);
+				$major_score_total = handle_major_score($major_score_arr);
+			}
+			else{
+				$major_score_arr = json_decode($value['major_score'],true);
+				$major_score_arr = handle_major_score_arr($major_score_key,$major_score_arr);
+			}
+			$data[$k]['major_score_total'] = $major_score_total;
+			$data[$k]['total_score'] = $major_score_total + $value['recruit_score'];
+		}
+		$field_titles = ['中职考生号','高考考生号','姓名','身份证号码','中职所在专业','中职学校','对口高职专业','理论成绩','技能成绩','总分','户口所在地','生源地','考生联系人','联系电话','联系地址','邮编'];
+        $fields = ['ZexamineeNumber','GexamineeNumber','member_list_nickname','member_list_username','major_name','school_name','recruit_major_name','major_score_total','recruit_score','total_score','domicile','documentType','addressee','tell','address','zipCode'];
+        $table = '中职学生'.date('YmdHis');
+        error_reporting(E_ALL);
+        date_default_timezone_set('Asia/chongqing');
+        $objPHPExcel = new \PHPExcel();
+        //import("Org.Util.PHPExcel.Reader.Excel5");
+        /*设置excel的属性*/
+        $objPHPExcel->getProperties()->setCreator("wuzhijie")//创建人
+        ->setLastModifiedBy("wuzhijie")//最后修改人
+        ->setKeywords("excel")//关键字
+        ->setCategory("result file");//种类
+
+        //第一行数据
+        $objPHPExcel->setActiveSheetIndex(0);
+        $active = $objPHPExcel->getActiveSheet();
+        foreach($field_titles as $i=>$name){
+            $ck = num2alpha($i++) . '1';
+            $active->setCellValue($ck, $name);
+        }
+        //填充数据
+        foreach($data as $k => $v){
+            $k=$k+1;
+            $num=$k+1;//数据从第二行开始录入
+            $objPHPExcel->setActiveSheetIndex(0);
+            foreach($fields as $i=>$name){
+                $ck = num2alpha($i++) . $num;
+                $active->setCellValue($ck, $v[$name]);
+            }
+        }
+        $objPHPExcel->getActiveSheet()->setTitle($table);
+        $objPHPExcel->setActiveSheetIndex(0);
+        header('Content-Type: application/vnd.ms-excel');
+        header('Content-Disposition: attachment;filename="'.$table.'.xls"');
+        header('Cache-Control: max-age=0');
+        $objWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
+        $objWriter->save('php://output');
+        exit;
+	}
 }
