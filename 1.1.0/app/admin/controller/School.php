@@ -25,7 +25,7 @@ class School extends Base
 		if($search_name){
 			$map['school_name']= array('like',"%".$search_name."%");
 		}
-		$school_list = Db::name('school')->where($map)->order('school_id')->paginate(config('paginate.list_rows'),false,['query'=>get_query()]);
+		$school_list = Db::name('school')->where($map)->order('school_id','DESC')->paginate(config('paginate.list_rows'),false,['query'=>get_query()]);
 		$page = $school_list->render();
 		$this->assign('search_name',$search_name);
 		$this->assign('school_list',$school_list);
