@@ -18,10 +18,10 @@ window.ShearPhoto.MINGGE(function() {
         HTML5Effects:false,//是否开启图片特效功能给用户  可选true false,  提示：有HTML5浏览器才会开启的！当然开启HTML5切图，该设置才有效
         HTML5ZIP:[900,0.9],//HTML5截图前载入的大图 是否压缩图片(数组成员 是数字)
 			preview:[100],// 开启动态预览图片 (数组成员整数型，禁止含小数点 可选false 和数组)
-        url:relativeUrl+"php/shearphoto.php",   //后端处理地址
+        url:relativeUrl+"php/shearphoto_f.php",   //后端处理地址
 			scopeWidth:300,                 //可拖动范围宽  也就是"main"对象的初始大小(整数型，禁止含小数点) 宽和高的值最好能一致
             scopeHeight:300,                //可拖动范围高  也就是"main"对象的初始大小(整数型，禁止含小数点) 宽和高的值最好能一致
-        proportional:[1/1,100,133],
+        proportional:[5/7,125,133],
         Min:50,                 //截框拉伸或拖拽不能少于多少PX(整数型，禁止含小数点)
 			Max:300,                //一开始启动时，图片的宽和高，有时候图片会很大的，必须要设置一下(整数型，禁止含小数点)
         backgroundColor:"#000",   //遮层色
