@@ -52,17 +52,20 @@
         preview(1);
     });
     $('.confirm_grade_btn').click(function(){
-        var $this = $(this);
-        $this.text('请稍等...');
-        $.ajax({
-            url: "/home/center/confirm_grade",
-            data:{},
-            success: function(data){
-                $this.text('打印');
-                $this.removeClass('confirm_grade_btn').addClass('preview_btn');
-                preview(1);
-            }
-        });
+        if(confirm("打印后成绩不可再修改或录入,确定要打印吗？"))
+        {
+            var $this = $(this);
+            $this.text('请稍等...');
+            $.ajax({
+                url: "/home/center/confirm_grade",
+                data:{},
+                success: function(data){
+                    $this.text('打印');
+                    $this.removeClass('confirm_grade_btn').addClass('preview_btn');
+                    preview(1);
+                }
+            });
+        }
     });
 </script>
 {include  file="public:footer" /}
