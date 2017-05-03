@@ -29,7 +29,7 @@ class Index extends Base
 		//总文章数
 		$news_count=$news_model->count();
 		$this->assign('news_count',$news_count);
-        //总会员数
+        //总学生数
         $members_count=$member_model->count();
         $this->assign('members_count',$members_count);
         //总留言数
@@ -54,10 +54,10 @@ class Index extends Base
 		$difday=($ztnews_count>0)?($tonews_count-$ztnews_count)/$ztnews_count*100:0;
 		$this->assign('difday',$difday);
 		
-		//今日增加会员
+		//今日增加学生
         $tomembers_count=$member_model->whereTime('member_list_addtime', 'between', [$start_t, $end_t])->count();
         $this->assign('tomembers_count',$tomembers_count);
-        //昨日会员数
+        //昨日学生数
         $ztmembers_count=$member_model->whereTime('member_list_addtime', 'between', [$start_y, $end_y])->count();
         $this->assign('ztmembers_count',$ztmembers_count);
 		//今日提升比

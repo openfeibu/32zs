@@ -107,10 +107,10 @@ class Admin extends Base
 		if (empty($admin_id)){
 			$this->error('用户ID不存在',url('admin/Admin/admin_list'));
 		}
-		//对应会员ID
+		//对应学生ID
 		$member_id=Db::name('admin')->where('admin_id',$admin_id)->value('member_id');
 		Db::name('admin')->delete($admin_id);
-		//删除对应会员
+		//删除对应学生
 		if($member_id){
 			Db::name('member_list')->delete($member_id);
 		}
@@ -230,10 +230,10 @@ class Admin extends Base
 		if (empty($admin_id)){
 			$this->error('用户ID不存在',url('admin/Admin/admin_list'));
 		}
-		//对应会员ID
+		//对应学生ID
 		$member_id=Db::name('admin')->where('admin_id',$admin_id)->value('member_id');
 		Db::name('admin')->delete($admin_id);
-		//删除对应会员
+		//删除对应学生
 		if($member_id){
 			Db::name('member_list')->delete($member_id);
 		}
@@ -319,10 +319,10 @@ class Admin extends Base
 		if (empty($admin_id)){
 			$this->error('用户ID不存在',url('admin/Admin/admin_list'));
 		}
-		//对应会员ID
+		//对应学生ID
 		$member_id=Db::name('admin')->where('admin_id',$admin_id)->value('member_id');
 		Db::name('admin')->delete($admin_id);
-		//删除对应会员
+		//删除对应学生
 		if($member_id){
 			Db::name('member_list')->delete($member_id);
 		}
