@@ -205,7 +205,7 @@ class Member extends Base
 			$major_ids = json_decode($admin['major_id'],true);
 			$major_list = Db::name('major')->where(array('major_id' => array('in',$major_ids)))->select();
 		}else{
-			$major_list = Db::name('major')->where(array('school_id' => $member_list_edit['school_id']))->select();
+			$major_list = MajorModel::get_major_list($member_list_edit['school_id']);
 		}
 
 		$info =  MemberList::getMember(input('member_list_id'));

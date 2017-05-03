@@ -73,7 +73,16 @@ class Enrollment extends Base
         $p=input('p');
         $enrollment_id=input('enrollment_id');
         $enrollment_model=new EnrollmentModel;
-
+        $enrollment = $enrollment_model->where(['enrollment_id' => $enrollment_id])->find();
+        if(!$enrollment){
+            return $this->error('数据不存在');
+        }
+        $admin_list = Db::name('admin')->where(['school_id' => $enrollment['school_id']])->select();
+        $member_list = Db::name('member_list')->where(['school_id' => $enrollment['school_id']])->select();
+        if($admin_list || $member_list)
+        {
+            return $this->error('请先删除与该招生计划关联学校下的中职负责人及中职学生数据');
+        }
         $rst = $enrollment_model->where(array('enrollment_id'=>$enrollment_id))->delete();
         if($rst!==false){
             $this->success('删除成功',url('admin/Enrollment/enrollment', array('p' => $p)));
@@ -86,7 +95,7 @@ class Enrollment extends Base
     {
         $p = input('p');
         $ids = input('n_id/a');
-        $enrollment_model=new EnrollmentModel;
+        $enrollment_model = new EnrollmentModel;
         if(empty($ids)){
             $this -> error("请选择列表",url('admin/Enrollment/enrollment',array('p'=>$p)));
         }
@@ -94,6 +103,17 @@ class Enrollment extends Base
             $where = 'enrollment_id in('.implode(',',$ids).')';
         }else{
             $where = 'enrollment_id = '.$ids;
+        }
+        $school_ids = [];
+        $enrollment_list = $enrollment_model->where($where)->select();
+        foreach ($enrollment_list as $key => $enrollment) {
+            $school_ids[] = $enrollment['school_id'];
+        }
+        $admin_list = Db::name('admin')->where(['school_id' => ['in',$school_ids]])->select();
+        $member_list = Db::name('member_list')->where(['school_id' => ['in',$school_ids]])->select();
+        if($admin_list || $member_list)
+        {
+            return $this->error('请先删除与该招生计划关联学校下的中职负责人及中职学生数据');
         }
         $rst = $enrollment_model->where($where)->delete();
         if($rst!==false){
