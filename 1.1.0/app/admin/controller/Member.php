@@ -63,7 +63,7 @@ class Member extends Base
 			$major_score_arr = [];
 			$major_score_desc = $major_score_total = '';
 			$major = MajorModel::get_major_detail($value['major_id'],$value['school_id']);
-            $major_score_key = array_filter(json_decode($major['major_score_key'],true));
+            $major_score_key = $major['major_score_key'] ? array_filter(json_decode($major['major_score_key'],true)) : [];
 			if($value['major_score']){
 				$major_score_arr = json_decode($value['major_score'],true);
 				$major_score_arr = handle_major_score_arr($major_score_key,$major_score_arr);
@@ -144,7 +144,7 @@ class Member extends Base
 						->join(config('database.prefix').'auth_group c','b.group_id = c.id')
 						->where(array('a.admin_id'=>session('admin_auth.aid')))
 						->find();
-		//	$school_id =  input('school_id');
+			$school_id =  $admin['school_id'] ? $admin['school_id'] : input('school_id');
 			$major_id =  input('major_id');
 			$member_list_salt=random(10);
 			$sl_data=array(
@@ -166,7 +166,7 @@ class Member extends Base
 				'signature'=>input('signature'),
 				'score'=>input('score',0,'intval'),
 				'coin'=>input('coin',0,'intval'),
-				'school_id' => $admin['school_id'],
+				'school_id' => $school_id,
 				'major_id' => $major_id
 			);
 			$rst=MemberList::create($sl_data);
