@@ -270,9 +270,9 @@ class School extends Base
 		];
 		$rst = Db::name('major')->where(array('major_id' => $major['major_id']))->update($data);
 		if($rst!==false){
-			$this->success('修改成功',url('admin/School/major_edit',array('major_id' => $major_id)));
+			$this->success('修改成功',url('admin/School/major_list'));
 		}else{
-			$this->error('修改失败',url('admin/School/major_edit',array('major_id' => $major_id)));
+			$this->error('修改失败',url('admin/School/major_list'));
 		}
 	}
 	public function major_del()
