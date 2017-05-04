@@ -238,7 +238,7 @@ class Score extends Base
         $map = [];
 
         if($recruit_score_status === '0'){
-            $where = 'ms.recruit_score_status = 0';
+            $where = 'ms.recruit_score_status <> 1';
         }
         else if($recruit_score_status == 1){
             $where = 'ms.recruit_score_status = 1';
