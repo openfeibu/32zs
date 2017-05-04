@@ -1238,16 +1238,25 @@ $(function(){
 
 	$('.major_score').blur(function(){
 		$this = $(this);
+		var reg = /^[0-9]+.?[0-9]*$/;
+		$this = $(this);
+		value = $this.val();
+        if(!reg.test(value)){
+			$this.after('<span class="save_span">格式不挣钱</span>');
+			$('.save_span').fadeOut('normal').remove();
+			$this.val('');
+			return false;
+		}
 		var member_list_id =  $this.parent().attr('data-id');
 		major_score = new Array();
 		var num = 0;
 		var length = $this.parent().parent().find('.major_score').length;
-
+		value  = value.replace(/\.\d{1,}$/,value.substr(value.indexOf('.'),2));
+		$this.val(value);
 		$this.parent().parent().find('.major_score').each(function(i){
 	    	major_score[i] = $(this).val();
 			if($(this).val()){
 				num++;
-
 			}
 	    });
 		if(major_score && major_score.length > 0 && num == length){
