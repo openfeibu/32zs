@@ -712,12 +712,16 @@ $("#file0").change(function () {
     }
 });
 //
-$("input[id^=file_]").change(function () {
+$("input[id^=file_]").change(function (e) {
     var field=$(this).data('field'),objUrl = getObjectURL2(this.files[0],field);
+	var name = e.currentTarget.files[0].name;
     console.log("objUrl = " + objUrl);
     if (objUrl) {
         $("#img_"+field).attr("src", objUrl);
     }
+
+	$("#file_name").text(name);
+
 });
 function getObjectURL(file) {
     var url = null;
