@@ -32,10 +32,12 @@ class Score extends Base
         $major_id = input('major_id',$major_ids['0']);
 
         $school_id = input('school_id','');
+
         $major_score_status = input('major_score_status','');
 
         $map['m.major_id'] = $major_id;
 
+        $map['m.school_id'] = $admin['school_id'];
         if($major_score_status){
             $map['ms.major_score_status'] = $major_score_status;
         }
