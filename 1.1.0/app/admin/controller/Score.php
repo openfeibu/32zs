@@ -128,7 +128,7 @@ class Score extends Base
                                     ->find();
             $data[$key]['recruit_major_name'] = $recruit_major['recruit_major_name'];
             $major = MajorModel::get_major_detail($val['major_id'],$val['school_id']);
-            $major_score_key =array_filter(json_decode($major['major_score_key'],true));
+            $major_score_key = $major['major_score_key'] ? array_filter(json_decode($major['major_score_key'],true)) : [];
             $major_score_arr = json_decode($val['major_score'],true);
             $major_score_desc = major_score_desc($major_score_key,$major_score_arr);
             $major_score_arr = handle_major_score_arr($major_score_key,$major_score_arr);
@@ -436,7 +436,7 @@ class Score extends Base
                                     ->find();
             $data[$key]['recruit_major_name'] = $recruit_major['recruit_major_name'];
             $major = MajorModel::get_major_detail($val['major_id'],$val['school_id']);
-            $major_score_key =array_filter(json_decode($major['major_score_key'],true));
+            $major_score_key = $major['major_score_key'] ? array_filter(json_decode($major['major_score_key'],true)) : [];
             $major_score_arr = json_decode($val['major_score'],true);
             $major_score_desc = major_score_desc($major_score_key,$major_score_arr);
             $major_score_arr = handle_major_score_arr($major_score_key,$major_score_arr);
