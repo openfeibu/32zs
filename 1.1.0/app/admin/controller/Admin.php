@@ -390,9 +390,9 @@ class Admin extends Base
 	public function university_admin_export()
 	{
 		$map['aga.group_id'] = 4;
-		$data = Db::name('admin')->alias('a')
+		$data=Db::name('admin')->alias('a')
 							->join(config('database.prefix').'auth_group_access aga','aga.uid = a.admin_id')
-							->join(config('database.prefix').'school s','s.school_id = a.school_id')
+							->join(config('database.prefix').'recruit_major rm','rm.recruit_major_id = a.recruit_major_id')
 							->where($map)->order('a.admin_id','desc')->select();
 
 		$field_titles = ['高职专业负责人','高职专业'];
