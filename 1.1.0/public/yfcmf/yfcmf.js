@@ -1147,31 +1147,33 @@ $(function(){
 	$('body').on('blur','.member_GexamineeNumber',function () {
 		var url = $(this).attr('url');
 		GexamineeNumber = $.trim($(this).val());
-        if(GexamineeNumber.length > 0){
-            // var reg = /^[0-9]+.?[0-9]*$/;
-            // if(!reg.test(GexamineeNumber)){
-            //     layer.msg('请输入正确的数字格式！');
-            // }
-            // else{
-			$this = $(this);
+		var reg = /^[0-9]+.?[0-9]*$/;
+		$this = $(this);
+        if(GexamineeNumber.length > 0 && reg.test(GexamineeNumber)){
 			var html = '<img src="/public/img/loading.gif" id="loading_img">';
 			$(this).after(html);
-                $.ajax({
-                    url: url,
-                    data:{'GexamineeNumber':GexamineeNumber},
-                    success: function(data){
-						$('#loading_img').remove();
-						$this.after('<span class="save_span">已保存</span>');
-						$('.save_span').fadeOut('normal').remove();
-                        if (data.code == 1) {
+            $.ajax({
+                url: url,
+                data:{'GexamineeNumber':GexamineeNumber},
+                success: function(data){
+					$('#loading_img').remove();
+					$this.after('<span class="save_span">已保存</span>');
+					$('.save_span').fadeOut('normal',function(){
+						$('.save_span').remove();
+					});
+                    if (data.code == 1){
 
-                        }else if(data.code == 0){
-                            layer.alert(data.msg, {icon: 5});
-                        }
+                    }else if(data.code == 0){
+                        layer.alert(data.msg, {icon: 5});
                     }
-                });
-            //}
-        }
+                }
+            });
+        }else{
+			$this.after('<span class="save_span">格式不正确</span>');
+			$('.save_span').fadeOut('normal',function(){
+				$('.save_span').remove();
+			});
+		}
 	});
 	$('body').on('change','.school_more',function () {
 		var school_id = $(this).val();
@@ -1233,6 +1235,40 @@ $(function(){
 			}
 		}
 	});
+
+	$('.major_score').blur(function(){
+		$this = $(this);
+		var member_list_id =  $this.parent().attr('data-id');
+		major_score = new Array();
+		var num = 0;
+		var length = $this.parent().parent().find('.major_score').length;
+
+		$this.parent().parent().find('.major_score').each(function(i){
+	    	major_score[i] = $(this).val();
+			if($(this).val()){
+				num++;
+
+			}
+	    });
+		if(major_score && major_score.length > 0 && num == length){
+			var html = '<img src="/public/img/loading.gif" id="loading_img">';
+			$this.after(html);
+			$.ajax({
+				type:"POST",
+				url: "/admin/score/score_runadd",
+				data:{'member_list_id':member_list_id,'score':major_score},
+				success: function(data){
+					$('#loading_img').remove();
+					$this.after('<span class="save_span">已保存</span>');
+					$('.save_span').fadeOut('normal').remove();
+				}
+			});
+		}
+	});
+	$("body").on('blur','.major_score',function(){
+
+	});
+
 });
 function member_active()
 {
