@@ -589,15 +589,8 @@ class Member extends Base
 	public function member_runimport()
 	{
 
-		if (! empty ( $_FILES ['file_stu'] ['name'] )){
-			$admin=Db::name('admin')->alias("a")->join(config('database.prefix').'auth_group_access b','a.admin_id =b.uid')
-						->join(config('database.prefix').'auth_group c','b.group_id = c.id')
-						->join(config('database.prefix').'school s','s.school_id')
-						->where(array('a.admin_id'=>session('admin_auth.aid')))
-						->find();
-
-			$school_id = $admin['school_id'] ? $admin['school_id'] : input('school_id');
-			
+		if (! empty ( $_FILES ['file_stu'] ['name'] )){		
+			$school_id = $this->admin['school_id'] ? $this->admin['school_id'] : input('school_id');	
 			$tmp_file = $_FILES ['file_stu'] ['tmp_name'];
 			$file_types = explode ( ".", $_FILES ['file_stu'] ['name'] );
 			$file_type = $file_types [count ( $file_types ) - 1];
