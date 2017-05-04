@@ -480,9 +480,9 @@ class Score extends Base
 					Db::name('member_list')->where(array('member_list_id' => $data['member_list_id']))->update(array('major_score' => $data['major_score']));
 				}
 			}
-			$this->success("操作成功",url('admin/score/score_all',array('p'=>$p)));
+			$this->success("操作成功",url('admin/score/score_list',array('p'=>$p)));
 		}else{
-			$this -> error("操作失败！",url('admin/score/score_all',array('p'=>$p)));
+			$this -> error("操作失败！",url('admin/score/score_list',array('p'=>$p)));
 		}
 	}
 	public function score_unactive()
