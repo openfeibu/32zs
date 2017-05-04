@@ -1,8 +1,15 @@
 {if $data}
 
 <tr>
-    <th>中职考生号</th>
+    <th class="hidden-xs ">
+        <label class="pos-rel">
+            <input type="checkbox" class="ace" id="chkAll" onclick="CheckAll(this.form)" value="全选">
+            <span class="lbl"></span>
+        </label>
+        ID
+    </th>
     <th>姓名</th>
+    <th>中职考生号</th>
     <th>身份证</th>
     <th>中职专业</th>
     {foreach name="$major_score" item="v"}
@@ -14,12 +21,18 @@
 
 {foreach name="data" item="v"}
 <tr>
-    <td>{if $v['major_score_status'] ==1}{$v.ZexamineeNumber}{else}<a href="{:url('admin/score/score_add',array('member_list_id'=>$v['member_list_id']))}">{$v.ZexamineeNumber}</a>{/if}</td>
-    <td height="28" >{$v.member_list_nickname}</td>
-    <td>{$v.member_list_username}</td>
+    <td class="hidden-xs" height="28" >
+        <label class="pos-rel">
+            <input name="n_id[]" id="navid" class="ace" type="checkbox" value="{$v.member_list_id}">
+            <span class="lbl"></span>
+        </label>{$v.member_list_id}
+    </td>
+    <td>{if $v['major_score_status'] ==1}{$v.member_list_nickname}{else}<a href="{:url('admin/score/score_add',array('member_list_id'=>$v['member_list_id']))}">{$v.member_list_nickname}</a>{/if}</td>
+    <td>{$v.ZexamineeNumber}</td>
+    <td height="28" >{$v.member_list_username}</td>
     <td>{$v.major_name}</td>
     {foreach name="$v['major_score_arr']" item="val"}
-    <td>{$val} </td>
+    <td data-id="{$v.member_list_id}"><input name="major_score[]" value="{$val}" {if $v['major_score_status']}disabled{/if} class="major_score"> </td>
     {/foreach}
     </td>
     <td>{$v.major_score_total}</td>
@@ -37,6 +50,9 @@
 </tr>
 {/foreach}
 <tr>
+    <td height="50" align="center">
+        <button id="btnsubmit" class="btn btn-white btn-blue btn-sm hidden-xs btn-active">通过审核</button>
+    </td>
     <td height="50" colspan="20" align="center">{$page}</td>
 </tr>
 {else}
