@@ -32,7 +32,7 @@
     <td height="28" >{$v.member_list_username}</td>
     <td>{$v.major_name}</td>
     {foreach name="$v['major_score_arr']" item="val"}
-    <td data-id="{$v.member_list_id}"><input name="major_score[]" value="{$val}" {if $v['major_score_status']}disabled{/if} class="major_score"> </td>
+    <td data-id="{$v.member_list_id}"><input name="major_score[]" value="{$val}" {if $v['major_score_status']}disabled{/if} class="major_score score_input" > </td>
     {/foreach}
     </td>
     <td>{$v.major_score_total}</td>

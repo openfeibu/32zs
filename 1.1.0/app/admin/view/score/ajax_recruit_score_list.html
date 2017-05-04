@@ -11,7 +11,7 @@
     <td>{$v.member_list_username}</td>
     <td>{$v.school_name}</td>
     <td>{$v.major_name}</td>
-    <td><input type="text" name="recruit_score" value="{$v.recruit_score}" class="recruit_score" data-id="{$v.member_list_id}" {if $v['recruit_score_status'] ==1}disabled{/if}></td>
+    <td><input type="text" name="recruit_score" value="{$v.recruit_score}" class="recruit_score score_input" data-id="{$v.member_list_id}" {if $v['recruit_score_status'] ==1}disabled{/if}></td>
    <td><span class="status_{$v.member_list_id}">{$v['status_desc']}</span></td>
 </tr>
 {/foreach}
