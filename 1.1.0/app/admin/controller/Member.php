@@ -38,11 +38,16 @@ class Member extends Base
 		if($activetype_check !== ''){
 			$where['user_status']=$activetype_check;
 		}
-		if($school_id !== ''){
-			$where['a.school_id'] = $school_id;
-		}
+
 		if($major_id !== ''){
 			$where['a.major_id'] = $major_id;
+		}
+		if($this->admin['school_id']){
+			$where['a.school_id'] = $this->admin['school_id'];
+		}else{
+			if($school_id !== ''){
+				$where['a.school_id'] = $school_id;
+			}
 		}
 		$member_model=new MemberList;
 		$member_list=$member_model->alias('a')->join(config('database.prefix').'member_group b','a.member_list_groupid=b.member_group_id')
@@ -589,8 +594,8 @@ class Member extends Base
 	public function member_runimport()
 	{
 
-		if (! empty ( $_FILES ['file_stu'] ['name'] )){		
-			$school_id = $this->admin['school_id'] ? $this->admin['school_id'] : input('school_id');	
+		if (! empty ( $_FILES ['file_stu'] ['name'] )){
+			$school_id = $this->admin['school_id'] ? $this->admin['school_id'] : input('school_id');
 			$tmp_file = $_FILES ['file_stu'] ['tmp_name'];
 			$file_types = explode ( ".", $_FILES ['file_stu'] ['name'] );
 			$file_type = $file_types [count ( $file_types ) - 1];
