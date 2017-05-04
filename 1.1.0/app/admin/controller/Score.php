@@ -38,6 +38,7 @@ class Score extends Base
         $map['m.major_id'] = $major_id;
 
         $map['m.school_id'] = $admin['school_id'];
+
         if($major_score_status){
             $map['ms.major_score_status'] = $major_score_status;
         }

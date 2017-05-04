@@ -8,8 +8,8 @@
 				<form class="form-horizontal ajaxForm2" name="excel_runimport" method="post" action="{:url('admin/Member/admin_member_runimport')}"  enctype="multipart/form-data">
 					<input name="type" value="member" type="hidden"/>
 					<div class="form-group">
-						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 【中职学生】选择上传的EXCEL文件： </label>
-						<div class="col-sm-5">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 【中职学生】： </label>
+						<div class="col-sm-4">
                             <select name="school_id"  class="col-sm-5" id="school" required>
                                 <option value="">请选择中职学校</option>
 								{foreach name='school_list' item='v'}
@@ -22,7 +22,7 @@
 						</div>
 						<div class="col-sm-4">
 							<a href="javascript:;" class="file">
-								<input type="file" name="file_stu" id="file_stu"  class="file" multiple="multiple" required/>
+								<input type="file" name="file_stu" id="file_stu"  class="file"  required/>
 								选择上传文件
 							</a>
 							<span class="input-group-btn" style="float:inherit; left:140px; top:2px;">
@@ -35,6 +35,10 @@
 
 						</div>
 
+					</div>
+					<div class="space-4"></div>
+					<div class="form-group">
+						<p id="file_name" style="text-align:center;"></p>
 					</div>
 					<div class="space-4"></div>
 				</form>
