@@ -311,7 +311,7 @@ class Admin extends Base
 		$admin_list=Db::name('admin')->alias('a')
 							->join(config('database.prefix').'auth_group_access aga','aga.uid = a.admin_id')
 							->join(config('database.prefix').'recruit_major rm','rm.recruit_major_id = a.recruit_major_id')
-							->where($map)->order('a.admin_id')->paginate(config('paginate.list_rows'),false,['query'=>get_query()]);
+							->where($map)->order('a.admin_id','desc')->paginate(config('paginate.list_rows'),false,['query'=>get_query()]);
 		$page = $admin_list->render();
 		$this->assign('group_id',4);
 		$this->assign('admin_list',$admin_list);
