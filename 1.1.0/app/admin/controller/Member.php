@@ -595,7 +595,9 @@ class Member extends Base
 						->join(config('database.prefix').'school s','s.school_id')
 						->where(array('a.admin_id'=>session('admin_auth.aid')))
 						->find();
+
 			$school_id = $admin['school_id'] ? $admin['school_id'] : input('school_id');
+			
 			$tmp_file = $_FILES ['file_stu'] ['tmp_name'];
 			$file_types = explode ( ".", $_FILES ['file_stu'] ['name'] );
 			$file_type = $file_types [count ( $file_types ) - 1];
@@ -631,7 +633,7 @@ class Member extends Base
 	    				'user_status'=>0,
 	    				'score'=>0,
 	    				'coin'=>0,
-	    				'school_id' => $admin['school_id'],
+	    				'school_id' => $school_id,
 	    				'major_id' => input('major_id')
 	                ];
 	                $result = MemberList::create($sl_data);
