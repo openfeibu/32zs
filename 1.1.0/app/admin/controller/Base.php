@@ -20,7 +20,7 @@ class Base extends Common
  		if(!$this->check_admin_login()) $this->redirect('admin/Login/login');//未登录
  		$auth=new AuthRule;
 		$id_curr=$auth->get_url_id();
-        if(!$auth->check_auth($id_curr)) $this->error('没有权限',url('admin/Index/index'));
+    //    if(!$auth->check_auth($id_curr)) $this->error('没有权限',url('admin/Index/index'));
 		//获取有权限的菜单tree
 		$menus=$auth->get_admin_menus();
 		$this->assign('menus',$menus);

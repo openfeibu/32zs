@@ -153,7 +153,7 @@ class Admin extends Base
 		$admin_list=Db::name('admin')->alias('a')
 							->join(config('database.prefix').'auth_group_access aga','aga.uid = a.admin_id')
 							->join(config('database.prefix').'school s','s.school_id = a.school_id')
-							->where($map)->order('a.admin_id')->paginate(config('paginate.list_rows'),false,['query'=>get_query()]);
+							->where($map)->order('a.admin_id','desc')->paginate(config('paginate.list_rows'),false,['query'=>get_query()]);
 		$data = $admin_list->all();
 		foreach ($data as $key => $value) {
 			$major_ids = array_filter(json_decode($value['major_id'],true));
@@ -244,7 +244,61 @@ class Admin extends Base
 			$this->error('删除失败',url('admin/Admin/secondary_vocat_admin_list'));
 		}
 	}
+	public function secondary_vocat_admin_export()
+	{
+		$map['aga.group_id'] = 3;
+		$data = Db::name('admin')->alias('a')
+							->join(config('database.prefix').'auth_group_access aga','aga.uid = a.admin_id')
+							->join(config('database.prefix').'school s','s.school_id = a.school_id')
+							->where($map)->order('a.admin_id','desc')->select();
+		foreach ($data as $key => $value) {
+			$major_ids = array_filter(json_decode($value['major_id'],true));
+			$major_list = MajorModel::get_secondary_vocat_major_list($major_ids,$value['school_id']);
+			$major_desc = '';
+			foreach ($major_list as $k => $v) {
+				$major_desc .= $v['major_name'].'   ';
+			}
+			$data[$key]['major_desc'] = $major_desc;
+		}
+		$field_titles = ['中职专业负责人','中职学校','中职专业'];
+        $fields = ['admin_username','school_name','major_desc'];
+        $table = '中职专业负责人'.date('YmdHis');
+        error_reporting(E_ALL);
+        date_default_timezone_set('Asia/chongqing');
+        $objPHPExcel = new \PHPExcel();
+        //import("Org.Util.PHPExcel.Reader.Excel5");
+        /*设置excel的属性*/
+        $objPHPExcel->getProperties()->setCreator("wuzhijie")//创建人
+        ->setLastModifiedBy("wuzhijie")//最后修改人
+        ->setKeywords("excel")//关键字
+        ->setCategory("result file");//种类
 
+        //第一行数据
+        $objPHPExcel->setActiveSheetIndex(0);
+        $active = $objPHPExcel->getActiveSheet();
+        foreach($field_titles as $i=>$name){
+            $ck = num2alpha($i++) . '1';
+            $active->setCellValue($ck, $name);
+        }
+        //填充数据
+        foreach($data as $k => $v){
+            $k=$k+1;
+            $num=$k+1;//数据从第二行开始录入
+            $objPHPExcel->setActiveSheetIndex(0);
+            foreach($fields as $i=>$name){
+                $ck = num2alpha($i++) . $num;
+                $active->setCellValue($ck, $v[$name]);
+            }
+        }
+        $objPHPExcel->getActiveSheet()->setTitle($table);
+        $objPHPExcel->setActiveSheetIndex(0);
+        header('Content-Type: application/vnd.ms-excel');
+        header('Content-Disposition: attachment;filename="'.$table.'.xls"');
+        header('Cache-Control: max-age=0');
+        $objWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
+        $objWriter->save('php://output');
+        exit;
+	}
 	public function university_admin_list()
 	{
 		$search_name=input('search_name');
@@ -333,7 +387,53 @@ class Admin extends Base
 			$this->error('删除失败',url('admin/Admin/university_admin_list'));
 		}
 	}
+	public function university_admin_export()
+	{
+		$map['aga.group_id'] = 4;
+		$data = Db::name('admin')->alias('a')
+							->join(config('database.prefix').'auth_group_access aga','aga.uid = a.admin_id')
+							->join(config('database.prefix').'school s','s.school_id = a.school_id')
+							->where($map)->order('a.admin_id','desc')->select();
 
+		$field_titles = ['高职专业负责人','高职专业'];
+		$fields = ['admin_username','recruit_major_name'];
+		$table = '高职专业负责人'.date('YmdHis');
+		error_reporting(E_ALL);
+		date_default_timezone_set('Asia/chongqing');
+		$objPHPExcel = new \PHPExcel();
+		//import("Org.Util.PHPExcel.Reader.Excel5");
+		/*设置excel的属性*/
+		$objPHPExcel->getProperties()->setCreator("wuzhijie")//创建人
+		->setLastModifiedBy("wuzhijie")//最后修改人
+		->setKeywords("excel")//关键字
+		->setCategory("result file");//种类
+
+		//第一行数据
+		$objPHPExcel->setActiveSheetIndex(0);
+		$active = $objPHPExcel->getActiveSheet();
+		foreach($field_titles as $i=>$name){
+			$ck = num2alpha($i++) . '1';
+			$active->setCellValue($ck, $name);
+		}
+		//填充数据
+		foreach($data as $k => $v){
+			$k=$k+1;
+			$num=$k+1;//数据从第二行开始录入
+			$objPHPExcel->setActiveSheetIndex(0);
+			foreach($fields as $i=>$name){
+				$ck = num2alpha($i++) . $num;
+				$active->setCellValue($ck, $v[$name]);
+			}
+		}
+		$objPHPExcel->getActiveSheet()->setTitle($table);
+		$objPHPExcel->setActiveSheetIndex(0);
+		header('Content-Type: application/vnd.ms-excel');
+		header('Content-Disposition: attachment;filename="'.$table.'.xls"');
+		header('Cache-Control: max-age=0');
+		$objWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
+		$objWriter->save('php://output');
+		exit;
+	}
 	/**
 	 * 管理员开启/禁止
 	 */
