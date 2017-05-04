@@ -68,7 +68,7 @@ class Score extends Base
 
 		$page = $score_list->render();
 
-		$major = MajorModel::get_major_detail($val['major_id'],$admin['school_id']);
+		$major = MajorModel::get_major_detail($major_id,$admin['school_id']);
         if($major){
             $major_score = json_decode($major['score'],true);
     		$major_score = array_filter($major_score);
