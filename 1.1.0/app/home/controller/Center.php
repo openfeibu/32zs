@@ -66,6 +66,7 @@ class Center extends Base
 		$this->assign('major_score_arr',$major_score_arr);
 		return $this->view->fetch('user:grade');
 	}
+	/*
 	public function confirm_grade()
 	{
 		$where = array('member_list_id' => $this->user['member_list_id']);
@@ -78,7 +79,7 @@ class Center extends Base
 			'code' => 200,
 			'msg'  => '操作成功',
 		];
-	}
+	}*/
 	public function setting()
 	{
 		$this->assign($this->user);
