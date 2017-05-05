@@ -282,6 +282,18 @@ class Member extends Base
 			}
 		}
 	}
+	public function avatar()
+	{
+		$imgurl=input('imgurl');
+        //去'/'
+        $imgurl=str_replace('/','',$imgurl);
+        $rst = Db::name('member_list')->where(array('member_list_id'=>input('member_list_id')))->update(array('member_list_headpic'=>$imgurl));
+        if($rst!==false){
+            $this->success('更新成功',url('admin/Member/member_edit',['member_list_id' => input('member_list_id')]));
+        }else{
+            $this->error('操作失败',url('admin/Member/member_edit',['member_list_id' => input('member_list_id')]));
+        }
+	}
 	public function member_edit_GexamineeNumber()
 	{
 		$member_list_id = input('member_list_id');
