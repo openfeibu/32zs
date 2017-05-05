@@ -102,6 +102,7 @@ class Member extends Base
 		$this->assign('member_list',$data);
 		$this->assign('page',$show);
 		$this->assign('val',$key);
+
 		if(request()->isAjax()){
 			if($this->admin['major_id'])
 			{
