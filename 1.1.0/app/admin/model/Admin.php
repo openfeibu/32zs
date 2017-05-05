@@ -164,11 +164,11 @@ class Admin extends Model
     public static function edit($data)
     {
         $admin=self::get($data['admin_id'])->toArray();
-        $admin['admin_username']=$data['admin_username'];
-        $admin['admin_email']=$data['admin_email'];
+        $admin['admin_username']= isset($data['admin_username']) ? $data['admin_username']: $admin['admin_username'];
+        $admin['admin_email']=isset($data['admin_email']) ? $data['admin_email'] : '';
         $admin['admin_tel']= isset($data['admin_tel']) ? $data['admin_tel'] : '';
         $admin['admin_realname']= isset($data['admin_realname']) ? $data['admin_tel'] : '';
-        $admin['admin_open']=$data['admin_open'];
+        $admin['admin_open']= isset($data['admin_open']) ?$data['admin_open'] : $admin['admin_open'];
 		$admin['school_id']= isset($data['school_id']) ? $data['school_id'] : 0;
         $admin['recruit_major_id'] = isset($data['recruit_major_id']) ? $data['recruit_major_id'] : 0;
 		$admin['major_id']= isset($data['major_id']) ? $data['major_id'] : 0;
@@ -182,14 +182,20 @@ class Admin extends Model
             $access=Db::name('auth_group_access')->where('uid',$data['admin_id'])->find();
             if($access){
                 //修改
-                if($access['group_id']!=$data['group_id']){
-                    Db::name('auth_group_access')->where('uid',$data['admin_id'])->setField('group_id',$data['group_id']);
+                if(isset($data['group_id']))
+                {
+                    if($access['group_id']!=$data['group_id']){
+                        Db::name('auth_group_access')->where('uid',$data['admin_id'])->setField('group_id',$data['group_id']);
+                    }
                 }
             }else{
+                if(isset($data['group_id']))
+                {
                 //增加
-                $access['uid']=$data['admin_id'];
-                $access['group_id']=$data['group_id'];
-                Db::name('auth_group_access')->insert($access);
+                    $access['uid']=$data['admin_id'];
+                    $access['group_id']=$data['group_id'];
+                    Db::name('auth_group_access')->insert($access);
+                }
             }
             return true;
         }else{
