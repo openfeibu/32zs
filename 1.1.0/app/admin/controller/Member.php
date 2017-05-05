@@ -262,7 +262,7 @@ class Member extends Base
 			$sl_data['member_list_sex']=input('member_list_sex');
 			$sl_data['member_list_tel']=input('member_list_tel');
 			$sl_data['member_list_email']=input('member_list_email');
-			$sl_data['user_status']=input('user_status',1);
+			$sl_data['user_status']=input('user_status',0);
 			$sl_data['member_list_open']=input('member_list_open',1);
 			$sl_data['user_url']=input('user_url');
 			$sl_data['signature']=input('signature');
