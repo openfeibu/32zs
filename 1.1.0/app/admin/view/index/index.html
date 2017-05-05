@@ -11,11 +11,27 @@
 					<i class="ace-icon fa fa-check green"></i>
 					为了您更好的使用本系统，建议屏幕分辨率1280*768以上，并且安装chrome谷歌浏览器 ——— <a href="{:url('admin/Help/soft')}">进入软件下载专区</a>
 				</div> -->
-
+				{if $admin['id'] == 3}
 				<div class="row">
-						<!--
+					<div class="col-sm-12 infobox-container">
+						{foreach name='statistics' item='val'}
+						<div class="infobox infobox-green col-xs-12 col-sm-4 col-md-4 col-lg-2" style="height:100%;">
+							<div class="infobox-data">
+								<span class="infobox-data-number">{$val.major_name}</span>
+								<div class="infobox-content">学生总数：{$val.student_count}</div>
+								<div class="infobox-content">报名表已审核：{$val.enrolment_auditing_count}</div>
+								<div class="infobox-content">报名表未审核：{$val.enrolment_unauditing_count}</div>
+								<div class="infobox-content">分数已审核：{$val.score_auditing_count}</div>
+								<div class="infobox-content">分数未审核：{$val.score_unauditing_count}</div>
+							</div>
+						</div>
+						{/foreach}
+					</div>
+				</div>
+				{/if}
+				<div class="row">
 					<div class="space-6"></div>
-					<div class="col-sm-7 infobox-container">
+					<!-- <div class="col-sm-7 infobox-container">
 						<div class="infobox infobox-green col-xs-12 col-sm-6 col-md-6 col-lg-4">
 							<div class="infobox-icon">
 								<i class="ace-icon fa fa-folder"></i>
@@ -81,8 +97,8 @@
 						</div>
 
 					</div>
-					<div class="vspace-12-sm"></div>
--->
+					<div class="vspace-12-sm"></div> -->
+
 					<div class="col-sm-5" >
 						{if $admin['id'] == 1 || $admin['id'] == 5}
 						{:hook('maintain')}

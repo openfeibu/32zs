@@ -12,6 +12,7 @@ use think\Db;
 use think\Cache;
 use think\helper\Time;
 use app\admin\model\News as NewsModel;
+use app\admin\model\Major as MajorModel;
 use app\admin\model\MemberList;
 
 class Index extends Base
@@ -38,7 +39,7 @@ class Index extends Base
         //总评论数
         $coms_count=Db::name('comments')->count();
         $this->assign('coms_count',$coms_count);
-		
+
 		//日期时间戳
 		list($start_t, $end_t) = Time::today();
 		list($start_y, $end_y) = Time::yesterday();
@@ -53,7 +54,7 @@ class Index extends Base
 		//今日提升比
 		$difday=($ztnews_count>0)?($tonews_count-$ztnews_count)/$ztnews_count*100:0;
 		$this->assign('difday',$difday);
-		
+
 		//今日增加学生
         $tomembers_count=$member_model->whereTime('member_list_addtime', 'between', [$start_t, $end_t])->count();
         $this->assign('tomembers_count',$tomembers_count);
@@ -63,7 +64,7 @@ class Index extends Base
 		//今日提升比
         $difday_m=($ztmembers_count>0)?($tomembers_count-$ztmembers_count)/$ztmembers_count*100:0;
         $this->assign('difday_m',$difday_m);
-		
+
         //今日留言
         $tosugs_count=Db::name('plug_sug')->whereTime('plug_sug_addtime', 'between', [$start_t, $end_t])->count();
         $this->assign('tosugs_count',$tosugs_count);
@@ -73,7 +74,7 @@ class Index extends Base
 		//今日提升比
         $difday_s=($ztsugs_count>0)?($tosugs_count-$ztsugs_count)/$ztsugs_count*100:0;
         $this->assign('difday_s',$difday_s);
-		
+
         //今日评论
         $tocoms_count=Db::name('comments')->whereTime('createtime', 'between', [$start_t, $end_t])->count();
         $this->assign('tocoms_count',$tocoms_count);
@@ -83,6 +84,25 @@ class Index extends Base
 		//今日提升比
         $difday_c=($ztcoms_count>0)?($tocoms_count-$ztcoms_count)/$ztcoms_count*100:0;
         $this->assign('difday_c',$difday_c);
+
+        if($this->admin['major_id'])
+        {
+            $statistics = [];
+            $major_ids = array_filter(json_decode($this->admin['major_id'],true));
+            $major_list = MajorModel::get_secondary_vocat_major_list($major_ids,$this->admin['school_id']);
+
+            foreach($major_list as $key => $major)
+            {
+                $statistics[$key] = $major;
+
+                $statistics[$key]['student_count'] = Db::name('member_list')->where(['major_id' => $major['major_id'],'school_id' => $this->admin['school_id']])->count();
+                $statistics[$key]['enrolment_auditing_count'] = Db::name('member_list')->where(['major_id' => $major['major_id'],'school_id' => $this->admin['school_id'],'user_status' => '1' ])->count();
+                $statistics[$key]['enrolment_unauditing_count'] = $statistics[$key]['student_count']  - $statistics[$key]['enrolment_auditing_count'];
+                $statistics[$key]['score_auditing_count'] = Db::name('member_list')->where(['major_id' => $major['major_id'],'school_id' => $this->admin['school_id']])->where(['major_score' => ['NEQ','']])->count();
+                $statistics[$key]['score_unauditing_count'] = $statistics[$key]['student_count']  - $statistics[$key]['score_auditing_count'];
+            }
+            $this->assign('statistics',$statistics);
+        }
 		//渲染模板
         return $this->fetch();
 	}

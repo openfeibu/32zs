@@ -238,7 +238,7 @@ class Score extends Base
 
         $school_id = input('school_id','');
         $recruit_score_status = input('recruit_score_status','');
-        $map = [];
+
 
         if($recruit_score_status === '0'){
             $where = 'ms.recruit_score_status <> 1';
@@ -296,6 +296,8 @@ class Score extends Base
         $school_list = Db::name('school')->select();
 		$this->assign('school_list',$school_list);
 		$this->assign('data',$data);
+        $this->assign('school_id',$school_id);
+        $this->assign('major_id',$major_id);
 		$this->assign('page',$page);
         $this->assign('recruit_score_status',$recruit_score_status);
         if(request()->isAjax()){
@@ -511,6 +513,8 @@ class Score extends Base
 	public function recruit_score_active()
 	{
 		$p = input('p');
+        $school_id = input('school_id');
+        $major_id = input('major_id');
 		$ids = input('n_id/a');
 		if(empty($ids)){
 			$this -> error("请选择列表",url('admin/score/recruit_score_all',array('p'=>$p)));
@@ -530,9 +534,9 @@ class Score extends Base
 					Db::name('member_list')->where(array('member_list_id' => $data['member_list_id']))->update(array('recruit_score' => $data['recruit_score']));
 				}
 			}
-			$this->success("操作成功",url('admin/score/recruit_score_list',array('p'=>$p)));
+			$this->success("操作成功",url('admin/score/recruit_score_list',array('p'=>$p,'school_id' =>$school_id,'major_id'=>$major_id )));
 		}else{
-			$this -> error("操作失败！",url('admin/score/recruit_score_list',array('p'=>$p)));
+			$this -> error("操作失败！",url('admin/score/recruit_score_list',array('p'=>$p,'school_id' =>$school_id,'major_id'=>$major_id )));
 		}
 	}
 	public function recruit_score_unactive()
