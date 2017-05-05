@@ -616,7 +616,7 @@ class Member extends Base
 				$this->error ('数据处理失败',url('admin/Member/member_import'));
 			}
 	        foreach ( $res as $k => $v ){
-	            if ($k != 1){
+	            if ($k != 1 && trim($v[0])){
 	                $data=array();
 	                $member_list_salt = random(10);
 	                $member_list_pwd = substr($v[0], -6);
