@@ -62,6 +62,12 @@ class Base extends Common
 		$is_admin=false;
 		if(session('hid')){
 			$this->user=Db::name('member_list')->find(session('hid'));
+			if(!$this->user){
+				session('hid',null);
+				session('user',null);
+				cookie('yf_logged_user',null);
+				$this->redirect(__ROOT__."/");
+			}
 			if(!empty($this->user['member_list_province'])){
 				$rst=Db::name('region')->field('name')->find($this->user['member_list_province']);
 				$address.=$rst?$rst['name'].lang('province'):'';
