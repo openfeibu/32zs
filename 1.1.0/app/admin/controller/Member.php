@@ -619,7 +619,7 @@ class Member extends Base
 	            if ($k != 1){
 	                $data=array();
 	                $member_list_salt = random(10);
-	                $member_list_pwd = substr($str, -6);
+	                $member_list_pwd = substr($v[0], -6);
 	                $sl_data = [
 	                    'member_list_groupid' => 1,
 	    				'member_list_username'=>$v[0],
@@ -676,34 +676,35 @@ class Member extends Base
 	{
 		$member_list_id = input('member_list_id');
 		$member_list_edit=Db::name('member_list')->where(array('member_list_id'=>$member_list_id))->find();
-		$info = $this->getMemberInfo($member_list_edit);
-		$name = input('name');
-		$value = input('value');
-		if(strstr($name,'certificate'))
-		{
-			$type = "certificate";
+		if($member_list_edit['user_status'] != 1){
+			$info = $this->getMemberInfo($member_list_edit);
+			$name = input('name');
+			$value = input('value');
+			if(strstr($name,'certificate'))
+			{
+				$type = "certificate";
+			}
+			else if(strstr($name,'prize'))
+			{
+				$type = "prize";
+			}
+			else if(strstr($name,'resume'))
+			{
+				$type = "resume";
+			}
+			else if(strstr($name,'family')){
+				$type = "family";
+			}
+			if(isset($type))
+			{
+				$arr = $info[$type];
+				$vaArr = explode('_',$name);
+				$arr[$vaArr['1']][$vaArr['0']] = $value;
+				$name = $type;
+				$value = json_encode($arr);
+			}
+			Db::name('member_info')->where(array('member_list_id'=>$member_list_id))->update(array($name => $value));
 		}
-		else if(strstr($name,'prize'))
-		{
-			$type = "prize";
-		}
-		else if(strstr($name,'resume'))
-		{
-			$type = "resume";
-		}
-		else if(strstr($name,'family')){
-			$type = "family";
-		}
-		if(isset($type))
-		{
-			$arr = $info[$type];
-			$vaArr = explode('_',$name);
-			$arr[$vaArr['1']][$vaArr['0']] = $value;
-			$name = $type;
-			$value = json_encode($arr);
-		}
-		Db::name('member_info')->where(array('member_list_id'=>$member_list_id))->update(array($name => $value));
-
 	}
 	public function member_export()
 	{

@@ -58,7 +58,10 @@
     border-width:1px;
     border-collapse:collapse;
 }
+
+
 </style>
+
 	<div class="page-content">
 		<!--主题-->
 		<div class="page-header">
@@ -201,7 +204,7 @@
 			<div class="col-xs-12">
 			<div class="personal_table">
             <input type="hidden" name="member_list_id" value="{$member_list_edit.member_list_id}" />
-			<table width="656px" class="k-w-table line_table">
+			<table width="656px" class="k-w-table line_table member_table">
 				<tbody><tr class="line-table-height">
 					<td class="k-s-content low_width_1 title" style="text-align: center;">姓&nbsp;&nbsp;名</td>
 					<td class="k-s-content low_width_2 content"><input type="text" name="name" value="{$info.member_list_nickname}" disabled/></td>
@@ -436,8 +439,8 @@
         <div class="clearfix form-actions">
             <div class="col-md-offset-3 col-md-9"  href="{:url('admin/Member/member_active')}" data-id="{$member_list_edit.member_list_id}">
                 {if condition='$member_list_edit.user_status eq 1'}
-                <button class="btn btn-info btn-danger member_status_btn" type="button">
-                    审核不通过
+                <button class="btn btn-info btn-info member_status_btn" type="button" disabled="">
+                    已审核通过,不可更改
                 </button>
                 {else}
                 <button class="btn btn-info btn-primary member_status_btn" type="button">
@@ -450,7 +453,11 @@
         </div>
 	</div><!-- /.page-content -->
 
-
+    {if $member_list_edit['user_status'] ==1}
+    <script type="text/javascript">
+     $('.personal_table').find('input').attr('disabled',true);
+    </script>
+    {/if}
 {/block}
 {block name="scripts"}
 	<script type="text/javascript" src="__PUBLIC__/others/region.js"></script>
