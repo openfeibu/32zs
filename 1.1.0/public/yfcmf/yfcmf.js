@@ -243,8 +243,10 @@ $(function () {
         $.post($url, {x: val}, function (data) {
             if (data.code==1) {
 				if (data.msg == '已通过') {
-                    $btn.html('审核不通过');
-					$btn.removeClass('btn-primary').addClass('btn-danger');
+                    $btn.html('已审核通过,不可更改');
+					$btn.removeClass('btn-primary').addClass('btn-info');
+					$btn.attr('disabled',true);
+					$('.member_table').find('input').attr('disabled',true);
 					return false;
                 } else {
 					$btn.html('审核通过');
