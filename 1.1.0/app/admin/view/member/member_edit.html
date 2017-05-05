@@ -61,7 +61,7 @@
 
 
 </style>
-
+{load href="__PUBLIC__/shearphoto/css/ShearPhoto_f_zh-cn.css" /}
 	<div class="page-content">
 		<!--主题-->
 		<div class="page-header">
@@ -213,7 +213,7 @@
 					<td class="k-s-content low_width_5 title">高考考生号</td>
 					<td class="k-s-content low_width_6 content"><input type="text" name="GexamineeNumber" value="{$info.GexamineeNumber}" /></td>
 					<td class="k-s-content low_width_7" rowspan="5" style="text-align: center;position:relative">
-						<img id="studentPicture_herf_show" style="width: 125px; height: 175px; display: inline;" src="{if $member_list_edit.member_list_headpic}{$member_list_edit.member_list_headpic|get_imgurl=1}{else}/public/img/defaultGraph.jpg{/if} " height="175px" width="125px">
+						<img id="studentPicture_herf_show" style="width: 125px; height: 175px; display: inline;" src="{if $member_list_edit.member_list_headpic}{$member_list_edit.member_list_headpic|get_imgurl=1}{else}/public/img/defaultGraph.jpg{/if} " height="175px" width="125px" class="headicon" data-toggle="modal" data-target="#myModal">
 						<!-- <input type="file" class="upload" value="" style="width:100%;height:100%;position:absolute;top:0;left:0;opacity:0;cursor:pointer;"> -->
 					</td>
 				</tr>
@@ -458,6 +458,97 @@
      $('.personal_table').find('input').attr('disabled',true);
     </script>
     {/if}
+    <script  type="text/javascript" src="__PUBLIC__/shearphoto/js/ShearPhoto.js" ></script>
+<script  type="text/javascript"  src="__PUBLIC__/shearphoto/js/alloyimage.js" ></script>
+<script  type="text/javascript"  src="__PUBLIC__/shearphoto/js/handle_f.js" ></script>
+<script type="text/javascript">
+    var SHEAR = {
+        PATH_RES: '__PUBLIC__',
+        PATH_AVATAR: '__ROOT__/data/upload/avatar',
+        URL:"{:url('admin/Member/avatar',['member_list_id' => $member_list_edit['member_list_id']])}",
+    };
+</script>
+
+    <!-- 显示模态框（Modal） -->
+        <div class="modal fade modal-avatar printHide" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display:none;">
+            <div class="modal-dialog" style="width:60%;">
+                <div class="modal-content"  style="min-width:620px;">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">
+                            选择头像
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                    <div id="shearphoto_loading">{:lang('program loading')}......</div>
+                                    <div id="shearphoto_main">
+
+                                        <div class="primary">
+                                            <div id="main">
+                                                <div class="point"></div>
+                                                <div id="SelectBox">
+                                                    <form    id="ShearPhotoForm" enctype="multipart/form-data" method="post"  target="POSTiframe">
+                                                        <a href="javascript:;" id="selectImage"><input type="file"  name="UpFile" autocomplete="off"/></a>
+                                                    </form>
+
+                                                </div>
+                                                <div id="relat">
+                                                    <div id="black"></div>
+                                                    <div id="movebox">
+                                                        <div id="smallbox">
+                                                            <img src="__PUBLIC__/shearphoto/images/default.gif" class="MoveImg"  style="max-width:300%"/>
+                                                        </div>
+                                                        <i id="borderTop"></i>
+                                                        <i id="borderLeft"></i>
+                                                        <i id="borderRight"></i>
+                                                        <i id="borderBottom"></i>
+                                                        <i id="BottomRight"></i>
+                                                        <i id="TopRight"></i>
+                                                        <i id="Bottomleft"></i>
+                                                        <i id="Topleft"></i>
+                                                        <i id="Topmiddle"></i>
+                                                        <i id="leftmiddle"></i>
+                                                        <i id="Rightmiddle"></i>
+                                                        <i id="Bottommiddle"></i>
+                                                    </div>
+                                                    <img src="__PUBLIC__/shearphoto/images/default.gif" class="BigImg" />
+                                                </div>
+                                            </div>
+                                            <div style="clear: both"></div>
+                                            <div id="Shearbar">
+                                                <a id="LeftRotate" href="javascript:;"><em></em>向左转</a>
+                                                <em class="hint L"></em>
+                                                <div class="ZoomDist" id="ZoomDist">
+                                                    <div id="Zoomcentre"></div>
+                                                    <div id="ZoomBar"></div>
+                                                    <span class="progress"></span>
+                                                </div>
+                                                <em class="hint R"></em>
+                                                <a id="RightRotate" href="javascript:;">向右转<em></em></a>
+                                                <p class="Psava">
+                                                    <a id="againIMG"  href="javascript:;">重新选择</a>
+                                                    <a id="saveShear" href="javascript:;">保存</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div style="clear: both"></div>
+                                    </div>
+                                    <div id="photoalbum">
+                                        <i id="close"></i>
+                                        <ul>
+                                            <li><img src="__PUBLIC__/shearphoto/file/photo/1.jpg" serveUrl="file/photo/1.jpg" /></li>
+                                            <li><img src="__PUBLIC__/shearphoto/file/photo/2.jpg" serveUrl="file/photo/2.jpg" /></li>
+                                            <li><img src="__PUBLIC__/shearphoto/file/photo/3.jpg" serveUrl="file/photo/3.jpg" /></li>
+                                            <li><img src="__PUBLIC__/shearphoto/file/photo/4.jpg" serveUrl="file/photo/4.jpg" /></li>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
 {/block}
 {block name="scripts"}
 	<script type="text/javascript" src="__PUBLIC__/others/region.js"></script>
