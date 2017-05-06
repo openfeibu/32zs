@@ -289,7 +289,7 @@ $(function () {
 $(function () {
     $('.memberform').ajaxForm({
         beforeSubmit: checkmemberForm, // 此方法主要是提交前执行的方法，根据需要设置
-        success: complete, // 这是提交后的方法
+        success: complete2, // 这是提交后的方法
         dataType: 'json'
     });
 });
