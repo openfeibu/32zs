@@ -61,10 +61,16 @@
 
 
 </style>
+<style type="text/css" media=print>
+.printHide{display : none }
+@page {
+margin: 5px;
+}
+</style>
 {load href="__PUBLIC__/shearphoto/css/ShearPhoto_f_zh-cn.css" /}
-	<div class="page-content">
+	<div class="page-content ">
 		<!--主题-->
-		<div class="page-header">
+		<div class="page-header printHide">
 			<h1>
 				您当前操作
 				<small>
@@ -73,7 +79,7 @@
 				</small>
 			</h1>
 		</div>
-		<div class="row">
+		<div class="row printHide">
 			<div class="col-xs-12">
 				<form class="form-horizontal memberform" name="member_list_edit" method="post" action="{:url('admin/Member/member_runedit')}">
 					<input type="hidden" name="member_list_id" id="member_list_id" value="{$member_list_edit.member_list_id}" />
@@ -200,6 +206,7 @@
 		}
 		?>
 		{/if}
+        <!--startprint1-->
 		<div class="row">
 			<div class="col-xs-12">
 			<div class="personal_table">
@@ -226,24 +233,24 @@
 					<td class="k-s-content content"><input type="text" name="politicalOutlook" value="{$info.politicalOutlook}" /></td>
 				</tr>
 				<tr class="line-table-height">
-					 <td class="k-s-content title">生源地</td>
-					<td class="k-s-content content">
-						<input type="text" name="documentType" value="{$info.documentType}" />
+                    <td class="k-s-content low_width_3 title">所在学校</td>
+					<td class="k-s-content content"  colspan="2">
+						<input type="text" name="school" value="{$school.school_name}"  disabled/>
 					</td>
 					<td class="k-s-content low_width_1 title">身份证号</td>
-					<td class="k-s-content content" colspan="3"><input type="text" name="cardId" value="{$info.member_list_username}" disabled/></td>
+					<td class="k-s-content content" colspan="2"><input type="text" name="cardId" value="{$info.member_list_username}" disabled/></td>
 
 				</tr>
 				<tr class="line-table-height">
+                    <td class="k-s-content title">生源地</td>
+                   <td class="k-s-content content">
+                       <input type="text" name="documentType" value="{$info.documentType}" />
+                   </td>
 					<td class="k-s-content content title">户籍地</td>
 					<td class="k-s-content content"><input type="text" name="domicile" value="{$info.domicile}" /></td>
 					<td class="k-s-content low_width_1 title">所在专业</td>
 					<td class="k-s-content content">
 						<input type="text" name="nowProfessional" value="{$major.major_name}" disabled/>
-					</td>
-					<td class="k-s-content low_width_3 title">所在学校</td>
-					<td class="k-s-content content">
-						<input type="text" name="school" value="{$school.school_name}"  disabled/>
 					</td>
 
 				</tr>
@@ -436,18 +443,20 @@
 			</div>
 
 		</div>
-        <div class="clearfix form-actions">
+        <!--endtprint1-->
+        <div class="clearfix form-actions printHide">
             <div class="col-md-offset-3 col-md-9"  href="{:url('admin/Member/member_active')}" data-id="{$member_list_edit.member_list_id}">
                 {if condition='$member_list_edit.user_status eq 1'}
                 <button class="btn btn-info btn-info member_status_btn" type="button" disabled="">
                     已审核通过,不可更改
                 </button>
+
                 {else}
                 <button class="btn btn-info btn-primary member_status_btn" type="button">
                     审核通过
                 </button>
                 {/if}
-
+                <!-- <button class="btn btn-info btn-primary printHide" onclick="preview(1)">打印</button> -->
 
             </div>
         </div>
@@ -549,6 +558,24 @@
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
+<script type="text/javascript">
+function preview(oper)
+{
+if (oper < 10)
+{
+bdhtml=window.document.body.innerHTML;//获取当前页的html代码
+sprnstr="<!--startprint"+oper+"-->";//设置打印开始区域
+eprnstr="<!--endprint"+oper+"-->";//设置打印结束区域
+prnhtml=bdhtml.substring(bdhtml.indexOf(sprnstr)+18); //从开始代码向后取html
+prnhtmlprnhtml=prnhtml.substring(0,prnhtml.indexOf(eprnstr));//从结束代码向前取html
+window.document.body.innerHTML=prnhtml;
+window.print();
+window.document.body.innerHTML=bdhtml;
+} else {
+window.print();
+}
+}
+</script>
 {/block}
 {block name="scripts"}
 	<script type="text/javascript" src="__PUBLIC__/others/region.js"></script>

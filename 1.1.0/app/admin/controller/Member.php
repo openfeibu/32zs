@@ -150,14 +150,26 @@ class Member extends Base
 						->join(config('database.prefix').'auth_group c','b.group_id = c.id')
 						->where(array('a.admin_id'=>session('admin_auth.aid')))
 						->find();
+
 			$school_id =  $admin['school_id'] ? $admin['school_id'] : input('school_id');
 			$major_id =  input('major_id');
 			$member_list_salt=random(10);
+			$member_list_username = trim(input('member_list_username'));
+			if(!is_idcard($member_list_username))
+			{
+				$this->error('身份证不正确',url('admin/Member/member_add'));
+			}
+			if(Db::name('member_list')->where(['member_list_username' => $member_list_username])->find()){
+				$this->error('已存在该用户',url('admin/Member/member_add'));
+			}
+			$birth = get_birth($member_list_username);
+			$sex = get_sex($member_list_username);
+			$member_list_pwd = input('member_list_pwd') ? input('member_list_pwd') : substr($member_list_username, -6);
 			$sl_data=array(
 				'member_list_groupid'=>1,
-				'member_list_username'=>input('member_list_username'),
+				'member_list_username'=> $member_list_username,
 				'member_list_salt' => $member_list_salt,
-				'member_list_pwd'=>encrypt_password(input('member_list_pwd'),$member_list_salt),
+				'member_list_pwd'=>encrypt_password($member_list_pwd,$member_list_salt),
 				'member_list_nickname'=>input('member_list_nickname'),
 				'member_list_province'=>input('member_list_province'),
 				'member_list_city'=>input('member_list_city'),
@@ -181,6 +193,8 @@ class Member extends Base
 			$data['resume'] = json_encode(config('resume'));
 			$data['prize'] = json_encode(config('prize'));
 			$data['family'] = json_encode(config('family'));
+			$data['date'] = $birth;
+			$data['sex'] = $sex;
 			$info = Db::name('member_info')->insert($data);
 			if($rst!==false){
 				$this->success('学生添加成功',url('admin/Member/member_list'));
@@ -631,11 +645,15 @@ class Member extends Base
 	        foreach ( $res as $k => $v ){
 	            if ($k != 1 && trim($v[0])){
 	                $data=array();
+					$member_list_username = trim($v[0]);
+					//通过身份证号查询出性别与生日
+					$birth = get_birth($member_list_username);
+					$sex = get_sex($member_list_username);
 	                $member_list_salt = random(10);
-	                $member_list_pwd = substr($v[0], -6);
+	                $member_list_pwd = substr($member_list_username, -6);
 	                $sl_data = [
 	                    'member_list_groupid' => 1,
-	    				'member_list_username'=>$v[0],
+	    				'member_list_username'=>$member_list_username,
 	    				'member_list_salt' => $member_list_salt,
 	    				'member_list_pwd'=>encrypt_password($member_list_pwd,$member_list_salt),
 	    				'member_list_nickname'=>$v[1],
@@ -656,6 +674,8 @@ class Member extends Base
 	        			$data['resume'] = json_encode(config('resume'));
 	        			$data['prize'] = json_encode(config('prize'));
 	        			$data['family'] = json_encode(config('family'));
+						$data['date'] = $birth;
+						$data['sex'] = $sex;
 	        			$info = Db::name('member_info')->insert($data);
 	                }
 	                if (!$result){

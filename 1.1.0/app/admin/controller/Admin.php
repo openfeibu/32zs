@@ -77,9 +77,7 @@ class Admin extends Base
 		$admin_list=Db::name('admin')->find(input('admin_id'));
 		$auth_group_access=Db::name('auth_group_access')->where(array('uid'=>$admin_list['admin_id']))->value('group_id');
 		$school_list = Db::name('school')->select();
-		$major_list = Db::name('major')->where(array('major_id' => $admin_list['major_id']))->select();
 		$this->assign('school_list',$school_list);
-		$this->assign('major_list',$major_list);
 		$this->assign('admin_list',$admin_list);
 		$this->assign('auth_group',$auth_group);
 		$this->assign('auth_group_access',$auth_group_access);
