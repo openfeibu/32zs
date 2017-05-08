@@ -229,6 +229,7 @@ class Member extends Base
 		}
 
 		$info =  MemberList::getMember(input('member_list_id'));
+		var_dump($info);exit;
 		$major = Db::name('major')->where(array('major_id' => $member_list_edit['major_id']))->find();
 		$this->assign('major',$major);
 		$this->assign('info',$info);

@@ -59,7 +59,7 @@ class MemberList extends Model
 		$member['prize'] = json_decode($member['prize'],true);
 		$member['family'] = json_decode($member['family'],true);
 		$member['sex'] = get_sex($member['member_list_username']);
-		$member['birth'] = get_sex($member['member_list_username']);
+		$member['date'] = get_sex($member['member_list_username']);
 		return $member;
 	}
 }
