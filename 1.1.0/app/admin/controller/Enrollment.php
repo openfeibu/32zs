@@ -39,11 +39,10 @@ class Enrollment extends Base
     public function enrollment_edit()
 	{
         $enrollment_id = input('enrollment_id',0,'intval');
-        $enrollment = Db::name('enrollment')->where(['enrollment_id' => $enrollment_id])->find();
+        $enrollment = EnrollmentModel::get_enrollment($enrollment_id);
         if(!$enrollment){
             return $this->error('数据不存在');
         }
-        $major_id_arr = array_unique(array_filter(explode(',',$enrollment['major_ids'])));
  		$recruit_major_list = Db::name('recruit_major')->select();
 		$this->assign('recruit_major_list',$recruit_major_list);
 		$school_list = Db::name('school')->select();
@@ -51,23 +50,17 @@ class Enrollment extends Base
 		$major_list = Db::name('major')->select();
 		$this->assign('major_list',$major_list);
         $this->assign('enrollment',$enrollment);
-        $this->assign('major_id_arr',$major_id_arr);
 		return $this->fetch();
 	}
 	public function enrollment_runedit()
 	{
         $enrollment_id = input('enrollment_id','');
-        $enrollment = Db::name('enrollment')->where(['enrollment_id' => $enrollment_id])->find();
+        $enrollment = EnrollmentModel::get_enrollment($enrollment_id);
         if(!$enrollment){
             return $this->error('数据不存在');
         }
-		$major_ids = array_filter($_POST['major_id']);
-		$major_ids = implode(',',$major_ids);
-		$major_ids = ','.$major_ids.',';
 		$data = [
 			'recruit_major_id' => input('recruit_major_id'),
-			'major_ids' => $major_ids,
-			'school_id' => input('school_id'),
 			'enrollment_number' => input('enrollment_number'),
 		];
         $rst = Db::name('enrollment')->where(['enrollment_id' => $enrollment_id])->update($data);

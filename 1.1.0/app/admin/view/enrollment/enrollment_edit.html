@@ -31,17 +31,18 @@
 					</div>
                     <div class="space-4"></div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 中职学校及中职专业： </label>
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 中职学校： </label>
+
 						<div class="col-sm-10">
-							<select name="school_id" class="col-sm-4 selector"  style='width:20%;margin-right:10px;' required>
+							<select name="school_id" class="col-sm-4 selector"  style='width:20%;margin-right:10px;' required disabled>
 								<option value="">请选择中职学校：</option>
 								{foreach name="school_list" item="v"}
-									<option value='{$v.school_id}' {if $v['school_id'] == $enrollment['school_id']}selected{/if}>{$v.school_name}</option>
+									<option value='{$v.school_id}' {if $v['school_id'] == $enrollment['school_id']}selected{/if} >{$v.school_name}</option>
 								{/foreach}
 
 							</select>
-							{foreach name='major_id_arr' item='val' key='key'}
-							<select name="major_id[]"  class="col-sm-5 major_more" style="width:20%;margin-right:10px;"  required>
+							{foreach name='enrollment.major_id_arr' item='val' key='key'}
+							<select name="major_id[]"  class="col-sm-5 major_more" style="width:20%;margin-right:10px;"  required disabled>
 								<option value="">请选择中职专业</option>
 								{foreach name="major_list" item="v" key='k'}
 -+
@@ -54,15 +55,12 @@
 								$last_val = $val;
 							?>
 							{/foreach}
-							<i class="hanle_school_count fa fa-plus-circle"></i>
-							<i class="hanle_school_count fa fa-minus-circle"></i>
+
 
 						</div>
 					</div>
 					<div class="space-4"></div>
 
-
-					<div class="space-4"></div>
 
 					<div class="form-group">
 						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 招生计划数 </label>

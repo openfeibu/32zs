@@ -22,4 +22,23 @@ class Enrollment extends Model
                                 ->select();
         return $recruit_major_list;
     }
+    public static function get_enrollment($enrollment_id)
+    {
+        $enrollment = Db::name('enrollment')->alias('e')
+                            ->join(config('database.prefix').'recruit_major rm','rm.recruit_major_id = e.recruit_major_id')
+                            ->join(config('database.prefix').'school s','s.school_id = e.school_id')
+                            ->where(['enrollment_id' => $enrollment_id])
+                            ->find();
+        $major_ids = explode(',',$enrollment['major_ids']);
+        $major_ids = array_filter($major_ids);
+        $majors = Db::name('major')->where(array('major_id' => array('in',$major_ids)))->select();
+        $major_desc = '';
+        foreach ($majors as $k => $major) {
+            $major_desc.= $major['major_name'] . '(' . $major['major_code'] . ') ';
+        }
+        $enrollment['majors'] = $majors;
+        $enrollment['major_desc'] = $major_desc;
+        $enrollment['major_id_arr'] = array_unique(array_filter(explode(',',$enrollment['major_ids'])));
+        return $enrollment;
+    }
 }
