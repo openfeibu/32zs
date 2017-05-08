@@ -56,6 +56,11 @@ class Enrollment extends Base
 	}
 	public function enrollment_runedit()
 	{
+        $enrollment_id = input('enrollment_id','');
+        $enrollment = Db::name('enrollment')->where(['enrollment_id' => $enrollment_id])->find();
+        if(!$enrollment){
+            return $this->error('数据不存在');
+        }
 		$major_ids = array_filter($_POST['major_id']);
 		$major_ids = implode(',',$major_ids);
 		$major_ids = ','.$major_ids.',';
@@ -65,8 +70,11 @@ class Enrollment extends Base
 			'school_id' => input('school_id'),
 			'enrollment_number' => input('enrollment_number'),
 		];
-		EnrollmentModel::create($data);
-		$this->success('添加成功',url('admin/Enrollment/enrollment'));
+        $rst = Db::name('enrollment')->where(['enrollment_id' => $enrollment_id])->update($data);
+
+        $this->success('操作成功',url('admin/Enrollment/enrollment'));
+
+
 	}
     public function enrollment_del()
     {
