@@ -1667,7 +1667,7 @@ function get_birth($idcard)
  	return strlen($idcard)==15 ? ('19' . substr($idcard, 6, 6)) : substr($idcard, 6, 8);
 }
 function get_sex($idcard){
-	return substr($idcard, (strlen($idcard)==15 ? -2 : -1), 1) % 2 ? '女' : '男';
+	return substr($idcard, -2 , 1) % 2 ? '男' : '女';
 }
 function is_idcard( $id )
 {
