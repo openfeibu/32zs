@@ -1664,7 +1664,7 @@ function handle_major_score_arr($major_score_key,$major_score_arr)
 function get_birth($idcard)
 {
 	//通过身份证号查询出性别与生日
- 	return strlen($idcard)==15 ? ('19' . substr($idcard, 6, 6)) : substr($idcard, 6, 8);
+ 	return substr($idcard, 6, 4).'年'.substr($idcard, 10, 2).'月';
 }
 function get_sex($idcard){
 	return substr($idcard, -2 , 1) % 2 ? '男' : '女';
