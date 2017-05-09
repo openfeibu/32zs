@@ -85,7 +85,7 @@ class Index extends Base
         $difday_c=($ztcoms_count>0)?($tocoms_count-$ztcoms_count)/$ztcoms_count*100:0;
         $this->assign('difday_c',$difday_c);
 
-        if($this->admin['major_id'])
+        if($this->admin['id'] == 3)
         {
             $statistics = [];
             $major_ids = array_filter(json_decode($this->admin['major_id'],true));

@@ -218,6 +218,111 @@ class Score extends Base
 			$this -> error("删除失败！",url('admin/Score/score_list',array('p'=>$p)));
 		}
 	}
+    public function socre_list_export()
+    {
+        $major_id = input('major_id','');
+
+        $map['m.major_id'] = $major_id;
+
+        $map['m.school_id'] = $this->admin['school_id'];
+
+        $data = Db::name('major_score')->alias("ms")
+                        ->join(config('database.prefix').'member_list m','m.member_list_id = ms.member_list_id','right')
+                        ->join(config('database.prefix').'member_info mi','m.member_list_id = mi.member_list_id')
+                        ->join(config('database.prefix').'major mj','mj.major_id = m.major_id')
+                        ->where($map)
+                        ->order('ms.major_score_status desc')
+                        ->order('m.member_list_id desc')
+                        ->field('ms.major_score, ms.major_score_id,ms.major_score_status,m.member_list_nickname , m.member_list_username, m.member_list_id,mj.major_name,mj.major_name,m.major_id,m.school_id,mi.ZexamineeNumber')
+                        ->order('major_score_id desc')->select();
+
+        $status = config("status_title");
+
+        $major = MajorModel::get_major_detail($major_id,$this->admin['school_id']);
+
+
+        $major_score = $major['score'] ? json_decode($major['score'],true) :[];
+		$major_score = array_filter($major_score);
+
+        $major_score_key = $major['major_score_key'] ? array_filter(json_decode($major['major_score_key'],true)) : [];
+
+		foreach($data as $key => $val)
+		{
+            $major_score_arr = json_decode($val['major_score'],true);
+            $major_score_desc = major_score_desc($major_score_key,$major_score_arr);
+            $major_score_arr = handle_major_score_arr($major_score_key,$major_score_arr);
+            $data[$key]['major_score_arr'] = $major_score_arr;
+            $data[$key]['major_score_desc'] = $major_score_desc;
+            $major_score_status = $val['major_score_status'] ? $val['major_score_status'] : 0 ;
+            $data[$key]['major_score_status'] = $major_score_status ;
+            $data[$key]['status_desc'] = $status[$major_score_status] ;
+            $major_score_total = handle_major_score($major_score_arr);
+            $data[$key]['major_score_total'] = $major_score_total;
+            $data[$key]['member_list_username'] = $val['member_list_username']."\t";
+            $data[$key]['ZexamineeNumber'] = $val['ZexamineeNumber']."\t";
+            $j = 0;
+            foreach ($major_score_arr as $major_score_k => $major_score_v) {
+                $data[$key]['major_'.$j] = $major_score_v;
+                $j++;
+            }
+		}
+        $field_titles = ['0' => '姓名','1' => '中职考生号','2' => '身份证','3' => '中职专业'];
+        $i = 4;
+        foreach ($major_score as $k => $major) {
+            $field_titles[$i] = $major;
+            $i++;
+        }
+        $field_titles[$i] = '核定理论成绩';
+        $field_titles[$i+1] = '审核状态';
+
+        $fields = ['0' => 'member_list_nickname','1' => 'ZexamineeNumber','2' => 'member_list_username','3' => 'major_name','major_score_total','status_desc'];
+        $i = 4; $j = 0;
+        foreach ($major_score as $k => $major) {
+            $fields[$i] = 'major_'.$j;
+            $i++;
+            $j++;
+        }
+        $fields[$i] = 'major_score_total';
+        $fields[$i+1] = 'status_desc';
+
+        $table = '三二分段考核理论成绩'.date('YmdHis');
+        error_reporting(E_ALL);
+        date_default_timezone_set('Asia/chongqing');
+        $objPHPExcel = new \PHPExcel();
+        //import("Org.Util.PHPExcel.Reader.Excel5");
+        /*设置excel的属性*/
+        $objPHPExcel->getProperties()->setCreator("wuzhijie")//创建人
+        ->setLastModifiedBy("wuzhijie")//最后修改人
+        ->setKeywords("excel")//关键字
+        ->setCategory("result file");//种类
+
+        //第一行数据
+        $objPHPExcel->setActiveSheetIndex(0);
+        $active = $objPHPExcel->getActiveSheet();
+        foreach($field_titles as $i=>$name){
+            $ck = num2alpha($i++) . '1';
+            $active->setCellValue($ck, $name);
+        }
+        //填充数据
+        foreach($data as $k => $v){
+            $k=$k+1;
+            $num=$k+1;//数据从第二行开始录入
+            $objPHPExcel->setActiveSheetIndex(0);
+            foreach($fields as $i=>$name){
+                $ck = num2alpha($i++) . $num;
+                $active->setCellValue($ck, $v[$name]);
+            }
+        }
+        $objPHPExcel->getActiveSheet()->setTitle($table);
+        $objPHPExcel->setActiveSheetIndex(0);
+        header('Content-Type: application/vnd.ms-excel');
+        header('Content-Disposition: attachment;filename="'.$table.'.xls"');
+        header('Cache-Control: max-age=0');
+        $objWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
+        $objWriter->save('php://output');
+        exit;
+
+    }
     public function recruit_score_list()
     {
         $major_id = input('major_id','');
