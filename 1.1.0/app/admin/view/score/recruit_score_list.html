@@ -6,19 +6,17 @@
 			<form name="admin_list_sea" class="form-search" id="list-filter" method="post" action="{:url('admin/score/recruit_score_list')}">
 				<div class="col-xs-12 col-sm-4  margintop5">
 
-					<select name="recruit_score_status" class="ajax_change">
+					<select name="recruit_score_status" class="ajax_change" id="recruit_score_status">
 						<option value="">所有审核状态</option>
 						<option value="1" {if condition="$recruit_score_status eq '1'"}selected="selected"{/if}>已通过审核</option>
 					</select>
-					<select name="school_id" class="ajax_change" >
+					<select name="school_id" class="ajax_change" id="school_id">
 						<option value="">选择学校</option>
 						{foreach name="school_list" item="v"}
 							<option value="{$v.school_id}" {if condition="$school_id eq $v['school_id']"}selected="selected"{/if}>{$v.school_name}</option>
 						{/foreach}
 					</select>
-					<!-- <select name="recruit_major_id" class="ajax_change" id="recruit_major">
-						<option value="">选择高职专业</option>
-					</select> -->
+					<a href="javascript:;" onclick="javascript:var school_id = $('#school_id').val();var recruit_score_status = $('#recruit_score_status').val();window.location.href='{:url('admin/Score/recruit_score_list_export')}?school_id='+school_id+'&recruit_score_status='+recruit_score_status;"><i class="fa fa-download export"></i></a>
 				</div>
 
 			</form>

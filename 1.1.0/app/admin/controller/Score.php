@@ -411,6 +411,99 @@ class Score extends Base
             return $this->fetch();
         }
     }
+    public function recruit_score_list_export()
+    {
+        $major_id = input('major_id','');
+        $recruit_major_id = input('recruit_major_id','');
+        $school_id = input('school_id','');
+        $map = [];
+        $where = '';
+        if($major_id){
+            $map['m.major_id'] = $major_id;
+        }
+        if($school_id){
+            $map['m.school_id'] = $school_id;
+        }
+        if($recruit_major_id){
+            $map['rm.recruit_major_id'] = $recruit_major_id;
+        }
+        $major_id = input('major_id','');
+
+        $school_id = input('school_id','');
+        $recruit_score_status = input('recruit_score_status','');
+
+
+        if($recruit_score_status === '0'){
+            $where = 'ms.recruit_score_status <> 1';
+        }
+        else if($recruit_score_status == 1){
+            $where = 'ms.recruit_score_status = 1';
+        }
+
+		$data = Db::name('major_score')->alias("ms")
+						->join(config('database.prefix').'member_list m','m.member_list_id = ms.member_list_id','right')
+                        ->join(config('database.prefix').'member_info mi','m.member_list_id = mi.member_list_id')
+						->join(config('database.prefix').'major mj','mj.major_id = m.major_id')
+                        ->join(config('database.prefix').'school s','s.school_id = m.school_id')
+						->where($map)
+                        ->where($where)
+                        ->order('ms.major_score_status ASC')
+                        ->order('s.school_id desc')
+                        ->order('m.member_list_id desc')
+						->field('s.school_id,s.school_name,mi.ZexamineeNumber,ms.major_score, ms.major_score_status,ms.recruit_score,ms.recruit_score_status,m.member_list_nickname,m.member_list_username, m.member_list_id,m.major_id,ms.major_score_id,mj.major_name')
+						->order('major_score_id desc')->select();
+
+
+		$status = config("status_title");
+        $recruit_major = Db::name('recruit_major')->where('recruit_major_id',$this->admin['recruit_major_id'])->find();
+		foreach($data as $key => $val)
+		{
+            $val_recruit_score_status = $val['recruit_score_status'] ? $val['recruit_score_status'] : 0;
+            $data[$key]['status_desc'] = $status[$val_recruit_score_status];
+            $data[$key]['recruit_major_name'] = $recruit_major['recruit_major_name'];
+            $data[$key]['member_list_username'] = $val['member_list_username']."\t";
+            $data[$key]['ZexamineeNumber'] = $val['ZexamineeNumber']."\t";
+		}
+        $field_titles = ['姓名','中职考生号','身份证','高职专业','中职学校','中职专业','技能成绩'];
+        $fields = ['member_list_nickname','ZexamineeNumber','member_list_username','recruit_major_name','school_name','major_name','recruit_score'];
+        $table = '三二分段'.$recruit_major['recruit_major_name'].'技能考核成绩'.date('YmdHis');
+        error_reporting(E_ALL);
+        date_default_timezone_set('Asia/chongqing');
+        $objPHPExcel = new \PHPExcel();
+        //import("Org.Util.PHPExcel.Reader.Excel5");
+        /*设置excel的属性*/
+        $objPHPExcel->getProperties()->setCreator("wuzhijie")//创建人
+        ->setLastModifiedBy("wuzhijie")//最后修改人
+        ->setKeywords("excel")//关键字
+        ->setCategory("result file");//种类
+
+        //第一行数据
+        $objPHPExcel->setActiveSheetIndex(0);
+        $active = $objPHPExcel->getActiveSheet();
+        foreach($field_titles as $i=>$name){
+            $ck = num2alpha($i++) . '1';
+            $active->setCellValue($ck, $name);
+        }
+        //填充数据
+        foreach($data as $k => $v){
+            $k=$k+1;
+            $num=$k+1;//数据从第二行开始录入
+            $objPHPExcel->setActiveSheetIndex(0);
+            foreach($fields as $i=>$name){
+                $ck = num2alpha($i++) . $num;
+                $active->setCellValue($ck, $v[$name]);
+            }
+        }
+        $objPHPExcel->getActiveSheet()->setTitle($table);
+        $objPHPExcel->setActiveSheetIndex(0);
+        header('Content-Type: application/vnd.ms-excel');
+        header('Content-Disposition: attachment;filename="'.$table.'.xls"');
+        header('Cache-Control: max-age=0');
+        $objWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
+        $objWriter->save('php://output');
+        exit;
+
+    }
     public function recruit_score_add()
     {
 
