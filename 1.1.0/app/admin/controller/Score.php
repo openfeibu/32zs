@@ -596,8 +596,8 @@ class Score extends Base
         $major_id = input('major_id','');
         $recruit_major_id = input('recruit_major_id','');
         $school_id = input('school_id','');
-        $major_score_status = input('major_score_status','');
         $map = [];
+        $where = '';
         if($major_id){
             $map['m.major_id'] = $major_id;
         }
@@ -606,38 +606,29 @@ class Score extends Base
         }
         if($recruit_major_id){
             $map['rm.recruit_major_id'] = $recruit_major_id;
-        }
-        if($major_score_status != ''){
-            $map['ms.major_score_status'] = $major_score_status;
         }
         $major_id = input('major_id','');
-        $recruit_major_id = input('recruit_major_id','');
+
         $school_id = input('school_id','');
         $recruit_score_status = input('recruit_score_status','');
-    //    $map = ['ms.recruit_score_status' => 0];
-        if($major_id){
-            $map['m.major_id'] = $major_id;
-        }
-        if($school_id){
-            $map['m.school_id'] = $school_id;
-        }
-        if($recruit_major_id){
-            $map['rm.recruit_major_id'] = $recruit_major_id;
-        }
 
-        if($recruit_score_status != ''){
-            $map['ms.recruit_score_status'] = $recruit_score_status;
+        if($recruit_score_status == 1){
+            $where = 'ms.recruit_score_status = 1';
+        }
+        else{
+            $where = 'ms.recruit_score_status <> 1';
         }
 
 		$score_list = Db::name('major_score')->alias("ms")
-						->join(config('database.prefix').'member_list m','m.member_list_id = ms.member_list_id')
+						->join(config('database.prefix').'member_list m','m.member_list_id = ms.member_list_id','right')
                         ->join(config('database.prefix').'member_info mi','m.member_list_id = mi.member_list_id')
 						->join(config('database.prefix').'major mj','mj.major_id = m.major_id')
                         ->join(config('database.prefix').'school s','s.school_id = m.school_id')
 						->where($map)
-                        ->where('ms.recruit_score is not null')
-                        ->order('ms.recruit_score_status','ASC')
-                        ->order('ms.major_score_id','DESC')
+                        ->where($where)
+                        ->order('ms.major_score_status ASC')
+                        ->order('s.school_id desc')
+                        ->order('m.member_list_id desc')
 						->field('s.school_id,s.school_name,mi.ZexamineeNumber,ms.major_score, ms.major_score_status,ms.recruit_score,ms.recruit_score_status,m.member_list_nickname,m.member_list_username, m.member_list_id,m.major_id,ms.major_score_id,mj.major_name')
 						->order('major_score_id desc')->paginate(config('paginate.list_rows'),false,['query'=>get_query()]);
 
@@ -658,7 +649,8 @@ class Score extends Base
             $major_score_arr = handle_major_score_arr($major_score_key,$major_score_arr);
             $data[$key]['major_score_arr'] = $major_score_arr;
             $data[$key]['major_score_desc'] = $major_score_desc;
-			$data[$key]['status_desc'] = $status[$val['recruit_score_status']];
+            $val_recruit_score_status = $val['recruit_score_status'] ? $val['recruit_score_status'] : 0;
+			$data[$key]['status_desc'] = $status[$val_recruit_score_status];
 			$data[$key]['major_score_key'] =  $major_score_key;
 		}
 

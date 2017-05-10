@@ -72,7 +72,7 @@ class Base extends Common
 		$pdf->SetSubject('TCPDF Tutorial');
 		$pdf->SetKeywords('TCPDF, PDF, example, test, guide');
         //设置页眉页脚
-        $pdf->SetHeaderData('', '', $title,'广东农工商职业技术学院',array(66,66,66), array(0,0,0));
+        $pdf->SetHeaderData('', '', '广东农工商职业技术学院',$title,array(66,66,66), array(0,0,0));
         $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
         $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
         $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);//设置默认等宽字体

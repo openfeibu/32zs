@@ -4,13 +4,14 @@
 		<div class="row maintop">
 
 			<form name="admin_list_sea" class="form-search" id="list-filter" method="post" action="{:url('admin/score/score_list')}">
-				<div class="col-xs-12 col-sm-2  margintop5">
+				<div class="col-xs-12 col-sm-4  margintop5">
+					中职专业：
 					<select name="major_id" class="ajax_change" id="major">
 						{foreach name='major_list' item='v'}
 						<option value="{$v.major_id}" {if $major_id == $v['major_id']}selected{/if}>{$v.major_name}</option>
 						{/foreach}
 					</select>
-					<a href="javascript:;" onclick="javascript:var major_id = $('#major').val();window.location.href='{:url('admin/Score/score_list_export')}?major_id='+major_id;"><i class="fa fa-download export"></i></a>
+					<a href="javascript:;" onclick="javascript:var major_id = $('#major').val();window.location.href='{:url('admin/Score/score_list_export')}?major_id='+major_id;">导出：<i class="fa fa-download export" style="float:none;"></i></a>
 				</div>
 
 			</form>
