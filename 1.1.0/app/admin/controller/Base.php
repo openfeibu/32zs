@@ -21,7 +21,7 @@ class Base extends Common
  		if(!$this->check_admin_login()) $this->redirect('admin/Login/login');//未登录
  		$auth=new AuthRule;
 		$id_curr=$auth->get_url_id();
-        if(!$auth->check_auth($id_curr)) $this->error('没有权限',url('admin/Index/index'));
+        //if(!$auth->check_auth($id_curr)) $this->error('没有权限',url('admin/Index/index'));
 		//获取有权限的菜单tree
 		$menus=$auth->get_admin_menus();
 		$this->assign('menus',$menus);
@@ -72,7 +72,7 @@ class Base extends Common
 		$pdf->SetSubject('TCPDF Tutorial');
 		$pdf->SetKeywords('TCPDF, PDF, example, test, guide');
         //设置页眉页脚
-        $pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, '32zs.gdaib.edu.cn','三二分段招生管理系统',array(66,66,66), array(0,0,0));
+        $pdf->SetHeaderData('', '', '32zs.gdaib.edu.cn','三二分段招生管理系统',array(66,66,66), array(0,0,0));
         $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
         $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
         $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);//设置默认等宽字体
