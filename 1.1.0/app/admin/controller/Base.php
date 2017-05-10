@@ -130,7 +130,7 @@ class Base extends Common
 		// reset pointer to the last page
 		$pdf->lastPage();
 
-        $showType= 'I';//PDF输出的方式。I，在浏览器中打开；D，以文件形式下载；F，保存到服务器中；S，以字符串形式输出；E：以邮件的附件输出。
+        $showType= 'D';//PDF输出的方式。I，在浏览器中打开；D，以文件形式下载；F，保存到服务器中；S，以字符串形式输出；E：以邮件的附件输出。
         $pdf->Output("{$fileName}.pdf", $showType);
         exit;
 	}
