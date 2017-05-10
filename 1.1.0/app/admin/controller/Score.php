@@ -218,7 +218,7 @@ class Score extends Base
 			$this -> error("删除失败！",url('admin/Score/score_list',array('p'=>$p)));
 		}
 	}
-    public function socre_list_export()
+    public function score_list_export()
     {
         $major_id = input('major_id','');
 
@@ -286,6 +286,10 @@ class Score extends Base
         $fields[$i+1] = 'status_desc';
 
         $table = '三二分段考核理论成绩'.date('YmdHis');
+
+        $this->export_pdf($field_titles,$fields,$data,$table);
+        return false;
+
         error_reporting(E_ALL);
         date_default_timezone_set('Asia/chongqing');
         $objPHPExcel = new \PHPExcel();
@@ -464,9 +468,14 @@ class Score extends Base
             $data[$key]['member_list_username'] = $val['member_list_username']."\t";
             $data[$key]['ZexamineeNumber'] = $val['ZexamineeNumber']."\t";
 		}
-        $field_titles = ['姓名','中职考生号','身份证','高职专业','中职学校','中职专业','技能成绩'];
-        $fields = ['member_list_nickname','ZexamineeNumber','member_list_username','recruit_major_name','school_name','major_name','recruit_score'];
+        $field_titles = ['姓名','中职考生号','身份证','高职专业','中职学校','中职专业','技能成绩','审核状态'];
+
+        $fields = ['member_list_nickname','ZexamineeNumber','member_list_username','recruit_major_name','school_name','major_name','recruit_score','status_desc'];
+
         $table = '三二分段'.$recruit_major['recruit_major_name'].'技能考核成绩'.date('YmdHis');
+        $this->export_pdf($field_titles,$fields,$data,$table);
+        return false;
+
         error_reporting(E_ALL);
         date_default_timezone_set('Asia/chongqing');
         $objPHPExcel = new \PHPExcel();

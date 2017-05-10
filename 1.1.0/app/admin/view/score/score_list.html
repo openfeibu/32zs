@@ -10,7 +10,7 @@
 						<option value="{$v.major_id}" {if $major_id == $v['major_id']}selected{/if}>{$v.major_name}</option>
 						{/foreach}
 					</select>
-					<a href="javascript:;" onclick="javascript:var major_id = $('#major').val();window.location.href='{:url('admin/Score/socre_list_export')}?major_id='+major_id;"><i class="fa fa-download export"></i></a>
+					<a href="javascript:;" onclick="javascript:var major_id = $('#major').val();window.location.href='{:url('admin/Score/score_list_export')}?major_id='+major_id;"><i class="fa fa-download export"></i></a>
 				</div>
 
 			</form>
