@@ -240,6 +240,9 @@ class Score extends Base
 
         $major = MajorModel::get_major_detail($major_id,$this->admin['school_id']);
 
+        $school = Db::name('school')->where(['school_id' =>$this->admin['school_id'] ])->find();
+
+        $title = $school['school_name'].' '.$major['major_name'].' 理论成绩';
 
         $major_score = $major['score'] ? json_decode($major['score'],true) :[];
 		$major_score = array_filter($major_score);
@@ -287,7 +290,7 @@ class Score extends Base
 
         $table = '三二分段考核理论成绩'.date('YmdHis');
 
-        $this->export_pdf($field_titles,$fields,$data,$table);
+        $this->export_pdf($field_titles,$fields,$data,$table,$title);
         return false;
 
         error_reporting(E_ALL);
@@ -473,7 +476,8 @@ class Score extends Base
         $fields = ['member_list_nickname','ZexamineeNumber','member_list_username','recruit_major_name','school_name','major_name','recruit_score','status_desc'];
 
         $table = '三二分段'.$recruit_major['recruit_major_name'].'技能考核成绩'.date('YmdHis');
-        $this->export_pdf($field_titles,$fields,$data,$table);
+        $title = $recruit_major['recruit_major_name'].'技能考核成绩';
+        $this->export_pdf($field_titles,$fields,$data,$table,$title);
         return false;
 
         error_reporting(E_ALL);

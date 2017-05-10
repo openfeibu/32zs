@@ -59,7 +59,7 @@ class Base extends Common
 
 
 	}
-	public function export_pdf($field_titles=array(),$fields=array(),$data=array(),$fileName='Newfile'){
+	public function export_pdf($field_titles=array(),$fields=array(),$data=array(),$fileName='Newfile',$title){
 		set_time_limit(120);
 		if(empty($field_titles) || empty($data)) $this->error("导出的数据为空！");
 		require(EXTEND_PATH . 'tcpdf/examples/lang/eng.php');
@@ -72,7 +72,7 @@ class Base extends Common
 		$pdf->SetSubject('TCPDF Tutorial');
 		$pdf->SetKeywords('TCPDF, PDF, example, test, guide');
         //设置页眉页脚
-        $pdf->SetHeaderData('', '', '','',array(66,66,66), array(0,0,0));
+        $pdf->SetHeaderData('', '', $title,'广东农工商职业技术学院',array(66,66,66), array(0,0,0));
         $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
         $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
         $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);//设置默认等宽字体
