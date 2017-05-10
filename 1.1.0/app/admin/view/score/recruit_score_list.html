@@ -18,7 +18,27 @@
 					</select>
 					<a href="javascript:;" onclick="javascript:var school_id = $('#school_id').val();var recruit_score_status = $('#recruit_score_status').val();window.location.href='{:url('admin/Score/recruit_score_list_export')}?school_id='+school_id+'&recruit_score_status='+recruit_score_status;">导出：<i class="fa fa-download export" style="float:none;"></i></a>
 				</div>
-
+				<div class="col-xs-12 col-sm-3  margintop5">
+					<div class="input-group">
+						<input type="text" name="search_key" id="key" class="form-control" value="{$search_key}" placeholder="请输入身份证、姓名、中职考生号" />
+						<span class="input-group-btn">
+							<button type="submit" class="btn btn-sm  btn-purple ajax-search-form">
+								<span class="ace-icon fa fa-search icon-on-right bigger-110"></span>
+								搜索
+							</button>
+						</span>
+					</div>
+				</div>
+				<div class="col-xs-4 col-sm-3 margintop5">
+					<div class="input-group-btn">
+						<a href="{:url('admin/Score/recruit_score_list')}">
+							<button type="button" class="btn btn-sm  btn-purple ajax-display-all">
+								<span class="ace-icon fa fa-globe icon-on-right bigger-110"></span>
+								显示全部
+							</button>
+						</a>
+					</div>
+				</div>
 			</form>
 		</div>
 
@@ -38,8 +58,8 @@
                                     </label>
                                     ID
                                 </th>
-								<th>中职考生号</th>
 								<th>姓名</th>
+								<th>中职考生号</th>
 								<th>身份证</th>
                                 <th>中职学校</th>
                                 <th>中职专业</th>

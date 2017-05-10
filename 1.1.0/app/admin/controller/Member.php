@@ -54,7 +54,7 @@ class Member extends Base
 			    ->join(config('database.prefix').'school s','a.school_id = s.school_id')
 				->join(config('database.prefix').'major m','a.major_id = m.major_id')
 				->join(config('database.prefix').'member_info mi','mi.member_list_id = a.member_list_id')
-				->where($where)->where('member_list_username|member_list_nickname','like',"%".$key."%")
+				->where($where)->where('member_list_username|member_list_nickname|ZexamineeNumber','like',"%".$key."%")
 				->field('a.*,b.*,m.major_id,m.major_name,m.major_code,m.major_name,s.school_id,s.school_name,mi.GexamineeNumber,mi.ZexamineeNumber')
 				->order('member_list_id desc')->paginate(config('paginate.list_rows'),false,['query'=>get_query()]);
 
