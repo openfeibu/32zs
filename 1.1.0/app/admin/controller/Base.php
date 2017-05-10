@@ -21,7 +21,7 @@ class Base extends Common
  		if(!$this->check_admin_login()) $this->redirect('admin/Login/login');//未登录
  		$auth=new AuthRule;
 		$id_curr=$auth->get_url_id();
-        if(!$auth->check_auth($id_curr)) $this->error('没有权限',url('admin/Index/index'));
+        //if(!$auth->check_auth($id_curr)) $this->error('没有权限',url('admin/Index/index'));
 		//获取有权限的菜单tree
 		$menus=$auth->get_admin_menus();
 		$this->assign('menus',$menus);
@@ -59,7 +59,7 @@ class Base extends Common
 
 
 	}
-	public function export_pdf($field_titles=array(),$fields=array(),$data=array(),$fileName='Newfile',$title){
+	public function export_pdf($field_titles=array(),$fields=array(),$data=array(),$fileName='Newfile',$title,$author=''){
 		set_time_limit(120);
 		if(empty($field_titles) || empty($data)) $this->error("导出的数据为空！");
 		require(EXTEND_PATH . 'tcpdf/examples/lang/eng.php');
@@ -72,7 +72,7 @@ class Base extends Common
 		$pdf->SetSubject('TCPDF Tutorial');
 		$pdf->SetKeywords('TCPDF, PDF, example, test, guide');
         //设置页眉页脚
-        $pdf->SetHeaderData('', '', '广东农工商职业技术学院',$title,array(66,66,66), array(0,0,0));
+        $pdf->SetHeaderData('', '', $author,$title,array(66,66,66), array(0,0,0));
         $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
         $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
         $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);//设置默认等宽字体
@@ -126,8 +126,13 @@ class Base extends Common
             $pdf->Ln();
             $fill=!$fill;
         }
-        $showType= 'D';//PDF输出的方式。I，在浏览器中打开；D，以文件形式下载；F，保存到服务器中；S，以字符串形式输出；E：以邮件的附件输出。
+
+		// reset pointer to the last page
+		$pdf->lastPage();
+
+        $showType= 'I';//PDF输出的方式。I，在浏览器中打开；D，以文件形式下载；F，保存到服务器中；S，以字符串形式输出；E：以邮件的附件输出。
         $pdf->Output("{$fileName}.pdf", $showType);
         exit;
 	}
+
 }

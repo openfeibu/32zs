@@ -14,6 +14,7 @@ use app\admin\model\RecruitMajor as RecruitMajorModel;
 use app\admin\model\Score as ScoreModel;
 use think\Db;
 use think\Cache;
+use think\Loader;
 
 class Score extends Base
 {
@@ -245,7 +246,8 @@ class Score extends Base
 
         $school = Db::name('school')->where(['school_id' =>$this->admin['school_id'] ])->find();
 
-        $title = $school['school_name'].' '.$major['major_name'].' 理论成绩';
+        $title = $school['school_name'].'  '.$major['major_name'].'   核定理论成绩表';
+        $author = '广东农工商职业技术学院   对口';
 
         $major_score = $major['score'] ? json_decode($major['score'],true) :[];
 		$major_score = array_filter($major_score);
@@ -293,7 +295,7 @@ class Score extends Base
 
         $table = '三二分段考核理论成绩'.date('YmdHis');
 
-        $this->export_pdf($field_titles,$fields,$data,$table,$title);
+        $this->score_list_export_pdf($field_titles,$fields,$data,$table,$title,$author);
         return false;
 
         error_reporting(E_ALL);
@@ -483,7 +485,8 @@ class Score extends Base
 
         $table = '三二分段'.$recruit_major['recruit_major_name'].'技能考核成绩'.date('YmdHis');
         $title = $recruit_major['recruit_major_name'].'技能考核成绩';
-        $this->export_pdf($field_titles,$fields,$data,$table,$title);
+        $author = '广东农工商职业技术学院';
+        $this->export_pdf($field_titles,$fields,$data,$table,$title,$author);
         return false;
 
         error_reporting(E_ALL);
@@ -767,5 +770,83 @@ class Score extends Base
 		}else{
 			$this -> error("操作失败！",url('admin/score/recruit_score_all',array('p'=>$p)));
 		}
+	}
+
+    public function score_list_export_pdf($field_titles=array(),$fields=array(),$data=array(),$fileName='Newfile',$title,$author=''){
+
+		set_time_limit(120);
+		if(empty($field_titles) || empty($data)) $this->error("导出的数据为空！");
+		require_once(EXTEND_PATH . 'tcpdf/examples/lang/eng.php');
+        require_once(EXTEND_PATH . 'tcpdf/ScoreListTCPDF.php');
+		$pdf = new \ScoreListTCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);//新建pdf文件
+		 //设置文件信息
+		$pdf->SetCreator(PDF_CREATOR);
+		$pdf->SetAuthor("Author");
+		$pdf->SetTitle("pdf test");
+		$pdf->SetSubject('TCPDF Tutorial');
+		$pdf->SetKeywords('TCPDF, PDF, example, test, guide');
+        //设置页眉页脚
+        $pdf->SetHeaderData('', '', $author,$title,array(66,66,66), array(0,0,0));
+        $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
+        $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
+        $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);//设置默认等宽字体
+        $pdf->SetMargins(PDF_MARGIN_LEFT, 24, PDF_MARGIN_RIGHT);//设置页面边幅
+        $pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
+        $pdf->SetFooterMargin(30);
+        $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);//设置自动分页符
+        $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
+        $pdf->setLanguageArray($l);
+        $pdf->SetFont('droidsansfallback', '');
+        $pdf->AddPage();
+
+        $pdf->SetFillColor(245, 245, 245);
+        $pdf->SetTextColor(0);
+        $pdf->SetDrawColor(66, 66, 66);
+        $pdf->SetLineWidth(0.3);
+        $pdf->SetFont('droidsansfallback', '',9);
+        // Header
+        $num_headers = count($field_titles);
+        for($i = 0; $i < $num_headers; ++$i) {
+            $pdf->Cell(180/$num_headers, 8, $field_titles[$i], 1, 0, 'C', 1);
+        }
+        $pdf->Ln();
+
+        // 填充数据
+        $fill = 0;
+        foreach($data as $list) {
+            //每頁重复表格标题行
+            if(($pdf->getPageHeight()-$pdf->getY())<($pdf->getBreakMargin()+2)){
+                $pdf->SetFillColor(245, 245, 245);
+                $pdf->SetTextColor(0);
+                $pdf->SetDrawColor(66, 66, 66);
+                $pdf->SetLineWidth(0.3);
+                $pdf->SetFont('droidsansfallback', '',9);
+                // Header
+                for($i = 0; $i < $num_headers; ++$i) {
+                    $pdf->Cell(180/$num_headers, 8, $field_titles[$i], 1, 0, 'C', 1);
+                }
+                $pdf->Ln();
+            }
+            // Color and font restoration
+            $pdf->SetFillColor(245, 245, 245);
+            $pdf->SetTextColor(40);
+            $pdf->SetLineWidth(0.1);
+            $pdf->SetFont('droidsansfallback', '');
+
+            foreach($fields as $i=>$name){
+				$pdf->MultiCell(180/$num_headers, 6, $list[$name], $border=1, $align='C',$fill, $ln=0, $x='', $y='',  $reseth=true, $stretch=0,$ishtml=false, $autopadding=true, $maxh=0, $valign='C', $fitcell=true);
+            }
+
+            $pdf->Ln();
+            $fill=!$fill;
+        }
+
+
+		// reset pointer to the last page
+		$pdf->lastPage();
+
+        $showType= 'I';//PDF输出的方式。I，在浏览器中打开；D，以文件形式下载；F，保存到服务器中；S，以字符串形式输出；E：以邮件的附件输出。
+        $pdf->Output("{$fileName}.pdf", $showType);
+        exit;
 	}
 }

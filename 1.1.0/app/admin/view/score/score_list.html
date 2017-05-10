@@ -11,7 +11,7 @@
 						<option value="{$v.major_id}" {if $major_id == $v['major_id']}selected{/if}>{$v.major_name}</option>
 						{/foreach}
 					</select>
-					<a href="javascript:;" onclick="javascript:var major_id = $('#major').val();window.location.href='{:url('admin/Score/score_list_export')}?major_id='+major_id;">导出：<i class="fa fa-download export" style="float:none;"></i></a>
+					<a href="javascript:;" onclick="javascript:var major_id = $('#major').val();window.location.href='{:url('admin/Score/score_list_export')}?major_id='+major_id;" title="成绩导出">成绩导出：<i class="fa fa-download export" style="float:none;"></i></a>
 				</div>
 				<div class="col-xs-12 col-sm-3  margintop5">
 					<div class="input-group">
