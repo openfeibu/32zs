@@ -266,8 +266,8 @@ class Score extends Base
             $data[$key]['status_desc'] = $status[$major_score_status] ;
             $major_score_total = handle_major_score($major_score_arr);
             $data[$key]['major_score_total'] = $major_score_total;
-            $data[$key]['member_list_username'] = $val['member_list_username']."\t";
-            $data[$key]['ZexamineeNumber'] = $val['ZexamineeNumber']."\t";
+            // $data[$key]['member_list_username'] = $val['member_list_username']."\t";
+            // $data[$key]['ZexamineeNumber'] = $val['ZexamineeNumber']."\t";
             $j = 0;
             foreach ($major_score_arr as $major_score_k => $major_score_v) {
                 $data[$key]['major_'.$j] = $major_score_v;
@@ -476,8 +476,8 @@ class Score extends Base
             $val_recruit_score_status = $val['recruit_score_status'] ? $val['recruit_score_status'] : 0;
             $data[$key]['status_desc'] = $status[$val_recruit_score_status];
             $data[$key]['recruit_major_name'] = $recruit_major['recruit_major_name'];
-            $data[$key]['member_list_username'] = $val['member_list_username']."\t";
-            $data[$key]['ZexamineeNumber'] = $val['ZexamineeNumber']."\t";
+            // $data[$key]['member_list_username'] = $val['member_list_username']."\t";
+            // $data[$key]['ZexamineeNumber'] = $val['ZexamineeNumber']."\t";
 		}
         $field_titles = ['姓名','中职考生号','身份证','高职专业','中职学校','中职专业','技能成绩','审核状态'];
 
@@ -778,7 +778,7 @@ class Score extends Base
 		if(empty($field_titles) || empty($data)) $this->error("导出的数据为空！");
 		require_once(EXTEND_PATH . 'tcpdf/examples/lang/eng.php');
         require_once(EXTEND_PATH . 'tcpdf/ScoreListTCPDF.php');
-		$pdf = new \ScoreListTCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);//新建pdf文件
+		$pdf = new \ScoreListTCPDF('L', PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);//新建pdf文件
 		 //设置文件信息
 		$pdf->SetCreator(PDF_CREATOR);
 		$pdf->SetAuthor("Author");
@@ -793,7 +793,7 @@ class Score extends Base
         $pdf->SetMargins(PDF_MARGIN_LEFT, 24, PDF_MARGIN_RIGHT);//设置页面边幅
         $pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
         $pdf->SetFooterMargin(30);
-        $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);//设置自动分页符
+        $pdf->SetAutoPageBreak(TRUE, 30);//设置自动分页符
         $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
         $pdf->setLanguageArray($l);
         $pdf->SetFont('droidsansfallback', '');
@@ -807,7 +807,7 @@ class Score extends Base
         // Header
         $num_headers = count($field_titles);
         for($i = 0; $i < $num_headers; ++$i) {
-            $pdf->Cell(180/$num_headers, 8, $field_titles[$i], 1, 0, 'C', 1);
+            $pdf->Cell(250/$num_headers, 8, $field_titles[$i], 1, 0, 'C', 1);
         }
         $pdf->Ln();
 
@@ -823,7 +823,7 @@ class Score extends Base
                 $pdf->SetFont('droidsansfallback', '',9);
                 // Header
                 for($i = 0; $i < $num_headers; ++$i) {
-                    $pdf->Cell(180/$num_headers, 8, $field_titles[$i], 1, 0, 'C', 1);
+                    $pdf->Cell(250/$num_headers, 8, $field_titles[$i], 1, 0, 'C', 1);
                 }
                 $pdf->Ln();
             }
@@ -834,7 +834,7 @@ class Score extends Base
             $pdf->SetFont('droidsansfallback', '');
 
             foreach($fields as $i=>$name){
-				$pdf->MultiCell(180/$num_headers, 6, $list[$name], $border=1, $align='C',$fill, $ln=0, $x='', $y='',  $reseth=true, $stretch=0,$ishtml=false, $autopadding=true, $maxh=0, $valign='C', $fitcell=true);
+				$pdf->MultiCell(250/$num_headers, 6, $list[$name], $border=1, $align='C',$fill, $ln=0, $x='', $y='',  $reseth=true, $stretch=0,$ishtml=false, $autopadding=true, $maxh=0, $valign='C', $fitcell=true);
             }
 
             $pdf->Ln();
