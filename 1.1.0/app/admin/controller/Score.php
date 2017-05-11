@@ -228,7 +228,7 @@ class Score extends Base
 
         $map['m.major_id'] = $major_id;
 
-        //$map['m.school_id'] = $this->admin['school_id'];
+        $map['m.school_id'] = $this->admin['school_id'];
 
         $data = Db::name('major_score')->alias("ms")
                         ->join(config('database.prefix').'member_list m','m.member_list_id = ms.member_list_id','right')
