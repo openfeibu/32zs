@@ -793,7 +793,7 @@ class Score extends Base
         $pdf->SetMargins(PDF_MARGIN_LEFT, 24, PDF_MARGIN_RIGHT);//设置页面边幅
         $pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
         $pdf->SetFooterMargin(30);
-        $pdf->SetAutoPageBreak(TRUE, 30);//设置自动分页符
+        $pdf->SetAutoPageBreak(TRUE, 40);//设置自动分页符
         $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
         $pdf->setLanguageArray($l);
         $pdf->SetFont('droidsansfallback', '');
