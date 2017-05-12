@@ -1207,12 +1207,12 @@ $(function(){
 		console.log(count);
 		if($(this).hasClass('fa-plus-circle'))
 		{
-			if(count <=4)
-			{
+			// if(count <=4)
+			// {
 				var k = count+1;
 				var html = '<div class="form-group major_score_group"><label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 科目'+k+'： </label><div class="col-sm-10"><input type="text" name="score[]" value="" /></div></div>';
 				$(this).parent().parent().before(html);
-			}
+			//}
 		}
 		if($(this).hasClass('fa-minus-circle'))
 		{
@@ -1242,7 +1242,11 @@ $(function(){
 		}
 	});
 
-	$('.major_score').blur(function(){
+	// $('.major_score').blur(function(){
+	//
+	// });
+	$("body").on('blur','.major_score',function(){
+		console.log(123);
 		$this = $(this);
 		var reg = /^[0-9]+.?[0-9]*$/;
 		$this = $(this);
@@ -1279,9 +1283,6 @@ $(function(){
 				}
 			});
 		}
-	});
-	$("body").on('blur','.major_score',function(){
-
 	});
 
 });
