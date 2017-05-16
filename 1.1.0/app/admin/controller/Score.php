@@ -412,7 +412,12 @@ class Score extends Base
             $data[$key]['status_desc'] = $status[$val_recruit_score_status];
 		}
 		$page = $score_list->render();
-        $school_list = Db::name('school')->select();
+        $school_list = Db::name('school')->alias('s')
+                                         ->join(config('database.prefix').'enrollment e','e.school_id = s.school_id')
+                                         ->where(array('e.recruit_major_id' => $admin['recruit_major_id']))
+                                         ->field('s.school_id,s.school_name')
+                                         ->select();
+        //$school_list = Db::name('school')->select();
 		$this->assign('school_list',$school_list);
 		$this->assign('data',$data);
         $this->assign('school_id',$school_id);
