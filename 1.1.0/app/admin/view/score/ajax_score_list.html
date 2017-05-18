@@ -32,11 +32,11 @@
     <td height="28" >{$v.member_list_username}</td>
     <td>{$v.major_name}</td>
     {foreach name="$v['major_score_arr']" item="val"}
-    <td data-id="{$v.member_list_id}"><input name="major_score[]" value="{$val}" {if $v['major_score_status']}disabled{/if} class="major_score score_input" > </td>
+    <td data-id="{$v.member_list_id}"><input name="major_score[]" value="{$val}" {if $v['major_score_status']==1}disabled{/if} class="major_score score_input" > </td>
     {/foreach}
     </td>
     <td>{$v.major_score_total}</td>
-    <td>{$v['status_desc']}</td>
+    <td class="status_{$v.member_list_id}">{$v['status_desc']}</td>
     <!-- <td>
         <div class="hidden-sm hidden-xs action-buttons">
             <a class="green" href="{:url('admin/score/score_add',array('member_list_id'=>$v['member_list_id']))}" title="修改">

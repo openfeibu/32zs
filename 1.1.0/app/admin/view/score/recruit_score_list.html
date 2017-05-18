@@ -8,7 +8,8 @@
 
 					<select name="recruit_score_status" class="ajax_change" id="recruit_score_status">
 						<option value="">所有审核状态</option>
-						<option value="1" {if condition="$recruit_score_status eq '1'"}selected="selected"{/if}>已通过审核</option>
+						<option value="0" {if condition="$recruit_score_status eq '0'"}selected="selected"{/if}>审核中</option>
+						<option value="1" {if condition="$recruit_score_status eq '1'"}selected="selected"{/if}>已通过</option>
 					</select>
 					<select name="school_id" class="ajax_change" id="school_id">
 						<option value="">选择学校</option>
@@ -106,7 +107,8 @@
 							$('.save_span').remove();
 						});
                         if (data.code == 1) {
-                            //$(".status_" + member_list_id).text('审核中');
+							var html = '<span style="color:#3499DB;font-weight: bold;">待审核</span>';
+                            $(".status_" + member_list_id).html(html);
                            //  layer.alert(data.msg, {icon: 6});
                         }else if(data.code == 0){
                             layer.alert(data.msg, {icon: 5});
