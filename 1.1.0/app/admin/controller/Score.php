@@ -99,6 +99,7 @@ class Score extends Base
     }
 	 public function score_all()
     {
+        $search_key= trim(input('search_key',''));
         $major_id = input('major_id','');
         $recruit_major_id = input('recruit_major_id','');
         $school_id = input('school_id','');
@@ -120,6 +121,7 @@ class Score extends Base
                         ->join(config('database.prefix').'member_info mi','m.member_list_id = mi.member_list_id')
 						->join(config('database.prefix').'major mj','mj.major_id = m.major_id')
 						->where($map)
+                        ->where('member_list_username|member_list_nickname|ZexamineeNumber','like',"%".$search_key."%")
                         ->order('m.member_list_id desc')
 						->field('mi.ZexamineeNumber,ms.major_score_id,ms.major_score, ms.major_score_status,m.member_list_nickname , m.member_list_username, m.member_list_id,m.major_id,ms.major_score_id,mj.major_name,m.school_id')
 						->order('major_score_id desc')->paginate(config('paginate.list_rows'),false,['query'=>get_query()]);
@@ -156,6 +158,7 @@ class Score extends Base
 		$this->assign('school_list',$school_list);
 		$this->assign('data',$data);
 		$this->assign('page',$page);
+        $this->assign('search_key',$search_key);
         if(request()->isAjax()){
             return $this->fetch('ajax_score_all');
         }else{
@@ -626,6 +629,7 @@ class Score extends Base
     }
 	public function recruit_score_all()
     {
+        $search_key= trim(input('search_key',''));
         $major_id = input('major_id','');
         $recruit_major_id = input('recruit_major_id','');
         $school_id = input('school_id','');
@@ -658,6 +662,7 @@ class Score extends Base
 						->where($map)
                         ->where($where)
                         ->where(['ms.recruit_score' => ['<>','NULL']])
+                        ->where('member_list_username|member_list_nickname|ZexamineeNumber','like',"%".$search_key."%")
                         ->order('ms.major_score_status ASC')
                         ->order('s.school_id desc')
                         ->order('m.member_list_id desc')
@@ -691,6 +696,7 @@ class Score extends Base
 		$this->assign('school_list',$school_list);
 		$this->assign('data',$data);
 		$this->assign('page',$page);
+        $this->assign('search_key',$search_key);
         $this->assign('recruit_score_status',$recruit_score_status);
         if(request()->isAjax()){
             return $this->fetch('ajax_recruit_score_all');
