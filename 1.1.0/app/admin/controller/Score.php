@@ -744,7 +744,7 @@ class Score extends Base
 			$where = 'member_list_id='.$ids;
 		}
 
-		$rst=Db::name('major_score')->where($where)->setField('major_score_status',2);
+		$rst=Db::name('major_score')->where($where)->setField('major_score_status',0);
 		if($rst!==false){
 			$this->success("操作成功",url('admin/score/score_all',array('p'=>$p)));
 		}else{
@@ -793,7 +793,7 @@ class Score extends Base
 			$where = 'member_list_id='.$ids;
 		}
 
-		$rst=Db::name('major_score')->where($where)->setField('recruit_score_status',2);
+		$rst=Db::name('major_score')->where($where)->setField('recruit_score_status',0);
 		if($rst!==false){
 			$this->success("操作成功",url('admin/score/recruit_score_all',array('p'=>$p)));
 		}else{

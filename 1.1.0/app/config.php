@@ -341,16 +341,16 @@ $configs= [
         ],
     ],
     'status' => [
-        '-1' => '<span style="color:#3499DB;font-weight: bold;">待审核</span>',
-        '0' => '<span style="color:#3499DB;font-weight: bold;">待审核</span>',
+        '-1' => '<span style="color:#3499DB;font-weight: bold;">审核中</span>',
+        '0' => '<span style="color:#3499DB;font-weight: bold;">审核中</span>',
         '1' => '<span style="color:#1ABD9D;font-weight: bold;">已审核</span>',
         '2' => '<span style="color:#E74C3C;font-weight: bold;">审核不通过</span>'
     ],
     'status_title' => [
-        '-1' => '待审核',
-        '0' => '待审核',
+        '-1' => '审核中',
+        '0' => '审核中',
         '1' => '已审核',
-        '2' => '不通过'
+        '2' => '审核不通过'
     ]
 ];
 //动态设置

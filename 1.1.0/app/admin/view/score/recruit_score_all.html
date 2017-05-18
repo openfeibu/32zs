@@ -8,8 +8,7 @@
 					<select name="recruit_score_status" class="ajax_change">
 						<option value="">所有审核状态</option>
 						<option value="0" {if condition="$recruit_score_status eq '0'"}selected="selected"{/if} >审核中</option>
-						<option value="1" {if condition="$recruit_score_status eq '1'"}selected="selected"{/if}>审核通过</option>
-						<option value="2" {if condition="$recruit_score_status eq '2'"}selected="selected"{/if}>审核不通过</option>
+						<option value="1" {if condition="$recruit_score_status eq '1'"}selected="selected"{/if}>已审核</option>
 					</select>
 					<select name="school_id" class="ajax_change" id="recruit_school">
 						<option value="">选择中职学校</option>
