@@ -116,7 +116,7 @@ class Score extends Base
         }
 
 		$score_list = Db::name('major_score')->alias("ms")
-						->join(config('database.prefix').'member_list m','m.member_list_id = ms.member_list_id')
+						->join(config('database.prefix').'member_list m','m.member_list_id = ms.member_list_id','left')
                         ->join(config('database.prefix').'member_info mi','m.member_list_id = mi.member_list_id')
 						->join(config('database.prefix').'major mj','mj.major_id = m.major_id')
 						->where($map)
@@ -651,12 +651,13 @@ class Score extends Base
 
 
 		$score_list = Db::name('major_score')->alias("ms")
-						->join(config('database.prefix').'member_list m','m.member_list_id = ms.member_list_id','right')
+						->join(config('database.prefix').'member_list m','m.member_list_id = ms.member_list_id','left')
                         ->join(config('database.prefix').'member_info mi','m.member_list_id = mi.member_list_id')
 						->join(config('database.prefix').'major mj','mj.major_id = m.major_id')
                         ->join(config('database.prefix').'school s','s.school_id = m.school_id')
 						->where($map)
                         ->where($where)
+                        ->where(['ms.recruit_score' => ['<>','NULL']])
                         ->order('ms.major_score_status ASC')
                         ->order('s.school_id desc')
                         ->order('m.member_list_id desc')
