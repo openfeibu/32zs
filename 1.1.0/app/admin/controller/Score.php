@@ -509,8 +509,8 @@ class Score extends Base
         $fields = ['member_list_nickname','ZexamineeNumber','member_list_username','recruit_major_name','school_name','major_name','recruit_score','status_desc'];
 
         $table = '三二分段'.$recruit_major['recruit_major_name'].'技能考核成绩'.date('YmdHis');
-        $title = $recruit_major['recruit_major_name'].'技能考核成绩';
-        $author = '广东农工商职业技术学院';
+        $title = $recruit_major['recruit_major_name'].'      技能考核成绩';
+        $author = '广东农工商职业技术学院      三二分段';
         //$this->export_pdf($field_titles,$fields,$data,$table,$title,$author);
         $this->recruit_score_list_export_pdf($field_titles,$fields,$data,$table,$title,$author);
 
