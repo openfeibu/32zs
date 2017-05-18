@@ -1279,7 +1279,7 @@ $(function(){
 				success: function(data){
 					$('#loading_img').remove();
 					$this.after('<span class="save_span">已保存</span>');
-					var html = '<span style="color:#3499DB;font-weight: bold;">待审核</span>';
+					var html = '<span style="color:#3499DB;font-weight: bold;">审核中</span>';
 					$(".status_" + member_list_id).html(html);
 					$('.save_span').fadeOut('normal').remove();
 				}
