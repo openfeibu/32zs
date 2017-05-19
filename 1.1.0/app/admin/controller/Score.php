@@ -352,6 +352,8 @@ class Score extends Base
                                          ->where(array('e.recruit_major_id' => $admin['recruit_major_id']))
                                          ->field('s.school_id,s.school_name,e.major_ids')
                                          ->select();
+        $map = [];
+        $where = '';
         $school_id_arr = $major_id_arrs = array();
         foreach ($school_list as $school_key => $school_value) {
             $school_id_arr[] = $school_value['school_id'];
@@ -359,14 +361,14 @@ class Score extends Base
             $major_id_arrs = array_merge($major_id_arrs,$major_id_arr);
         }
 
+        $map['mj.major_id'] = ['in',$major_id_arrs];
 
         $search_key= trim(input('search_key',''));
         $major_id = input('major_id','');
         $recruit_major_id = input('recruit_major_id',$admin['recruit_major_id']);
         $school_id = input('school_id','');
 
-        $map = [];
-        $where = '';
+
         if($major_id){
             $map['m.major_id'] = $major_id;
         }
@@ -376,8 +378,6 @@ class Score extends Base
             $map['m.school_id'] = ['in',$school_id_arr];
         }
 
-
-        $school_id = input('school_id','');
         $recruit_score_status = input('recruit_score_status','');
 
 
@@ -397,7 +397,6 @@ class Score extends Base
 						->where($map)
                         ->where('member_list_username|member_list_nickname|ZexamineeNumber','like',"%".$search_key."%")
                         ->where($where)
-                        ->where(['m.major_id' => ['in',$major_id_arrs]])
                         ->order('ms.major_score_status ASC')
                         ->order('s.school_id desc')
                         ->order('m.member_list_id desc')
