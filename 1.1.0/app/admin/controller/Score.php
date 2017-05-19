@@ -359,7 +359,6 @@ class Score extends Base
             $major_id_arrs = array_merge($major_id_arrs,$major_id_arr);
         }
 
-        $map['m.major_id'] = ['in',$major_id_arrs];
 
         $search_key= trim(input('search_key',''));
         $major_id = input('major_id','');
@@ -398,10 +397,11 @@ class Score extends Base
 						->where($map)
                         ->where('member_list_username|member_list_nickname|ZexamineeNumber','like',"%".$search_key."%")
                         ->where($where)
+                        ->where(['m.major_id' => ['in',$major_id_arrs]])
                         ->order('ms.major_score_status ASC')
                         ->order('s.school_id desc')
                         ->order('m.member_list_id desc')
-						->field('s.school_id,s.school_name,mi.ZexamineeNumber,ms.major_score_id,ms.major_score, ms.major_score_status,ms.recruit_score,ms.recruit_score_status,m.member_list_nickname,m.member_list_username, m.member_list_id,m.major_id,ms.major_score_id,mj.major_name')
+						->field('s.school_id,s.school_name,mi.ZexamineeNumber,ms.major_score_id,ms.major_score, ms.major_score_status,ms.recruit_score,ms.recruit_score_status,m.member_list_nickname,m.member_list_username, m.member_list_id,m.major_id,ms.major_score_id,mj.major_name,mj.major_id')
 						->order('major_score_id desc')->paginate(config('paginate.list_rows'),false,['query'=>get_query()]);
 
 		$data = $score_list->all();
