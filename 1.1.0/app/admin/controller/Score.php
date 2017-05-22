@@ -448,18 +448,25 @@ class Score extends Base
         $school_list = Db::name('school')->alias('s')
                                          ->join(config('database.prefix').'enrollment e','e.school_id = s.school_id')
                                          ->where(array('e.recruit_major_id' => $this->admin['recruit_major_id']))
-                                         ->field('s.school_id,s.school_name')
+                                         ->field('s.school_id,s.school_name,e.major_ids')
                                          ->select();
-        $school_id_arr = array();
+        $school_id_arr = $major_id_arr = array();
+        $map = [];
+        $where = '';
+
+        $school_id_arr = $major_id_arrs = array();
         foreach ($school_list as $school_key => $school_value) {
             $school_id_arr[] = $school_value['school_id'];
+            $major_id_arr = array_filter(explode(',',$school_value['major_ids']));
+            $major_id_arrs = array_merge($major_id_arrs,$major_id_arr);
         }
+
+        $map['mj.major_id'] = ['in',$major_id_arrs];
 
         $major_id = input('major_id','');
         $recruit_major_id = input('recruit_major_id','');
         $school_id = input('school_id','');
-        $map = [];
-        $where = '';
+
         if($major_id){
             $map['m.major_id'] = $major_id;
         }
