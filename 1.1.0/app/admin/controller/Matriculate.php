@@ -69,7 +69,7 @@ class Matriculate extends Base
     			$data[$key]['major_score_arr'] = $major_score_arr;
     			$data[$key]['major_score_desc'] = $major_score_desc;
     			$data[$key]['major_score_total'] = $major_score_total;
-                $data[$key]['recruit_score'] = $recruit_score =  sprintf(‘%.2f’,$value['recruit_score']);
+                $data[$key]['recruit_score'] = $recruit_score =  sprintf('%.2f',$value['recruit_score']);
     			$data[$key]['total_score'] = $major_score_total + $value['recruit_score'];
                 $data[$key]['admission_status'] = 1;
                 if($value['recruit_score'] < $min_score)
