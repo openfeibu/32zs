@@ -88,6 +88,7 @@ class Matriculate extends Base
                 $data[$key]['admission_status_desc'] = $data[$key]['admission_status'] ? '是' : '否';
                 $ranking++;
             }
+            $this->assign('enrollment',$enrollment);
         }
 
         $school_list = Db::name('school')->select();

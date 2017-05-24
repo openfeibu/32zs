@@ -19,7 +19,8 @@
 						<option value="{$v.recruit_major_id}" {if $recruit_major_id == $v['recruit_major_id']}selected{/if}>{$v.recruit_major_name}</option>
 						{/foreach}
 					</select>
-					<a href="javascript:;" onclick="javascript:var recruit_major_id = $('#enrollment_recruit_major').val();var school_id = $('#enrollment_school').val();window.location.href='{:url('admin/Matriculate/export')}?recruit_major_id='+recruit_major_id+'&school_id='+school_id;" style="margin-left:5px;"><i class="fa fa-download export"></i></a>
+					<a href="javascript:;" onclick="javascript:var recruit_major_id = $('#enrollment_recruit_major').val();var school_id = $('#enrollment_school').val();window.location.href='{:url('admin/Matriculate/export')}?recruit_major_id='+recruit_major_id+'&school_id='+school_id;" style="margin-left:5px;font-size: 18px;">导出excel</a>
+					<a href="javascript:;" onclick="javascript:var recruit_major_id = $('#enrollment_recruit_major').val();var school_id = $('#enrollment_school').val();window.location.href='{:url('admin/Matriculate/export')}?recruit_major_id='+recruit_major_id+'&school_id='+school_id;" style="margin-left:5px;font-size: 18px;">导出pdf</a>
 				</div>
 
 			</form>
