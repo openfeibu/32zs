@@ -1,0 +1,99 @@
+{extend name="admin@public/base" /}
+{block name="main-content"}
+	<div class="page-content">
+
+
+
+		<!--主题-->
+		<div class="page-header">
+			<h1>
+				您当前操作
+				<small>
+					<i class="ace-icon fa fa-angle-double-right"></i>
+					添加中职专业负责人
+				</small>
+			</h1>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<form class="form-horizontal adminform" name="admin_list_add" method="post" action="{:url('admin/Admin/secondary_vocat_admin_runadd')}">
+
+					<input type='hidden' name='group_id' value='{$group_id}'/>
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 登录用户名：  </label>
+						<div class="col-sm-10">
+							<input type="text" name="admin_username" id="admin_username" placeholder="输入登录用户名" class="col-xs-10 col-sm-5" required/>
+							<span class="lbl col-xs-12 col-sm-7"><span class="red">*</span>用户名必须是以字母开头，数字、符号组合</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 登录密码：  </label>
+						<div class="col-sm-10">
+							<input type="text" name="admin_pwd" id="admin_pwd" maxlength="15" minlength="6" placeholder="输入登录密码" class="col-xs-10 col-sm-5" required/>
+							<span class="lbl col-xs-12 col-sm-7"><span class="red">*</span>密码必须大于6位，小于15位</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+					<!-- <div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 用户邮箱：  </label>
+						<div class="col-sm-10">
+							<input type="email" name="admin_email" id="admin_email" placeholder="输入用户邮箱" class="col-xs-10 col-sm-5" required/>
+							<span class="lbl col-xs-12 col-sm-7"><span class="red">*</span>用于密码找回，请认真填写</span>
+						</div>
+					</div>
+					<div class="space-4"></div> -->
+
+					<div class="form-group school_group" >
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 负责中职及专业：  </label>
+						<div class="col-sm-10">
+							<select name="school_id"  class="col-sm-5 " id="school_more" style="width:20%;margin-right:10px;" required>
+								<option value="">请选择负责中职</option>
+								{foreach name="school_list" item="v"}
+									<option value="{$v.school_id}">{$v.school_name}</option>
+								{/foreach}
+							</select>
+							<select name="major_id[]"  class="col-sm-5 major_more" style="width:20%;" id="major" required>
+								<option value="">请选择中职专业</option>
+							</select>
+							<i class="hanle_school_count fa fa-plus-circle"></i>
+							<i class="hanle_school_count fa fa-minus-circle"></i>
+						</div>
+					</div>
+
+					<!-- <div class="space-4"></div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 是否审核： </label>
+						<div class="col-sm-10" style="padding-top:5px;">
+							<input name="admin_open" id="admin_open" value="1" class="ace ace-switch ace-switch-4 btn-flat" type="checkbox" />
+							<span class="lbl">&nbsp;默认关闭</span>
+						</div>
+					</div>
+					<div class="space-4"></div> -->
+
+
+
+					<div class="clearfix form-actions">
+						<div class="col-md-offset-3 col-md-9">
+							<button class="btn btn-info" type="submit">
+								<i class="ace-icon fa fa-check bigger-110"></i>
+								保存
+							</button>
+
+							&nbsp; &nbsp; &nbsp;
+							<button class="btn" type="reset" onclick="window.history.go(-1);">
+								<i class="ace-icon fa fa-undo bigger-110"></i>
+								返回
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+
+	</div><!-- /.page-content -->
+
+{/block}

@@ -1,0 +1,99 @@
+{extend name="admin@public/base" /}
+{block name="main-content"}
+	<div class="page-content">
+
+
+
+		<div class="row maintop">
+			<div class="col-xs-4 col-sm-2 margintop5">
+				<a href="{:url('admin/School/school_add')}">
+					<button class="btn btn-sm btn-danger">
+						<i class="ace-icon fa fa-bolt bigger-110"></i>
+						添加中职
+					</button>
+				</a>
+			</div>
+			<div class="col-xs-10 col-sm-5 margintop5">
+				<form name="admin_list_sea" class="form-search" method="post" action="{:url('admin/School/school_list')}">
+					<div class="input-group">
+										<span class="input-group-addon">
+											<i class="ace-icon fa fa-check"></i>
+										</span>
+						<input type="text" name="search_name" class="form-control" value="{$search_name}" placeholder="输入需查询的学校" />
+										<span class="input-group-btn">
+											<button type="submit" class="btn btn-purple btn-sm">
+												<span class="ace-icon fa fa-search icon-on-right bigger-110"></span>
+												搜索
+											</button>
+										</span>
+					</div>
+				</form>
+			</div>
+			<div class="col-xs-4 col-sm-5 margintop5">
+				<div class="input-group-btn">
+					<a href="{:url('admin/School/school_list')}">
+						<button type="button" class="btn btn-sm  btn-purple">
+							<span class="ace-icon fa fa-globe icon-on-right bigger-110"></span>
+							显示全部
+						</button>
+					</a>
+				</div>
+			</div>
+		</div>
+
+
+
+		<div class="row">
+			<div class="col-xs-12">
+				<div>
+					<form id="leftnav" class="ajaxForm" name="leftnav" method="post" action="{:url('/admin/school/school_delall')}" >
+						<input name="p" id="p" value="{:input('p',1)}" type="hidden" />
+						<input type="hidden" name="checkk" id="checkk" value="1" /><!--用于判断操作类型-->
+						<table class="table table-striped table-bordered table-hover" id="dynamic-table">
+							<thead>
+							<tr>
+								<th class="hidden-xs " width='100px'>
+                                    <label class="pos-rel">
+                                        <input type="checkbox" class="ace" id="chkAll" onclick="CheckAll(this.form)" value="全选">
+                                        <span class="lbl"></span>
+                                    </label>
+                                    ID
+                                </th>
+								<th>学校名称</th>
+								<th style="border-right:#CCC solid 1px;">操作</th>
+							</tr>
+							</thead>
+							{foreach name="school_list" item="v"}
+								<tr>
+									<td class="hidden-xs" height="28" >
+								        <label class="pos-rel">
+								            <input name="n_id[]" id="navid" class="ace" type="checkbox" value="{$v.school_id}">
+								            <span class="lbl"></span>
+								        </label>{$v.school_id}
+								    </td>
+									<td height="28" ><a href="{:url('admin/School/school_edit',array('school_id'=>$v['school_id']))}">{$v.school_name}</a></td>
+									<td>
+										<div class="hidden-sm hidden-xs action-buttons">
+											<a class="green" href="{:url('admin/School/school_edit',array('school_id'=>$v['school_id']))}" title="修改">
+												<i class="ace-icon fa fa-pencil bigger-130"></i>																</a>
+												<a class="red confirm-rst-url-btn" data-info="你确定要删除吗？" href="{:url('admin/School/school_del',array('school_id'=>$v['school_id']))}" title="删除">
+													<i class="ace-icon fa fa-trash-o bigger-130"></i>
+												</a>
+										</div>
+									</td>
+								</tr>
+							{/foreach}
+							<tr>
+								<td height="50" align="center">
+							        <button id="btnsubmit" class="btn btn-white btn-blue btn-sm hidden-xs">删除</button>
+							    </td>
+								<td height="50" colspan="10" align="center">{$page}</td>
+							</tr>
+						</table>
+					</form>
+				</div>
+			</div>
+		</div>
+
+	</div><!-- /.page-content -->
+{/block}

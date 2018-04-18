@@ -1,0 +1,119 @@
+{extend name="admin@public/base" /}
+{block name="main-content"}
+	<div class="page-content">
+
+
+
+		<!--主题-->
+		<div class="page-header">
+			<h1>
+				您当前操作
+				<small>
+					<i class="ace-icon fa fa-angle-double-right"></i>
+					添加中职专业
+				</small>
+			</h1>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<form class="form-horizontal ajaxForm" name="school_list_add" method="post" action="{:url('admin/School/major_runadd')}">
+					<!-- <div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 中职学校： </label>
+						<div class="col-sm-10">
+							<select name="school_id" class="col-sm-4 selector" required>
+								<option value="">请选择中职学校：</option>
+								{foreach name="school_list" item="v"}
+									<option value='{$v.school_id}'>{$v.school_name}</option>
+								{/foreach}
+							</select>
+						</div>
+					</div>
+
+					<div class="space-4"></div> -->
+<!--
+					<div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 对口高职专业： </label>
+						<div class="col-sm-10">
+							<select name="recruit_major_id" class="col-sm-4 selector" id="enrollment_recruit_major" required>
+								<option value="">请选择高职专业</option>
+
+							</select>
+						</div>
+					</div>
+
+					<div class="space-4"></div> -->
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 中职专业名称： </label>
+						<div class="col-sm-10">
+							<input type="text" name="major_name" value="" required/>
+						</div>
+					</div>
+					<div class="space-4"></div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 中职专业代码： </label>
+						<div class="col-sm-10">
+							<input type="text" name="major_code" value="" required/>
+						</div>
+					</div>
+					<!-- <div class="space-4"></div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 招生计划 </label>
+						<div class="col-sm-10">
+							<input type="text" name="number" value="" required/>
+						</div>
+					</div> -->
+
+					<div class="space-4"></div>
+					<!--
+					<div class="form-group major_score_group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 科目1： </label>
+						<div class="col-sm-10">
+							<input type="text" name="score[]" value="" />
+						</div>
+					</div>
+					<div class="space-4"></div>
+					<div class="form-group major_score_group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 科目2： </label>
+						<div class="col-sm-10">
+							<input type="text" name="score[]" value="" />
+						</div>
+					</div>
+					<div class="space-4"></div>
+					<div class="form-group major_score_group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 科目3： </label>
+						<div class="col-sm-10">
+							<input type="text" name="score[]" value="" />
+						</div>
+					</div>
+					<div class="space-4"></div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"></label>
+						<div class="col-sm-10">
+							<i class="hanle_count fa fa-plus-circle"></i>
+							<i class="hanle_count fa fa-minus-circle"></i>
+						</div>
+					</div>
+
+					<div class="space-4"></div>
+				-->
+					<div class="clearfix form-actions">
+						<div class="col-md-offset-3 col-md-9">
+							<button class="btn btn-info" type="submit">
+								<i class="ace-icon fa fa-check bigger-110"></i>
+								保存
+							</button>
+
+							&nbsp; &nbsp; &nbsp;
+							<button class="btn" type="reset" onclick="window.history.go(-1);">
+								<i class="ace-icon fa fa-undo bigger-110"></i>
+								返回
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+
+	</div><!-- /.page-content -->
+{/block}

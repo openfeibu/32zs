@@ -1,0 +1,64 @@
+{extend name="admin@public/base" /}
+{block name="main-content"}
+	<div class="page-content">
+
+		<div class="row">
+
+			<div class="col-xs-12">
+				<form class="form-horizontal ajaxForm2" name="excel_runimport" method="post" action="{:url('admin/Member/member_runimport')}"  enctype="multipart/form-data">
+					<input name="type" value="member" type="hidden"/>
+					<div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 请选择学校及中职专业： </label>
+						<div class="col-sm-4">
+                            <select name="school_id"  class="col-sm-5" id="school" required>
+                                <option value="">请选择中职学校</option>
+								{foreach name='school_list' item='v'}
+								<option value="{$v.school_id}">{$v.school_name}</option>
+								{/foreach}
+							</select>
+							<select name="major_list"  class="col-sm-5" id="major" required>
+								<option value="">请选择中职专业</option>
+							</select>
+						</div>
+						<div class="col-sm-4">
+							<a href="javascript:;" class="file">
+								<input type="file" name="file_stu" id="file_stu"  class="file"  required/>
+								选择上传文件
+							</a>
+							<span class="input-group-btn" style="float:inherit; left:140px; top:2px;">
+								<button type="submit" class="btn btn-xs  btn-purple">
+									<span class="ace-icon fa fa-search icon-on-right bigger-110"></span>
+									表格导入
+								</button>
+							</span>
+							<span style="float:right; line-height:35px; top:2px;"><a href="__PUBLIC__/excel/sample/mr_member.xls" target="_blank">下载示例表格</a></span>
+
+						</div>
+
+					</div>
+					<div class="space-4"></div>
+					<div class="form-group">
+						<p id="file_name" style="text-align:center;"></p>
+					</div>
+					<div class="space-4"></div>
+				</form>
+			</div>
+		</div>
+
+
+	</div><!-- /.page-content -->
+<script type="text/javascript">
+$(function(){
+	$("#school").change(function(){
+		var school_id = $(this).val();
+		$.ajax({
+			url: "/admin/School/ajax_major",
+			data:{'school_id':school_id},
+			success: function(data){
+				$("#major").html(data.html);
+			}
+		});
+	});
+});
+</script>
+{/block}

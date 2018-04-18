@@ -1,0 +1,29 @@
+{foreach name="major_list" item="v"}
+    <tr>
+        <td class="hidden-xs" height="28" >
+            <label class="pos-rel">
+                <input name="n_id[]" id="navid" class="ace" type="checkbox" value="{$v.major_id}">
+                <span class="lbl"></span>
+            </label>{$v.major_id}
+        </td>
+        <td>{$v.major_name}</td>
+        <td>{$v.major_code}</td>
+
+
+        <td>
+            <div class="hidden-sm hidden-xs action-buttons">
+                <a class="green" href="{:url('admin/School/major_edit',array('major_id'=>$v['major_id']))}" title="修改">
+                    <i class="ace-icon fa fa-pencil bigger-130"></i>																</a>
+                    <a class="red confirm-rst-url-btn" data-info="你确定要删除吗？" href="{:url('admin/School/major_del',array('major_id'=>$v['major_id']))}" title="删除">
+                        <i class="ace-icon fa fa-trash-o bigger-130"></i>
+                    </a>
+            </div>
+        </td>
+    </tr>
+{/foreach}
+<tr>
+    <td height="50" align="center">
+        <button id="btnsubmit" class="btn btn-white btn-blue btn-sm hidden-xs">删除</button>
+    </td>
+    <td height="50" colspan="20" align="center">{$page}</td>
+</tr>

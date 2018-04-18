@@ -1,0 +1,54 @@
+{extend name="admin@public/base" /}
+{block name="main-content"}
+<div class="page-content">
+	<!--主题-->
+	<div class="page-header">
+		<h1>
+			您当前操作
+			<small>
+				<i class="ace-icon fa fa-angle-double-right"></i>
+				录入基础理论成绩--{$member_list_edit.member_list_nickname}
+			</small>
+		</h1>
+	</div>
+	<div class="row">
+	    <div class="col-xs-12">
+                <form class="form-horizontal ajaxForm" name="score_edit" method="post" action="{:url('admin/Score/score_runadd')}">
+			<input type="hidden" name="member_list_id" value="{$member_list_edit.member_list_id}"/>
+			{if $major_score}
+			{foreach name="major_score" item="v" key="k"}
+			<div class="form-group">
+				<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> {$v}: </label>
+				<div class="col-sm-10">
+					<input type="text" name="score[]" value="{if condition='isset($major_score_val) and isset($major_score_val[$k])'}{$major_score_val[$k]}{/if}" class="col-xs-10 col-sm-4" required/>
+				</div>
+			</div>
+			<div class="space-4"></div>
+			{/foreach}
+			<div class="clearfix form-actions">
+				<div class="col-md-offset-3 col-md-9">
+					<button class="btn btn-info" type="submit">
+						<i class="ace-icon fa fa-check bigger-110"></i>
+						保存
+					</button>
+
+					&nbsp; &nbsp; &nbsp;
+					<button class="btn" type="reset" onclick="window.history.go(-1);">
+						<i class="ace-icon fa fa-undo bigger-110"></i>
+						返回
+					</button>
+				</div>
+			</div>
+			{else}
+			<div class="form-group">
+				<p style="text-align:center">请先录入基础理论科目</div>
+			</div>
+			{/if}
+		</form>
+            </div>
+        </div>
+</div>
+{/block}
+{block name="scripts"}
+	<script type="text/javascript" src="__PUBLIC__/others/region.js"></script>
+{/block}

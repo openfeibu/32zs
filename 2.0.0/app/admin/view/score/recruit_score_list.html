@@ -1,0 +1,122 @@
+{extend name="admin@public/base" /}
+{block name="main-content"}
+	<div class="page-content">
+		<div class="row maintop">
+
+			<form name="admin_list_sea" class="form-search" id="list-filter" method="post" action="{:url('admin/score/recruit_score_list')}">
+				<div class="col-xs-12 col-sm-6  margintop5">
+
+					<select name="recruit_score_status" class="ajax_change" id="recruit_score_status">
+						<option value="">所有审核状态</option>
+						<option value="0" {if condition="$recruit_score_status eq '0'"}selected="selected"{/if}>审核中</option>
+						<option value="1" {if condition="$recruit_score_status eq '1'"}selected="selected"{/if}>已审核</option>
+					</select>
+					<select name="school_id" class="ajax_change" id="school_id">
+						<option value="">选择学校</option>
+						{foreach name="school_list" item="v"}
+							<option value="{$v.school_id}" {if condition="$school_id eq $v['school_id']"}selected="selected"{/if}>{$v.school_name}</option>
+						{/foreach}
+					</select>
+					<a href="javascript:;" onclick="javascript:var school_id = $('#school_id').val();var recruit_score_status = $('#recruit_score_status').val();window.location.href='{:url('admin/Score/recruit_score_list_export')}?school_id='+school_id+'&recruit_score_status='+recruit_score_status;" title="成绩导出">成绩导出：<i class="fa fa-download export" style="float:none;"></i></a>
+				</div>
+				<div class="col-xs-12 col-sm-3  margintop5">
+					<div class="input-group">
+						<input type="text" name="search_key" id="key" class="form-control" value="{$search_key}" placeholder="请输入身份证、姓名、中职考生号" />
+						<span class="input-group-btn">
+							<button type="submit" class="btn btn-sm  btn-purple ajax-search-form">
+								<span class="ace-icon fa fa-search icon-on-right bigger-110"></span>
+								搜索
+							</button>
+						</span>
+					</div>
+				</div>
+				<div class="col-xs-4 col-sm-3 margintop5">
+					<div class="input-group-btn">
+						<a href="{:url('admin/Score/recruit_score_list')}">
+							<button type="button" class="btn btn-sm  btn-purple ajax-display-all">
+								<span class="ace-icon fa fa-globe icon-on-right bigger-110"></span>
+								显示全部
+							</button>
+						</a>
+					</div>
+				</div>
+			</form>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-12">
+				<div>
+					<form id="score_form" class="ajaxForm" name="leftnav" method="post" action="{:url('admin/Score/recruit_score_active')}" >
+                        <input name="p" id="p" value="{:input('p',1)}" type="hidden" />
+						<input type="hidden" name="checkk" id="checkk" value="1" /><!--用于判断操作类型-->
+						<table class="table table-striped table-bordered table-hover" id="dynamic-table">
+							<thead>
+							<tr>
+								<th class="hidden-xs ">
+                                    <label class="pos-rel">
+                                        <input type="checkbox" class="ace" id="chkAll" onclick="CheckAll(this.form)" value="全选">
+                                        <span class="lbl"></span>
+                                    </label>
+                                    ID
+                                </th>
+								<th>姓名</th>
+								<th>中职考生号</th>
+								<th>身份证</th>
+                                <th>中职学校</th>
+                                <th>中职专业</th>
+                                <th width="300px;">技能成绩</th>
+                                <th>成绩审核状态</th>
+							</tr>
+							</thead>
+							<tbody id="ajax-data">
+								{include file="score/ajax_recruit_score_list"/}
+							</tbody>
+
+						</table>
+					</form>
+				</div>
+			</div>
+		</div>
+
+	</div><!-- /.page-content -->
+<script>
+	$('body').on('click','.btn-unactive',function(){
+		url = "{:url('admin/score/score_unactive')}";
+		$("#score_form").attr('action',url);
+		return true;
+	})
+	$('body').on('blur','.recruit_score',function(){
+        member_list_id = $(this).attr('data-id');
+        recruit_score = $.trim($(this).val());
+		$this = $(this);
+		var html = '<img src="/public/img/loading.gif" id="loading_img">';
+        if(recruit_score.length > 0){
+            var reg = /^[0-9]+.?[0-9]*$/;
+            if(!reg.test(recruit_score)){
+                layer.alert('输入正确的数字格式！', {icon: 5});
+            }
+            else{
+				$(this).after(html);
+                $.ajax({
+                    url: "/admin/score/recruit_score_runedit",
+                    data:{'member_list_id':member_list_id,'recruit_score':recruit_score},
+                    success: function(data){
+						$('#loading_img').remove();
+						$this.after('<span class="save_span">已保存</span>');
+						$('.save_span').fadeOut('normal',function(){
+							$('.save_span').remove();
+						});
+                        if (data.code == 1) {
+							var html = '<span style="color:#3499DB;font-weight: bold;">审核中</span>';
+                            $(".status_" + member_list_id).html(html);
+                           //  layer.alert(data.msg, {icon: 6});
+                        }else if(data.code == 0){
+                            layer.alert(data.msg, {icon: 5});
+                        }
+                    }
+                });
+            }
+        }
+    });
+</script>
+{/block}

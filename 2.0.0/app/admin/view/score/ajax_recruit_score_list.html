@@ -1,0 +1,26 @@
+
+{foreach name="data" item="v"}
+<tr>
+    <td class="hidden-xs" height="28" >
+        <label class="pos-rel">
+            <input name="n_id[]" id="navid" class="ace" type="checkbox" value="{$v.member_list_id}">
+            <span class="lbl"></span>
+        </label>{$v.member_list_id}
+    </td>
+    <td height="28" >{$v.member_list_nickname}</td>
+    <td>{$v.ZexamineeNumber}</td>
+    <td>{$v.member_list_username}</td>
+    <td>{$v.school_name}</td>
+    <td>{$v.major_name}</td>
+    <td><input type="text" name="recruit_score" value="{$v.recruit_score}" class="recruit_score score_input" data-id="{$v.member_list_id}" {if $v['recruit_score_status'] ==1}disabled{/if}></td>
+   <td><span class="status_{$v.member_list_id}">{$v['status_desc']}</span></td>
+</tr>
+{/foreach}
+<tr>
+    <td height="50" align="center">
+        <button id="btnsubmit" class="btn btn-white btn-blue btn-sm hidden-xs btn-active">通过</button>
+    </td>
+    <td colspan="20" align="center">{$page}</td>
+</tr>
+<input name="school_id"  value="{:input('school_id','')}" type="hidden" />
+<input name="major_id"  value="{:input('major_id','')}" type="hidden" />

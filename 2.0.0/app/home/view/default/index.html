@@ -1,0 +1,205 @@
+{include file="public:head" /}
+    <!-- 导航 -->
+    <!-- 主体内容 S -->
+    <div class="main w1000">
+        <!-- 登录 -->
+        <div class="login">
+            <!-- 登录成功 -->
+            {if isset($user) && isset($user.member_list_id)}
+            <div class="success">
+                <p><span>{$user.member_list_nickname} 同学</span>登录成功</p>
+                <a href="{:url('home/center/index')}">个人中心</a>
+            </div>
+            {else}
+            <div class="login-title">自主招生报名登录</div>
+            <form action="{:url('home/Login/runlogin')}" method="post">
+                <div class="input-item">
+                     <label for="">身份证：</label>
+                     <input type="text" name="member_list_username">
+                </div>
+                <div class="input-item">
+                     <label for="">密  码：</label>
+                     <input type="password" name="member_list_pwd">
+                </div>
+                <div class="input-item">
+                     <label for="">验证码：</label>
+                     <input type="text" name="verify" style="width:70px"/>
+                     <div class="code">
+                       <img src="{:url('home/Login/verify')}"  onClick="this.src='{:url('home/Login/verify')}'+'?'+Math.random()" class="verify" >
+                     </div>
+
+                   </div>
+               <input type="submit" value="登录">
+            </form>
+            {/if}
+        </div>
+        <!-- 登录 -->
+        <!-- 轮播图 -->
+        <div class="banner">
+            <ul>
+                <li class="active"><a href="">
+                    <img src="{$yf_theme_path}public/images/upload.jpg" alt="">
+                    <!-- <span>标题1</span> -->
+                </a></li>
+                <li><a href="">
+                    <img src="{$yf_theme_path}public/images/logo.png" alt="">
+                    <!-- <span>标题2</span> -->
+                </a></li>
+                <li><a href="">
+                    <img src="{$yf_theme_path}public/images/upload.jpg" alt="">
+                    <!-- <span>标题3</span> -->
+                </a></li>
+                <li><a href="">
+                    <img src="{$yf_theme_path}public/images/logo.png" alt="">
+                    <!-- <span>标题4</span> -->
+                </a></li>
+            </ul>
+            <ol>
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ol>
+        </div>
+        <!-- 轮播图 -->
+        <!-- 招生新闻 -->
+        <div class="fb-portlet">
+            <div class="fb-portlet-title">
+                <span>招生新闻</span>
+                <a href="{:url('home/Listn/index',array('id'=>17))}" class="fb-portlet-more fb-transition">更多</a>
+            </div>
+            <ul>
+              {yf:news name="news" cid="17" field="news_content,news_title,n_id,news_columnid,news_time" order="news_time desc" limit="7" /}
+              {foreach name="news" item="vo" key="k" }
+              <li><a href="{:url('home/News/index',array('id'=>$vo['n_id']))}"><p>{$vo.news_title}</p><span>{$vo.news_time|date="Y-m-d",###}</span></a></li>
+              {/foreach}
+
+            </ul>
+        </div>
+        <!-- 招生新闻 -->
+        <div class="portlet">
+            <!-- 相关链接 -->
+            <div class="fb-portlet-url">
+                <div class="fb-portlet-title">
+                    <span>相关链接</span>
+                </div>
+                <div class="input-item">
+                    <label for="">院系速览：</label>
+                    <select onchange="mbar(this)" name="select" style="width:145px;height:27px" >
+                        <option selected="selected">----请选择----</option>
+
+                            <option value="http://www.gdaib.edu.cn">学院主页</option>
+
+                            <option value="http://www.gdaib.edu.cn/templets/zsjy/yxjj07.html">计算机系</option>
+
+                            <option value="http://www.gdaib.edu.cn/templets/zsjy/yxjj03.html">热作系</option>
+
+                            <option value="http://www.gdaib.edu.cn/templets/zsjy/yxjj05.html">外语系</option>
+
+                            <option value="http://www.gdaib.edu.cn/templets/zsjy/yxjj06.html">艺术系</option>
+
+                            <option value="http://www.gdaib.edu.cn/templets/zsjy/yxjj01.html">商务系</option>
+
+                            <option value="http://www.gdaib.edu.cn/templets/zsjy/yxjj02.html">管理系</option>
+
+                            <option value="http://www.gdaib.edu.cn/templets/zsjy/yxjj04.html">财经系</option>
+
+                            <option value="http://www.gdaib.edu.cn/templets/zsjy/yxjj08.html">机电系</option>
+
+                            <option value="http://www.gdaib.edu.cn/templets/zsjy/yxjj09.html">国际交流学院</option>
+
+                    </select>
+                </div>
+                <div class="input-item">
+                    <label for="">各省招办：</label>
+                    <select onchange="mbar(this)" name="select"style="width:145px;height:27px">
+                        <option selected="selected">----请选择----</option>
+
+                            <option value="http://www.eeagd.edu.cn">广东省教育考试院</option>
+
+                            <option value="http://www.gdhed.edu.cn/">广东省教育厅</option>
+
+                    </select>
+                </div>
+            </div>
+            <!-- 相关链接 -->
+            <!-- 联系我们 -->
+            <div class="fb-portlet-about">
+                <div class="fb-portlet-title">
+                    <span>联系我们</span>
+                </div>
+                <p>招生就业处：020-85230071</p>
+            </div>
+            <!-- 联系我们 -->
+        </div>
+
+        <!-- 招生政策 -->
+        <div class="fb-portlet">
+            <div class="fb-portlet-title">
+                <span>招生政策</span>
+                <a href="{:url('home/Listn/index',array('id'=>18))}" class="fb-portlet-more fb-transition">更多</a>
+            </div>
+            <ul>
+                {yf:news name="policys" cid="18" field="news_content,news_title,n_id,news_columnid,news_time" order="news_time desc" limit="7" /}
+                {foreach name="policys" item="vo" key="k" }
+                <li><a href="{:url('home/News/index',array('id'=>$vo['n_id']))}"><p>{$vo.news_title}</p><span>{$vo.news_time|date="Y-m-d",###}</span></a></li>
+                {/foreach}
+
+            </ul>
+        </div>
+        <!-- 招生政策 -->
+
+        <!-- 通知公告 -->
+        <div class="fb-portlet" style="margin-left: 15px;">
+            <div class="fb-portlet-title">
+                <span>通知公告</span>
+                <a href="{:url('home/Listn/index',array('id'=>16))}" class="fb-portlet-more fb-transition">更多</a>
+            </div>
+            <ul>
+              {yf:news name="notics" cid="16" field="news_content,news_title,n_id,news_columnid,news_time" order="news_time desc" limit="7" /}
+              {foreach name="notics" item="vo" key="k" }
+              <li><a href="{:url('home/News/index',array('id'=>$vo['n_id']))}"><p>{$vo.news_title}</p><span>{$vo.news_time|date="Y-m-d",###}</span></a></li>
+              {/foreach}
+
+
+            </ul>
+        </div>
+        <!-- 通知公告 -->
+        <div class="clear"></div>
+        <div class="fb-seamless">
+            <div class="fb-seamless-title">
+                <span>校园风光</span>
+            </div>
+            <div class="fb-seamless-con">
+                <ul>
+                    <li><img src="{$yf_theme_path}public/images/3.jpg" alt=""></li>
+                    <li><img src="{$yf_theme_path}public/images/4.jpg" alt=""></li>
+                    <li><img src="{$yf_theme_path}public/images/4.jpg" alt=""></li>
+                    <li><img src="{$yf_theme_path}public/images/4.jpg" alt=""></li>
+                    <li><img src="{$yf_theme_path}public/images/4.jpg" alt=""></li>
+                    <li><img src="{$yf_theme_path}public/images/5.jpg" alt=""></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 主体内容 E -->
+{include file="public:footer" /}
+<script type="text/javascript">
+  $(".login form").on("submit",function(){
+     var form = $(this).serialize();
+    $.post("{:url('home/Login/runlogin')}",form,function(data){
+        if(data.code == 1){
+          // success
+          window.location.href = '{:url('home/center/index')}';
+        }else if (data.code == 0){
+            $(".verify").attr('src',"{:url('home/Login/verify')}"+'?'+Math.random())
+            alert(data.msg);
+        }
+
+    });
+
+
+    return false;
+  })
+</script>

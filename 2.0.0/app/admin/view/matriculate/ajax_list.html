@@ -1,0 +1,23 @@
+{if condition="!empty($member_list)"}
+<?php $i=0; ?>
+{foreach name="member_list" item="v"}
+	<tr {if $v['admission_status'] == 0 && $i == 0} style=" border-top: 2px;border-top-color: #bb3f2b;border-top-style: double;"{/if}>
+		<td>{$v.member_list_nickname}</td>
+		<td>{$v.ZexamineeNumber}</td>
+		<td>{$v.member_list_username}</td>
+		<td>{$v.recruit_major_name}</td>
+		<td>{$v.major_score_total}</td>
+		<td>{$v.recruit_score}</td>
+		<td>{$v.total_score}</td>
+        <td>{$v.ranking}</td>
+		<td>{$v.admission_status_desc}</td>
+	</tr>
+	{if $v['admission_status'] == 0}
+	<?php $i++;?>
+	{/if}
+{/foreach}
+{else}
+	<tr>
+		<td colspan="9" align="center">暂无数据，请选择学校及高职专业</td>
+	</tr>
+{/if}
