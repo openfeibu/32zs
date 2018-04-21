@@ -16,7 +16,7 @@ class News extends Base
     public function index()
     {
 		$page=input('page',1);
-		$news=Db::name('news')->alias("a")->join(config('database.prefix').'admin b','a.news_auto =b.admin_id')->where(array('n_id'=>input('id'),'news_open'=>1,'news_back'=>0))->find();
+		$news=Db::name('news')->alias("a")->join(config('database.prefix').'admin b','a.news_auto =b.admin_id','left')->where(array('n_id'=>input('id'),'news_open'=>1,'news_back'=>0))->find();
 		if(empty($news)){
 		    $this->error(lang('operation not valid'));
 		}
