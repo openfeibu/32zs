@@ -285,6 +285,14 @@ $(function () {
         dataType: 'json'
     });
 });
+/* 通用含验证码表单不带检查操作，失败不跳转 */
+$(function () {
+    $('.ajaxForm4').ajaxForm({
+		beforeSubmit:beforeAjaxForm,
+        success: complete4, // 这是提交后的方法
+        dataType: 'json'
+    });
+});
 /* 会员增加编辑表单，带检查 */
 $(function () {
     $('.memberform').ajaxForm({
@@ -297,7 +305,7 @@ $(function () {
 $(function () {
     $('.adminform').ajaxForm({
         beforeSubmit: checkadminForm, // 此方法主要是提交前执行的方法，根据需要设置
-        success: complete, // 这是提交后的方法
+        success: complete2, // 这是提交后的方法
         dataType: 'json'
     });
 });
@@ -342,6 +350,16 @@ function complete3(data) {
 	if(typeof load!="undefined"){layer.close(load);}
     if (data.code == 1) {
         window.location.href = data.url;
+    } else {
+        $("#verify").val('');
+        $("#verify_img").click();
+        layer.alert(data.msg, {icon: 5});
+    }
+}
+function complete4(data) {
+	if(typeof load!="undefined"){layer.close(load);}
+    if (data.code == 1) {
+        layer.alert(data.msg, {icon: 6});
     } else {
         $("#verify").val('');
         $("#verify_img").click();
@@ -1142,11 +1160,14 @@ $(function(){
 	});
 	$('body').on('change','#enrollment_school',function(){
 		var school_id = $(this).val();
+		load = layer.load(1);
 		$.ajax({
 			url: "/admin/Matriculate/ajax_enrollment_recruit_major",
 			data:{'school_id':school_id},
 			success: function(data){
+				layer.close(load);
 				$("#enrollment_recruit_major").html(data.html);
+				$("#enrollment_recruit_major").trigger('change');
 			}
 		});
 	});
