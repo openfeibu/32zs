@@ -724,11 +724,20 @@ $(function () {
 });
 /*************************************************************************** 单图/多图操作********************************************************/
 /* 单图上传 */
-$("#file0").change(function () {
-    var objUrl = getObjectURL(this.files[0]);
+$("#schoolimg").change(function () {
+	id = $(this).attr('id');
+    var objUrl = getObjectURL(this.files[0],id);
     console.log("objUrl = " + objUrl);
     if (objUrl) {
-        $("#img0").attr("src", objUrl);
+        $("#img_"+id).attr("src", objUrl);
+    }
+});
+$("#site_logo").change(function () {
+	id = $(this).attr('id');
+    var objUrl = getObjectURL(this.files[0],id);
+    console.log("objUrl = " + objUrl);
+    if (objUrl) {
+        $("#img_"+id).attr("src", objUrl);
     }
 });
 //
@@ -743,16 +752,16 @@ $("input[id^=file_]").change(function (e) {
 	$("#file_name").text(name);
 
 });
-function getObjectURL(file) {
+function getObjectURL(file,id = '') {
     var url = null;
     if (window.createObjectURL != undefined) { // basic
-        $("#oldcheckpic").val("nopic");
+        $("#oldcheckpic_"+id).val("nopic");
         url = window.createObjectURL(file);
     } else if (window.URL != undefined) { // mozilla(firefox)
-        $("#oldcheckpic").val("nopic");
+        $("#oldcheckpic_"+id).val("nopic");
         url = window.URL.createObjectURL(file);
     } else if (window.webkitURL != undefined) { // webkit or chrome
-        $("#oldcheckpic").val("nopic");
+        $("#oldcheckpic_"+id).val("nopic");
         url = window.webkitURL.createObjectURL(file);
     }
     return url;
@@ -780,6 +789,11 @@ function backpic(picurl) {
     $("#img0").attr("src", picurl);//还原修改前的图片
     $("input[name='file0']").val("");//清空文本框的值
     $("input[name='oldcheckpic']").val(picurl);//清空文本框的值
+}
+function backpic3(picurl,id) {
+    $("#img_"+id).attr("src", picurl);//还原修改前的图片
+    $("#"+id).val("");//清空文本框的值
+    $("#oldcheckpic_"+id).val(picurl);//清空文本框的值
 }
 /* 新闻多图删除 */
 function delall(id, url) {
