@@ -41,5 +41,29 @@
 			</div><!-- /.col -->
 		</div><!-- /.row -->
 		{/if}
+		{if $admin['group_id'] == 1 || $admin['group_id'] == 5}
+
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="row">
+					<div class="col-sm-12 infobox-container">
+						<div class="infobox infobox-green col-xs-12 col-sm-4 col-md-4 col-lg-2" style="height:100%;">
+							<div class="infobox-data">
+								<div class="infobox-content">高职专业：{$statistics.school_count}</div>
+								<div class="infobox-content">中职学校：{$statistics.recruit_major_count}</div>
+								<div class="infobox-content">中职专业：{$statistics.major_count}</div>
+								<div class="infobox-content">技能考核分数线：{$statistics.min_score}</div>
+								<div class="infobox-content">招生计划数核：{$statistics.enroll_count}</div>
+								<div class="infobox-content">已录取人数：{$statistics.enroll_student_count}</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div><!-- /.col -->
+		</div><!-- /.row -->
+		{if $admin['group_id'] == 1}
+		{:hook('maintain')}
+		{/if}
+		{/if}
 	</div>
 {/block}

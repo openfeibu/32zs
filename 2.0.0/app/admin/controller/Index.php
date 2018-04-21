@@ -42,7 +42,7 @@ class Index extends Base
             foreach($major_list as $key => $major)
             {
                 $statistics[$key] = $major;
-
+				//$statistics[$key]['enrolling_student_count'] = 	Db::name('enrollment')->where(['major_id' => $major['major_id'],'school_id' => $this->admin['school_id']])->value('enrollment_number');
                 $statistics[$key]['student_count'] = Db::name('member_list')->where(['major_id' => $major['major_id'],'school_id' => $this->admin['school_id']])->count();
                 $statistics[$key]['enrolment_auditing_count'] = Db::name('member_list')->where(['major_id' => $major['major_id'],'school_id' => $this->admin['school_id'],'user_status' => '1' ])->count();
                 $statistics[$key]['enrolment_unauditing_count'] = $statistics[$key]['student_count']  - $statistics[$key]['enrolment_auditing_count'];
