@@ -120,6 +120,11 @@ class Admin extends Model
      */
     public static function add($admin_username,$admin_pwd_salt='',$admin_pwd,$admin_email='',$admin_tel='',$admin_open=0,$admin_realname='',$group_id=1,$school_id=0,$major_id=0,$recruit_major_id=0)
     {
+        $admin_username = trim($admin_username);
+        $is_admin = self::where('admin_username',$admin_username)->select();
+        if($is_admin){
+            return 0;
+        }
         $admin_pwd_salt=$admin_pwd_salt?:random(10);
         $sldata=array(
             'admin_username'=>$admin_username,
