@@ -55,7 +55,7 @@ class Sys extends Base
 			$options=input('post.options/a');
 			$img_url='';
 			if ($checkpic!=$oldcheckpic){
-				$file = request()->file('file0');
+				$file = request()->file('site_logo');
 				if(!empty($file)){
 					if(config('storage.storage_open')){
 						//七牛
@@ -87,6 +87,44 @@ class Sys extends Base
 			}else{
 				//原有图片
 				$options['site_logo']=input('oldcheckpicname');
+			}
+			//学院首页大图
+			$checkpic=input('checkpic_schoolimg');
+			$oldcheckpic=input('oldcheckpic_schoolimg');
+			$img_url='';
+			if ($checkpic!=$oldcheckpic){
+				$file = request()->file('schoolimg');
+				if(!empty($file)){
+					if(config('storage.storage_open')){
+						//七牛
+						$upload = \Qiniu::instance();
+						$info = $upload->upload();
+						$error = $upload->getError();
+						if ($info) {
+							$img_url= config('storage.domain').$info[0]['key'];
+						}else{
+							$this->error($error,url('admin/Sys/sys'));//否则就是上传错误，显示错误原因
+						}
+					}else{
+						//本地
+						$validate=config('upload_validate');
+						$info = $file->validate($validate)->rule('uniqid')->move(ROOT_PATH . config('upload_path') . DS . date('Y-m-d'));
+						if($info) {
+							$img_url=config('upload_path'). '/' . date('Y-m-d') . '/' . $info->getFilename();
+							//写入数据库
+							$data['uptime']=time();
+							$data['filesize']=$info->getSize();
+							$data['path']=$img_url;
+							Db::name('plug_files')->insert($data);
+						}else{
+							$this->error($file->getError(),url('admin/Sys/sys'));//否则就是上传错误，显示错误原因
+						}
+					}
+					$options['schoolimg']=$img_url;
+				}
+			}else{
+				//原有图片
+				$options['schoolimg']=input('oldcheckpicname_schoolimg');
 			}
 			//更新
             $rst=Options::set_options($options,'site_options',$this->lang);
