@@ -144,11 +144,17 @@ class AuthRule extends Model
             if($count>1){
                 $module=strtolower($arr[0]);
                 $controller=ucfirst($arr[1]);
+                $action=$arr[2];
             }else{
                 $controller=ucfirst($name);
             }
-            if (has_controller($module,$controller)) {
-                $rst=$module.'/'.$controller;
+            if($action){
+                //判断$action是否含?
+                $arr=explode('?',$action);
+                $_action=(count($arr)==1)?$action:$arr[0];
+                if(has_action($module,$controller,$_action)==2){
+                    $rst=$module.'/'.$controller.'/'.$action;
+                }
             }
         }elseif($level==2){
             $rst=$name;
