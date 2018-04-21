@@ -59,7 +59,7 @@ class News extends Base
 		$where=$diyflag?"FIND_IN_SET('$diyflag',news_flag)":'';
 		$news_model=new NewsModel;
 		$news=$news_model->alias("a")->field('a.*,b.*,c.menu_name')
-				->join(config('database.prefix').'admin b','a.news_auto =b.admin_id')
+				->join(config('database.prefix').'admin b','a.news_auto =b.admin_id','left')
 				->join(config('database.prefix').'menu c','a.news_columnid =c.id')
 				->where($map)->where($where)->order('news_time desc')->paginate(config('paginate.list_rows'),false,['query'=>get_query()]);
 		$show = $news->render();
@@ -201,7 +201,7 @@ class News extends Base
 			'news_pic_content'=>input('news_pic_content',''),
 			'news_pic_allurl'=>$picall_url,//多图路径
 			'news_img'=>$img_one,//封面图片路径
-			'news_open'=>input('news_open',0),
+			'news_open'=>input('news_open',1),
 			'news_scontent'=>input('news_scontent',''),
 			'news_content'=>htmlspecialchars_decode(input('news_content')),
 			'news_auto'=>session('admin_auth.aid'),
@@ -351,7 +351,7 @@ class News extends Base
 			'news_source'=>input('news_source',''),
 			'news_pic_type'=>input('news_pic_type'),
 			'news_pic_content'=>input('news_pic_content',''),
-			'news_open'=>input('news_open',0),
+			'news_open'=>input('news_open',1),
 			'news_scontent'=>input('news_scontent',''),
 			'news_content'=>htmlspecialchars_decode(input('news_content')),
 			'listorder'=>input('listorder',50,'intval'),

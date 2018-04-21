@@ -37,7 +37,7 @@
 			{if condition="strstr($v['news_flag'],'d') eq true"}<span style="color:#630">原</span>{/if}
 			{if condition="strstr($v['news_flag'],'cp') eq true"}<span style="color:#438eb9">产</span>{/if}
 		</td>
-		<td class="hidden-xs">
+		<!-- <td class="hidden-xs">
 			{if condition="$v['news_open'] eq 1"}
 				<a class="red state-btn" href="{:url('admin/News/news_state')}" data-id="{$v.n_id}" title="已审">
 					<div><button class="btn btn-minier btn-yellow">已审</button></div>
@@ -47,7 +47,7 @@
 					<div><button class="btn btn-minier btn-danger">未审</button></div>
 				</a>
 			{/if}
-		</td>
+		</td> -->
 		<td class="hidden-xs">{$v.news_time|date='Y-m-d',###}</td>
 		<td>
 			<div class="hidden-sm hidden-xs action-buttons">

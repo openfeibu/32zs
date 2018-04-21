@@ -29,11 +29,11 @@
 							<option value="{$v.diyflag_value}" {if condition="$diyflag_check eq $v['diyflag_value']"}selected{/if}>{$v.diyflag_name}({$v.diyflag_value})</option>
 						{/foreach}
 					</select>
-					<select name="opentype_check" class="ajax_change">
+					<!-- <select name="opentype_check" class="ajax_change">
 						<option value="">状态</option>
 						<option value="1" {if condition="$opentype_check eq '1'"}selected="selected"{/if}>已审</option>
 						<option value="0" {if condition="$opentype_check eq '0'"}selected="selected"{/if} >未审</option>
-					</select>
+					</select> -->
 				</div>
 
 				<div class="col-xs-12 col-sm-5 hidden-xs btn-sespan">
@@ -89,13 +89,13 @@
 										<label class="pos-rel">
 											<input type="checkbox" class="ace"  id='chkAll' onclick='CheckAll(this.form)' value="全选"/>
 											<span class="lbl"></span>															</label>											</th>
-									
+
 									<th class="hidden-xs">排序</th>
 									<th class="hidden-xs">ID</th>
 									<th>文章标题</th>
 									<th class="hidden-sm hidden-xs">所属栏目</th>
 									<th class="hidden-sm hidden-xs">文章属性</th>
-									<th class="hidden-xs">审核</th>
+									<!-- <th class="hidden-xs">审核</th> -->
 									<th class="hidden-xs">发布时间</th>
 									<th style="border-right:#CCC solid 1px;">操作</th>
 								</tr>
