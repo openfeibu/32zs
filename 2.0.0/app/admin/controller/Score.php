@@ -18,6 +18,11 @@ use think\Loader;
 
 class Score extends Base
 {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->schoolModel = new SchoolModel();
+    }
     public function score_list()
     {
         $search_key= trim(input('search_key',''));
@@ -343,15 +348,7 @@ class Score extends Base
     }
     public function recruit_score_list()
     {
-        $admin=Db::name('admin')->alias("a")->join(config('database.prefix').'auth_group_access b','a.admin_id =b.uid')
-                    ->join(config('database.prefix').'auth_group c','b.group_id = c.id')
-                    ->where(array('a.admin_id'=>session('admin_auth.aid')))
-                    ->find();
-        $school_list = Db::name('school')->alias('s')
-                                         ->join(config('database.prefix').'enrollment e','e.school_id = s.school_id')
-                                         ->where(array('e.recruit_major_id' => $admin['recruit_major_id']))
-                                         ->field('s.school_id,s.school_name,e.major_ids')
-                                         ->select();
+        $school_list = $this->schoolModel->get_school_list_rmi($this->admin['recruit_major_id']);
         $map = [];
         $where = '';
         $school_id_arr = $major_id_arrs = array();
@@ -365,7 +362,7 @@ class Score extends Base
 
         $search_key= trim(input('search_key',''));
         $major_id = input('major_id','');
-        $recruit_major_id = input('recruit_major_id',$admin['recruit_major_id']);
+        $recruit_major_id = input('recruit_major_id',$this->admin['recruit_major_id']);
         $school_id = input('school_id','');
 
 
@@ -408,23 +405,6 @@ class Score extends Base
 
 		foreach($data as $key => $val)
 		{
-            /*
-            $recruit_major = Db::name('recruit_major')->alias('rm')
-                                    ->join(config('database.prefix').'enrollment e','e.recruit_major_id = rm.recruit_major_id')
-                                    ->where(array('e.major_ids' => array('LIKE' , '%,'.$val['major_id'].',%')))
-                                    ->where(array('e.school_id' => $val['school_id']))
-                                    ->find();
-            $data[$key]['recruit_major_name'] = $recruit_major['recruit_major_name'];
-
-            $major = MajorModel::get_major_detail($val['major_id'],$val['school_id']);
-            $major_score_key =array_filter(json_decode($major['major_score_key'],true));
-            $major_score_arr = json_decode($val['major_score'],true);
-            $major_score_desc = major_score_desc($major_score_key,$major_score_arr);
-            $major_score_arr = handle_major_score_arr($major_score_key,$major_score_arr);
-            $data[$key]['major_score_arr'] = $major_score_arr;
-            $data[$key]['major_score_desc'] = $major_score_desc;
-			$data[$key]['major_score_key'] =  $major_score_key;
-            */
             $val_recruit_score_status = $val['recruit_score_status'] ? $val['recruit_score_status'] : 0;
             $data[$key]['status_desc'] = $status[$val_recruit_score_status];
 		}

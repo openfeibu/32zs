@@ -11,8 +11,10 @@ namespace app\admin\controller;
 use think\Db;
 use think\Cache;
 use think\helper\Time;
+use app\admin\model\School as SchoolModel;
 use app\admin\model\News as NewsModel;
 use app\admin\model\Major as MajorModel;
+use app\admin\model\Enrollment as EnrollmentModel;
 use app\admin\model\MemberList;
 
 class Index extends Base
@@ -24,68 +26,14 @@ class Index extends Base
 	{
 		$news_model=new NewsModel;
 		$member_model=new MemberList;
-		//热门文章排行
-		$news_list=$news_model->where('news_l',$this->lang)->order('news_hits desc')->limit(0,10)->select();
-		$this->assign('news_list',$news_list);
-		//总文章数
-		$news_count=$news_model->count();
-		$this->assign('news_count',$news_count);
-        //总学生数
-        $members_count=$member_model->count();
-        $this->assign('members_count',$members_count);
-        //总留言数
-        $sugs_count=Db::name('plug_sug')->count();
-        $this->assign('sugs_count',$sugs_count);
-        //总评论数
-        $coms_count=Db::name('comments')->count();
-        $this->assign('coms_count',$coms_count);
-
+		$school_model = new SchoolModel;
 		//日期时间戳
 		list($start_t, $end_t) = Time::today();
 		list($start_y, $end_y) = Time::yesterday();
-
-		//今日发表文章数
-		$tonews_count=$news_model->whereTime('news_time', 'between', [$start_t, $end_t])->count();
-		$this->assign('tonews_count',$tonews_count);
-
-		//昨日文章数
-		$ztnews_count=$news_model->whereTime('news_time', 'between', [$start_y, $end_y])->count();
-		$this->assign('ztnews_count',$ztnews_count);
-		//今日提升比
-		$difday=($ztnews_count>0)?($tonews_count-$ztnews_count)/$ztnews_count*100:0;
-		$this->assign('difday',$difday);
-
-		//今日增加学生
-        $tomembers_count=$member_model->whereTime('member_list_addtime', 'between', [$start_t, $end_t])->count();
-        $this->assign('tomembers_count',$tomembers_count);
-        //昨日学生数
-        $ztmembers_count=$member_model->whereTime('member_list_addtime', 'between', [$start_y, $end_y])->count();
-        $this->assign('ztmembers_count',$ztmembers_count);
-		//今日提升比
-        $difday_m=($ztmembers_count>0)?($tomembers_count-$ztmembers_count)/$ztmembers_count*100:0;
-        $this->assign('difday_m',$difday_m);
-
-        //今日留言
-        $tosugs_count=Db::name('plug_sug')->whereTime('plug_sug_addtime', 'between', [$start_t, $end_t])->count();
-        $this->assign('tosugs_count',$tosugs_count);
-		//昨日留言
-        $ztsugs_count=Db::name('plug_sug')->whereTime('plug_sug_addtime', 'between', [$start_y, $end_y])->count();
-        $this->assign('ztsugs_count',$ztsugs_count);
-		//今日提升比
-        $difday_s=($ztsugs_count>0)?($tosugs_count-$ztsugs_count)/$ztsugs_count*100:0;
-        $this->assign('difday_s',$difday_s);
-
-        //今日评论
-        $tocoms_count=Db::name('comments')->whereTime('createtime', 'between', [$start_t, $end_t])->count();
-        $this->assign('tocoms_count',$tocoms_count);
-		//昨日评论
-        $ztcoms_count=Db::name('comments')->whereTime('createtime', 'between', [$start_y, $end_y])->count();
-        $this->assign('ztcoms_count',$ztcoms_count);
-		//今日提升比
-        $difday_c=($ztcoms_count>0)?($tocoms_count-$ztcoms_count)/$ztcoms_count*100:0;
-        $this->assign('difday_c',$difday_c);
-
-        if($this->admin['id'] == 3)
+		$ydate = date('Y');
+		$statistics = array();
+		//中职专业负责人
+        if($this->admin['group_id'] == 3)
         {
             $statistics = [];
             $major_ids = array_filter(json_decode($this->admin['major_id'],true));
@@ -101,8 +49,44 @@ class Index extends Base
                 $statistics[$key]['score_auditing_count'] = Db::name('member_list')->where(['major_id' => $major['major_id'],'school_id' => $this->admin['school_id']])->where(['major_score' => ['NEQ','']])->count();
                 $statistics[$key]['score_unauditing_count'] = $statistics[$key]['student_count']  - $statistics[$key]['score_auditing_count'];
             }
-            $this->assign('statistics',$statistics);
+
         }
+		//高职专业负责人
+		if($this->admin['group_id'] == 4)
+        {
+			$recruit_major = Db::name('recruit_major')->where(['recruit_major_id' => $this->admin['recruit_major_id']])->find();
+			$statistics['recruit_major'] = $recruit_major;
+			$school_list = $school_model->get_school_list_rmi($this->admin['recruit_major_id']);
+			$major_ids_arr = array_column($school_list, 'major_ids');
+			$major_id_arrs = array();
+			foreach ($major_ids_arr as $key => $major_ids) {
+				$major_id_arr = array_filter(explode(',',$major_ids));
+				$major_id_arrs = array_merge($major_id_arrs,$major_id_arr);
+			}
+			$map['m.major_id'] = ['in',$major_id_arrs];
+			$statistics['student_count'] =  Db::name('member_list')->alias('m')->where($map)->count();
+			$statistics['score_auditing_count'] = Db::name('member_list')->alias('m')->where($map)->where(['m.recruit_score' => ['NEQ','']])->count();
+			$statistics['score_unauditing_count'] = $statistics['student_count'] - $statistics['score_auditing_count'];
+		}
+		//高职招生负责人 系统运维工程师
+		if($this->admin['group_id'] == 5 || $this->admin['group_id'] == 1)
+        {
+			$school_count = Db::name('school')->count();
+			$recruit_major_count = Db::name('recruit_major')->count();
+			$major_count = Db::name('major')->count();
+			$min_score = Db::name('min_score')->value('min_score');
+			$enroll_count = Db::name('enrollment')->sum('enrollment_number');
+			$enroll_student_count = Db::name('statistics')->where('ydate',$ydate)->value('enroll_student_count');
+			$statistics = [
+				'school_count' => $school_count,
+				'recruit_major_count' => $recruit_major_count,
+				'major_count' => $major_count,
+				'min_score' => $min_score,
+				'enroll_count' => $enroll_count,
+				'enroll_student_count' => $enroll_student_count,
+			];
+		}
+		$this->assign('statistics',$statistics);
 		//渲染模板
         return $this->fetch();
 	}

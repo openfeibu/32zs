@@ -20,8 +20,6 @@ class Matriculate extends Base
 {
     public function index()
     {
-        $min_score = Db::name('min_score')->find();
-        $min_score = $min_score ? $min_score['min_score'] : 0;
         $school_id = input('school_id','');
         $school_list = Db::name('school')->select();
         $first_school_id = $school_list ? $school_list[0]['school_id'] : ''   ;
@@ -37,57 +35,7 @@ class Matriculate extends Base
         $enrollment = Db::name('enrollment')->where(['school_id' => $school_id,'recruit_major_id' => $recruit_major_id])->find();
         $data = [];
         if($enrollment){
-            $major_ids = array_filter(explode(',',$enrollment['major_ids']));
-            $where['s.school_id'] = $school_id;
-            $where['a.major_id'] = array('in',$major_ids);
-            $member_model=new MemberList;
-
-            $member_list=$member_model->alias('a')->join(config('database.prefix').'member_group b','a.member_list_groupid=b.member_group_id')
-                    ->join(config('database.prefix').'member_info mi','mi.member_list_id = a.member_list_id')
-    			    ->join(config('database.prefix').'school s','a.school_id = s.school_id')
-    				->join(config('database.prefix').'major m','a.major_id = m.major_id')
-    				->where($where)
-    				->field('a.*,b.*,s.school_id,m.major_id,m.major_name,s.school_id,s.school_name,mi.ZexamineeNumber')
-    				->select();
-
-    		$data = $member_list;
-            $ranking = 1;
-    		foreach ($data as $key => $value) {
-                $major = MajorModel::get_major_detail($value['major_id'],$value['school_id']);
-    			$major_score_arr = [];
-    			$major_score_desc = $major_score_total = '';
-    			$major_score_key = $major['major_score_key'] ? array_filter(json_decode($major['major_score_key'],true)) : [];
-    			if($value['major_score']){
-    				$major_score_arr = json_decode($value['major_score'],true);
-    				$major_score_desc = major_score_desc($major_score_key,$major_score_arr);
-    				$major_score_total = handle_major_score($major_score_arr);
-    			}
-    			else{
-    				$major_score_arr = json_decode($value['major_score'],true);
-    				$major_score_arr = handle_major_score_arr($major_score_key,$major_score_arr);
-    			}
-    			$data[$key]['major_score_arr'] = $major_score_arr;
-    			$data[$key]['major_score_desc'] = $major_score_desc;
-    			$data[$key]['major_score_total'] = $major_score_total;
-                $data[$key]['recruit_score'] = $recruit_score =  sprintf('%.2f',$value['recruit_score']);
-    			$data[$key]['total_score'] = sprintf('%.2f',$major_score_total + $value['recruit_score']);
-                $data[$key]['admission_status'] = 1;
-                if($value['recruit_score'] < $min_score)
-                {
-                    $data[$key]['admission_status'] = 0;
-                }
-                $data[$key]['recruit_major_name'] = $recruit_major['recruit_major_name'];
-    		}
-            array_multisort(array_column($data,'admission_status'),SORT_DESC,array_column($data,'total_score'),SORT_DESC,$data);
-            foreach ($data as $key => $value) {
-                $data[$key]['ranking'] = $ranking;
-                if($value['ranking'] > $enrollment['enrollment_number'])
-                {
-                    $data[$key]['admission_status'] = 0;
-                }
-                $data[$key]['admission_status_desc'] = $data[$key]['admission_status'] ? '是' : '否';
-                $ranking++;
-            }
+            $data = EnrollmentModel::get_enroll_member_list($enrollment,$recruit_major,$school_id);
             $this->assign('enrollment',$enrollment);
         }
 
@@ -112,7 +60,7 @@ class Matriculate extends Base
 			$school_id = input('school_id','0');
             $recruit_major_list = EnrollmentModel::get_enrollment_recruit_major($school_id);
 
-			$html = '<option value="">请选择高职专业</option>';
+			$html = '';
 			foreach($recruit_major_list as $key => $major)
 			{
 				$html .= "<option value='".$major['recruit_major_id']."'>".$major['recruit_major_name']."</option>";

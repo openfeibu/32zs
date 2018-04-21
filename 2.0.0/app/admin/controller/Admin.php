@@ -65,7 +65,7 @@ class Admin extends Base
 		if($admin_id){
 			$this->success('管理员添加成功',url('admin/Admin/admin_list'));
 		}else{
-			$this->error('管理员添加失败',url('admin/Admin/admin_list'));
+			$this->error('已存在管理员或添加失败',url('admin/Admin/admin_list'));
 		}
 	}
 	/**
@@ -184,9 +184,9 @@ class Admin extends Base
 		$major_id = json_encode($_POST['major_id']);
 		$admin_id=AdminModel::add(input('admin_username'),'',input('admin_pwd'),input('admin_email',''),input('admin_tel',''),input('admin_open',1),input('admin_realname',''),3,$school_id,$major_id);
 		if($admin_id){
-			$this->success('添加成功',url('admin/Admin/secondary_vocat_admin_list'));
+			$this->success('管理员添加成功',url('admin/Admin/secondary_vocat_admin_list'));
 		}else{
-			$this->error('添加失败',url('admin/Admin/secondary_vocat_admin_list'));
+			$this->error('已存在管理员或添加失败',url('admin/Admin/secondary_vocat_admin_list'));
 		}
 	}
 	public function secondary_vocat_admin_edit()
@@ -334,7 +334,7 @@ class Admin extends Base
 		if($admin_id){
 			$this->success('添加成功',url('admin/Admin/university_admin_list'));
 		}else{
-			$this->error('添加失败',url('admin/Admin/university_admin_list'));
+			$this->error('已存在管理员或添加失败',url('admin/Admin/university_admin_list'));
 		}
 	}
 	public function university_admin_edit()
