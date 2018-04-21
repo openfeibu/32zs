@@ -14,7 +14,7 @@
 						{/foreach}
 					</select>
 					<select name="recruit_major_id" class="ajax_change" id="enrollment_recruit_major">
-						<option value="">选择高职专业</option>
+						<!-- <option value="">选择高职专业</option> -->
 						{foreach name="recruit_major_list" item="v"}
 						<option value="{$v.recruit_major_id}" {if $recruit_major_id == $v['recruit_major_id']}selected{/if}>{$v.recruit_major_name}</option>
 						{/foreach}
