@@ -34,7 +34,7 @@
                     </tr>
                 </tbody></table>
                 <br>
-                <table width="656px" class="k-w-table line_table">
+                <table width="656px" class="k-w-table line_table subform">
                     <tbody><tr class="line-table-height">
                         <td class="k-s-content low_width_1 title" style="text-align: center;">姓&nbsp;&nbsp;名</td>
                         <td class="k-s-content low_width_2 content"><input type="text" name="name" value="{$info.member_list_nickname}" disabled/></td>
@@ -484,5 +484,16 @@ choose: function(datas){ //选择日期完毕的回调
      });
 }
 });
+{if condition="$user['user_status'] eq 1"}
+
+{/if}
 </script>
+{if condition="$user['user_status'] eq 1"}
+<script>
+$(".subform").find("input").attr('disabled',true);
+$(".subform").find("select").attr('disabled',true);
+$(".subform").find("textarea").attr('disabled',true);
+</script>
+{/if}
+
 {include file="public:footer" /}
