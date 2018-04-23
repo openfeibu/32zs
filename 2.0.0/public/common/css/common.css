@@ -195,5 +195,11 @@ input[type=checkbox].ace+.lbl{margin:0 15px;}
 /*.login-box .login-submit.active{background: #3fb869;}*/
 .login-box .login-submit:hover{background: #3b9d5d;}
 .login-box .rememberme{margin-left: 280px;margin:10px 0 0 280px;}
+.nav-list>li>.submenu a>.arrow{top: 0;line-height: 50px;}
+
+.no-skin .nav-list>li li .fa-angle-down:before{content: "\f107" !important}
+.no-skin .nav-list>li li.open .fa-angle-down:before{content: "\f106" !important}
+
+.no-skin .nav-list>li>.submenu li.open>a{color: #3fb869}
 /*a7a8ac*/
 

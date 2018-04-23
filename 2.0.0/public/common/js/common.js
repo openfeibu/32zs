@@ -1,7 +1,10 @@
 $(function(){
 	//删除按钮
 	$("#btnsubmit").on("click",function(){
-		$(".ajaxForm").submit();
+		if(!$(this).hasClass("btn-unactive")){
+			$(".ajaxForm").submit();
+		}
+		
 	})
 
 	//删除按钮特效
