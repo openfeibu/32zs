@@ -5,40 +5,24 @@
 
 
 		<div class="row maintop">
-			<div class="col-xs-4 col-sm-2 margintop5">
+			<div class="fb-add">
 				<a href="{:url('admin/Admin/admin_add')}">
-					<button class="btn btn-sm btn-danger">
-						<i class="ace-icon fa fa-bolt bigger-110"></i>
+					
 						添加管理员
-					</button>
 				</a>
 			</div>
-			<div class="col-xs-10 col-sm-5 margintop5">
+			<div class="col-xs-12 col-sm-3 margintop5">
 				<form name="admin_list_sea" class="form-search" method="post" action="{:url('admin/Admin/admin_list')}">
 					<div class="input-group">
 										<span class="input-group-addon">
-											<i class="ace-icon fa fa-check"></i>
+											<i class="ace-icon fa fa-search"></i>
 										</span>
 						<input type="text" name="search_name" class="form-control" value="{$search_name}" placeholder="输入需查询的用户名" />
-										<span class="input-group-btn">
-											<button type="submit" class="btn btn-purple btn-sm">
-												<span class="ace-icon fa fa-search icon-on-right bigger-110"></span>
-												搜索
-											</button>
-										</span>
+										
 					</div>
 				</form>
 			</div>
-			<div class="col-xs-4 col-sm-5 margintop5">
-				<div class="input-group-btn">
-					<a href="{:url('admin/Admin/admin_list')}">
-						<button type="button" class="btn btn-sm  btn-purple">
-							<span class="ace-icon fa fa-globe icon-on-right bigger-110"></span>
-							显示全部
-						</button>
-					</a>
-				</div>
-			</div>
+
 		</div>
 
 
@@ -59,7 +43,7 @@
 								<th class="hidden-sm hidden-xs">登陆次数</th>
 								<th class="hidden-sm hidden-xs">IP地址</th>
 								<th>状态</th>
-								<th style="border-right:#CCC solid 1px;">操作</th>
+								<th >操作</th>
 							</tr>
 							</thead>
 
@@ -77,20 +61,20 @@
 									<td>
 										{if condition="$v['admin_open'] eq 1"}
 											<a class="red open-btn" href="{:url('admin/Admin/admin_state')}" data-id="{$v.admin_id}" title="已开启">
-												<div id="zt{$v.admin_id}"><button class="btn btn-minier btn-yellow">开启</button></div>
+												<div id="zt{$v.admin_id}"><button class="btn btn-minier btn-fb-blue">开启</button></div>
 											</a>
 											{else/}
 											<a class="red open-btn" href="{:url('admin/Admin/admin_state')}" data-id="{$v.admin_id}" title="已禁用">
-												<div id="zt{$v.admin_id}"><button class="btn btn-minier btn-danger">禁用</button></div>
+												<div id="zt{$v.admin_id}"><button class="btn btn-minier btn-fb-orange">禁用</button></div>
 											</a>
 										{/if}
 									</td>
 									<td>
 										<div class="hidden-sm hidden-xs action-buttons">
-											<a class="green" href="{:url('admin/Admin/admin_edit',array('admin_id'=>$v['admin_id']))}" title="修改">
-												<i class="ace-icon fa fa-pencil bigger-130"></i>																</a>
+											<a href="{:url('admin/Admin/admin_edit',array('admin_id'=>$v['admin_id']))}" title="修改">
+												<i class="ace-icon fa fa-edit bigger-130"></i>																</a>
 											{if condition="$v['admin_id'] neq 1"}
-												<a class="red confirm-rst-url-btn" data-info="你确定要删除吗？" href="{:url('admin/Admin/admin_del',array('admin_id'=>$v['admin_id']))}" title="删除">
+												<a class=" confirm-rst-url-btn" data-info="你确定要删除吗？" href="{:url('admin/Admin/admin_del',array('admin_id'=>$v['admin_id']))}" title="删除">
 													<i class="ace-icon fa fa-trash-o bigger-130"></i>
 												</a>
 											{/if}

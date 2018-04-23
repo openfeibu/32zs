@@ -1,13 +1,14 @@
 {if $data}
 
 <tr>
-    <th class="hidden-xs ">
+    <th  width="60px">
         <label class="pos-rel">
             <input type="checkbox" class="ace" id="chkAll" onclick="CheckAll(this.form)" value="全选">
             <span class="lbl"></span>
         </label>
-        ID
+        
     </th>
+    <th width="60px">序号</th>
     <th>姓名</th>
     <th>中职考生号</th>
     <th>身份证</th>
@@ -21,12 +22,13 @@
 
 {foreach name="data" item="v"}
 <tr>
-    <td class="hidden-xs" height="28" >
+    <td height="28" >
         <label class="pos-rel">
             <input name="n_id[]" id="navid" class="ace" type="checkbox" value="{$v.member_list_id}">
             <span class="lbl"></span>
-        </label>{$v.member_list_id}
+        </label>
     </td>
+    <td>{$v.member_list_id}</td>
     <td>{if $v['major_score_status'] ==1}{$v.member_list_nickname}{else}<a href="{:url('admin/score/score_add',array('member_list_id'=>$v['member_list_id']))}">{$v.member_list_nickname}</a>{/if}</td>
     <td>{$v.ZexamineeNumber}</td>
     <td height="28" >{$v.member_list_username}</td>
@@ -39,10 +41,10 @@
     <td class="status_{$v.member_list_id}">{$v['status_desc']}</td>
     <!-- <td>
         <div class="hidden-sm hidden-xs action-buttons">
-            <a class="green" href="{:url('admin/score/score_add',array('member_list_id'=>$v['member_list_id']))}" title="修改">
-                <i class="ace-icon fa fa-pencil bigger-130"></i>
+            <a href="{:url('admin/score/score_add',array('member_list_id'=>$v['member_list_id']))}" title="修改">
+                <i class="ace-icon fa fa-edit bigger-130"></i>
             </a>
-            <a class="red confirm-rst-url-btn" data-info="你确定要删除吗？" href="{:url('admin/score/score_del',array('member_list_id'=>$v['member_list_id']))}" title="删除">
+            <a class=" confirm-rst-url-btn" data-info="你确定要删除吗？" href="{:url('admin/score/score_del',array('member_list_id'=>$v['member_list_id']))}" title="删除">
                 <i class="ace-icon fa fa-trash-o bigger-130"></i>
             </a>
         </div>

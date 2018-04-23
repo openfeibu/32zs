@@ -3,14 +3,8 @@
 	<div class="page-content">
 		<!--主题-->
 		<div class="page-header">
-			<h1>
-				您当前操作
-				<small>
-					<i class="ace-icon fa fa-angle-double-right"></i>
-					修改广告信息
-				</small>
-			</h1>
-		</div>
+			<span>修改广告信息</span>
+</div>
 		<div class="row">
 			<div class="col-xs-12">
 				<form class="form-horizontal ajaxForm2" name="plug_ad_runedit" method="post" action="{:url('admin/Plug/plug_ad_runedit')}">
@@ -117,7 +111,9 @@
 				保存
 			</button>
 
-			&nbsp; &nbsp; &nbsp;
+			<button class="btn btn-fb-blue fb-radio" type="submit">
+								保存
+ 
 			<button class="btn" type="reset" onclick="window.history.go(-1);">
 				<i class="ace-icon fa fa-undo bigger-110"></i>
 				返回

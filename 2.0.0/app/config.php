@@ -341,10 +341,10 @@ $configs= [
         ],
     ],
     'status' => [
-        '-1' => '<span style="color:#3499DB;font-weight: bold;">审核中</span>',
-        '0' => '<span style="color:#3499DB;font-weight: bold;">审核中</span>',
-        '1' => '<span style="color:#1ABD9D;font-weight: bold;">已审核</span>',
-        '2' => '<span style="color:#E74C3C;font-weight: bold;">审核不通过</span>'
+        '-1' => '<span class="text-fb-orange">审核中</span>',
+        '0' => '<span class="text-fb-orange">审核中</span>',
+        '1' => '<span class="text-fb-blue">已审核</span>',
+        '2' => '<span class="text-fb-red">审核不通过</span>'
     ],
     'status_title' => [
         '-1' => '审核中',

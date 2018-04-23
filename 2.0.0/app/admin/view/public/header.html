@@ -11,13 +11,15 @@
     <link rel="Shortcut Icon" href="__ROOT__/favicon.ico" />
 	<!-- bootstrap & fontawesome必须的css -->
 	<link rel="stylesheet" href="__PUBLIC__/ace/css/bootstrap.min.css" />
-	<link rel="stylesheet" href="__PUBLIC__/font-awesome/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="__PUBLIC__/font-awesome-4.7.0/css/font-awesome.min.css" />
 	<link rel="stylesheet" href="__PUBLIC__/datePicker/bootstrap-datepicker.css" />
 	<link rel="stylesheet" href="__PUBLIC__/datetimepicker/bootstrap-datetimepicker.css" />
 	<!-- 此页插件css -->
 
 	<!-- ace的css -->
 	<link rel="stylesheet" href="__PUBLIC__/ace/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" />
+
+
 	<!-- IE版本小于9的ace的css -->
 	<!--[if lte IE 9]>
 	<link rel="stylesheet" href="__PUBLIC__/ace/css/ace-part2.min.css" class="ace-main-stylesheet" />
@@ -50,12 +52,15 @@
     <!--[if IE]>
     <script src="__PUBLIC__/others/jquery.min-1.12.1.js"></script>
     <![endif]-->
-
+	<!-- 通用css/JS/后增加 -->
+	<link rel="stylesheet" href="__PUBLIC__/common/css/common.css"/>
+	<script src="__PUBLIC__/common/js/common.js"></script>
     <!-- 如果为触屏,则引入jquery.mobile -->
     <script type="text/javascript">
         if('ontouchstart' in document.documentElement) document.write("<script src='__PUBLIC__/others/jquery.mobile.custom.min.js'>"+"<"+"/script>");
     </script>
     <script src="__PUBLIC__/others/bootstrap.min.js"></script>
+
 	<style>
 	.table-hover > tbody > tr:hover > td,
 	.table-hover > tbody > tr:hover > th {
@@ -86,10 +91,8 @@
 		<div class="navbar-header pull-left">
 			<!-- logo -->
 			<a href="{:url('admin/Index/index')}" class="navbar-brand" title="管理后台首页">
-				<small>
-					<i class="fa fa-leaf"></i>
+					<i ><img src="__PUBLIC__/img/girl.jpg" alt="" style="width: 50px;height: 50px;"></i>
 					三二分段招生管理系统
-				</small>
 			</a>
 			<span class="admin_title_span">{$admin['title']} {$head_title}</span>
 		</div><!-- 导航左侧正常样式结束 -->
@@ -98,28 +101,34 @@
 		<div class="navbar-buttons navbar-header pull-right" role="navigation">
 			<ul class="nav ace-nav">
 				<li class="grey">
-					<a href="{:url('home/Index/index')}" target="_blank">
-						前台首页
+					<a href="{:url('home/Index/index')}" target="_blank" class="fb-transition">
+						招生首页
 					</a>
 				</li>
 				{if $admin['id'] == 1 || $admin['id'] == 5}
 				<li class="purple">
-					<a data-info="确定要清理缓存吗？" class="confirm-rst-btn" href="{:url('admin/Sys/clear')}">
+					<a data-info="确定要清理缓存吗？" class="confirm-rst-btn fb-transition" href="{:url('admin/Sys/clear')}">
 						清除缓存
 					</a>
 				</li>
 				{/if}
+				<li class="logOut">
+					<a class="confirm-rst-btn fb-transition" href="{:url('admin/Login/logout')}"  data-info="你确定要退出吗？" >
+						注销
+					</a>
+				</li>
 				<!-- 用户菜单开始 -->
 				<li class="light-blue dropdown-modal">
-					<a data-toggle="dropdown" href="#" class="dropdown-toggle">
+					<a  href="{:url('admin/Admin/profile')}" class="dropdown-toggle fb-adminInfo">
+						
+						<span class="user-info">
+							{:session('admin_auth.admin_username')}
+						</span>
 						<img class="nav-user-photo" src="{$admin_avatar|get_imgurl=2}" alt="{:session('admin_auth.admin_username')}" />
-								<span class="user-info">
-									欢迎您,	{:session('admin_auth.admin_username')}
-								</span>
 
-						<i class="ace-icon fa fa-caret-down"></i>
+						<!-- <i class="ace-icon fa fa-angle-down"></i> -->
 					</a>
-
+<!-- 
 					<ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
 						<li>
 							<a href="{:url('admin/Admin/profile')}">
@@ -136,7 +145,7 @@
 								注销
 							</a>
 						</li>
-					</ul>
+					</ul> -->
 				</li><!-- 用户菜单结束 -->
 			</ul>
 		</div><!-- 导航栏结束 -->

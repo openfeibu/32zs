@@ -16,7 +16,7 @@
 				<form name="admin_list_sea" class="form-search" method="post" action="{:url('admin/Plug/plug_adtype_list')}">
 					<div class="input-group">
 										<span class="input-group-addon">
-											<i class="ace-icon fa fa-check"></i>
+											<i class="ace-icon fa fa-search"></i>
 										</span>
 						<input type="text" name="key" id="key" class="form-control" value="{$val}" placeholder="输入广告位名称" />
 										<span class="input-group-btn">
@@ -51,7 +51,7 @@
 								<th>ID</th>
 								<th>广告位名称</th>
 								<th>排序</th>
-								<th style="border-right:#CCC solid 1px;">操作</th>
+								<th >操作</th>
 							</tr>
 							</thead>
 
@@ -65,8 +65,8 @@
 									<td>
 										<div class="hidden-sm hidden-xs action-buttons">
 											<a class="green adtypeedit-btn"  href="{:url('admin/Plug/plug_adtype_edit')}" data-id="{$v.plug_adtype_id}"  title="修改">
-												<i class="ace-icon fa fa-pencil bigger-130"></i>																</a>
-											<a class="red confirm-rst-url-btn" data-info="你确定要删除吗？" href="{:url('admin/Plug/plug_adtype_del',array('plug_adtype_id'=>$v['plug_adtype_id'],'p'=>input('p',1)))}" title="删除">
+												<i class="ace-icon fa fa-edit bigger-130"></i>																</a>
+											<a class=" confirm-rst-url-btn" data-info="你确定要删除吗？" href="{:url('admin/Plug/plug_adtype_del',array('plug_adtype_id'=>$v['plug_adtype_id'],'p'=>input('p',1)))}" title="删除">
 												<i class="ace-icon fa fa-trash-o bigger-130"></i>																</a>											</div>
 										<div class="hidden-md hidden-lg">
 											<div class="inline position-relative">

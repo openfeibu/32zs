@@ -26,7 +26,7 @@
 								<th class="hidden-sm hidden-xs">满足积分条件</th>
 								<th style="border-right:#CCC solid 1px;">状态</th>
 								<th style="border-right:#CCC solid 1px;">排序</th>
-								<th style="border-right:#CCC solid 1px;">操作</th>
+								<th >操作</th>
 							</tr>
 							</thead>
 
@@ -40,18 +40,18 @@
 									<td>
 										{if condition='$v.member_group_open eq 1'}
 											<a class="red open-btn" href="{:url('admin/Member/member_group_state')}" data-id="{$v.member_group_id}" title="已开启">
-												<div id="zt{$v.member_group_id}"><button class="btn btn-minier btn-yellow">开启</button></div>
+												<div id="zt{$v.member_group_id}"><button class="btn btn-minier btn-fb-blue">开启</button></div>
 											</a>
 											{else/}
 											<a class="red open-btn" href="{:url('admin/Member/member_group_state')}" data-id="{$v.member_group_id}" title="已禁用">
-												<div id="zt{$v.member_group_id}"><button class="btn btn-minier btn-danger">禁用</button></div>
+												<div id="zt{$v.member_group_id}"><button class="btn btn-minier btn-fb-orange">禁用</button></div>
 											</a>
 										{/if}														</td>
 									<td><input name="{$v.member_group_id}" value="{$v.member_group_order}" class="list_order center"/></td>
 									<td>
 										<div class="hidden-sm hidden-xs action-buttons">
 											<a class="green memberedit-btn"  href="{:url('admin/Member/member_group_edit')}" data-id="{$v.member_group_id}" title="修改">
-												<i class="ace-icon fa fa-pencil bigger-130"></i>
+												<i class="ace-icon fa fa-edit bigger-130"></i>
 											</a>
 											<a class="red confirm-rst-url-btn" href="{:url('admin/Member/member_group_del',array('member_group_id'=>$v['member_group_id']))}" data-info="你确定要删除吗？" title="删除">
 												<i class="ace-icon fa fa-trash-o bigger-130"></i>

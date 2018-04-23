@@ -2,10 +2,12 @@
 {block name="main-content"}
 	<div class="page-content">
 
-		<div class="row">
+		<div class="">
 
 			<div class="col-xs-12">
+
 				<form class="form-horizontal ajaxForm2" name="excel_runimport" method="post" action="{:url('admin/Member/member_runimport')}"  enctype="multipart/form-data">
+					<div class="fb-export"><a href="__PUBLIC__/excel/sample/mr_member.xls" target="_blank">下载示例表格</a></div>
 					<input name="type" value="member" type="hidden"/>
 					<div class="form-group">
 						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 请选择学校及中职专业： </label>
@@ -21,22 +23,21 @@
 							</select>
 						</div>
 						<div class="col-sm-4">
-							<a href="javascript:;" class="file">
+							
+							<a href="javascript:;" class="file  btn-fb-blue btn-fb-radio">
 								<input type="file" name="file_stu" id="file_stu"  class="file"  required/>
 								选择上传文件
 							</a>
-							<span class="input-group-btn" style="float:inherit; left:140px; top:2px;">
-								<button type="submit" class="btn btn-xs  btn-purple">
-									<span class="ace-icon fa fa-search icon-on-right bigger-110"></span>
-									表格导入
+							<span class="input-group-btn" style="float:inherit; left:140px;">
+								<button type="submit" class="btn btn-xs  btn-purple btn-fb-orange btn-fb-radio" >
+									导入
 								</button>
 							</span>
-							<span style="float:right; line-height:35px; top:2px;"><a href="__PUBLIC__/excel/sample/mr_member.xls" target="_blank">下载示例表格</a></span>
+							
 
 						</div>
 
 					</div>
-					<div class="space-4"></div>
 					<div class="form-group">
 						<p id="file_name" style="text-align:center;"></p>
 					</div>

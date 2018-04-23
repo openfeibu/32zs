@@ -2,9 +2,11 @@
 {block name="main-content"}
 	<div class="page-content">
 		<div class="row maintop">
-
+			 <button id="btnsubmit" class="  btn-unactive">驳回审核</button>
 			<form name="admin_list_sea" class="form-search" id="list-filter" method="post" action="{:url('admin/score/score_all')}">
-				<div class="col-xs-12 col-sm-6  margintop5">
+
+				<div class="fb-state-search  margintop5">
+				按状态筛选：
 					<select name="major_score_status" class="ajax_change">
 						<option value="">所有审核状态</option>
 						<option value="0" {if condition="$major_score_status eq '0'"}selected="selected"{/if}>审核中</option>
@@ -22,23 +24,11 @@
 				</div>
 				<div class="col-xs-12 col-sm-3  margintop5">
 					<div class="input-group">
+						<span class="input-group-addon">
+											<i class="ace-icon fa fa-search"></i>
+										</span>
 						<input type="text" name="search_key" id="key" class="form-control" value="{$search_key}" placeholder="请输入身份证、姓名、中职考生号" />
-						<span class="input-group-btn">
-							<button type="submit" class="btn btn-sm  btn-purple ajax-search-form">
-								<span class="ace-icon fa fa-search icon-on-right bigger-110"></span>
-								搜索
-							</button>
-						</span>
-					</div>
-				</div>
-				<div class="col-xs-4 col-sm-3 margintop5">
-					<div class="input-group-btn">
-						<a href="{:url('admin/Score/score_all')}">
-							<button type="button" class="btn btn-sm  btn-purple ajax-display-all">
-								<span class="ace-icon fa fa-globe icon-on-right bigger-110"></span>
-								显示全部
-							</button>
-						</a>
+						
 					</div>
 				</div>
 			</form>
@@ -52,15 +42,15 @@
 						<table class="table table-striped table-bordered table-hover" id="dynamic-table">
 							<thead>
 							<tr>
-                                <th class="hidden-xs ">
+                                <th width="60px">
                                     <label class="pos-rel">
                                         <input type="checkbox" class="ace" id="chkAll" onclick="CheckAll(this.form)" value="全选">
                                         <span class="lbl"></span>
                                     </label>
-                                    ID
                                 </th>
+								<th width="60px">序号</th>
 								<th>中职考生号</th>
-								<th>姓名</th>
+								<th width="120px">姓名</th>
 								<th>身份证</th>
 								<th>中职专业</th>
                                 <th>高职专业</th>
@@ -75,6 +65,7 @@
 							</tbody>
 						</table>
 					</form>
+					<div class="fb-page">{$page}</div>
 				</div>
 			</div>
 		</div>
