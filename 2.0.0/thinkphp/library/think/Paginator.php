@@ -135,7 +135,14 @@ abstract class Paginator implements ArrayAccess, Countable, IteratorAggregate, J
      */
     public static function getCurrentPage($varPage = 'page', $default = 1)
     {
-        $page = Request::instance()->request($varPage);
+        $page = null;
+        if(isset(request()->param()[$varPage]))
+        {
+            $page = request()->param()[$varPage];
+        }else if(isset(request()->param()['p']))
+        {
+            $page = request()->param()['p'];
+        }
 
         if (filter_var($page, FILTER_VALIDATE_INT) !== false && (int) $page >= 1) {
             return $page;
