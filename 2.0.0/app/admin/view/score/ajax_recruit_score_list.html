@@ -5,8 +5,9 @@
         <label class="pos-rel">
             <input name="n_id[]" id="navid" class="ace" type="checkbox" value="{$v.member_list_id}">
             <span class="lbl"></span>
-        </label>{$v.member_list_id}
+        </label>
     </td>
+    <td>{$v.member_list_id}</td>
     <td height="28" >{$v.member_list_nickname}</td>
     <td>{$v.ZexamineeNumber}</td>
     <td>{$v.member_list_username}</td>
@@ -16,11 +17,6 @@
    <td><span class="status_{$v.member_list_id}">{$v['status_desc']}</span></td>
 </tr>
 {/foreach}
-<tr>
-    <td height="50" align="center">
-        <button id="btnsubmit" class="btn btn-white btn-blue btn-sm hidden-xs btn-active">通过</button>
-    </td>
-    <td colspan="20" align="center">{$page}</td>
-</tr>
+
 <input name="school_id"  value="{:input('school_id','')}" type="hidden" />
 <input name="major_id"  value="{:input('major_id','')}" type="hidden" />

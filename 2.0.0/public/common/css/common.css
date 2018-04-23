@@ -5,12 +5,17 @@
 a:hover{text-decoration: none;}
 body{min-width: 1200px;overflow-x: auto;letter-spacing: 1px;}
 select{font-size: 14px;}
+input[disabled] {
+    border: 1px solid #eee;
+}
 #navbar{height: 90px;background: #fff;box-shadow: 0 2px 4px 0 rgba(0,0,0,.1);min-width: 1200px;}
 .navbar .navbar-brand{padding-top: 20px;color: #303e39;font-size: 18px;font-weight: 600;position: relative;z-index: 999}
 .navbar .navbar-brand:hover{color: #303e39;}
 .navbar .navbar-brand:visited{color: #303e39}
 .admin_title_span{position: absolute;width: 100%;height: 100%;text-align: center;line-height:90px;color: #303e39;font-size: 20px;font-weight: 600;left: 0;top: 0}
 .navbar-header{height: 90px;}
+.navbar-header a i{display: inline-block;*display: inline;*zoom:1;vertical-align: top;line-height: 50px;}
+.navbar-header a p{display: inline-block;*display: inline;*zoom:1;vertical-align: top;line-height: 24px;margin-top: 2px;}
 .navbar-header .grey ,.navbar-header .purple {border:none;margin-top: 30px;margin-right: 15px;}
 .navbar-header .grey a,.navbar-header .purple a{width: 80px;height: 30px;border-radius: 30px;background-color: #bbbdc1 !important;line-height: 30px;font-size: 14px;color: #fff;}
 .navbar-header .grey a:hover,.navbar-header .purple a:hover{background-color: #3fb869 !important;}
@@ -20,7 +25,7 @@ select{font-size: 14px;}
 .navbar-header .logOut{border:none;margin-top: 30px;margin-right: 15px;}
 .navbar-header .logOut a{width: 60px;height: 30px;border-radius: 30px;background-color: #bbbdc1 !important;line-height: 30px;font-size: 14px;color: #fff;}
 .navbar-header .logOut a:hover{width: 60px;height: 30px;border-radius: 30px;background-color: #fcaf55 !important;line-height: 30px;font-size: 14px;color: #fff;}
-.navbar-header .logOut a:visited{color: #303e39}
+.navbar-header .logOut a:visited{color: #fff}
 .no-skin .sidebar{background-color: #fff;border-right: 1px solid #f3f3f3}
 .no-skin .nav-list>li>a{background: none;}
 #sidebar {width: 240px;}
@@ -100,7 +105,7 @@ input[type=checkbox].ace+.lbl{margin:0 15px;}
 .table-striped>tbody>tr{
 	height: 60px;
 	line-height: 60px;
-	font-size: 18px;
+	font-size: 16px;
 }
 /*.table-striped tr td:nth-of-type(1).table-striped tr td:nth-of-type(2){text-align: center;}*/
 .table-striped>tbody>tr td{vertical-align: middle;height: 60px;padding-top:0 ;padding-bottom:0 ;color: #768882;}
@@ -109,7 +114,8 @@ input[type=checkbox].ace+.lbl{margin:0 15px;}
 .table-hover > tbody > tr:hover > td, .table-hover > tbody > tr:hover > th{background-color: transparent !important;}
 .table-striped>tbody>tr:hover td{color: #3fb869;}
 .table-striped>tbody>tr:hover td a{color: #3fb869;}
-.action-buttons a{font-size: 18px;color: #768882;margin-right: 25px;}
+.action-buttons a{font-size: 18px;color: #768882;margin-right: 20px;}
+.action-buttons a:nth-of-type(2){margin-right: 0}
 .table-striped>tbody>tr td .fa-edit:hover{color: #559cfc;}
 .table-striped>tbody>tr td .fa-trash-o:hover{color: #fcaf55;}
 .fb-page{text-align: center;padding:20px 0;}
@@ -140,13 +146,15 @@ input[type=checkbox].ace+.lbl{margin:0 15px;}
 .fb-radio{border-radius: 34px;width: 80px;height: 34px;margin:0 8px;}
 .btn-sespan{float: left;width: 220px;margin:0 7.5px;}
 
-#btnorder{float: left;height: 30px;border-radius: 30px;}
+#btnorder{float: left;height: 30px;border-radius: 30px;padding:0 15px;}
+#member_active_submit{float: left;height: 30px;border-radius: 30px;padding:0 15px;}
 .form-horizontal .control-label{width: auto !important;}
 .btn-fb-radio{border-radius: 30px !important;}
 #file_name{height: 30px;line-height: 30px;font-size: 16px;color: #559cfc }
 .form-horizontal .form-group label{float: left;width: 200px !important}
 .infobox-box{}
-.infobox-box .info-box{width: 330px;height: 150px;position: relative;float: left;background: #fff;margin-right: 60px;margin-bottom: 60px;border-radius: 5px;overflow:hidden;box-shadow: 0px 5px 20px #eee}
+/*.infobox-box .info-box{width: 330px;height: 150px;position: relative;float: left;background: #fff;margin-right: 60px;margin-bottom: 60px;border-radius: 5px;overflow:hidden;box-shadow: 0px 5px 20px #eee}*/
+.infobox-box .info-box{max-width: 330px;width: 30%;height: 150px;position: relative;float: left;background: #fff;margin-right: 3%;margin-bottom: 60px;border-radius: 5px;overflow:hidden;box-shadow: 0px 5px 20px #eee}
 .infobox-box .info-box span{color: #a7a8ac;font-size: 18px;display: block;padding: 38px 0 0 40px;}
 .infobox-box .info-box p{color: #559cfc;font-size: 40px;display: block;padding: 0 0 0 40px;font-weight: bold;}
 .infobox-box .info-box.info-box-blue p{color: #3fb869}
@@ -167,5 +175,10 @@ input[type=checkbox].ace+.lbl{margin:0 15px;}
 .zz-infobox-item ul li span{font-size: 18px;color: #a7a8ac;}
 .zz-infobox-item ul li p{font-size: 40px;color: #559cfc;font-weight: bold;}
 .zz-infobox-item ul li:nth-of-type(even) p{color: #fdc381}
+.user-profile{padding:30px 0;} 
+.profile-contact-links{width: 200px;height: auto;border-radius: 30px;line-height: 40px;background: none;border:none;margin:15px auto;}
+.profile-contact-links .btn.btn-link{display: block;color: #fff !important;background: #3fb869  !important;border-radius: 40px;height: 40px;line-height: 30px !important;font-size: 16px;} 
+.profile-contact-links .btn.btn-link:hover{text-decoration: none;background: #339d58  !important}
+#major-box .checkbox label{width:auto !important;margin-right: 15px;}
 /*a7a8ac*/
 

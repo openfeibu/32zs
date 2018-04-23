@@ -3,6 +3,7 @@ $(function(){
 	$("#btnsubmit").on("click",function(){
 		$(".ajaxForm").submit();
 	})
+
 	//删除按钮特效
 	$("body").on("change","[name='n_id[]']",function(){
 		$.each($("[name='n_id[]']"),function(i,v){

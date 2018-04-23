@@ -2,38 +2,31 @@
 {block name="main-content"}
 	<div class="page-content">
 		<div class="row maintop">
+			<button id="btnsubmit" class="btn btn-white btn-blue btn-sm hidden-xs btn-active">通过审核</button>
+			<div class="fb-export">
+				<a href="javascript:;" onclick="javascript:var major_id = $('#major').val();window.location.href='{:url('admin/Score/score_list_export')}?major_id='+major_id;" title="成绩导出">成绩导出</a>
+			</div>
 
 			<form name="admin_list_sea" class="form-search" id="list-filter" method="post" action="{:url('admin/score/score_list')}">
-				<div class="col-xs-12 col-sm-4  margintop5">
+				<div class="fb-state-search  margintop5">
 					中职专业：
 					<select name="major_id" class="ajax_change" id="major">
 						{foreach name='major_list' item='v'}
 						<option value="{$v.major_id}" {if $major_id == $v['major_id']}selected{/if}>{$v.major_name}</option>
 						{/foreach}
 					</select>
-					<a href="javascript:;" onclick="javascript:var major_id = $('#major').val();window.location.href='{:url('admin/Score/score_list_export')}?major_id='+major_id;" title="成绩导出">成绩导出：<i class="fa fa-download export" style="float:none;"></i></a>
+					
 				</div>
 				<div class="col-xs-12 col-sm-3  margintop5">
 					<div class="input-group">
-						<input type="text" name="search_key" id="key" class="form-control" value="{$search_key}" placeholder="请输入身份证、姓名、中职考生号" />
-						<span class="input-group-btn">
-							<button type="submit" class="btn btn-sm  btn-purple ajax-search-form">
-								<span class="ace-icon fa fa-search icon-on-right bigger-110"></span>
-								搜索
-							</button>
+						<span class="input-group-addon">
+							<i class="ace-icon fa fa-search"></i>
 						</span>
+						<input type="text" name="search_key" id="key" class="form-control" value="{$search_key}" placeholder="请输入身份证、姓名、中职考生号" />
+
 					</div>
 				</div>
-				<div class="col-xs-4 col-sm-3 margintop5">
-					<div class="input-group-btn">
-						<a href="{:url('admin/Score/score_list')}">
-							<button type="button" class="btn btn-sm  btn-purple ajax-display-all">
-								<span class="ace-icon fa fa-globe icon-on-right bigger-110"></span>
-								显示全部
-							</button>
-						</a>
-					</div>
-				</div>
+
 			</form>
 		</div>
 		<div class="row">
@@ -48,6 +41,7 @@
 							</tbody>
 						</table>
 					</form>
+					<div class="fb-page">{$page}</div>
 				</div>
 			</div>
 

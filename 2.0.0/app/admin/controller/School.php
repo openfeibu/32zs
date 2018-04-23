@@ -424,10 +424,11 @@ class School extends Base
 
 			$major_list = MajorModel::get_major_list($school_id);
 
-			$html = '<option value="">请选择中职专业</option>';
+			$html = '';
 			foreach($major_list as $key => $major)
 			{
-				$html .= "<option value='".$major['major_id']."'>".$major['major_name']."</option>";
+				$html .= "<label id='news_flag_h'><input checked class='ace ace-checkbox-2' type='checkbox' name='major_id[]' value='".$major['major_id']."'/><span class='lbl'>".$major['major_name']."</span></label>"; 
+				// $html .= "<option value='".$major['major_id']."'>".$major['major_name']."</option>";
 			}
 			return [
 				'code' => 200,
