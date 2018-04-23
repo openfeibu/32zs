@@ -11,7 +11,7 @@
                 <a href="{:url('home/center/index')}">个人中心</a>
             </div>
             {else}
-            <div class="login-title">自主招生报名登录</div>
+            <div class="login-title">三二招生报名登录</div>
             <form action="{:url('home/Login/runlogin')}" method="post">
                 <div class="input-item">
                      <label for="">身份证：</label>
@@ -37,28 +37,19 @@
         <!-- 轮播图 -->
         <div class="banner">
             <ul>
-                <li class="active"><a href="">
-                    <img src="{$yf_theme_path}public/images/1.jpg" alt="">
-                    <!-- <span>标题1</span> -->
-                </a></li>
-                <li><a href="">
-                    <img src="{$yf_theme_path}public/images/2.jpg" alt="">
-                    <!-- <span>标题2</span> -->
-                </a></li>
-                <li><a href="">
-                    <img src="{$yf_theme_path}public/images/3.jpg" alt="">
-                    <!-- <span>标题3</span> -->
-                </a></li>
-                <li><a href="">
-                    <img src="{$yf_theme_path}public/images/7.jpg" alt="">
-                    <!-- <span>标题4</span> -->
-                </a></li>
+                {foreach name="center_slideshow_imgs" item="voo" key="k"}
+                    <li {if $k == 0}class="active"{/if}>
+                        <a href="javascript:;">
+                            <img src="{$voo|get_imgurl}" alt="">
+                        </a>
+                    </li>
+
+                {/foreach}
             </ul>
             <ol>
-                <li class="active"></li>
-                <li></li>
-                <li></li>
-                <li></li>
+                {foreach name="center_slideshow_imgs" item="voo" key="k"}
+                    <li {if $k == 0}class="active"{/if}></li>
+                {/foreach}
             </ol>
         </div>
         <!-- 轮播图 -->
@@ -172,13 +163,9 @@
             </div>
             <div class="fb-seamless-con">
                 <ul>
-                    <li><img src="{$yf_theme_path}public/images/1.jpg" alt=""></li>
-                    <li><img src="{$yf_theme_path}public/images/2.jpg" alt=""></li>
-                    <li><img src="{$yf_theme_path}public/images/3.jpg" alt=""></li>
-                    <li><img src="{$yf_theme_path}public/images/4.jpg" alt=""></li>
-                    <li><img src="{$yf_theme_path}public/images/5.jpg" alt=""></li>
-                    <li><img src="{$yf_theme_path}public/images/6.jpg" alt=""></li>
-                    <li><img src="{$yf_theme_path}public/images/7.jpg" alt=""></li>
+                    {foreach name="footer_slideshow_imgs" item="voo" key="k"}
+                        <li><img src="{$voo|get_imgurl}" alt=""></li>
+                    {/foreach}
                 </ul>
             </div>
         </div>
