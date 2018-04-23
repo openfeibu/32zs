@@ -73,7 +73,7 @@ input[disabled] {
 #btnsubmit:hover{background-color: #f8f8f8 !important;}
 #btnsubmit.active{border:1px solid #fcaf55;background-color:#fcaf55 !important ;color: #fff !important;}
 #btnsubmit.active:hover{background-color: #d39143 !important;}
-#btnsubmit:focus{outline: aliceblue}
+#btnsubmit:focus,.login-submit:focus{outline: aliceblue }
 .page-content{background: #fff;}
 .page-content .maintop{margin:0;padding:30px;width: auto;}
 .input-group-addon {
@@ -191,8 +191,9 @@ input[type=checkbox].ace+.lbl{margin:0 15px;}
 .login-box form label .input-icon{border-radius: 48px;display: block;overflow:hidden;border:1px solid #bbbdc1;width: 238px;height: 48px;}
 .login-box form label input[type="text"],.login-box form label input[type="password"]{width: 238px;height: 48px;transition: all 0.2s;border:none;text-indent: 1em;background: none;}
 .login-box form label .active{border:1px solid #3fb869;}
-.login-box .login-submit{width: 100px;height: 48px;background: #bbbdc1;color: #fff;font-size: 16px;border:none;border-radius: 48px;transition:all 0.2s }
-.login-box .login-submit.active{background: #3fb869;}
+.login-box .login-submit{width: 100px;height: 48px;background: #3fb869;color: #fff;font-size: 16px;border:none;border-radius: 48px;transition:all 0.2s }
+/*.login-box .login-submit.active{background: #3fb869;}*/
+.login-box .login-submit:hover{background: #3b9d5d;}
 .login-box .rememberme{margin-left: 280px;margin:10px 0 0 280px;}
 /*a7a8ac*/
 

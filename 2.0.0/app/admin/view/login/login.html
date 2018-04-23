@@ -66,7 +66,7 @@
 								<div class="clearfix rememberme">
 									<label class="inline">
 										<input name="rememberme" type="checkbox" class="ace" />
-										<span class="lbl"> 记住密码</span>
+										<span class="lbl"> 记住账号</span>
 									</label>
 								</div>
 						</form>
@@ -100,35 +100,29 @@
             //加载完毕执行
         });
     };
-    $.ajax({
-        url: "{:geetest_url()}?t=" + (new Date()).getTime(),
-        type: "get",
-        dataType: "json",
-        success: function (data) {
-            initGeetest({
-                gt: data.gt,
-                challenge: data.challenge,
-                product: "float",
-                offline: !data.success
-            }, handler);
-        }
-    });
+
     $('.login-box form label input[type="text"],.login-box form label input[type="password"]').focus(function(){
     	$(this).parents("span").addClass("active");
     })
     $('.login-box form label input[type="text"],.login-box form label input[type="password"]').blur(function(){
     	$(this).parents("span").removeClass("active");
     })
-     $('.login-box form label input[type="text"],.login-box form label input[type="password"]').on("onpropertychange, input",function(){
+     $('.login-box form label input[type="text"],.login-box form label input[type="password"]').on("onpropertychange, input",changeFun);
+
+     function changeFun(){
     	var val1= $('.login-box form label input[type="text"]').val()
     	var val2= $('.login-box form label input[type="password"]').val()
+
     	if(val1.length !=0 && val2.length !=0 ){
     		$(".login-box .login-submit").addClass("active")
     	}else{
     		$(".login-box .login-submit").removeClass("active")
 
     	}
-    })
+    }
+     setTimeout(function(){
+     	changeFun();
+     },3000)
 </script>
 <!-- 如果为触屏,则引入jquery.mobile -->
 <script type="text/javascript">
