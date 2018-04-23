@@ -207,7 +207,7 @@ class Sys extends Base
         Db::name('route')->insert(input('post.'));
         $p=input('p',1,'intval');
         if(config('url_route_mode')=='2') Cache::rm('routes');
-        $this->success('路由规则添加成功',url('admin/Sys/urlsetsys',array('p'=>$p)),1);
+        $this->success('路由规则添加成功',url('admin/Sys/urlsetsys',array('p'=>$p,'page' => $p)),1);
 
 	}
 	/*
@@ -230,9 +230,9 @@ class Sys extends Base
         $rst=Db::name('route')->update($sl_data);
         if($rst!==false){
             if(config('url_route_mode')=='2') Cache::rm('routes');
-            $this->success('路由规则修改成功',url('admin/Sys/urlsetsys',array('p'=>$p)));
+            $this->success('路由规则修改成功',url('admin/Sys/urlsetsys',array('p'=>$p,'page' => $p)));
         }else{
-            $this->error('路由规则修改失败',url('admin/Sys/urlsetsys',array('p'=>$p)));
+            $this->error('路由规则修改失败',url('admin/Sys/urlsetsys',array('p'=>$p,'page' => $p)));
         }
 	}
 	/*
@@ -272,7 +272,7 @@ class Sys extends Base
         if($rst!==false){
 			$p=input('p',1,'intval');
             if(config('url_route_mode')=='2') Cache::rm('routes');
-            $this->success('路由规则删除成功',url('admin/Sys/urlsetsys',array('p'=>$p)));
+            $this->success('路由规则删除成功',url('admin/Sys/urlsetsys',array('p'=>$p,'page' => $p)));
         }else{
             $this->error('路由规则删除失败',url('admin/Sys/urlsetsys'));
         }

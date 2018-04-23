@@ -403,7 +403,7 @@ class News extends Base
 		if($rst!==false){
 			$this->success('文章已转入回收站',url('admin/News/news_list',array('p' => $p)));
 		}else{
-			$this -> error("删除文章失败！",url('admin/News/news_list',array('p'=>$p)));
+			$this -> error("删除文章失败！",url('admin/News/news_list',array('p'=>$p,'page' => $p)));
 		}
 	}
     /**
@@ -414,7 +414,7 @@ class News extends Base
 		$p = input('p');
 		$ids = input('n_id/a');
 		if(empty($ids)){
-			$this -> error("请选择删除文章",url('admin/News/news_list',array('p'=>$p)));//判断是否选择了文章ID
+			$this -> error("请选择删除文章",url('admin/News/news_list',array('p'=>$p,'page' => $p)));//判断是否选择了文章ID
 		}
 		if(is_array($ids)){//判断获取文章ID的形式是否数组
 			$where = 'n_id in('.implode(',',$ids).')';
@@ -424,9 +424,9 @@ class News extends Base
 		$news_model=new NewsModel;
 		$rst=$news_model->where($where)->setField('news_back',1);//转入回收站
 		if($rst!==false){
-			$this->success("成功把文章移至回收站！",url('admin/News/news_list',array('p'=>$p)));
+			$this->success("成功把文章移至回收站！",url('admin/News/news_list',array('p'=>$p,'page' => $p)));
 		}else{
-			$this -> error("删除文章失败！",url('admin/News/news_list',array('p'=>$p)));
+			$this -> error("删除文章失败！",url('admin/News/news_list',array('p'=>$p,'page' => $p)));
 		}
 	}
     /**
@@ -565,7 +565,7 @@ class News extends Base
 		$p = input('p');
 		$ids = input('n_id/a');
 		if(empty($ids)){
-			$this -> error("请选择删除文章",url('admin/News/news_back',array('p'=>$p)));//判断是否选择了文章ID
+			$this -> error("请选择删除文章",url('admin/News/news_back',array('p'=>$p,'page' => $p)));//判断是否选择了文章ID
 		}
 		if(is_array($ids)){//判断获取文章ID的形式是否数组
 			$where = 'n_id in('.implode(',',$ids).')';
@@ -575,7 +575,7 @@ class News extends Base
 		$news_model=new NewsModel;
 		$rst=$news_model->where($where)->delete();
 		if($rst!==false){
-			$this->success("成功把文章删除，不可还原！",url('admin/News/news_back',array('p'=>$p)));
+			$this->success("成功把文章删除，不可还原！",url('admin/News/news_back',array('p'=>$p,'page' => $p)));
 		}else{
 			$this -> error("文章彻底删除失败！",url('admin/News/news_back',array('p' => $p)));
 		}

@@ -92,7 +92,7 @@ class School extends Base
 		$p = input('p');
 		$ids = input('n_id/a');
 		if(empty($ids)){
-			$this -> error("请选择列表",url('admin/school/school_list',array('p'=>$p)));
+			$this -> error("请选择列表",url('admin/school/school_list',array('p'=>$p,'page' => $p)));
 		}
 		if(is_array($ids)){
 			$where = 'school_id in('.implode(',',$ids).')';
@@ -149,7 +149,7 @@ class School extends Base
 		$p = input('p');
 		$ids = input('n_id/a');
 		if(empty($ids)){
-			$this -> error("请选择列表",url('admin/major/major_list',array('p'=>$p)));
+			$this -> error("请选择列表",url('admin/major/major_list',array('p'=>$p,'page' => $p)));
 		}
 		if(is_array($ids)){
 			$where = 'major_id in('.implode(',',$ids).')';
@@ -379,7 +379,7 @@ class School extends Base
 		$p = input('p');
 		$ids = input('n_id/a');
 		if(empty($ids)){
-			$this -> error("请选择列表",url('admin/School/recruit_major_list',array('p'=>$p)));
+			$this -> error("请选择列表",url('admin/School/recruit_major_list',array('p'=>$p,'page' => $p)));
 		}
 		if(is_array($ids)){
 			$where = 'recruit_major_id in('.implode(',',$ids).')';
