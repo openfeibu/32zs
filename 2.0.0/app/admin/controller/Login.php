@@ -41,13 +41,13 @@ class Login extends Common
 		if (!request()->isAjax()){
 			$this->error("提交方式错误！",url('admin/Login/login'));
 		}else{
-			if(config('geetest.geetest_on')){
-                if(!geetest_check(input('post.'))){
-                    $this->error('验证不通过',url('admin/Login/login'));
-                };
-            }else{
-				$this->verify_check('aid');
-            }
+			// if(config('geetest.geetest_on')){
+            //     if(!geetest_check(input('post.'))){
+            //         $this->error('验证不通过',url('admin/Login/login'));
+            //     };
+            // }else{
+			// 	$this->verify_check('aid');
+            // }
 			$admin_username=input('admin_username');
 			$password=input('admin_pwd');
 			$rememberme=input('rememberme');
