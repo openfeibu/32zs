@@ -180,5 +180,19 @@ input[type=checkbox].ace+.lbl{margin:0 15px;}
 .profile-contact-links .btn.btn-link{display: block;color: #fff !important;background: #3fb869  !important;border-radius: 40px;height: 40px;line-height: 30px !important;font-size: 16px;} 
 .profile-contact-links .btn.btn-link:hover{text-decoration: none;background: #339d58  !important}
 #major-box .checkbox label{width:auto !important;margin-right: 15px;}
+.blur-login{background: #f8f8f8 !important}
+.login-box{width: 700px;position: absolute;top: 50%;margin-top: -300px;left: 50%;margin-left: -370px;}
+.login-box-title{text-align: center;}
+.login-box-title p{font-size: 24px;color: #303e39;}
+.login-box form{padding:90px 30px 0 30px;}
+.login-box form label,.login-box .login-submit {display: inline-block;*display: inline;vertical-align: top}
+.login-box form label{margin-right: 25px;}
+.login-box form label span{transition:all 0.2s }
+.login-box form label .input-icon{border-radius: 48px;display: block;overflow:hidden;border:1px solid #bbbdc1;width: 238px;height: 48px;}
+.login-box form label input[type="text"],.login-box form label input[type="password"]{width: 238px;height: 48px;transition: all 0.2s;border:none;text-indent: 1em;background: none;}
+.login-box form label .active{border:1px solid #3fb869;}
+.login-box .login-submit{width: 100px;height: 48px;background: #bbbdc1;color: #fff;font-size: 16px;border:none;border-radius: 48px;transition:all 0.2s }
+.login-box .login-submit.active{background: #3fb869;}
+.login-box .rememberme{margin-left: 280px;margin:10px 0 0 280px;}
 /*a7a8ac*/
 
