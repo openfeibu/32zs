@@ -145,4 +145,27 @@ input[type=checkbox].ace+.lbl{margin:0 15px;}
 .btn-fb-radio{border-radius: 30px !important;}
 #file_name{height: 30px;line-height: 30px;font-size: 16px;color: #559cfc }
 .form-horizontal .form-group label{float: left;width: 200px !important}
+.infobox-box{}
+.infobox-box .info-box{width: 330px;height: 150px;position: relative;float: left;background: #fff;margin-right: 60px;margin-bottom: 60px;border-radius: 5px;overflow:hidden;box-shadow: 0px 5px 20px #eee}
+.infobox-box .info-box span{color: #a7a8ac;font-size: 18px;display: block;padding: 38px 0 0 40px;}
+.infobox-box .info-box p{color: #559cfc;font-size: 40px;display: block;padding: 0 0 0 40px;font-weight: bold;}
+.infobox-box .info-box.info-box-blue p{color: #3fb869}
+.infobox-box .info-box.info-box-green p{color: #559cfc}
+.infobox-box .info-box.info-box-yellow p{color: #fcaf55}
+.infobox-box .info-box.info-box-blue:after{content: "";position: absolute;width: 220px;height: 220px;border-radius: 50%;background: #3fb869;opacity: 0.1;right: -110px;bottom:-110px;transition:all 0.2s;}
+.infobox-box .info-box.info-box-green:after{content: "";position: absolute;width: 220px;height: 220px;border-radius: 50%;background: #559cfc;opacity: 0.1;right: -110px;bottom:-110px;transition:all 0.2s;}
+.infobox-box .info-box.info-box-yellow:after{content: "";position: absolute;width: 220px;height: 220px;border-radius: 50%;background: #fcaf55;opacity: 0.1;right: -110px;bottom:-110px;transition:all 0.2s;}
+.infobox-box .info-box:hover:after{opacity: 0.5}
+
+.zz-infobox-item{width: 380px;padding: 30px 40px;float: left;background: #fff;margin-right: 60px;margin-bottom: 60px;border-radius: 5px;overflow:hidden;box-shadow: 0px 5px 20px #eee}
+.zz-infobox-item .zz-infobox-item-title{color: #303e39;font-size: 20px;padding-left: 20px;position: relative;}
+.zz-infobox-item .zz-infobox-item-title:before{content: "";position: absolute;width: 10px;height: 10px;border-radius: 50%;background: #3fb869;top: 50%;margin-top: -5px;left: 0}
+.zz-infobox-item .zz-infobox-item-count{color: #768882;font-size: 18px;margin:15px 0;}
+.zz-infobox-item ul{margin:0}
+.zz-infobox-item ul:after{content: "";clear: both;width: 100%;height: 0;display: block;}
+.zz-infobox-item ul li{float: left;width: 50%;list-style-type:none;display: block;margin:15px 0 0 0;}
+.zz-infobox-item ul li span{font-size: 18px;color: #a7a8ac;}
+.zz-infobox-item ul li p{font-size: 40px;color: #559cfc;font-weight: bold;}
+.zz-infobox-item ul li:nth-of-type(even) p{color: #fdc381}
 /*a7a8ac*/
+
