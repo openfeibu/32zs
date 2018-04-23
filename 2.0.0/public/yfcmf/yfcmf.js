@@ -102,11 +102,11 @@ $(function () {
         $.post($url, {x: val}, function (data) {
             if (data.code==1) {
                 if (data.msg == '未审') {
-                    var a = '<button class="btn btn-minier btn-danger">未审</button>';
+                    var a = '<button class="btn btn-minier btn-fb-orange">未审</button>';
                     $btn.children('div').html(a).attr('title','未审');
                     return false;
                 } else {
-                    var b = '<button class="btn btn-minier btn-yellow">已审</button>';
+                    var b = '<button class="btn btn-minier btn-fb-blue">已审</button>';
                     $btn.children('div').html(b).attr('title','已审');
                     return false;
                 }
@@ -147,11 +147,11 @@ $(function () {
         $.post($url, {x: val}, function (data) {
             if (data.code==1) {
                 if (data.msg == '状态禁止') {
-                    var a = '<button class="btn btn-minier btn-danger">禁用</button>';
+                    var a = '<button class="btn btn-minier btn-fb-orange">禁用</button>';
                     $btn.children('div').html(a).attr('title','已禁用');
                     return false;
                 } else {
-                    var b = '<button class="btn btn-minier btn-yellow">开启</button>';
+                    var b = '<button class="btn btn-minier btn-fb-blue">开启</button>';
                     $btn.children('div').html(b).attr('title','已开启');
                     return false;
                 }
@@ -219,12 +219,12 @@ $(function () {
         $.post($url, {x: val}, function (data) {
             if (data.code==1) {
                 if (data.msg == '未通过') {
-                    var a = '<button class="btn btn-minier btn-danger">未通过</button>';
+                    var a = '<button class="btn btn-minier btn-fb-orange">未通过</button>';
                     $btn.children('div').html(a).attr('title','未通过');
 					$btn.next(".score_add").hide();
                     return false;
                 } else {
-                    var b = '<button class="btn btn-minier btn-yellow">已通过</button>';
+                    var b = '<button class="btn btn-minier btn-fb-blue">已通过</button>';
                     $btn.children('div').html(b).attr('title','已通过');
 					$btn.next(".score_add").show();
                     return false;
