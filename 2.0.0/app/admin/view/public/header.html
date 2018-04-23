@@ -113,14 +113,14 @@
 				</li>
 				{/if}
 				<li class="logOut">
-					<a class="confirm-rst-btn fb-transition" href="{:url('admin/Login/logout')}"  data-info="你确定要退出吗？" >
+					<a class="confirm-btn fb-transition" href="{:url('admin/Login/logout')}"  data-info="你确定要退出吗？" >
 						注销
 					</a>
 				</li>
 				<!-- 用户菜单开始 -->
 				<li class="light-blue dropdown-modal">
 					<a  href="{:url('admin/Admin/profile')}" class="dropdown-toggle fb-adminInfo">
-						
+
 						<span class="user-info">
 							{:session('admin_auth.admin_username')}
 						</span>
@@ -128,7 +128,7 @@
 
 						<!-- <i class="ace-icon fa fa-angle-down"></i> -->
 					</a>
-<!-- 
+<!--
 					<ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
 						<li>
 							<a href="{:url('admin/Admin/profile')}">

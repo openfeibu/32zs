@@ -11,7 +11,7 @@ namespace app\admin\controller;
 use app\common\controller\Common;
 use app\admin\model\Admin as AdminModel;
 
-class Login extends Common 
+class Login extends Common
 {
 	protected function _initialize()
 	{
@@ -30,7 +30,7 @@ class Login extends Common
      */
 	public function verify()
     {
-		if($this->check_admin_login()) $this->redirect('admin/Index/index');	
+		if($this->check_admin_login()) $this->redirect('admin/Index/index');
 		return $this->verify_build('aid');
     }
     /**
