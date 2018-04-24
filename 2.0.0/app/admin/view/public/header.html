@@ -93,7 +93,7 @@
 			<a href="{:url('admin/Index/index')}" class="navbar-brand" title="管理后台首页">
 					<i ><img src="__PUBLIC__/img/logo.jpg" alt="" style="width: 50px;height: 50px;"></i>
 					<p>
-						广东农工商职业技术学院<br/>
+						<span>广东农工商职业技术学院</span><br/>
 						三二分段招生管理系统
 					</p>
 			</a>
@@ -110,7 +110,7 @@
 				</li>
 				{if $admin['id'] == 1 || $admin['id'] == 5}
 				<li class="purple">
-					<a data-info="确定要清理缓存吗？" class="confirm-rst-btn fb-transition" href="{:url('admin/Sys/clear')}">
+					<a data-info="确定要清除缓存吗？" class="confirm-rst-btn fb-transition" href="{:url('admin/Sys/clear')}">
 						清除缓存
 					</a>
 				</li>

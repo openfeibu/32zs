@@ -1143,6 +1143,7 @@ $(function(){
 	});
 	$("#school_more").change(function(){
 		var school_id = $(this).val();
+        $("#major-box .checkbox").html('');
 		$.ajax({
 			url: "/admin/School/ajax_major_checkbox",
 			data:{'school_id':school_id},
