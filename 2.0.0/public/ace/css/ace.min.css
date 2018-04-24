@@ -5622,7 +5622,7 @@ body.mob-safari .sidebar.sidebar-fixed {
 
 .btn {
 	color: #FFF!important;
-	text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+	/*text-shadow: 0 -1px 0 rgba(0,0,0,.25);*/
 	background-image: none!important;
 	border: 5px solid #FFF;
 	border-radius: 0;
@@ -6376,15 +6376,7 @@ button.btn:active {
 	left: 0
 }
 
-.btn.active:after {
-	display: inline-block;
-	content: "";
-	position: absolute;
-	border-bottom: 1px solid #EFE5B5;
-	left: -4px;
-	right: -4px;
-	bottom: -4px
-}
+
 
 .btn.btn-link,.btn.btn-no-border {
 	border-width: 0!important
