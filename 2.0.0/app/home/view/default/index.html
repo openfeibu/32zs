@@ -75,41 +75,23 @@
                     <span>相关链接</span>
                 </div>
                 <div class="input-item">
+                    {php}$links_3=get_links(3);{/php}
                     <label for="">院系速览：</label>
                     <select onchange="mbar(this)" name="select" style="width:145px;height:27px" >
                         <option selected="selected">----请选择----</option>
-
-                            <option value="http://www.gdaib.edu.cn">学院主页</option>
-
-                            <option value="http://www.gdaib.edu.cn/templets/zsjy/yxjj07.html">计算机系</option>
-
-                            <option value="http://www.gdaib.edu.cn/templets/zsjy/yxjj03.html">热作系</option>
-
-                            <option value="http://www.gdaib.edu.cn/templets/zsjy/yxjj05.html">外语系</option>
-
-                            <option value="http://www.gdaib.edu.cn/templets/zsjy/yxjj06.html">艺术系</option>
-
-                            <option value="http://www.gdaib.edu.cn/templets/zsjy/yxjj01.html">商务系</option>
-
-                            <option value="http://www.gdaib.edu.cn/templets/zsjy/yxjj02.html">管理系</option>
-
-                            <option value="http://www.gdaib.edu.cn/templets/zsjy/yxjj04.html">财经系</option>
-
-                            <option value="http://www.gdaib.edu.cn/templets/zsjy/yxjj08.html">机电系</option>
-
-                            <option value="http://www.gdaib.edu.cn/templets/zsjy/yxjj09.html">国际交流学院</option>
-
+                        {foreach name="links_3" item="vo"}
+                        <option value="{$vo.plug_link_url}">{$vo.plug_link_name}</option>
+                        {/foreach}
                     </select>
                 </div>
                 <div class="input-item">
+                    {php}$links_4=get_links(4);{/php}
                     <label for="">各省招办：</label>
                     <select onchange="mbar(this)" name="select"style="width:145px;height:27px">
                         <option selected="selected">----请选择----</option>
-
-                            <option value="http://www.eeagd.edu.cn">广东省教育考试院</option>
-
-                            <option value="http://www.gdhed.edu.cn/">广东省教育厅</option>
-
+                        {foreach name="links_4" item="vo"}
+                        <option value="{$vo.plug_link_url}">{$vo.plug_link_name}</option>
+                        {/foreach}
                     </select>
                 </div>
             </div>

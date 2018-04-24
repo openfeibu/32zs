@@ -52,10 +52,15 @@
     function mbar(sobj){
         var docurl =sobj.options[sobj.selectedIndex].value;
         if (docurl != "") {
-           open(docurl,'_blank');
-           sobj.selectedIndex=0;
-           sobj.blur();
+            openUrl(docurl);
         }
+    }
+    function openUrl(url) {
+        // var a = $('<a href="'+url+'" target="_blank"></a>')[0];
+        // var e = document.createEvent('MouseEvents');
+        // e.initEvent('click', true, true);
+        // a.dispatchEvent(e);
+        window.location.href = url;
     }
 </script>
 <script>
