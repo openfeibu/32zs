@@ -1,6 +1,6 @@
 <?php
 // +----------------------------------------------------------------------
-// | 三二分段 
+// | 三二分段
 // +----------------------------------------------------------------------
 // | Copyright (c) 2015-2016 http://www.feibu.info All rights reserved.
 // +----------------------------------------------------------------------
@@ -144,7 +144,7 @@ class AuthRule extends Model
             if($count>1){
                 $module=strtolower($arr[0]);
                 $controller=ucfirst($arr[1]);
-                $action=$arr[2];
+                $action = isset($arr[2]) ? $arr[2] : '';
             }else{
                 $controller=ucfirst($name);
             }
@@ -154,6 +154,11 @@ class AuthRule extends Model
                 $_action=(count($arr)==1)?$action:$arr[0];
                 if(has_action($module,$controller,$_action)==2){
                     $rst=$module.'/'.$controller.'/'.$action;
+                }
+            }
+            else{
+                if (has_controller($module,$controller)) {
+                    $rst=$module.'/'.$controller;
                 }
             }
         }elseif($level==2){
@@ -178,6 +183,7 @@ class AuthRule extends Model
                 }
             }
         }
+
         return $rst;
     }
     /**
