@@ -26,9 +26,14 @@ class School extends Base
 			$map['school_name']= array('like',"%".$search_name."%");
 		}
 		$school_list = Db::name('school')->where($map)->order('school_id','DESC')->paginate(config('paginate.list_rows'),false,['query'=>get_query()]);
+		$data = $school_list->all();
+		foreach ($data as $key => $school) {
+			$data[$key]['member_count'] = Db::name('member_list')->where('school_id' , $school['school_id'])->count();
+		}
+
 		$page = $school_list->render();
 		$this->assign('search_name',$search_name);
-		$this->assign('school_list',$school_list);
+		$this->assign('school_list',$data);
 		$this->assign('page',$page);
 
         return $this->fetch();

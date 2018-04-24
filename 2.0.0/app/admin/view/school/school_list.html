@@ -45,6 +45,7 @@
                                 </th>
 								<th width='60px'>序号</th>
 								<th>学校名称</th>
+								<th>报考人数</th>
 								<th width="150px">操作</th>
 							</tr>
 							</thead>
@@ -58,6 +59,7 @@
 								    </td>
 								    <td>{$v.school_id}</td>
 									<td height="28" ><a href="{:url('admin/School/school_edit',array('school_id'=>$v['school_id']))}">{$v.school_name}</a></td>
+									<td>{$v.member_count}</td>
 									<td>
 										<div class=" action-buttons">
 											<a class="" href="{:url('admin/School/school_edit',array('school_id'=>$v['school_id']))}" title="修改">
