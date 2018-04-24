@@ -8,8 +8,8 @@
 						添加中职学生
 				</a>
 			</div>
-			<button id="btnsubmit" class=" btn-danger  btn-sm ">删除</button>
-			<button id="member_active_submit" class="btn btn-white btn-yellow btn-sm">审核</button>
+			<button id="btnsubmit" class=" btn-danger  btn-sm ">批量删除</button>
+			<button id="member_active_submit" class="btn btn-white btn-yellow btn-sm">批量审核</button>
 			<div class="fb-export">
 				<a href="{:url('admin/Member/member_export')}" title="导出所有中职学生" class="export_btn">
 					导出学生信息
@@ -22,11 +22,11 @@
 						<option value="1" {if condition="$opentype_check eq '1'"}selected="selected"{/if}>开启</option>
 						<option value="0" {if condition="$opentype_check eq '0'"}selected="selected"{/if} >禁用</option>
 					</select> -->
-					按状态筛选：
+					筛选：
 					<select name="activetype_check" class="ajax_change">
 						<option value="">所有学生</option>
-						<option value="1" {if condition="$activetype_check eq '1'"}selected="selected"{/if}>已通过审核</option>
-						<option value="0" {if condition="$activetype_check eq '0'"}selected="selected"{/if} >未通过审核</option>
+						<option value="1" {if condition="$activetype_check eq '1'"}selected="selected"{/if}>已审核</option>
+						<option value="0" {if condition="$activetype_check eq '0'"}selected="selected"{/if} >未审核</option>
 					</select>
 
 					<select name="major_id" class="ajax_change" id="major">

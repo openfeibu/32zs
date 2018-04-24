@@ -13,14 +13,14 @@
 					导出学生信息
 				</a>
 			</div>
-			<button id="btnsubmit" class="btn btn-white btn-blue btn-sm hidden-xs">删除</button>
+			<button id="btnsubmit" class="btn btn-white btn-blue btn-sm hidden-xs">批量删除</button>
 			<form name="admin_list_sea" class="form-search" id="list-filter" method="post" action="{:url('admin/Member/member_list')}">
 				<div class=" fb-state-search margintop5">
-					按状态筛选：
+					筛选：
 					<select name="activetype_check" class="ajax_change">
 						<option value="">所有学生</option>
-						<option value="1" {if condition="$activetype_check eq '1'"}selected="selected"{/if}>已通过审核</option>
-						<option value="0" {if condition="$activetype_check eq '0'"}selected="selected"{/if} >未通过审核</option>
+						<option value="1" {if condition="$activetype_check eq '1'"}selected="selected"{/if}>已审核</option>
+						<option value="0" {if condition="$activetype_check eq '0'"}selected="selected"{/if} >未审核</option>
 					</select>
 					<select name="school_id" class="ajax_change" id="school">
 						<option value="">选择学校</option>

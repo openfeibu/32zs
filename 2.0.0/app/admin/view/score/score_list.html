@@ -2,7 +2,7 @@
 {block name="main-content"}
 	<div class="page-content">
 		<div class="row maintop">
-			<button id="btnsubmit" class="btn btn-white btn-blue btn-sm hidden-xs btn-active">通过审核</button>
+			<button id="member_active_submit" class="btn btn-white btn-yellow  btn-active">批量审核</button>
 			<div class="fb-export">
 				<a href="javascript:;" onclick="javascript:var major_id = $('#major').val();window.location.href='{:url('admin/Score/score_list_export')}?major_id='+major_id;" title="成绩导出">成绩导出</a>
 			</div>
@@ -15,7 +15,6 @@
 						<option value="{$v.major_id}" {if $major_id == $v['major_id']}selected{/if}>{$v.major_name}</option>
 						{/foreach}
 					</select>
-
 				</div>
 				<div class="col-xs-12 col-sm-3  margintop5">
 					<div class="input-group">
@@ -48,4 +47,11 @@
 		</div>
 
 	</div><!-- /.page-content -->
+	<script type="text/javascript">
+		$('body').on('click','#member_active_submit',function(){
+
+			$(".ajaxForm").submit()
+			return true;
+		});
+	</script>
 {/block}
