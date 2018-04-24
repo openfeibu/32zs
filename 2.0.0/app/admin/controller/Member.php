@@ -1,6 +1,6 @@
 <?php
 // +----------------------------------------------------------------------
-// | 三二分段 
+// | 三二分段
 // +----------------------------------------------------------------------
 // | Copyright (c) 2015-2016 http://www.feibu.info All rights reserved.
 // +----------------------------------------------------------------------
@@ -605,10 +605,20 @@ class Member extends Base
 	}
 	public function member_import()
 	{
-		$major_ids = json_decode($this->admin['major_id'],true);
-		$major_list = Db::name('major')->where(array('major_id' => array('in',$major_ids)))->select();
-		$this->assign('major_list',$major_list);
-		return $this->fetch();
+		if($this->admin['group_id'] == 5 || $this->admin['group_id'] == 1)
+		{
+			$major_list = Db::name('major')->select();
+	        $this->assign('major_list',$major_list);
+			$school_list = Db::name('school')->select();
+			$this->assign('school_list',$school_list);
+			return $this->fetch('admin_member_import');
+		}else{
+			$major_ids = json_decode($this->admin['major_id'],true);
+			$major_list = Db::name('major')->where(array('major_id' => array('in',$major_ids)))->select();
+			$this->assign('major_list',$major_list);
+			return $this->fetch();
+		}
+
 	}
 	public function admin_member_import()
 	{

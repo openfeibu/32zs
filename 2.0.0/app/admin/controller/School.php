@@ -1,6 +1,6 @@
 <?php
 // +----------------------------------------------------------------------
-// | 三二分段 
+// | 三二分段
 // +----------------------------------------------------------------------
 // | Copyright (c) 2015-2016 http://www.feibu.info All rights reserved.
 // +----------------------------------------------------------------------
@@ -416,6 +416,26 @@ class School extends Base
 			];
 		}
 	}
+	public function ajax_major_checkbox(){
+		if (!request()->isAjax()){
+			$this->error('提交方式不正确');
+		}else{
+			$school_id = input('school_id','0');
+
+			$major_list = MajorModel::get_major_list($school_id);
+
+			$html = '';
+			foreach($major_list as $key => $major)
+			{
+				$html .= "<label id='news_flag_h'><input checked class='ace ace-checkbox-2' type='checkbox' name='major_id[]' value='".$major['major_id']."'/><span class='lbl'>".$major['major_name']."</span></label>";
+				// $html .= "<option value='".$major['major_id']."'>".$major['major_name']."</option>";
+			}
+			return [
+				'code' => 200,
+				'html' => $html,
+			];
+		}
+	}
 	public function ajax_major(){
 		if (!request()->isAjax()){
 			$this->error('提交方式不正确');
@@ -427,8 +447,7 @@ class School extends Base
 			$html = '';
 			foreach($major_list as $key => $major)
 			{
-				$html .= "<label id='news_flag_h'><input checked class='ace ace-checkbox-2' type='checkbox' name='major_id[]' value='".$major['major_id']."'/><span class='lbl'>".$major['major_name']."</span></label>"; 
-				// $html .= "<option value='".$major['major_id']."'>".$major['major_name']."</option>";
+				$html .= "<option value='".$major['major_id']."'>".$major['major_name']."</option>";
 			}
 			return [
 				'code' => 200,
