@@ -8,25 +8,25 @@ $(function(){
 	})
 
 	//删除按钮特效
-	$("body").on("change","[name='n_id[]']",function(){
-		$.each($("[name='n_id[]']"),function(i,v){
-			if($(v).is(':checked')){
-				$("#btnsubmit").addClass("active")
-				return false;
-			}else{
-				$("#btnsubmit").removeClass("active")
-			}
-		})
+	// $("body").on("change","[name='n_id[]']",function(){
+	// 	$.each($("[name='n_id[]']"),function(i,v){
+	// 		if($(v).is(':checked')){
+	// 			$("#btnsubmit").addClass("active")
+	// 			return false;
+	// 		}else{
+	// 			$("#btnsubmit").removeClass("active")
+	// 		}
+	// 	})
 		
-	})
-	$("#chkAll").change(function(){
-		if($(this).is(':checked')){
-			$("#btnsubmit").addClass("active")
-			return false;
-		}else{
-			$("#btnsubmit").removeClass("active")
-		}
-	})
+	// })
+	// $("#chkAll").change(function(){
+	// 	if($(this).is(':checked')){
+	// 		$("#btnsubmit").addClass("active")
+	// 		return false;
+	// 	}else{
+	// 		$("#btnsubmit").removeClass("active")
+	// 	}
+	// })
 
 	// try{
 	// 	var mTop = $(".maintop").offset().top;

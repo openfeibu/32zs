@@ -6,15 +6,15 @@
 			{foreach name='statistics' item='val'}
 			<div class="zz-infobox-item">
 				<div class="zz-infobox-item-title">{$val.major_name}</div>
-				<div class="zz-infobox-item-count">学生总数：{$val.student_count}</div>
+				<div class="zz-infobox-item-count">学生人数：{$val.student_count}</div>
 
 				<ul class="zz-infobox-item-list">
 					<li>
-						<span>报名表已审核</span>
+						<span>报名已审核</span>
 						<p>{$val.student_count}</p>
 					</li>
 					<li>
-						<span>报名表未审核</span>
+						<span>报名未审核</span>
 						<p>{$val.enrolment_auditing_count}</p>
 					</li>
 					<li>
@@ -36,7 +36,7 @@
 						<div style="height:100%;">
 							<div class="infobox-data">
 
-								<div class="infobox-content info-box  info-box-green"><span>学生总数</span><p>{$statistics.student_count}</p></div>
+								<div class="infobox-content info-box  info-box-green"><span>学生人数</span><p>{$statistics.student_count}</p></div>
 								<div class="infobox-content info-box  info-box-yellow"><span>分数已审核</span><p>{$statistics.score_auditing_count}</p></div>
 								<div class="infobox-content info-box info-box-blue"><span>分数未审核</span><p>{$statistics.score_unauditing_count}</p></div>
 							</div>

@@ -11,16 +11,16 @@
 					<input name="type" value="member" type="hidden"/>
 					<div class="form-group">
 						<label class="control-label no-padding-right" for="form-field-1"> 请选择中职专业： </label>
-						<div class="col-sm-2">
+						<div class="col-sm-3">
 
-							<select name="major_id"  class="col-sm-10" id="major" required>
+							<select name="major_id"  class="col-sm-12" id="major" required>
 								{foreach name='major_list' item='v'}
 								<option value="{$v.major_id}">{$v.major_name}</option>
 								{/foreach}
 							</select>
 						</div>
 
-						<div class="col-sm-4">
+						<div class="col-sm-3">
 							<a href="javascript:;" class="file  btn-fb-blue btn-fb-radio">
 								<input type="file" name="file_stu" id="file_stu"  class="file"  required/>
 								选择上传文件

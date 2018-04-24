@@ -28,7 +28,13 @@
 						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 文章名称：  </label>
 						<div class="col-sm-10">
 							<input type="text" name="news_title" id="news_title"  value="{$news_list.news_title}"   class="col-xs-10 col-sm-6" required/>
-							<input type="text" name="news_titleshort" id="news_titleshort"  value="{$news_list.news_titleshort}" placeholder="简短标题，建议6~12字数" class="col-xs-10 col-sm-4" style="margin-left:10px;" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 简短标题:  </label>
+						<div class="col-sm-10">
+							
+							<input type="text" name="news_titleshort" id="news_titleshort"  value="{$news_list.news_titleshort}" placeholder="简短标题，建议6~12字数" style="margin-left: 0" />
                                             <span class="help-inline col-xs-12 col-sm-7">
 												<span class="middle" id="resone"></span>
 											</span>
@@ -38,7 +44,7 @@
 
 					<div class="form-group">
 						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 文章属性：  </label>
-						<div class="checkbox">
+						<div class="checkbox" style="padding-left: 200px;">
 							{foreach name='diyflag' item='diyflag'}
 								<label id="news_flag_{$diyflag.diyflag_value}">
 									<input {if condition="strstr($news_list['news_flag'],$diyflag['diyflag_value']) eq true"}checked{/if} class="ace ace-checkbox-2" name="news_flag[]" type="checkbox" id="news_flag_va{$diyflag.diyflag_value}" value="{$diyflag.diyflag_value}" />

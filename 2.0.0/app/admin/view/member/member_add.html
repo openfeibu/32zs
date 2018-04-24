@@ -54,7 +54,6 @@
 						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 所属中职专业: </label>
 						<div class="col-sm-10">
 							<select name="major_id"  class="col-sm-5" id="major" required>
-								<option value="">请选择所属中职专业</option>
 								{foreach name='major_list' item='v'}
 								<option value="{$v.major_id}">{$v.major_name}</option>
 								{/foreach}
@@ -89,22 +88,14 @@
 					</div>
 					<div class="space-4"></div>
 					{/if}
-					<!-- <div class="form-group">
-						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 是否开启（禁止后用户将不能登录）： </label>
-						<div class="col-sm-10" style="padding-top:5px;">
-							<input name="member_list_open" id="member_list_open" value="1" class="ace ace-switch ace-switch-4 btn-flat" type="checkbox" />
-							<span class="lbl">&nbsp;&nbsp;默认关闭</span>
-						</div>
-					</div>
-					<div class="space-4"></div> -->
 
-					<div class="form-group">
+				<!-- 	<div class="form-group">
 						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 审核（上传资料审核）： </label>
 						<div class="col-sm-10" style="padding-top:5px;">
 							<input name="user_status" id="user_status" value="1" class="ace ace-switch ace-switch-4 btn-flat" type="checkbox" />
 							<span class="lbl">&nbsp;&nbsp;默认未审核</span>
 						</div>
-					</div>
+					</div> -->
 					<div class="space-4"></div>
 
 					<div class="clearfix form-actions">
@@ -112,9 +103,6 @@
 							<button class="btn btn-fb-blue fb-radio" type="submit">
 								保存
 							</button>
-
-
-
 							 <button class="btn fb-radio btn-fb-orange" type="reset" onclick="window.history.go(-1);">
                                 返回
                             </button>

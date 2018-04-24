@@ -29,7 +29,7 @@ input[disabled] {
 .navbar-header .logOut a:visited{color: #fff}
 .no-skin .sidebar{background-color: #fff;border-right: 1px solid #f3f3f3}
 .no-skin .nav-list>li>a{background: none;}
-#sidebar {width: 240px;}
+#sidebar {width: 220px;}
 .nav-list  li{border:none;line-height: 55px;}
 .nav-list>li>a{height: 55px;line-height: 35px;}
 .nav-list>li a>.arrow{line-height: 60px;top: 0}
@@ -48,12 +48,12 @@ input[disabled] {
 .no-skin .nav-list>li.open .fa-angle-down:before{content: "\f106";}
 #sidebar .nav-list:before{content: "";height: 30px;display: block;}
 #sidebar .nav-list:after{content: "";height: 30px;display: block;}
-#sidebar2{background-color: transparent;position: relative;left: 0;margin-bottom: 30px;}
+#sidebar2{background-color: transparent;position: relative;left: 0;margin-bottom:20px;}
 .main-container{padding-top: 90px !important;}
 .main-container:before{background-color: #f8f8f8;}
-.main-content-inner{padding: 30px 50px 0 50px;}
+.main-content-inner{padding: 30px 20px 0 20px;}
 .page-content{background: #f8f8f8;padding:0 !important;border-radius: 5px;overflow:hidden;box-shadow: 0 5px 20px #eee}
-.no-skin .nav-list>li>a o{color: #a7a8ac;font-size: 20px;}
+.no-skin .nav-list>li>a o{color: #a7a8ac;font-size: 18px;}
 #sidebar2 .nav-list li{position: relative;margin-right: 15px;}
 #sidebar2 .nav-list li a{padding-left: 20px;padding-right: 15px;}
 #sidebar2 .nav-list li a .rigbg{color: #303e39;}
@@ -74,12 +74,12 @@ input[disabled] {
 .fb-export a:hover{background: #318950}
 
 #btnsubmit{float: left;padding: 0 15px;height: 30px;border:1px solid #a7a8ac;color: #a7a8ac;border-radius: 30px;background-color:#f8f8f8 !important ;color: #a7a8ac !important;margin:0 7.5px;}
-#btnsubmit:hover{background-color: #f8f8f8 !important;}
+#btnsubmit:hover{background-color: #fcaf55 !important;color: #fff !important;border:1px solid #fcaf55;}
 #btnsubmit.active{border:1px solid #fcaf55;background-color:#fcaf55 !important ;color: #fff !important;}
 #btnsubmit.active:hover{background-color: #d39143 !important;}
 #btnsubmit:focus,.login-submit:focus{outline: aliceblue }
 .page-content{background: #fff;}
-.page-content .maintop{margin:0;padding:30px;width: auto;}
+.page-content .maintop{margin:0;padding:30px 30px 15px 30px;width: auto;}
 .input-group-addon {
     padding: 6px 6px;
     font-size: 16px;	
@@ -148,7 +148,7 @@ input[type=checkbox].ace+.lbl{margin:0 15px;}
 .form-horizontal{padding: 30px}
 .form-horizontal .form-group input[type="text"]{width: 350px;}
 .fb-radio{border-radius: 34px;width: 80px;height: 34px;margin:0 8px;}
-.btn-sespan{float: left;width: 220px;margin:0 7.5px;}
+.btn-sespan{float: left;width: 220px;margin:0 7.5px 15px 7.5px;}
 
 #btnorder{float: left;height: 30px;border-radius: 30px;padding:0 15px;}
 #member_active_submit{float: left;height: 30px;border-radius: 30px;padding:0 15px;}
@@ -213,5 +213,6 @@ input[type=checkbox].ace+.lbl{margin:0 15px;}
 textarea[name="news_content"]{height: 500px;}
 
  .form-group select[disabled]{background: #eee}
+ .score_input{width: 50px;text-align: center;margin:0 auto;display: block;}
 /*a7a8ac*/
 
