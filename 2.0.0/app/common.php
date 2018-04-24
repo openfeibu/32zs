@@ -1631,7 +1631,7 @@ function handle_major_score($arr)
 {
 	$total = 0;
 	foreach ($arr as $key => $value) {
-		$total += $value ;
+		$total += floatval($value) ;
 	}
 	if($arr){
 		$total = ($total/count($arr)) * 2;
