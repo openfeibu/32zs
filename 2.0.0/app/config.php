@@ -341,14 +341,14 @@ $configs= [
         ],
     ],
     'status' => [
-        '-1' => '<span class="text-fb-orange">审核中</span>',
-        '0' => '<span class="text-fb-orange">审核中</span>',
+        '-1' => '<span class="text-fb-orange">未审核</span>',
+        '0' => '<span class="text-fb-orange">未审核</span>',
         '1' => '<span class="text-fb-blue">已审核</span>',
         '2' => '<span class="text-fb-red">审核不通过</span>'
     ],
     'status_title' => [
-        '-1' => '审核中',
-        '0' => '审核中',
+        '-1' => '未审核',
+        '0' => '未审核',
         '1' => '已审核',
         '2' => '审核不通过'
     ]

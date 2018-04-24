@@ -43,7 +43,7 @@
 							<i class="ace-icon fa fa-search"></i>
 						</span>
 						<input type="text" name="key" id="key" class="form-control" value="{$val}" placeholder="请输入身份证、姓名、中职考生号" />
-						
+
 					</div>
 				</div>
 			</form>
@@ -87,7 +87,7 @@
 	</div><!-- /.page-content -->
 	<script type="text/javascript">
 		$('body').on('click','#member_active_submit',function(){
-			
+
 			url = "{:url('admin/member/active')}";
 			$(".ajaxForm").attr('action',url);
 			$(".ajaxForm").submit()
