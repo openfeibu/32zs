@@ -1,6 +1,6 @@
 <?php
 // +----------------------------------------------------------------------
-// | 三二分段 
+// | 三二分段
 // +----------------------------------------------------------------------
 // | Copyright (c) 2015-2016 http://www.feibu.info All rights reserved.
 // +----------------------------------------------------------------------
@@ -203,6 +203,7 @@ class Admin extends Base
 		$school_list = Db::name('school')->select();
 		$this->assign('school_list',$school_list);
 		$this->assign('majors',$majors);
+		$this->assign('major_ids',$major_ids);
 		$this->assign('major_list',$major_list);
 		$this->assign('admin_list',$admin_list);
 		$this->assign('auth_group',$auth_group);

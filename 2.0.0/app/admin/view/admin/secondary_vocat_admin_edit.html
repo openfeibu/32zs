@@ -51,27 +51,25 @@
 									<option value="{$v.school_id}" {if condition="$v['school_id'] eq $admin_list['school_id']"}selected{/if} >{$v.school_name}</option>
 								{/foreach}
 							</select>
-							
+
 						</div>
 					</div>
 					<div class="form-group school_group">
 						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> </label>
 						<div id="major-box">
 							<div class="checkbox">
-								{foreach name="$majors" item="val"}
-									{foreach name="major_list" item='v'}
-									<label id="news_flag_h">
-										<input {if condition="$v['major_id'] eq $val['major_id']"}checked{/if} class="ace ace-checkbox-2" type="checkbox" name="major_id[]" value="{$v.major_id}">
-											<span class="lbl">{$v.major_name}</span>
-									</label>
-									{/foreach}
+								{foreach name="major_list" item='v'}
+								<label id="news_flag_h">
+									<input {if in_array($v['major_id'],$major_ids)}checked{/if} class="ace ace-checkbox-2" type="checkbox" name="major_id[]" value="{$v.major_id}">
+										<span class="lbl">{$v.major_name}</span>
+								</label>
 								{/foreach}
-								
+
 							</div>
 						</div>
 					</div>
 					<div class="space-4"></div>
-					
+
 
 					<div class="clearfix form-actions">
 						<div class="col-md-offset-3 col-md-9">
