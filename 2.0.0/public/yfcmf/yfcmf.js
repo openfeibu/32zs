@@ -1144,11 +1144,21 @@ $(function(){
 	$("#school_more").change(function(){
 		var school_id = $(this).val();
 		$.ajax({
-			url: "/admin/School/ajax_major",
+			url: "/admin/School/ajax_major_checkbox",
 			data:{'school_id':school_id},
 			success: function(data){
 				// $(".major_more:eq(0)").nextAll('.major_more').remove();
 				$("#major-box .checkbox").html(data.html);
+			}
+		});
+	});
+	$("#school_checkbox").change(function(){
+		var school_id = $(this).val();
+		$.ajax({
+			url: "/admin/School/ajax_major_checkbox",
+			data:{'school_id':school_id},
+			success: function(data){
+				$("#major").html(data.html);
 			}
 		});
 	});
