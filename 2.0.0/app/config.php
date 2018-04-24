@@ -150,14 +150,14 @@ $configs= [
     ],
   // 默认跳转页面对应的模板文件
     'dispatch_success_tmpl'  => THINK_PATH . 'tpl' . DS . 'dispatch_jump.tpl',
-    'dispatch_error_tmpl'    => ROOT_PATH . 'public/三二分段/dispatch_jump.html',
+    'dispatch_error_tmpl'    => ROOT_PATH . 'public/yfcmf/dispatch_jump.html',
 
   // +----------------------------------------------------------------------
   // | 异常及错误设置
   // +----------------------------------------------------------------------
 
   // 异常页面的模板文件
-    'exception_tmpl'         => ROOT_PATH . 'public/三二分段/error.html',
+    'exception_tmpl'         => ROOT_PATH . 'public/yfcmf/error.html',
 
   // 错误显示信息,非调试模式有效
     'error_message'          => '页面错误！请稍后再试～',
