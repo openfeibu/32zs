@@ -1,6 +1,6 @@
 <?php
 // +----------------------------------------------------------------------
-// | 三二分段 
+// | 三二分段
 // +----------------------------------------------------------------------
 // | Copyright (c) 2015-2016 http://www.feibu.info All rights reserved.
 // +----------------------------------------------------------------------
@@ -108,7 +108,8 @@ class Matriculate extends Base
     		foreach ($data as $key => $value) {
                 $major = MajorModel::get_major_detail($value['major_id'],$value['school_id']);
     			$major_score_arr = [];
-    			$major_score_desc = $major_score_total = '';
+    			$major_score_desc =  '';
+                $major_score_total = 0;
     			$major_score_key = $major['major_score_key'] ? array_filter(json_decode($major['major_score_key'],true)) : [];
     			if($value['major_score']){
     				$major_score_arr = json_decode($value['major_score'],true);

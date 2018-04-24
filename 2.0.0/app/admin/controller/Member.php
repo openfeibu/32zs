@@ -66,7 +66,8 @@ class Member extends Base
 			$recruit_major = RecruitMajorModel::get_recruit_major($value['school_id'],$value['major_id']);
             $data[$k]['recruit_major_name'] = $recruit_major['recruit_major_name'];
 			$major_score_arr = [];
-			$major_score_desc = $major_score_total = '';
+			$major_score_desc = '';
+			$major_score_total = 0;
 			$major = MajorModel::get_major_detail($value['major_id'],$value['school_id']);
             $major_score_key = $major['major_score_key'] ? array_filter(json_decode($major['major_score_key'],true)) : [];
 			if($value['major_score']){
@@ -765,7 +766,7 @@ class Member extends Base
 			$recruit_major = RecruitMajorModel::get_recruit_major($value['school_id'],$value['major_id']);
 			$data[$k]['recruit_major_name'] = $recruit_major['recruit_major_name'];
 			$major_score_arr = [];
-		   	$major_score_total = '';
+		   	$major_score_total = 0;
 			$major = MajorModel::get_major_detail($value['major_id'],$value['school_id']);
 			$major_score_key = $major['major_score_key'] ? array_filter(json_decode($major['major_score_key'],true)) : [];
 			if($value['major_score']){
@@ -835,7 +836,7 @@ class Member extends Base
 			$recruit_major = RecruitMajorModel::get_recruit_major($value['school_id'],$value['major_id']);
 			$data[$k]['recruit_major_name'] = $recruit_major['recruit_major_name'];
 			$major_score_arr = [];
-		   	$major_score_total = '';
+		   	$major_score_total = 0;
 			$major = MajorModel::get_major_detail($value['major_id'],$value['school_id']);
 			$major_score_key = $major['major_score_key'] ? array_filter(json_decode($major['major_score_key'],true)) : [];
 			if($value['major_score']){
