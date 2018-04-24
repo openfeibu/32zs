@@ -2,6 +2,7 @@
 <?php $i=0; ?>
 {foreach name="member_list" item="v"}
 	<tr {if $v['admission_status'] == 0 && $i == 0} style=" border-top: 2px;border-top-color: #bb3f2b;border-top-style: double;"{/if}>
+		<td></td>
 		<td>{$v.member_list_nickname}</td>
 		<td>{$v.ZexamineeNumber}</td>
 		<td>{$v.member_list_username}</td>
