@@ -1,6 +1,6 @@
 $(function(){
 	//删除按钮
-	$("#btnsubmit").on("click",function(){
+	$("body").on("click","#btnsubmit",function(){
 		if(!$(this).hasClass("btn-unactive")){
 			$(".ajaxForm").submit();
 		}

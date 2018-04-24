@@ -76,6 +76,7 @@
 $('body').on('click','.btn-unactive',function(){
 	url = "{:url('admin/score/recruit_score_unactive')}";
 	$("#score_form").attr('action',url);
+	$(".ajaxForm").submit();
 	return true;
 })
 

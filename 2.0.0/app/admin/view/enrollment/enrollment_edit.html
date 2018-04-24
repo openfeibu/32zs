@@ -39,7 +39,6 @@
 							<select name="major_id[]"  class="col-sm-5 major_more" style="width:20%;margin-right:10px;"  required disabled>
 								<option value="">请选择中职专业</option>
 								{foreach name="major_list" item="v" key='k'}
--+
 								{if $key == 1 || (isset($last_val) && $last_val != $v['major_id'])}
 								<option value="{$v.major_id}" {if $v['major_id'] == $val}selected{/if}>{$v.major_name}</option>
 								{/if}
@@ -54,7 +53,25 @@
 						</div>
 					</div>
 					<div class="space-4"></div>
+					<div class="form-group school_group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1">中职专业：</label>
+						<div id="major-box">
+							<div class="checkbox" style="padding-left: 200px;">
+							{foreach name='enrollment.major_id_arr' item='val' key='key'}
+								{foreach name="major_list" item="v" key='k'}
+								{if $key == 1 || (isset($last_val) && $last_val != $v['major_id'])}
+								<label id="news_flag_h"><input {if $v['major_id'] == $val}checked{/if} disabled="" class="ace ace-checkbox-2" type="checkbox" name="major_id[]" value="{$v.major_id}"><span class="lbl">{$v.major_name}</span></label>
+								{/if}
+							{/foreach}
+							<?php
+								$last_val = $val;
+							?>
+							{/foreach}
 
+							
+							</div>
+						</div>
+					</div>
 
 					<div class="form-group">
 						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 招生计划数 </label>
