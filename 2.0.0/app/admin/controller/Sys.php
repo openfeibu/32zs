@@ -1,10 +1,10 @@
 <?php
 // +----------------------------------------------------------------------
-// | YFCMF [ WE CAN DO IT MORE SIMPLE ]
+// | 三二分段 
 // +----------------------------------------------------------------------
-// | Copyright (c) 2015-2016 http://www.rainfer.cn All rights reserved.
+// | Copyright (c) 2015-2016 http://www.feibu.info All rights reserved.
 // +----------------------------------------------------------------------
-// | Author: rainfer <81818832@qq.com>
+// | Author: feibu 319096000@qq.com
 // +----------------------------------------------------------------------
 namespace app\admin\controller;
 
@@ -197,7 +197,7 @@ class Sys extends Base
 	}
 	/*
      * 添加路由规则操作
-	 * @author rainfer <81818832@qq.com>
+	 * @author feibu 319096000@qq.com
      */
 	public function route_runadd()
 	{
@@ -212,7 +212,7 @@ class Sys extends Base
 	}
 	/*
      * 修改路由规则操作
-	 * @author rainfer <81818832@qq.com>
+	 * @author feibu 319096000@qq.com
      */
 	public function route_runedit()
 	{
@@ -237,7 +237,7 @@ class Sys extends Base
 	}
 	/*
      * 路由规则修改返回值操作
-	 * @author rainfer <81818832@qq.com>
+	 * @author feibu 319096000@qq.com
      */
 	public function route_edit()
 	{
@@ -248,7 +248,7 @@ class Sys extends Base
 	}
 	/*
      * 路由规则排序
-	 * @author rainfer <81818832@qq.com>
+	 * @author feibu 319096000@qq.com
      */
 	public function route_order()
 	{
@@ -264,7 +264,7 @@ class Sys extends Base
 	}
 	/*
      * 路由规则删除操作
-	 * @author rainfer <81818832@qq.com>
+	 * @author feibu 319096000@qq.com
      */
 	public function route_del()
 	{
@@ -279,7 +279,7 @@ class Sys extends Base
 	}
 	/*
      * 修改路由规则状态
-	 * @author rainfer <81818832@qq.com>
+	 * @author feibu 319096000@qq.com
      */
 	public function route_state()
 	{
@@ -309,7 +309,7 @@ class Sys extends Base
 	}
 	/*
      * 路由规则设置
-	 * @author rainfer <81818832@qq.com>
+	 * @author feibu 319096000@qq.com
      */
 	public function runurlsys()
 	{
@@ -550,7 +550,7 @@ class Sys extends Base
 	}
 	/*
 	 * 文章来源列表
-	 * @author rainfer <81818832@qq.com>
+	 * @author feibu 319096000@qq.com
 	 */
 	public function source_list()
 	{
@@ -562,7 +562,7 @@ class Sys extends Base
 	}
 	/*
 	 * 添加来源操作
-	 * @author rainfer <81818832@qq.com>
+	 * @author feibu 319096000@qq.com
 	 */
 	public function source_runadd()
 	{
@@ -576,7 +576,7 @@ class Sys extends Base
 	}
 	/*
 	 * 来源删除操作
-	 * @author rainfer <81818832@qq.com>
+	 * @author feibu 319096000@qq.com
 	 */
 	public function source_del()
 	{
@@ -590,7 +590,7 @@ class Sys extends Base
 	}
 	/*
 	 * 来源修改返回值操作
-	 * @author rainfer <81818832@qq.com>
+	 * @author feibu 319096000@qq.com
 	 */
 	public function source_edit()
 	{
@@ -604,7 +604,7 @@ class Sys extends Base
 	}
 	/*
 	 * 修改来源操作
-	 * @author rainfer <81818832@qq.com>
+	 * @author feibu 319096000@qq.com
 	 */
 	public function source_runedit()
 	{
@@ -626,7 +626,7 @@ class Sys extends Base
 	}
 	/*
 	 * 来源排序
-	 * @author rainfer <81818832@qq.com>
+	 * @author feibu 319096000@qq.com
 	 */
 	public function source_order()
 	{
@@ -981,7 +981,7 @@ class Sys extends Base
 	/**
 	 * 优化表
 	 * @param  String $tables 表名
-	 * @author rainfer <81818832@qq.com>
+	 * @author feibu 319096000@qq.com
 	 */
 	public function optimize($tables = null)
 	{
@@ -1009,7 +1009,7 @@ class Sys extends Base
 	/**
 	 * 修复表
 	 * @param  String $tables 表名
-	 * @author rainfer <81818832@qq.com>
+	 * @author feibu 319096000@qq.com
 	 */
 	public function repair($tables = null)
 	{
@@ -1037,7 +1037,7 @@ class Sys extends Base
 	/**
 	 * 备份单表
 	 * @param  String $table 不含前缀表名
-	 * @author rainfer <81818832@qq.com>
+	 * @author feibu 319096000@qq.com
 	 */
 	public function exportsql($table = null)
 	{
@@ -1057,7 +1057,7 @@ class Sys extends Base
 	/**
 	 * 删除备份文件
 	 * @param  Integer $time 备份时间
-	 * @author rainfer <81818832@qq.com>
+	 * @author feibu 319096000@qq.com
 	 */
 	public function del($time = 0)
 	{
@@ -1228,7 +1228,7 @@ class Sys extends Base
 	}
 	/*
 	 * 表格导入
-	 * @author rainfer <81818832@qq.com>
+	 * @author feibu 319096000@qq.com
 	 */
 	public function excel_runimport()
 	{
@@ -1320,7 +1320,7 @@ class Sys extends Base
 	}
 	/*
 	 * 数据导出功能
-	 * @author rainfer <81818832@qq.com>
+	 * @author feibu 319096000@qq.com
 	 */
 	public function excel_runexport($table)
 	{

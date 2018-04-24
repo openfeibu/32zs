@@ -1,10 +1,10 @@
 <?php
 // +----------------------------------------------------------------------
-// | YFCMF [ WE CAN DO IT MORE SIMPLE ]
+// | 三二分段 
 // +----------------------------------------------------------------------
-// | Copyright (c) 2015-2016 http://www.rainfer.cn All rights reserved.
+// | Copyright (c) 2015-2016 http://www.feibu.info All rights reserved.
 // +----------------------------------------------------------------------
-// | Author: rainfer <81818832@qq.com>
+// | Author: feibu 319096000@qq.com
 // +----------------------------------------------------------------------
 namespace app\home\controller;
 
@@ -166,7 +166,7 @@ class Login extends Base
 								<a href="http://#link#">http://#link#</a>
 hello;
 					$content = str_replace(array('http://#link#','#username#'), array($url,$member_list_username),$template);
-					$send_result=sendMail($member_list_email, 'YFCMF '.lang('pwd reset'), $content);
+					$send_result=sendMail($member_list_email, '三二分段 '.lang('pwd reset'), $content);
 					if($send_result['error']){
 						$this->error(lang('send pwd reset email failed'));
 					}else{

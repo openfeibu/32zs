@@ -1,10 +1,10 @@
 <?php
 // +----------------------------------------------------------------------
-// | YFCMF [ WE CAN DO IT MORE SIMPLE ]
+// | 三二分段
 // +----------------------------------------------------------------------
-// | Copyright (c) 2015-2016 http://www.rainfer.cn All rights reserved.
+// | Copyright (c) 2015-2016 http://www.feibu.info All rights reserved.
 // +----------------------------------------------------------------------
-// | Author: rainfer <81818832@qq.com>
+// | Author: feibu 319096000@qq.com
 // +----------------------------------------------------------------------
 use think\Db;
 use think\Request;
@@ -14,7 +14,7 @@ use think\Lang;
 // 应用公共文件
 /**
  * 所有用到密码的不可逆加密方式
- * @author rainfer <81818832@qq.com>
+ * @author feibu 319096000@qq.com
  * @param string $password
  * @param string $password_salt
  * @return string
@@ -25,7 +25,7 @@ function encrypt_password($password, $password_salt)
 }
 /**
  * 列出本地目录的文件
- * @author rainfer <81818832@qq.com>
+ * @author feibu 319096000@qq.com
  * @param string $path
  * @param string $pattern
  * @return array
@@ -84,7 +84,7 @@ function list_file($path, $pattern = '*')
 }
 /**
  * 删除文件夹
- * @author rainfer <81818832@qq.com>
+ * @author feibu 319096000@qq.com
  * @param string
  * @param int
  */
@@ -105,7 +105,7 @@ function remove_dir($dir, $time_thres = -1)
  * @param  number $size      字节数
  * @param  string $delimiter 数字和单位分隔符
  * @return string            格式化后的带单位的大小
- * @author rainfer <81818832@qq.com>
+ * @author feibu 319096000@qq.com
  */
 function format_bytes($size, $delimiter = '')
 {
@@ -116,14 +116,14 @@ function format_bytes($size, $delimiter = '')
 /**
  * 版本检测
  * @return string
- * @author rainfer <81818832@qq.com>
+ * @author feibu 319096000@qq.com
  */
 function checkVersion()
 {
 	if(extension_loaded('curl')){
-		$url = 'http://www.yfcmf.net/index.php?m=home&c=upgrade&a=check';
+		$url = 'http://www.三二分段.net/index.php?m=home&c=upgrade&a=check';
 		$params = array(
-				'version' => config('yfcmf_version'),
+				'version' => config('三二分段_version'),
 				'domain'  => $_SERVER['HTTP_HOST'],
 		);
 		$vars = http_build_query($params);
@@ -140,7 +140,7 @@ function checkVersion()
 }
 /**
  * curl访问
- * @author rainfer <81818832@qq.com>
+ * @author feibu 319096000@qq.com
  * @param  string $url
  * @param string $type
  * @param boolean $data
@@ -259,7 +259,7 @@ function sys_config_get($key)
 }
 /**
  * 返回带协议的域名
- * @author rainfer <81818832@qq.com>
+ * @author feibu 319096000@qq.com
  */
 function get_host()
 {
@@ -361,7 +361,7 @@ function has_action($module,$controller,$action)
 /**
  * 返回不含前缀的数据库表数组
  *
- * @author rainfer <81818832@qq.com>
+ * @author feibu 319096000@qq.com
  * @param bool
  * @return array
  */
@@ -386,7 +386,7 @@ function db_get_tables($prefix=false)
 /**
  * 返回数据表的sql
  *
- * @author rainfer <81818832@qq.com>
+ * @author feibu 319096000@qq.com
  *
  * @param $table : 不含前缀的表名
  * @return string
@@ -426,7 +426,7 @@ function db_get_insert_sqls($table)
 /**
  * 检测当前数据库中是否含指定表
  *
- * @author rainfer <81818832@qq.com>
+ * @author feibu 319096000@qq.com
  *
  * @param $table : 不含前缀的数据表名
  * @return bool
@@ -438,7 +438,7 @@ function db_is_valid_table_name($table)
 /**
  * 不检测表前缀,恢复数据库
  *
- * @author rainfer <81818832@qq.com>
+ * @author feibu 319096000@qq.com
  *
  * @param $file
  * @param $prefix
@@ -456,7 +456,7 @@ function db_restore_file($file,$prefix='')
 }
 /**
  * 返回表前缀替代符
- * @author rainfer <81818832@qq.com>
+ * @author feibu 319096000@qq.com
  *
  * @return string
  */
@@ -466,7 +466,7 @@ function db_get_db_prefix_holder()
 }
 /**
  * 强制下载
- * @author rainfer <81818832@qq.com>
+ * @author feibu 319096000@qq.com
  *
  * @param string $filename
  * @param string $content
@@ -485,7 +485,7 @@ function force_download_content($filename, $content)
 /**
  * 数据表导出excel
  *
- * @author rainfer <81818832@qq.com>
+ * @author feibu 319096000@qq.com
  *
  * @param string $table,不含前缀表名,必须
  * @param string $file,保存的excel文件名,默认表名为文件名
@@ -578,7 +578,7 @@ function export2excel($table,$file='',$fields='',$field_titles='',$tag='')
 }
 /**
  * 生成参数列表,以数组形式返回
- * @author rainfer <81818832@qq.com>
+ * @author feibu 319096000@qq.com
  * @param string
  * @return array
  */
@@ -597,7 +597,7 @@ function param2array($tag = '')
 }
 /**
  * 数字到字母列
- * @author rainfer <81818832@qq.com>
+ * @author feibu 319096000@qq.com
  * @param int
  * @param int
  * @return string
@@ -615,7 +615,7 @@ function num2alpha($index, $start = 65)
  * @param string $filename,excel文件名（含路径）
  * @param string $type,excel文件类型 'Excel2007', 'Excel5', 'Excel2003XML','OOCalc', 'SYLK', 'Gnumeric', 'HTML','CSV'
  * @return array
- * @author rainfer <81818832@qq.com>
+ * @author feibu 319096000@qq.com
  */
 function read($filename,$type='Excel5')
 {
@@ -635,7 +635,7 @@ function read($filename,$type='Excel5')
 }
 /**
  * 获取新闻分类ids
- * @author rainfer <81818832@qq.com>
+ * @author feibu 319096000@qq.com
  *
  * @param int $id 待获取的id
  * @param  boolean $self 是否返回自身，默认false
@@ -675,7 +675,7 @@ function get_menu_byid($id=0,$self=false,$open=0,$field='id',$lang=false)
 }
 /**
  * 截取文字
- * @author rainfer <81818832@qq.com>
+ * @author feibu 319096000@qq.com
  *
  * @param string $text
  * @param int $length
@@ -689,7 +689,7 @@ function subtext($text, $length)
 }
 /**
  * 将内容存到Storage中，返回转存后的文件路径
- * @author rainfer <81818832@qq.com>
+ * @author feibu 319096000@qq.com
  * @param string $ext
  * @param string $content
  * @return string
@@ -714,7 +714,7 @@ function save_storage_content($ext = null, $content = null)
 }
 /**
  * 获取所有友情连接
- * @author rainfer <81818832@qq.com>
+ * @author feibu 319096000@qq.com
  * @param int
  * @return array|mixed
  */
@@ -787,7 +787,7 @@ function get_menu_tree($id)
 }
 /**
  * 查询文章列表，支持分页或不分页
- * @author rainfer <81818832@qq.com>
+ * @author feibu 319096000@qq.com
  * @param string $tag  查询标签，以字符串方式传入,例："cid:1,2;field:news_title,news_content;limit:0,8;order:news_time desc,news_hits desc;where:n_id>5;"<br>
  *  ids:调用指定id的一个或多个数据,如 1,2,3<br>
  * 	cid:数据所在分类,可调出一个或多个分类数据,如 1,2,3 默认值为全部,在当前分类为:'.$cid.'<br>
@@ -888,7 +888,7 @@ function get_comments($tag="field:*;limit:0,5;order:createtime desc;",$where=arr
 }
 /**
  * 根据广告位获取所有广告
- * @author rainfer <81818832@qq.com>
+ * @author feibu 319096000@qq.com
  * @param int $plug_ad_adtypeid 广告位id
  * @param int $limit
  * @param string $order
@@ -906,7 +906,7 @@ function get_ads($plug_ad_adtypeid,$limit=5,$order = "plug_ad_order ASC")
 }
 /**
  * 截取待html的文本
- * @author rainfer <81818832@qq.com>
+ * @author feibu 319096000@qq.com
  * @param string $html
  * @param int $max
  * @param string $suffix
@@ -1053,7 +1053,7 @@ function msubstr($str, $start=0, $length, $charset="utf-8", $suffix=true)
 }
 /**
  * 获取单页面菜单
- * @author rainfer <81818832@qq.com>
+ * @author feibu 319096000@qq.com
  *
  * @param int $id 菜单id
  * @return array;
@@ -1113,7 +1113,7 @@ function get_favorite_key($table,$object_id)
 }
 /**
  * 发送邮件
- * @author rainfer <81818832@qq.com>
+ * @author feibu 319096000@qq.com
  * @param string $to 收件人邮箱
  * @param string $title 标题
  * @param string $content 内容
@@ -1166,7 +1166,7 @@ function sendMail($to, $title, $content)
 }
 /**
  * 获取后台管理设置的邮件连接
- * @author rainfer <81818832@qq.com>
+ * @author feibu 319096000@qq.com
  * @return array
  */
 function get_email_options()
@@ -1185,7 +1185,7 @@ function get_email_options()
 }
 /**
  * 获取后台管理设置的邮件激活连接
- * @author rainfer <81818832@qq.com>
+ * @author feibu 319096000@qq.com
  * @return array
  */
 function get_active_options()

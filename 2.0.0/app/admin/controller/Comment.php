@@ -1,10 +1,10 @@
 <?php
 // +----------------------------------------------------------------------
-// | YFCMF [ WE CAN DO IT MORE SIMPLE ]
+// | 三二分段 
 // +----------------------------------------------------------------------
-// | Copyright (c) 2015-2016 http://www.rainfer.cn All rights reserved.
+// | Copyright (c) 2015-2016 http://www.feibu.info All rights reserved.
 // +----------------------------------------------------------------------
-// | Author: rainfer <81818832@qq.com>
+// | Author: feibu 319096000@qq.com
 // +----------------------------------------------------------------------
 namespace app\admin\controller;
 
@@ -15,7 +15,7 @@ class Comment extends Base
 {
 	/*
      * 评论列表
-	 * @author rainfer <81818832@qq.com>
+	 * @author feibu 319096000@qq.com
      */
 	public function comment_list()
 	{
@@ -33,7 +33,7 @@ class Comment extends Base
 	}
 	/*
      * 评论删除
-	 * @author rainfer <81818832@qq.com>
+	 * @author feibu 319096000@qq.com
      */
 	public function comment_del()
 	{
@@ -55,7 +55,7 @@ class Comment extends Base
 	}
 	/*
      * 全选删除
-	 * @author rainfer <81818832@qq.com>
+	 * @author feibu 319096000@qq.com
      */
 	public function comment_alldel()
 	{
@@ -78,7 +78,7 @@ class Comment extends Base
 	}
 	/*
      * 评论审核/取消审核
-	 * @author rainfer <81818832@qq.com>
+	 * @author feibu 319096000@qq.com
      */
 	public function comment_state()
 	{
@@ -96,7 +96,7 @@ class Comment extends Base
 	}
 	/*
      * 评论设置显示
-	 * @author rainfer <81818832@qq.com>
+	 * @author feibu 319096000@qq.com
      */
 	public function comment_setting()
 	{
@@ -106,7 +106,7 @@ class Comment extends Base
 	}
 	/*
      * 评论设置保存
-	 * @author rainfer <81818832@qq.com>
+	 * @author feibu 319096000@qq.com
      */
 	public function runcsys()
 	{

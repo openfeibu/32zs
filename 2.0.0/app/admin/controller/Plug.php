@@ -1,10 +1,10 @@
 <?php
 // +----------------------------------------------------------------------
-// | YFCMF [ WE CAN DO IT MORE SIMPLE ]
+// | 三二分段 
 // +----------------------------------------------------------------------
-// | Copyright (c) 2015-2016 http://www.rainfer.cn All rights reserved.
+// | Copyright (c) 2015-2016 http://www.feibu.info All rights reserved.
 // +----------------------------------------------------------------------
-// | Author: rainfer <81818832@qq.com>
+// | Author: feibu 319096000@qq.com
 // +----------------------------------------------------------------------
 namespace app\admin\controller;
 
@@ -18,7 +18,7 @@ class Plug extends Base
 	protected $files_unused;
 	/*
      * 留言列表
-	 * @author rainfer <81818832@qq.com>
+	 * @author feibu 319096000@qq.com
      */
 	public function plug_sug_list()
 	{
@@ -35,7 +35,7 @@ class Plug extends Base
 	}
 	/*
 	 * 留言回复返回数据
-	 * @author rainfer <81818832@qq.com>
+	 * @author feibu 319096000@qq.com
 	 */
 	public function plug_sug_reply()
 	{
@@ -61,7 +61,7 @@ class Plug extends Base
 	}
 	/*
 	 * 留言回复
-	 * @author rainfer <81818832@qq.com>
+	 * @author feibu 319096000@qq.com
 	 */
 	public function plug_sug_runreply()
 	{
@@ -83,7 +83,7 @@ class Plug extends Base
 	}
 	/*
      * 留言删除
-	 * @author rainfer <81818832@qq.com>
+	 * @author feibu 319096000@qq.com
      */
 	public function plug_sug_del()
 	{
@@ -98,7 +98,7 @@ class Plug extends Base
 	}
 	/*
      * 留言删除(全选)
-	 * @author rainfer <81818832@qq.com>
+	 * @author feibu 319096000@qq.com
      */
 	public function plug_sug_alldel()
 	{
@@ -121,7 +121,7 @@ class Plug extends Base
 	}
 	/*
      * 友情链接列表
-	 * @author rainfer <81818832@qq.com>
+	 * @author feibu 319096000@qq.com
      */
 	public function plug_link_list()
 	{
@@ -161,7 +161,7 @@ class Plug extends Base
 
 	/*
      * 友情链接添加操作
-	 * @author rainfer <81818832@qq.com>
+	 * @author feibu 319096000@qq.com
      */
 	public function plug_link_runadd()
 	{
@@ -190,7 +190,7 @@ class Plug extends Base
 
 	/*
      * 友情链接删除操作
-	 * @author rainfer <81818832@qq.com>
+	 * @author feibu 319096000@qq.com
      */
 	public function plug_link_del()
 	{
@@ -205,7 +205,7 @@ class Plug extends Base
 
 	/*
      * 友情链接状态操作
-	 * @author rainfer <81818832@qq.com>
+	 * @author feibu 319096000@qq.com
      */
 	public function plug_link_state()
 	{
@@ -224,7 +224,7 @@ class Plug extends Base
 
 	/*
      * 友情链接修改返回值操作
-	 * @author rainfer <81818832@qq.com>
+	 * @author feibu 319096000@qq.com
      */
 	public function plug_link_edit()
 	{
@@ -245,7 +245,7 @@ class Plug extends Base
 
 	/*
      * 友情 链接修改操作
-	 * @author rainfer <81818832@qq.com>
+	 * @author feibu 319096000@qq.com
      */
 	public function plug_link_runedit()
 	{
@@ -270,7 +270,7 @@ class Plug extends Base
 
 	/*
      * 友情链接类型列表
-	 * @author rainfer <81818832@qq.com>
+	 * @author feibu 319096000@qq.com
      */
 	public function plug_linktype_list()
 	{
@@ -280,7 +280,7 @@ class Plug extends Base
 	}
 	/*
      * 友情链接类型删除
-	 * @author rainfer <81818832@qq.com>
+	 * @author feibu 319096000@qq.com
      */
 	public function plug_linktype_del()
 	{
@@ -294,7 +294,7 @@ class Plug extends Base
 
 	/*
      * 友情链接类型添加
-	 * @author rainfer <81818832@qq.com>
+	 * @author feibu 319096000@qq.com
      */
 	public function plug_linktype_runadd()
 	{
@@ -304,7 +304,7 @@ class Plug extends Base
 
 	/*
      * 友情链接类型修改
-	 * @author rainfer <81818832@qq.com>
+	 * @author feibu 319096000@qq.com
      */
 	public function plug_linktype_runedit()
 	{
@@ -319,7 +319,7 @@ class Plug extends Base
 
 	/*
      * 友情链接类型排序
-	 * @author rainfer <81818832@qq.com>
+	 * @author feibu 319096000@qq.com
      */
 	public function plug_linktype_order()
 	{
@@ -335,7 +335,7 @@ class Plug extends Base
 	}
 	/*
      * 广告管理
-	 * @author rainfer <81818832@qq.com>
+	 * @author feibu 319096000@qq.com
      */
 	public function plug_ad_list()
 	{
@@ -365,7 +365,7 @@ class Plug extends Base
 	}
 	/*
      * 添加广告操作
-	 * @author rainfer <81818832@qq.com>
+	 * @author feibu 319096000@qq.com
      */
 	public function plug_ad_runadd()
 	{
@@ -425,7 +425,7 @@ class Plug extends Base
 
 	/*
      * 广告删除
-	 * @author rainfer <81818832@qq.com>
+	 * @author feibu 319096000@qq.com
      */
 	public function plug_ad_del()
 	{
@@ -440,7 +440,7 @@ class Plug extends Base
 
 	/*
      * 批量排序
-	 * @author rainfer <81818832@qq.com>
+	 * @author feibu 319096000@qq.com
      */
 	public function plug_ad_order()
 	{
@@ -457,7 +457,7 @@ class Plug extends Base
 
 	/*
      * 广告状态
-	 * @author rainfer <81818832@qq.com>
+	 * @author feibu 319096000@qq.com
      */
 	public function plug_ad_state()
 	{
@@ -476,7 +476,7 @@ class Plug extends Base
 
 	/*
      * 广告位修改操作
-	 * @author rainfer <81818832@qq.com>
+	 * @author feibu 319096000@qq.com
      */
 	public function plug_ad_edit()
 	{
@@ -491,7 +491,7 @@ class Plug extends Base
 
 	/*
      * 修改广告操作
-	 * @author rainfer <81818832@qq.com>
+	 * @author feibu 319096000@qq.com
      */
 	public function plug_ad_runedit()
 	{
@@ -555,7 +555,7 @@ class Plug extends Base
 	}
 	/*
      * 广告位列表
-	 * @author rainfer <81818832@qq.com>
+	 * @author feibu 319096000@qq.com
      */
 	public function plug_adtype_list()
 	{
@@ -570,7 +570,7 @@ class Plug extends Base
 	}
 	/*
      * 广告位添加操作
-	 * @author rainfer <81818832@qq.com>
+	 * @author feibu 319096000@qq.com
      */
 	public function plug_adtype_runadd()
 	{
@@ -588,7 +588,7 @@ class Plug extends Base
 
 	/*
      * 广告位修改操作
-	 * @author rainfer <81818832@qq.com>
+	 * @author feibu 319096000@qq.com
      */
 	public function plug_adtype_edit()
 	{
@@ -607,7 +607,7 @@ class Plug extends Base
 
 	/*
      * 广告位修改操作
-	 * @author rainfer <81818832@qq.com>
+	 * @author feibu 319096000@qq.com
      */
 	public function plug_adtype_runedit()
 	{
@@ -626,7 +626,7 @@ class Plug extends Base
 
 	/*
      * 广告位删除
-	 * @author rainfer <81818832@qq.com>
+	 * @author feibu 319096000@qq.com
      */
 	public function plug_adtype_del()
 	{
@@ -646,7 +646,7 @@ class Plug extends Base
 
 	/*
      * 广告位排序
-	 * @author rainfer <81818832@qq.com>
+	 * @author feibu 319096000@qq.com
      */
 	public function plug_adtype_order()
 	{
@@ -662,7 +662,7 @@ class Plug extends Base
 	}
 	/*
     * 本地文件列表
-    * @author rainfer <81818832@qq.com>
+    * @author feibu 319096000@qq.com
     */
 	public function plug_file_list()
 	{
