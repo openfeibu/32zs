@@ -1282,13 +1282,9 @@ function get_imgurl($url,$cat=0)
         return __ROOT__.'/data/upload/avatar/'.$url;
     }elseif(empty($url)){
         //$url为空
-        if($cat==2){
-            $imgurl='girl.jpg';
-        }elseif($cat==1){
-            $imgurl='headicon.png';
-        }else{
-            $imgurl='no_img.jpg';
-        }
+
+        $imgurl='logo.jpg';
+
         return __ROOT__.'/public/img/'.$imgurl;
     }else{
         //本地上传图片

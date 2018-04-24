@@ -12,7 +12,7 @@
                                 <!-- #section:pages/profile.picture -->
 								<span class="profile-picture">
 									<a href="#">
-                                        <img id="avatar" class="editable" src="{$admin['admin_avatar']|get_imgurl=2}" width="150"  data-toggle="modal" data-target="#myModal" />
+                                        <img id="avatar" class="editable" src="{$admin['admin_avatar']|get_imgurl=1}" width="150"  data-toggle="modal" data-target="#myModal" />
                                     </a>
 								</span>
 
@@ -36,14 +36,14 @@
                                 </div>
                                 <div class="space-6"></div>
                             </div>
-            
+
                             <!-- #section:pages/profile.contact -->
-                          
+
 
                         </div>
 
                         <div class="col-xs-12 col-sm-9">
-                            
+
 
                             <!-- #section:pages/profile.info -->
                             <div class="profile-user-info profile-user-info-striped">
@@ -102,7 +102,7 @@
                         URL:"{:url('admin/Admin/avatar')}",
                     };
                 </script>
-               
+
                 <!-- 显示修改资料模态框（Modal） -->
                 <div class="modal fade in" id="myModaledit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <form class="form-horizontal ajaxForm2" name="admin_runedit" method="post" action="{:url('admin/Admin/admin_runedit')}">
