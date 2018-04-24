@@ -29,8 +29,8 @@
     'auth_rule' => 'auth_rule',
     'auth_user' => 'admin',
   ),
-  'app_debug' => false,
-  'app_trace' => false,
+  'app_debug' => true,
+  'app_trace' => true,
   'baidumap_ak' => 'D91c810554767b49e3bdd2a7b25d97c1',
   'upload_validate' => 
   array (

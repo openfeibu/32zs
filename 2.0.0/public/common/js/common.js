@@ -4,7 +4,7 @@ $(function(){
 		if(!$(this).hasClass("btn-unactive")){
 			$(".ajaxForm").submit();
 		}
-		
+		return false;
 	})
 
 	//删除按钮特效
