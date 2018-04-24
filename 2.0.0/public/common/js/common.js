@@ -2,8 +2,16 @@ $(function(){
 	//删除按钮
 	$("body").on("click","#btnsubmit",function(){
 		if(!$(this).hasClass("btn-unactive")){
-			$(".ajaxForm").submit();
+		layer.confirm('确认进行批量删除吗？', 
+			function(index, layero){
+
+			   $(".ajaxForm").submit();
+			}, function(index){
+
+			});
 		}
+	
+
 		return false;
 	})
 
