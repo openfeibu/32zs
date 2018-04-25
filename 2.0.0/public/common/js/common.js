@@ -2,7 +2,7 @@ $(function(){
 	//删除按钮
 	$("body").on("click","#btnsubmit",function(){
 		if(!$(this).hasClass("btn-unactive")){
-		layer.confirm('确认进行批量删除吗？', 
+		layer.confirm('确认进行批量删除吗？',{icon: 3},  
 			function(index, layero){
 
 			   $(".ajaxForm").submit();

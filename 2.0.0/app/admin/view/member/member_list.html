@@ -8,12 +8,13 @@
 						添加中职学生
 				</a>
 			</div>
+			<button id="btnsubmit" class="btn btn-white btn-blue btn-sm hidden-xs">批量删除</button>
 			<div class="fb-export">
 				<a href="{:url('admin/Member/admin_member_export')}" title="导出所有中职学生"  class="export_btn">
 					导出学生信息
 				</a>
 			</div>
-			<button id="btnsubmit" class="btn btn-white btn-blue btn-sm hidden-xs">批量删除</button>
+			
 			<form name="admin_list_sea" class="form-search" id="list-filter" method="post" action="{:url('admin/Member/member_list')}">
 				<div class=" fb-state-search margintop5">
 					筛选：
@@ -72,6 +73,7 @@
 							<th >报名表审核</th>
 							<th width="150px">操作</th>
 						</tr>
+						
 						</thead>
 
 						<tbody id="ajax-data">
@@ -80,7 +82,7 @@
 						</tbody>
 					</table>
 					</form>
-					<div class="fb-page">{$page}</div>
+				
 				</div>
 			</div>
 		</div>

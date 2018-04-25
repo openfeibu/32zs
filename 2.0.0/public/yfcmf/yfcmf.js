@@ -1139,6 +1139,7 @@ $(function(){
 			url: "/admin/School/ajax_major",
 			data:{'school_id':school_id},
 			success: function(data){
+                console.log(data.html)
 				$("#major").html(data.html);
 			}
 		});
