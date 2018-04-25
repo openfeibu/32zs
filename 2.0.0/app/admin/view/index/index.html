@@ -11,11 +11,11 @@
 				<ul class="zz-infobox-item-list">
 					<li>
 						<span>报名已审核</span>
-						<p>{$val.student_count}</p>
+						<p>{$val.enrolment_auditing_count}</p>
 					</li>
 					<li>
 						<span>报名未审核</span>
-						<p>{$val.enrolment_auditing_count}</p>
+						<p>{$val.enrolment_unauditing_count}</p>
 					</li>
 					<li>
 						<span>分数已审核</span>
@@ -42,7 +42,7 @@
 							</div>
 						</div>
 					</div>
-		
+
 
 		{/if}
 		{if $admin['group_id'] == 1 || $admin['group_id'] == 5}
