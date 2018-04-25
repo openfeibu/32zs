@@ -14,7 +14,10 @@ $(function(){
 
 		return false;
 	})
+	// $("body").on("click",".fb-page li",function(){
+	// 	$(this).addClass("active").siblings("li").removeClass("active");
 
+	// })
 	//删除按钮特效
 	// $("body").on("change","[name='n_id[]']",function(){
 	// 	$.each($("[name='n_id[]']"),function(i,v){

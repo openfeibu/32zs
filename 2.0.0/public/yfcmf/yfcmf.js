@@ -996,10 +996,12 @@ $(function () {
     });
     })(jQuery);
 function ajax_page(page) {
+
 	$.ajax({
 		type:"POST",
 		data:$('#list-filter').serialize()+'&page='+page,
 		success: function(data,status){
+            console.log(data)
 			$("#ajax-data").html(data);
 		}
 	});
