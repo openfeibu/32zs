@@ -11,7 +11,7 @@ namespace app\admin\controller;
 use think\Cache;
 use think\Loader;
 
-class Download
+class Download extends Base
 {
     public function member_excel()
     {
