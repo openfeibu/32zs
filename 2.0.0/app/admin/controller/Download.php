@@ -15,8 +15,10 @@ class Download extends Base
 {
     public function member_excel()
     {
+        header("Content-type: text/html;charset=utf-8");
         $file_name = '中职学生导入示例表格.xls';
         $file_sub_path = ROOT_PATH.'/public/excel/sample/';
+        $file_name = iconv("utf-8","gbk//IGNORE",$file_name);
         $file_path = $file_sub_path.$file_name;
         if (!file_exists($file_path)) {  //判断文件是否存在
             $this->error('文件不存在');
