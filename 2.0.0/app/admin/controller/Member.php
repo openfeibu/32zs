@@ -59,7 +59,8 @@ class Member extends Base
 				->order('member_list_id desc')->paginate(config('paginate.list_rows'),false,['query'=>get_query()]);
 
 		$show=$member_list->render();
-		$show=preg_replace("(<a[^>]*page[=|/](\d+).+?>(.+?)<\/a>)","<a href='javascript:ajax_page($1);'>$2</a>",$show);
+		/*
+		$show=preg_replace("(<a[^>]*page[=|/](\d+).+?>(.+?)<\/a>)","<a href='javascript:ajax_page($1);'>$2</a>",$show);*/
 
 		$data = $member_list->all();
 		foreach ($data as $k => $value) {
