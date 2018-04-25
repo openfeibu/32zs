@@ -1,5 +1,6 @@
 {foreach name="arr" item="v"}
 	<tr>
+		<td></td>
 		<td><input name="{$v.id}" value="{$v.listorder}" class="list_order center"/></td>
 		<td>{$v.id}</td>
 		<td>
@@ -34,14 +35,14 @@
 		</td>
 		<td>
 			<div class="hidden-sm hidden-xs action-buttons">
-				<a class="blue" href="{:url('admin/Menu/news_menu_add',array('id'=>$v['id']))}"  data-toggle="tooltip" title="添加子类">
+				<a class="" href="{:url('admin/Menu/news_menu_add',array('id'=>$v['id']))}"  data-toggle="tooltip" title="添加子类">
 					<i class="ace-icon fa fa-plus-circle bigger-130"></i>																</a>
 				<a href="{:url('admin/Menu/news_menu_edit',array('id'=>$v['id']))}" data-toggle="tooltip" title="修改">
 					<i class="ace-icon fa fa-edit bigger-130"></i>																</a>
-				<a class="red confirm-rst-url-btn" href="{:url('admin/Menu/news_menu_del',array('id'=>$v['id'],'lang_list'=>$menu_l))}" data-info="若存在子菜单，则子菜单将一起被删除，确定要删除吗？" data-toggle="tooltip" title="删除">
+				<a class=" confirm-rst-url-btn" href="{:url('admin/Menu/news_menu_del',array('id'=>$v['id'],'lang_list'=>$menu_l))}" data-info="若存在子菜单，则子菜单将一起被删除，确定要删除吗？" data-toggle="tooltip" title="删除">
 					<i class="ace-icon fa fa-trash-o bigger-130"></i>																</a>
 				{if condition="$v.menu_type eq 3"}
-				<a class="blue" href="{:url('admin/News/news_add',array('news_columnid'=>$v['id']))}" data-toggle="tooltip" title="发布">
+				<a class="" href="{:url('admin/News/news_add',array('news_columnid'=>$v['id']))}" data-toggle="tooltip" title="发布">
 					<i class="ace-icon fa fa-file bigger-130"></i>																</a>
 				{/if}
 			</div>
@@ -89,6 +90,5 @@
 	</tr>
 {/foreach}
 <tr>
-	<td align="left"><button  id="btnorder" class="btn btn-white btn-yellow btn-sm">排序</button></td>
-	<td colspan="10">{$page}</td>
+	<td colspan="20"><div class="fb-page">{$page}</div></td>
 </tr>

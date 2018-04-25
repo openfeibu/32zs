@@ -73,8 +73,8 @@ input[disabled] {
 .fb-export a{display: block;padding:0 10px;height: 30px;border-radius: 30px;text-align: center;line-height: 30px;color: #fff;background:#3fb869;}
 .fb-export a:hover{background: #318950}
 
-#btnsubmit{float: left;padding: 0 15px;height: 30px;border:1px solid #a7a8ac;color: #a7a8ac;border-radius: 30px;background-color:#f8f8f8 !important ;color: #a7a8ac !important;margin:0 7.5px;}
-#btnsubmit2{float: left;padding: 0 15px;height: 30px;border:1px solid #a7a8ac;color: #a7a8ac;border-radius: 30px;background-color:#f8f8f8 !important ;color: #a7a8ac !important;margin:0 7.5px;}
+#btnsubmit{float: left;padding: 0 15px;height: 30px;border:1px solid #a7a8ac;color: #a7a8ac;border-radius: 30px;background-color:transparent; !important ;color: #a7a8ac !important;margin:0 7.5px;}
+#btnsubmit2{float: left;padding: 0 15px;height: 30px;border:1px solid #a7a8ac;color: #a7a8ac;border-radius: 30px;background-color:transparent !important ;color: #a7a8ac !important;margin:0 7.5px;}
 #btnsubmit:hover{background-color: #fcaf55 !important;color: #fff !important;border:1px solid #fcaf55;}
 #btnsubmit2:hover{background-color: #fcaf55 !important;color: #fff !important;border:1px solid #fcaf55;}
 #btnsubmit.active{border:1px solid #fcaf55;background-color:#fcaf55 !important ;color: #fff !important;}
@@ -156,7 +156,8 @@ input[type=checkbox].ace+.lbl{margin:0 15px;}
 .btn-sespan{float: left;width: 220px;margin:0 7.5px 15px 7.5px;}
 
 #btnorder{float: left;height: 30px;border-radius: 30px;padding:0 15px;margin:0 0.75rem;}
-#member_active_submit{float: left;height: 30px;border-radius: 30px;padding:0 15px;margin:0 7.5px;}
+#member_active_submit{float: left;height: 30px;border-radius: 30px;padding:0 15px;margin:0 7.5px;background-color:transparent; !important ;color: #a7a8ac !important;border:1px solid #a7a8ac !important;}
+#member_active_submit:hover{background-color:#fcaf55 !important ;color: #fff !important;border:1px solid #fcaf55 !important;}
 .form-horizontal .control-label{width: auto !important;}
 .btn-fb-radio{border-radius: 30px !important;}
 #file_name{height: 30px;line-height: 30px;font-size: 16px;color: #559cfc }
