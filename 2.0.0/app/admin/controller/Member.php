@@ -31,6 +31,7 @@ class Member extends Base
 			$where['a.major_id'] = array('in',$major_ids);
 			$major_list = Db::name('major')->where(array('major_id' => array('in',$major_ids)))->select();
 			$this->assign('major_list',$major_list);
+			//$major_id = isset($major_ids[0]) ? $major_ids[0] : '';
 		}
 		if($opentype_check !== ''){
 			$where['member_list_open']=$opentype_check;
@@ -99,6 +100,8 @@ class Member extends Base
 
 
 		$this->assign('school_list',$school_list);
+		$this->assign('school_id',$school_id);
+		$this->assign('major_id',$major_id);
 		$this->assign('opentype_check',$opentype_check);
 		$this->assign('activetype_check',$activetype_check);
 		$this->assign('member_list',$data);
