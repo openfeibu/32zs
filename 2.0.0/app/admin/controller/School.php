@@ -303,7 +303,7 @@ class School extends Base
 		$search_name = input('search_name');
 		$map=array();
 		if($search_name){
-			$map['rm.recruit_major_name']= array('like',"%".$search_name."%");
+			$map['recruit_major_name']= array('like',"%".$search_name."%");
 		}
 		$major_list = Db::name('recruit_major')
 							->where($map)

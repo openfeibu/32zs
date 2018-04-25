@@ -46,7 +46,7 @@ class Score extends Base
 
         $map['m.school_id'] = $admin['school_id'];
 
-        if($major_score_status){
+        if($major_score_status != ''){
             $map['ms.major_score_status'] = $major_score_status;
         }
 
@@ -88,7 +88,6 @@ class Score extends Base
 		}
 
 		$page = $score_list->render();
-
 
         $major_list = Db::name('major')->where(array('major_id' => array('in',$major_ids)))->select();
         $this->assign('major_id',$major_id);
