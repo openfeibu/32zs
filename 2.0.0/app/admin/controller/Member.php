@@ -250,6 +250,35 @@ class Member extends Base
 		$recruit_major = RecruitMajorModel::get_recruit_major($member_list_edit['school_id'],$member_list_edit['major_id']);
 		$this->assign('recruit_major',$recruit_major);
 
+		if($this->admin['major_id'])
+		{
+			$major_ids = json_decode($this->admin['major_id'],true);
+			$where['a.major_id'] = array('in',$major_ids);
+			if($this->admin['school_id']){
+				$where['a.school_id'] = $this->admin['school_id'];
+			}else{
+				if($school_id !== ''){
+					$where['a.school_id'] = $school_id;
+				}
+			}
+			$next_member_list_id = Db::name('member_list')->alias('a')
+				    ->join(config('database.prefix').'school s','a.school_id = s.school_id')
+					->join(config('database.prefix').'major m','a.major_id = m.major_id')
+					->where($where)
+					->where('a.member_list_id','<',$member_list_edit['member_list_id'])
+					->order('member_list_id desc')
+					->value('a.member_list_id');
+			$last_member_list_id = Db::name('member_list')->alias('a')
+				    ->join(config('database.prefix').'school s','a.school_id = s.school_id')
+					->join(config('database.prefix').'major m','a.major_id = m.major_id')
+					->where($where)
+					->where('a.member_list_id','>',$member_list_edit['member_list_id'])
+					->order('member_list_id desc')
+					->value('a.member_list_id');
+			$this->assign('next_member_list_id',$next_member_list_id ? $next_member_list_id : 0);
+			$this->assign('last_member_list_id',$last_member_list_id ? $last_member_list_id : 0);
+		}
+
 		return $this->fetch();
 	}
 	/*
