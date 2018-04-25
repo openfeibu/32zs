@@ -38,7 +38,7 @@
 					<i class="ace-icon fa fa-plus-circle bigger-130"></i>																</a>
 				<a href="{:url('admin/Menu/news_menu_edit',array('id'=>$v['id']))}" data-toggle="tooltip" title="修改">
 					<i class="ace-icon fa fa-edit bigger-130"></i>																</a>
-				<a class="red confirm-rst-url-btn" href="{:url('admin/Menu/news_menu_del',array('id'=>$v['id'],'lang_list'=>$menu_l))}" data-info="若存在子菜单，则子菜单将一起被删除，你确定要删除吗？" data-toggle="tooltip" title="删除">
+				<a class="red confirm-rst-url-btn" href="{:url('admin/Menu/news_menu_del',array('id'=>$v['id'],'lang_list'=>$menu_l))}" data-info="若存在子菜单，则子菜单将一起被删除，确定要删除吗？" data-toggle="tooltip" title="删除">
 					<i class="ace-icon fa fa-trash-o bigger-130"></i>																</a>
 				{if condition="$v.menu_type eq 3"}
 				<a class="blue" href="{:url('admin/News/news_add',array('news_columnid'=>$v['id']))}" data-toggle="tooltip" title="发布">
@@ -67,7 +67,7 @@
 						</li>
 
 						<li>
-							<a href="{:url('admin/Menu/news_menu_del',array('id'=>$v['id'],'lang_list'=>$menu_l))}"  data-info="若存在子菜单，则子菜单将一起被删除，你确定要删除吗？" class="tooltip-error confirm-rst-url-btn" data-rel="tooltip" title="删除" data-original-title="删除">
+							<a href="{:url('admin/Menu/news_menu_del',array('id'=>$v['id'],'lang_list'=>$menu_l))}"  data-info="若存在子菜单，则子菜单将一起被删除，确定要删除吗？" class="tooltip-error confirm-rst-url-btn" data-rel="tooltip" title="删除" data-original-title="删除">
 										<span class="red">
 											<i class="ace-icon fa fa-trash-o bigger-120"></i>
 										</span>
