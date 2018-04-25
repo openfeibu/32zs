@@ -117,7 +117,8 @@ margin: 5px;
 					<div class="form-group">
 						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 姓名：  </label>
 						<div class="col-sm-10">
-							<input type="text" name="member_list_nickname" id="member_list_nickname" value="{$member_list_edit.member_list_nickname}"  placeholder="输入昵称" class="col-xs-10 col-sm-4" required/>
+							<input type="text" name="member_list_nickname" id="member_list_nickname" value="{$member_list_edit.member_list_nickname}"  placeholder="输入姓名" class="col-xs-10 col-sm-4" required/>
+                            <span class="lbl">&nbsp;&nbsp;<span class="red">*</span>必填</span>
 						</div>
 					</div>
 					<div class="space-4"></div>
@@ -130,6 +131,7 @@ margin: 5px;
 									<option value="{$v.major_id}" {if condition="$v['major_id'] eq $member_list_edit.major_id"}selected{/if} >{$v.major_name}</option>
 								{/foreach}
 							</select>
+                            <span class="lbl">&nbsp;&nbsp;<span class="red">*</span>必填</span>
 						</div>
 					</div>
 					<div class="space-4"></div>
@@ -143,6 +145,7 @@ margin: 5px;
 									<option value="{$v.school_id}" {if condition="$v['school_id'] eq $member_list_edit.school_id"}selected{/if} >{$v.school_name}</option>
 								{/foreach}
 							</select>
+                            <span class="lbl">&nbsp;&nbsp;<span class="red">*</span>必填</span>
 						</div>
 					</div>
 					<div class="space-4"></div>
@@ -154,6 +157,7 @@ margin: 5px;
 									<option value="{$v.major_id}" {if condition="$v['major_id'] eq $member_list_edit.major_id"}selected{/if} >{$v.major_name}</option>
 								{/foreach}
 							</select>
+                            <span class="lbl">&nbsp;&nbsp;<span class="red">*</span>必填</span>
 						</div>
 					</div>
 					<div class="space-4"></div>
@@ -184,7 +188,7 @@ margin: 5px;
 
 
 							<button class="btn fb-radio btn-fb-orange" type="reset" onclick="window.history.go(-1);" onclick="window.history.go(-1);">
-								
+
 								返回
 							</button>
 						</div>
