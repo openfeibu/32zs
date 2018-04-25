@@ -86,10 +86,10 @@ class Admin extends Model
             cookie('signin_token', data_signature($signin_token), 24 * 3600 * 7);
         }
  		//根据需要决定是否记录前台登陆
- 		session('hid',$auth['member_id']);
-		cookie('yf_logged_user', jiami("{$auth['member_id']}.{$auth['admin_last_time']}"));
-		$member=Db::name('member_list')->where('member_list_id',$auth['member_id'])->find();
-		if($member) session('user',$member);
+ 		// session('hid',$auth['member_id']);
+		// cookie('yf_logged_user', jiami("{$auth['member_id']}.{$auth['admin_last_time']}"));
+		// $member=Db::name('member_list')->where('member_list_id',$auth['member_id'])->find();
+		// if($member) session('user',$member);
      }
 
     /**

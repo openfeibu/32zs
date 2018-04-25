@@ -360,6 +360,28 @@ class Member extends Base
 			$this->success('状态开启');
 		}
 	}
+	public function member_unactive()
+	{
+		$p = input('p');
+		$ids = input('n_id/a');
+		$query = get_query() ;
+		unset($query['n_id']);
+		if(empty($ids)){
+			$this -> error("请选择用户",url('admin/Member/member_list',$query));
+		}
+		if(is_array($ids)){//判断获取文章ID的形式是否数组
+			$where = 'member_list_id in('.implode(',',$ids).')';
+		}else{
+			$where = 'member_list_id='.$ids;
+		}
+		$member_model=new MemberList;
+		$rst=$member_model->where($where)->setField('user_status',0);
+		if($rst!==false){
+			$this->success("操作成功",url('admin/Member/member_list',$query));
+		}else{
+			$this -> error("操作失败！",url('admin/Member/member_list',$query));
+		}
+	}
 	//批量审核
 	public function open()
 	{

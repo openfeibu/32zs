@@ -1,20 +1,21 @@
 {extend name="admin@public/base" /}
 {block name="main-content"}
 	<div class="page-content">
- 
+
 		<div class="row maintop">
 			<div class="fb-add">
 				<a href="{:url('admin/Member/member_add')}">
 						添加中职学生
 				</a>
 			</div>
+			<button id="btnsubmit2" class="btn-unactive">驳回审核</button>
 			<button id="btnsubmit" class="btn btn-white btn-blue btn-sm hidden-xs">批量删除</button>
 			<div class="fb-export">
 				<a href="{:url('admin/Member/admin_member_export')}" title="导出所有中职学生"  class="export_btn">
 					导出学生信息
 				</a>
 			</div>
-			
+
 			<form name="admin_list_sea" class="form-search" id="list-filter" method="post" action="{:url('admin/Member/member_list')}">
 				<div class=" fb-state-search margintop5">
 					筛选：
@@ -40,7 +41,7 @@
 							<i class="ace-icon fa fa-search"></i>
 						</span>
 						<input type="text" name="key" id="key" class="form-control" value="{$val}" placeholder="请输入身份证、姓名、中职考生号" />
-						
+
 					</div>
 				</div>
 			</form>
@@ -50,6 +51,7 @@
 			<div class="col-xs-12">
 				<div>
 					<form id="alldel" class="ajaxForm" name="alldel" method="post" action="{:url('/admin/member/member_delall')}">
+						<input name="p" id="p" value="{:input('page',input('p',1))}" type="hidden" />
 						<table class="table table-striped table-bordered table-hover" id="dynamic-table">
 						<thead>
 						<tr>
@@ -73,7 +75,7 @@
 							<th >报名表审核</th>
 							<th width="150px">操作</th>
 						</tr>
-						
+
 						</thead>
 
 						<tbody id="ajax-data">
@@ -81,9 +83,17 @@
 						</tbody>
 					</table>
 					</form>
-				
+
 				</div>
 			</div>
 		</div>
 	</div><!-- /.page-content -->
+<script>
+$('body').on('click','#btnsubmit2',function(){
+	url = "{:url('admin/member/member_unactive')}";
+	$(".ajaxForm").attr('action',url);
+	$(".ajaxForm").submit();
+	return true;
+});
+</script>
 {/block}
