@@ -21,11 +21,12 @@
 						<table class="table table-striped table-bordered table-hover" id="dynamic-table">
 							<thead>
 							<tr>
+								<th width="60px"></th>
 								<th>学生组ID</th>
 								<th>学生组名称</th>
 								<th class="hidden-sm hidden-xs">满足积分条件</th>
-								<th style="border-right:#CCC solid 1px;">状态</th>
-								<th style="border-right:#CCC solid 1px;">排序</th>
+								<th >状态</th>
+								<th >排序</th>
 								<th width="150px">操作</th>
 							</tr>
 							</thead>
@@ -34,6 +35,7 @@
 
 							{foreach name="member_group_list" item="v"}
 								<tr>
+									<td  ></td>
 									<td height="28" >{$v.member_group_id}</td>
 									<td>{$v.member_group_name}</td>
 									<td class="hidden-sm hidden-xs">{$v.member_group_bomlimit} - {$v.member_group_toplimit} 积分</td>
