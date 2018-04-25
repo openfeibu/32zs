@@ -3,16 +3,14 @@
 	<div class="page-content">
 
 		<div class="row maintop">
-			<div class="col-xs-12 col-sm-2">
-				<!-- 点击模态框（Modal） -->
-				<button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#myModal">
-					<i class="ace-icon fa fa-bolt bigger-110"></i>
+			<div class="fb-add">
+				<button class="btn btn-sm btn-fb-blue" data-toggle="modal" data-target="#myModal">
 					添加学生组
 				</button>
-
 			</div>
+			<button type="submit" href="{:url('admin/Member/member_group_order')}" id="btnorder" class="btn btn-white btn-yellow btn-sm">更新排序</button>
 		</div>
-
+		
 
 		<div class="row">
 			<div class="col-xs-12">
@@ -86,9 +84,6 @@
 									</td>
 								</tr>
 							{/foreach}
-							<tr>
-								<td colspan="8" align="left"><button type="submit"  id="btnorder" class="btn btn-white btn-yellow btn-sm">排序</button></td>
-							</tr>
 
 							</tbody>
 						</table>
