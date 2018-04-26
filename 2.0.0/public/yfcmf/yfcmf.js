@@ -997,7 +997,7 @@ $(function () {
 			success: function(data,status){
 				if(typeof load!="undefined"){layer.close(load);}
 				$("#ajax-data").html(data);
-                window.location.href="#/?activetype_check=1&school_id=&major_id=&key="
+                
 			}
 		});
     });
