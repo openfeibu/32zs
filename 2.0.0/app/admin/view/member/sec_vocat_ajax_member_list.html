@@ -15,9 +15,9 @@
 		<td><input type="text" name="GexamineeNumber" value="{$v.GexamineeNumber}"  class="member_GexamineeNumber" data-id="{$v.member_list_id}" url="{:url('admin/Member/member_edit_GexamineeNumber',['member_list_id' => $v['member_list_id']])}"/></td>
 		<td class="hidden-xs">
 			{if condition='$v.user_status eq 1'}
-					已通过
+					已审核
 			{else/}
-					未通过
+					未审核
 			{/if}
 		</td>
 		<td>
