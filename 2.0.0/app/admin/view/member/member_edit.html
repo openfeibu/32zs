@@ -223,7 +223,7 @@ margin: 5px;
 					<td class="k-s-content low_width_5 title">高考考生号</td>
 					<td class="k-s-content low_width_6 content"><input type="text" name="GexamineeNumber" value="{$info.GexamineeNumber}" /></td>
 					<td class="k-s-content low_width_7" rowspan="5" style="text-align: center;position:relative">
-						<img id="studentPicture_herf_show" style="width: 125px; height: 175px; display: inline;" src="{if $member_list_edit.member_list_headpic}{$member_list_edit.member_list_headpic|get_imgurl=1}{else}/public/img/defaultGraph.jpg{/if} " height="175px" width="125px" class="headicon" data-toggle="modal" data-target="#myModal" title="建议使用ie9以上浏览器，360浏览器建议使用极速模式">
+						<img id="studentPicture_herf_show" style="width: 125px; height: 175px; display: inline;" src="{if $member_list_edit.member_list_headpic}{$member_list_edit.member_list_headpic|get_imgurl=1}{else}/public/img/defaultGraph.jpg{/if} " height="175px" width="125px" class="headicon"  {if condition='$member_list_edit.user_status neq 1'}data-toggle="modal" data-target="#myModal" title="建议使用ie9以上浏览器，360浏览器建议使用极速模式"{/if}>
 						<!-- <input type="file" class="upload" value="" style="width:100%;height:100%;position:absolute;top:0;left:0;opacity:0;cursor:pointer;"> -->
 					</td>
 				</tr>
