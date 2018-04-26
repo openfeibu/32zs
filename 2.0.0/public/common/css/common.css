@@ -79,7 +79,7 @@ input[disabled] {
 #btnsubmit2:hover{background-color: #fcaf55 !important;color: #fff !important;border:1px solid #fcaf55;}
 #btnsubmit.active{border:1px solid #fcaf55;background-color:#fcaf55 !important ;color: #fff !important;}
 #btnsubmit.active:hover{background-color: #d39143 !important;}
-#btnsubmit:focus,.login-submit:focus{outline: aliceblue }
+#btnsubmit:focus,.login-submit:focus,button:focus{outline: aliceblue }
 .page-content{background: #fff;}
 .page-content .maintop{margin:0;padding:30px 30px 15px 30px;width: auto;}
 .input-group-addon {
@@ -220,5 +220,8 @@ textarea[name="news_content"]{height: 500px;}
 
  .form-group select[disabled]{background: #eee}
  .score_input{width: 50px;text-align: center;margin:0 auto;display: block;}
+ .btn-height-40{height: 40px;}
+ .btn-button-page {margin:0 0 0 15px;vertical-align: top;padding:0 20px;}
+  .btn-button-page[disabled]{background-color: #bbbdc1  !important;border:1px solid #bbbdc1 ;}
 /*a7a8ac*/
 
