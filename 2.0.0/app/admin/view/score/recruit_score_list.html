@@ -2,7 +2,7 @@
 {block name="main-content"}
 	<div class="page-content">
 		<div class="row maintop">
-			<button id="btnsubmit" class="btn btn-white btn-blue btn-sm hidden-xs btn-active">通过</button>
+			<button id="member_active_submit" class="">批量审核</button>
 			<div class="fb-export">
 				<a href="javascript:;" onclick="javascript:var school_id = $('#school_id').val();var recruit_score_status = $('#recruit_score_status').val();window.location.href='{:url('admin/Score/recruit_score_list_export')}?school_id='+school_id+'&recruit_score_status='+recruit_score_status;" title="成绩导出">成绩导出</a>
 			</div>
@@ -72,9 +72,9 @@
 
 	</div><!-- /.page-content -->
 <script>
-	$('body').on('click','.btn-unactive',function(){
-		url = "{:url('admin/score/score_unactive')}";
-		$("#score_form").attr('action',url);
+	$('body').on('click','#member_active_submit',function(){
+		// url = "{:url('admin/score/score_unactive')}";
+		$(".ajaxForm").submit()
 		return true;
 	})
 	$('body').on('blur','.recruit_score',function(){
