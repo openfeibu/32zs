@@ -12,17 +12,17 @@
 						<option value="news_title" {if condition="($keytype eq 'news_title') or ($keytype eq '')"}selected{/if}>按标题搜</option>
 						<option value="news_auto" {if condition="$keytype eq 'news_auto'"}selected{/if}>按发布人ID</option>
 					</select>
-					{if condition="config('lang_switch_on')"}
+<!-- 					{if condition="config('lang_switch_on')"}
 					<select name="news_l" class="ajax_change">
 						<option value="">按语言</option>
 						<option value="zh-cn" {if condition="$news_l eq 'zh-cn'"}selected="selected"{/if}>中文</option>
 						<option value="en-us" {if condition="$news_l eq 'en-us'"}selected="selected"{/if} >英语</option>
 					</select>
-					{/if}
+					{/if} -->
 					<select name="diyflag" class="ajax_change">
 						<option value="">按属性</option>
 						{foreach name="diyflag" item="v"}
-							<option value="{$v.diyflag_value}" {if condition="$diyflag_check eq $v['diyflag_value']"}selected{/if}>{$v.diyflag_name}【{$v.diyflag_value}】</option>
+							<option value="{$v.diyflag_value}" {if condition="$diyflag_check eq $v['diyflag_value']"}selected{/if}>{$v.diyflag_name}</option>
 						{/foreach}
 					</select>
 					<select name="opentype_check" class="ajax_change">
@@ -32,7 +32,7 @@
 					</select>
 				</div>
 
-				<div class="col-xs-12 col-sm-3  hidden-xs btn-sespan">
+				<div class="col-xs-12 col-sm-3   btn-sespan">
 					<div class="input-group">
 										<span class="input-group-addon">
 											<i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
@@ -71,11 +71,10 @@
 											<span class="lbl"></span>															</label>														</th>
 									<th  width="60px">序号</th>
 									<th>文章标题</th>
-									<th class="hidden-sm hidden-xs">所属栏目</th>
-									<th class="hidden-sm hidden-xs">文章属性</th>
-									<th class="hidden-xs">点击</th>
-									<th class="hidden-xs">状态</th>
-									<th class="hidden-xs">发布时间</th>
+									<th class="">所属栏目</th>
+									<th class="">文章属性</th>
+									<th class="">状态</th>
+									<th class="">发布时间</th>
 									<th width="150px">操作</th>
 								</tr>
 								</thead>
