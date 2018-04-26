@@ -13,7 +13,7 @@
 						<option value="1" {if condition="$major_score_status eq '1'"}selected="selected"{/if}>已审核</option>
 					</select>
 					<select name="school_id" class="ajax_change" id="school">
-						<option value="">选择学校</option>
+						<option value="">选择中职学校</option>
 						{foreach name="school_list" item="v"}
 							<option value="{$v.school_id}" >{$v.school_name}</option>
 						{/foreach}
