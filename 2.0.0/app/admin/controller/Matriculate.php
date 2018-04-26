@@ -88,6 +88,7 @@ class Matriculate extends Base
         }
         $recruit_major = Db::name('recruit_major')->where(['recruit_major_id' => $recruit_major_id])->find();
         $enrollment = Db::name('enrollment')->where(['school_id' => $school_id,'recruit_major_id' => $recruit_major_id])->find();
+        $school = Db::name('school')->where(['school_id' => $school_id])->field('school_name')->find();
         $data = [];
         if($enrollment){
             $major_ids = array_filter(explode(',',$enrollment['major_ids']));
@@ -147,7 +148,7 @@ class Matriculate extends Base
 
         $field_titles = ['姓名','中职考生号','身份证','高职专业','核定理论成绩','技能考核成绩','总分','排名','是否录取'];
         $fields = ['member_list_nickname','ZexamineeNumber','member_list_username','recruit_major_name','major_score_total','recruit_score','total_score','ranking','admission_status_desc'];
-        $table = '三二分段考核录取结果'.date('YmdHis');
+        $table = $recruit_major['recruit_major_name'].'-'.$school['school_name'].'录取结果'.date('YmdHis');
         error_reporting(E_ALL);
         date_default_timezone_set('Asia/chongqing');
         $objPHPExcel = new \PHPExcel();
