@@ -52,7 +52,6 @@ abstract class Paginator implements ArrayAccess, Countable, IteratorAggregate, J
     public function __construct($items, $listRows, $currentPage = null, $total = null, $simple = false, $options = [])
     {
         $this->options = array_merge($this->options, $options);
-
         $this->options['path'] = '/' != $this->options['path'] ? rtrim($this->options['path'], '/') : $this->options['path'];
 
         $this->simple   = $simple;
@@ -109,7 +108,7 @@ abstract class Paginator implements ArrayAccess, Countable, IteratorAggregate, J
         if ($page <= 0) {
             $page = 1;
         }
-
+        /*
         if (strpos($this->options['path'], '[PAGE]') === false) {
             $parameters = [$this->options['var_page'] => $page];
             $path       = $this->options['path'];
@@ -121,9 +120,16 @@ abstract class Paginator implements ArrayAccess, Countable, IteratorAggregate, J
             $parameters = array_merge($this->options['query'], $parameters);
         }
         $url = $path;
+        */
+        $query = Request::instance()->param();
+        $query['page'] = $page;
+        $url = url(Request::instance()->module().'/'.Request::instance()->controller().'/'.Request::instance()->action(),$query);
+        $parameters = request()->get();
         if (!empty($parameters)) {
             $url .= '?' . urldecode(http_build_query($parameters, null, '&'));
         }
+
+
         return $url . $this->buildFragment();
     }
 
@@ -135,14 +141,7 @@ abstract class Paginator implements ArrayAccess, Countable, IteratorAggregate, J
      */
     public static function getCurrentPage($varPage = 'page', $default = 1)
     {
-        $page = null;
-        if(isset(request()->param()[$varPage]))
-        {
-            $page = request()->param()[$varPage];
-        }else if(isset(request()->param()['p']))
-        {
-            $page = request()->param()['p'];
-        }
+        $page = Request::instance()->param($varPage);
 
         if (filter_var($page, FILTER_VALIDATE_INT) !== false && (int) $page >= 1) {
             return $page;
