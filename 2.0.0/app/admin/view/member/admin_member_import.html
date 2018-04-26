@@ -11,14 +11,14 @@
 					<input name="type" value="member" type="hidden"/>
 					<div class="form-group">
 						<label class="col-sm-2 control-label no-padding-right" for="form-field-1" style="width:210px !important;"> 请选择中职学校及中职专业： </label>
-						<div class="col-sm-4">
-                            <select name="school_id"  class="col-sm-5" id="school" required>
+						<div class="" style="float:left;">
+                            <select name="school_id"  class="" id="school" required>
                                 <option value="">请选择中职学校</option>
 								{foreach name='school_list' item='v'}
 								<option value="{$v.school_id}">{$v.school_name}</option>
 								{/foreach}
 							</select>
-							<select name="major_list"  class="col-sm-5" id="major" required >
+							<select name="major_list"  class="" id="major" required >
 								<option value="">请选择中职专业</option>
 							</select>
 						</div>
