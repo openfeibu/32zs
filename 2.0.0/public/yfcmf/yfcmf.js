@@ -243,13 +243,13 @@ $(function () {
         $.post($url, {x: val}, function (data) {
             if (data.code==1) {
 				if (data.msg == '已通过') {
-                    $btn.html('已审核通过,不可更改');
+                    $btn.html('已通过审核,不可更改');
 					$btn.removeClass('btn-primary').addClass('btn-info');
 					$btn.attr('disabled',true);
 					$('.member_table').find('input').attr('disabled',true);
 					return false;
                 } else {
-					$btn.html('审核通过');
+					$btn.html('通过审核');
                     $btn.removeClass('btn-danger').addClass('btn-primary');
                     return false;
                 }
@@ -259,6 +259,30 @@ $(function () {
         }, "json");
         return false;
     });
+	$('body').on('click','.member_status_btn2',function () {
+        var $url =$(this).parent().attr('href'),
+            val = $(this).parent().attr('data-id'),
+            $btn=$(this);
+        $.post($url, {x: val}, function (data) {
+            if (data.code==1) {
+				if (data.msg == '已通过') {
+                    $btn.html('驳回审核');
+					$btn.removeClass('btn-primary').addClass('btn-info');
+					$('.member_table').find('input').attr('disabled',true);
+					return false;
+                } else {
+					$btn.html('审核通过');
+                    $btn.removeClass('btn-danger').addClass('btn-primary');
+					$('.member_table').find('input').attr('disabled',false);
+                    return false;
+                }
+            } else {
+                layer.alert(data.msg, {icon: 5});
+            }
+        }, "json");
+        return false;
+    });
+
 });
 /*************************************************************************** 所有ajaxForm提交 ********************************************************/
 /* 通用表单不带检查操作，失败不跳转 */
