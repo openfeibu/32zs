@@ -18,26 +18,26 @@ $(function(){
 	// 	$(this).addClass("active").siblings("li").removeClass("active");
 
 	// })
-	//删除按钮特效
-	// $("body").on("change","[name='n_id[]']",function(){
-	// 	$.each($("[name='n_id[]']"),function(i,v){
-	// 		if($(v).is(':checked')){
-	// 			$("#btnsubmit").addClass("active")
-	// 			return false;
-	// 		}else{
-	// 			$("#btnsubmit").removeClass("active")
-	// 		}
-	// 	})
+	//批量审核特效
+	$("body").on("change","[name='n_id[]']",function(){
+		$.each($("[name='n_id[]']"),function(i,v){
+			if($(v).is(':checked')){
+				$("#member_active_submit").addClass("active")
+				return false;
+			}else{
+				$("#member_active_submit").removeClass("active")
+			}
+		})
 		
-	// })
-	// $("#chkAll").change(function(){
-	// 	if($(this).is(':checked')){
-	// 		$("#btnsubmit").addClass("active")
-	// 		return false;
-	// 	}else{
-	// 		$("#btnsubmit").removeClass("active")
-	// 	}
-	// })
+	})
+	$("#chkAll").change(function(){
+		if($(this).is(':checked')){
+			$("#member_active_submit").addClass("active")
+			return false;
+		}else{
+			$("#member_active_submit").removeClass("active")
+		}
+	})
 
 	// try{
 	// 	var mTop = $(".maintop").offset().top;
