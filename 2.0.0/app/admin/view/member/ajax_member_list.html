@@ -19,14 +19,14 @@
 			{if condition='$v.user_status eq 1'}
 				<a class="red active-btn" href="{:url('admin/Member/member_active')}" data-id="{$v.member_list_id}" title="已通过">
 					<div id="jh{$v.member_list_id}">
-						<button class="btn btn-minier btn-fb-blue">已通过</button>
+						<button class="btn btn-minier btn-fb-blue">已审核</button>
 					</div>
 
 				</a>
 				{else/}
 				<a class="red active-btn" href="{:url('admin/Member/member_active')}" data-id="{$v.member_list_id}" title="未通过">
 					<div id="jh{$v.member_list_id}">
-						<button class="btn btn-minier btn-fb-orange">未通过</button>
+						<button class="btn btn-minier btn-fb-orange">未审核</button>
 					</div>
 
 				</a>
