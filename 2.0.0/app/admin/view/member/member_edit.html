@@ -449,14 +449,25 @@ margin: 5px;
         <!--endtprint1-->
         <div class="clearfix form-actions printHide">
             <div class="col-md-offset-3 col-md-9"  href="{:url('admin/Member/member_active')}" data-id="{$member_list_edit.member_list_id}">
+                {if $admin['group_id'] == 1 || $admin['group_id'] == 5}
+                {if condition='$member_list_edit.user_status eq 1'}
+                <button class="btn btn-info btn-info member_status_btn2 btn-fb-radio" type="button" url="{:url('admin/Member/member_unactive')}">
+                    驳回审核
+                </button>
+                {else}
+                <button class="btn btn-info btn-primary member_status_btn2 btn-fb-radio" type="button">
+                    通过审核
+                </button>
+                {/if}
+                {else}
                 {if condition='$member_list_edit.user_status eq 1'}
                 <button class="btn btn-info btn-info member_status_btn btn-fb-radio" type="button" disabled="">
-                    已审核通过,不可更改
+                    已通过审核,不可更改
                 </button>
 
                 {else}
                 <button class="btn btn-info btn-primary member_status_btn btn-fb-radio" type="button">
-                    审核通过
+                    通过审核
                 </button>
                 {/if}
                 {if isset($last_member_list_id)}
@@ -470,14 +481,16 @@ margin: 5px;
                 </button>
                 {/if}
                 <!-- <button class="btn btn-info btn-primary printHide" onclick="preview(1)">打印</button> -->
-
+                {/if}
             </div>
         </div>
 	</div><!-- /.page-content -->
 
 
     <script type="text/javascript">
+     {if condition='$member_list_edit.user_status eq 1'}
      $('.personal_table').find('input').attr('disabled',true);
+     {/if}
     </script>
 
     <script  type="text/javascript" src="__PUBLIC__/shearphoto/js/ShearPhoto.js" ></script>
