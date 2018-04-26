@@ -997,7 +997,7 @@ $(function () {
 			success: function(data,status){
 				if(typeof load!="undefined"){layer.close(load);}
 				$("#ajax-data").html(data);
-                
+
 			}
 		});
     });
@@ -1328,7 +1328,7 @@ $(function(){
 		$this = $(this);
 		value = $this.val();
         if(!reg.test(value)){
-			$this.after('<span class="save_span">格式不挣钱</span>');
+			$this.after('<span class="save_span">格式不正确</span>');
 			$('.save_span').fadeOut('normal').remove();
 			$this.val('');
 			return false;
@@ -1355,7 +1355,7 @@ $(function(){
 				success: function(data){
 					$('#loading_img').remove();
 					$this.after('<span class="save_span">已保存</span>');
-					var html = '<span style="color:#3499DB;font-weight: bold;">审核中</span>';
+					var html = '<span class="text-fb-orange">未审核</span>';
 					$(".status_" + member_list_id).html(html);
 					$('.save_span').fadeOut('normal').remove();
 				}
