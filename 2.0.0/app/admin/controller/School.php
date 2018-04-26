@@ -307,7 +307,7 @@ class School extends Base
 		}
 		$major_list = Db::name('recruit_major')
 							->where($map)
-							->order('recruit_major_id','ASC')
+							->order('recruit_major_id','DESC')
 							->paginate(config('paginate.list_rows'),false,['query'=>get_query()]);
 
 		$page = $major_list->render();
