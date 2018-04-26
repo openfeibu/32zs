@@ -46,8 +46,12 @@ class Score extends Base
 
         $map['m.school_id'] = $admin['school_id'];
 
-        if($major_score_status != ''){
+        if($major_score_status == 1){
             $map['ms.major_score_status'] = $major_score_status;
+        }else if($major_score_status == ''){
+
+        }else{
+            $map['ms.major_score_status'] = ['EXP','IS NULL'];
         }
 
 		$score_list = Db::name('major_score')->alias("ms")
