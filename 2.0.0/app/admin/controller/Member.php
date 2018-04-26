@@ -202,9 +202,9 @@ class Member extends Base
 			$data['sex'] = $sex;
 			$info = Db::name('member_info')->insert($data);
 			if($rst!==false){
-				$this->success('学生添加成功',url('admin/Member/member_list'));
+				$this->success('考生添加成功',url('admin/Member/member_list'));
 			}else{
-				$this->error('学生添加失败',url('admin/Member/member_list'));
+				$this->error('考生添加失败',url('admin/Member/member_list'));
 			}
 		}
 	}
@@ -324,9 +324,9 @@ class Member extends Base
 			$sl_data['major_id']=$major_id;
 			$rst=MemberList::update($sl_data);
 			if($rst!==false){
-				$this->success('学生修改成功',url('admin/Member/member_list'));
+				$this->success('考生修改成功',url('admin/Member/member_list'));
 			}else{
-				$this->error('学生修改失败');
+				$this->error('考生修改失败');
 			}
 		}
 	}
@@ -376,7 +376,7 @@ class Member extends Base
 		];
 	}
 	/*
-     * 学生禁止/取消禁止
+     * 考生禁止/取消禁止
      */
 	public function member_state(){
 		$id=input('x');
@@ -457,7 +457,7 @@ class Member extends Base
 		}
 	}
 	/*
-     * 学生激活/取消激活
+     * 考生激活/取消激活
      */
 	public function member_active()
 	{
@@ -476,7 +476,7 @@ class Member extends Base
 	}
 
 	/*
-     * 学生删除
+     * 考生删除
      */
 	public function member_del()
 	{
@@ -485,13 +485,13 @@ class Member extends Base
 		$member_model=new MemberList;
 		$rst=Db::name('admin')->where('member_id',$member_list_id)->find();
 		if($rst){
-			$this->error('此学生已关联管理员,请从管理员处删除',url('admin/Member/member_list', array('p' => $p)));
+			$this->error('此考生已关联管理员,请从管理员处删除',url('admin/Member/member_list', array('p' => $p)));
 		}else{
 			$rst=$member_model->where(array('member_list_id'=>$member_list_id))->delete();
 			if($rst!==false){
-				$this->success('学生删除成功',url('admin/Member/member_list', array('p' => $p)));
+				$this->success('考生删除成功',url('admin/Member/member_list', array('p' => $p)));
 			}else{
-				$this->error('学生删除失败',url('admin/Member/member_list', array('p' => $p)));
+				$this->error('考生删除失败',url('admin/Member/member_list', array('p' => $p)));
 			}
 		}
 	}
@@ -510,9 +510,9 @@ class Member extends Base
 		}
 		$rst=$member_model->where($where)->delete();
 		if($rst!==false){
-			$this->success('学生删除成功',url('admin/Member/member_list', array('p' => $p)));
+			$this->success('考生删除成功',url('admin/Member/member_list', array('p' => $p)));
 		}else{
-			$this->error('学生删除失败',url('admin/Member/member_list', array('p' => $p)));
+			$this->error('考生删除失败',url('admin/Member/member_list', array('p' => $p)));
 		}
 	}
 	public function sec_vocat_member_delall()
@@ -531,13 +531,13 @@ class Member extends Base
 
 		$rst = $member_model->where($where)->where('school_id',$this->admin['school_id'])->delete();
 		if($rst!==false){
-			$this->success('学生删除成功',url('admin/Member/member_list', array('p' => $p)));
+			$this->success('考生删除成功',url('admin/Member/member_list', array('p' => $p)));
 		}else{
-			$this->error('学生删除失败',url('admin/Member/member_list', array('p' => $p)));
+			$this->error('考生删除失败',url('admin/Member/member_list', array('p' => $p)));
 		}
 	}
 	/*
-     *学生组显示列表
+     *考生组显示列表
      */
 	public function member_group_list()
 	{
@@ -548,7 +548,7 @@ class Member extends Base
 	}
 
 	/*
-     * 学生组添加方法
+     * 考生组添加方法
      */
 	public function member_group_runadd()
 	{
@@ -557,32 +557,32 @@ class Member extends Base
 		}else{
 			$rst=Db::name('member_group')->insert(input('post.'));
 			if($rst!==false){
-				$this->success('学生组添加成功',url('admin/Member/member_group_list'));
+				$this->success('考生组添加成功',url('admin/Member/member_group_list'));
 			}else{
-				$this->error('学生组添加失败',url('admin/Member/member_group_list'));
+				$this->error('考生组添加失败',url('admin/Member/member_group_list'));
 			}
 		}
 	}
 
 	/*
-     * 学生组删除
+     * 考生组删除
      */
 	public function member_group_del()
 	{
 		$member_group_id=input('member_group_id');
 		if (empty($member_group_id)){
-			$this->error('学生组ID不存在',url('admin/Member/member_group_list'));
+			$this->error('考生组ID不存在',url('admin/Member/member_group_list'));
 		}
         $rst=Db::name('member_group')->where(array('member_group_id'=>input('member_group_id')))->delete();
         if($rst!==false){
-            $this->success('学生组删除成功',url('admin/Member/member_group_list'));
+            $this->success('考生组删除成功',url('admin/Member/member_group_list'));
         }else{
-            $this->error('学生组删除失败',url('admin/Member/member_group_list'));
+            $this->error('考生组删除失败',url('admin/Member/member_group_list'));
         }
 	}
 
 	/*
-     * 改变学生组状态
+     * 改变考生组状态
      */
 	public function member_group_state()
 	{
@@ -619,7 +619,7 @@ class Member extends Base
 	}
 
 	/*
-     * 修改学生组返回值
+     * 修改考生组返回值
      */
 	public function member_group_edit()
 	{
@@ -653,9 +653,9 @@ class Member extends Base
 			);
 			$rst=Db::name('member_group')->update($sl_data);
 			if($rst!==false){
-				$this->success('学生组修改成功',url('admin/Member/member_group_list'));
+				$this->success('考生组修改成功',url('admin/Member/member_group_list'));
 			}else{
-				$this->error('学生组修改失败',url('admin/Member/member_group_list'));
+				$this->error('考生组修改失败',url('admin/Member/member_group_list'));
 			}
 		}
 	}
@@ -840,7 +840,7 @@ class Member extends Base
 		}
 		$field_titles = ['中职考生号','高考考生号','姓名','身份证号码','中职所在专业','中职学校','对口高职专业','户口所在地','生源地','考生联系人','联系电话','联系地址','邮编'];
         $fields = ['ZexamineeNumber','GexamineeNumber','member_list_nickname','member_list_username','major_name','school_name','recruit_major_name','domicile','documentType','addressee','tell','address','zipCode'];
-        $table = '中职学生'.date('YmdHis');
+        $table = '中职考生'.date('YmdHis');
         error_reporting(E_ALL);
         date_default_timezone_set('Asia/chongqing');
         $objPHPExcel = new \PHPExcel();
@@ -910,7 +910,7 @@ class Member extends Base
 		}
 		$field_titles = ['中职考生号','高考考生号','姓名','身份证号码','中职所在专业','中职学校','对口高职专业','理论成绩','技能成绩','总分','户口所在地','生源地','考生联系人','联系电话','联系地址','邮编'];
         $fields = ['ZexamineeNumber','GexamineeNumber','member_list_nickname','member_list_username','major_name','school_name','recruit_major_name','major_score_total','recruit_score','total_score','domicile','documentType','addressee','tell','address','zipCode'];
-        $table = '中职学生'.date('YmdHis');
+        $table = '中职考生'.date('YmdHis');
         error_reporting(E_ALL);
         date_default_timezone_set('Asia/chongqing');
         $objPHPExcel = new \PHPExcel();

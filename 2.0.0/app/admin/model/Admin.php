@@ -151,7 +151,7 @@ class Admin extends Model
             );
             Db::name('auth_group_access')->insert($accdata);
 			/*
-            //添加学生
+            //添加考生
             $member_id=MemberList::add($admin_username,$admin_pwd_salt,$admin_pwd,1,$admin_realname,$admin_email,$admin_tel,1,1);
             //修改admin对应member_id
             if($member_id) self::update(['admin_id' =>$admin_id, 'member_id' =>$member_id]);

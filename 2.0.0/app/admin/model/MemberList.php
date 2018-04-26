@@ -12,7 +12,7 @@ namespace app\admin\model;
 use think\Model;
 
 /**
- * 学生模型
+ * 考生模型
  * @package app\admin\model
  */
 class MemberList extends Model
@@ -22,8 +22,8 @@ class MemberList extends Model
 		return $this->hasMany('News','news_auto');
 	}
 	/**
-	 * 增加学生
-	 * @return int 0或学生id
+	 * 增加考生
+	 * @return int 0或考生id
 	 */
 	public static function add($username,$salt='',$pwd,$groupid=1,$nickname='',$email='',$tel='',$open=0,$status=0)
 	{

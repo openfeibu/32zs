@@ -206,7 +206,7 @@ class Score extends Base
             ];
             $rst = Db::name('major_score')->where(array('member_list_id' => $member_list_id))->update($data);
 			if($rst!==false){
-            $this->success('提交成功，请等待学生打印',url('admin/Score/score_list'));
+            $this->success('提交成功，请等待考生打印',url('admin/Score/score_list'));
 			}else{
 				$this->error('提交失败');
 			}
@@ -217,7 +217,7 @@ class Score extends Base
         ];
         $rst = Db::name('major_score')->insert($data);
         if($rst!==false){
-            $this->success('提交成功，请等待学生打印',url('admin/Score/score_list'));
+            $this->success('提交成功，请等待考生打印',url('admin/Score/score_list'));
         }else{
             $this->error('提交失败');
         }
@@ -579,7 +579,7 @@ class Score extends Base
 			if($rst!==false){
 				return [
 					'code' => 1,
-					'msg' => '提交成功，请等待学生打印'
+					'msg' => '提交成功，请等待考生打印'
 				];
 			}else{
 				return [
@@ -599,7 +599,7 @@ class Score extends Base
             if($rst!==false){
                 return [
 					'code' => 1,
-					'msg' => '提交成功，请等待学生打印'
+					'msg' => '提交成功，请等待考生打印'
 				];
             }else{
                 return [

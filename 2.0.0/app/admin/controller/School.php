@@ -83,7 +83,7 @@ class School extends Base
 		$enrollment = Db::name('enrollment')->where(array('school_id' => $school_id))->find();
 		if($data_admin || $data_member || $enrollment)
 		{
-			$this->error('删除失败,请先删除该学院下的招生计划、中职管理员及学生',url('admin/School/major_list', array('p' => $p)));
+			$this->error('删除失败,请先删除该学院下的招生计划、中职管理员及考生',url('admin/School/major_list', array('p' => $p)));
 		}
 		$rst=Db::name('school')->where(array('school_id'=>$school_id))->delete();
 		if($rst!==false){
@@ -109,7 +109,7 @@ class School extends Base
 		$admin_count = Db::name('admin')->where($where)->count();
 		if($enrollment_count || $member_count || $admin_count)
 		{
-			$this->error('删除失败,请先删除跟该学校关联的招生计划、学生及中职专业负责人',url('admin/School/school_list', array('p' => $p)));
+			$this->error('删除失败,请先删除跟该学校关联的招生计划、考生及中职专业负责人',url('admin/School/school_list', array('p' => $p)));
 		}else{
 			Db::name('school')->where($where)->delete();
 			$this->success('删除成功',url('admin/School/school_list', array('p' => $p)));
@@ -165,7 +165,7 @@ class School extends Base
 		$admin_count = Db::name('admin')->where($where)->count();
 		if($member_count || $admin_count)
 		{
-			$this->error('删除失败,请先删除跟该中职关联的学生及中职专业负责人',url('admin/school/major_list', array('p' => $p)));
+			$this->error('删除失败,请先删除跟该中职关联的考生及中职专业负责人',url('admin/school/major_list', array('p' => $p)));
 		}else{
 			Db::name('major')->where($where)->delete();
 			$this->success('删除成功',url('admin/school/major_list', array('p' => $p)));

@@ -82,7 +82,7 @@ class Enrollment extends Base
         $member_list = Db::name('member_list')->where(['school_id' => $enrollment['school_id']])->select();
         if($admin_list || $member_list)
         {
-            return $this->error('请先删除与该招生计划关联学校下的中职负责人及中职学生数据');
+            return $this->error('请先删除与该招生计划关联学校下的中职负责人及中职考生数据');
         }
         $rst = $enrollment_model->where(array('enrollment_id'=>$enrollment_id))->delete();
         if($rst!==false){
@@ -114,7 +114,7 @@ class Enrollment extends Base
         $member_list = Db::name('member_list')->where(['school_id' => ['in',$school_ids]])->select();
         if($admin_list || $member_list)
         {
-            return $this->error('请先删除与该招生计划关联学校下的中职负责人及中职学生数据');
+            return $this->error('请先删除与该招生计划关联学校下的中职负责人及中职考生数据');
         }
         $rst = $enrollment_model->where($where)->delete();
         if($rst!==false){
