@@ -1,6 +1,6 @@
 <?php
 // +----------------------------------------------------------------------
-// | 三二分段 
+// | 三二分段
 // +----------------------------------------------------------------------
 // | Copyright (c) 2015-2016 http://www.feibu.info All rights reserved.
 // +----------------------------------------------------------------------
@@ -17,11 +17,11 @@ class Index extends Base
 	public function index()
     {
 		//中部轮播，头条，滚动
-		$center_slideshow = Db::name('news')->where(array('news_flag' => 'c,f','news_open'=>1,'news_back'=>0,'news_columnid' => 19))->find();
+		$center_slideshow = Db::name('news')->where(array('news_open'=>1,'news_back'=>0,'news_columnid' => 19))->find();
 		$center_slideshow_imgs = array_filter(explode(",", $center_slideshow['news_pic_allurl']));
 		$this->assign('center_slideshow_imgs',$center_slideshow_imgs);
 		//底部轮播，头条，滚动
-		$footer_slideshow = Db::name('news')->where(array('news_flag' => 'c,f','news_open'=>1,'news_back'=>0,'news_columnid' => 20))->find();
+		$footer_slideshow = Db::name('news')->where(array('news_open'=>1,'news_back'=>0,'news_columnid' => 20))->find();
 		$footer_slideshow_imgs = array_filter(explode(",", $center_slideshow['news_pic_allurl']));
 		$this->assign('footer_slideshow_imgs',$footer_slideshow_imgs);
 		return $this->view->fetch(':index');
