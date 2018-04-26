@@ -5,14 +5,14 @@
 		<div class="row maintop">
 			<div class="fb-add">
 				<a href="{:url('admin/Member/member_add')}">
-						添加中职学生
+						添加中职考生
 				</a>
 			</div>
 			<button id="btnsubmit2" class="btn-unactive">驳回审核</button>
 			<button id="btnsubmit" class="btn btn-white btn-blue btn-sm hidden-xs">批量删除</button>
 			<div class="fb-export">
-				<a href="{:url('admin/Member/admin_member_export')}" title="导出所有中职学生"  class="export_btn">
-					导出学生信息
+				<a href="{:url('admin/Member/admin_member_export')}" title="导出所有中职考生"  class="export_btn">
+					导出考生信息
 				</a>
 			</div>
 
@@ -20,7 +20,7 @@
 				<div class=" fb-state-search margintop5">
 					筛选：
 					<select name="activetype_check" class="ajax_change">
-						<option value="">所有学生</option>
+						<option value="">所有考生</option>
 						<option value="1" {if condition="$activetype_check eq '1'"}selected="selected"{/if}>已审核</option>
 						<option value="0" {if condition="$activetype_check eq '0'"}selected="selected"{/if} >未审核</option>
 					</select>
@@ -70,7 +70,7 @@
 							<th width="300px;">高考考生号</th>
 							<!--<th class="hidden-sm hidden-xs">来源</th>
 							<th class="hidden-sm hidden-xs">性别</th>
-							<th class="hidden-sm hidden-xs">学生用户组</th>
+							<th class="hidden-sm hidden-xs">考生用户组</th>
 							<th class="hidden-sm hidden-xs">积分</th>-->
 							<th >报名表审核</th>
 							<th width="150px">操作</th>
