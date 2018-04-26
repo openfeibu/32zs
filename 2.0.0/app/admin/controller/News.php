@@ -1,6 +1,6 @@
 <?php
 // +----------------------------------------------------------------------
-// | 三二分段 
+// | 三二分段
 // +----------------------------------------------------------------------
 // | Copyright (c) 2015-2016 http://www.feibu.info All rights reserved.
 // +----------------------------------------------------------------------
@@ -502,7 +502,7 @@ class News extends Base
 		$where=$diyflag?"FIND_IN_SET('$diyflag',news_flag)":'';
 		$news_model=new NewsModel;
 		$news=$news_model->alias("a")->field('a.*,b.*,c.menu_name')
-				->join(config('database.prefix').'member_list b','a.news_auto =b.member_list_id')
+				->join(config('database.prefix').'member_list b','a.news_auto =b.member_list_id','left')
 				->join(config('database.prefix').'menu c','a.news_columnid =c.id')->where($map)
 				->where($where)->order('news_time desc')->paginate(config('paginate.list_rows'),false,['query'=>get_query()]);
 		$show = $news->render();
