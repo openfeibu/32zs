@@ -420,7 +420,7 @@ class Member extends Base
 		$p = input('p');
 		$ids = input('n_id/a');
 		if(empty($ids)){
-			$this -> error("请选择用户",url('admin/Member/member_list',array('p'=>$p,'page' => $p)));
+			$this -> error("请选择用户",url('admin/Member/member_list',array('page' => $p)));
 		}
 		if(is_array($ids)){//判断获取文章ID的形式是否数组
 			$where = 'member_list_id in('.implode(',',$ids).')';
@@ -430,9 +430,9 @@ class Member extends Base
 		$member_model=new MemberList;
 		$rst=$member_model->where($where)->setField('member_list_open',1);
 		if($rst!==false){
-			$this->success("操作成功",url('admin/Member/member_list',array('p'=>$p,'page' => $p)));
+			$this->success("操作成功",url('admin/Member/member_list',array('page' => $p)));
 		}else{
-			$this -> error("操作失败！",url('admin/Member/member_list',array('p'=>$p,'page' => $p)));
+			$this -> error("操作失败！",url('admin/Member/member_list',array('page' => $p)));
 		}
 	}
 	//批量激活
@@ -441,7 +441,7 @@ class Member extends Base
 		$p = input('p');
 		$ids = input('n_id/a');
 		if(empty($ids)){
-			$this -> error("请选择用户",url('admin/Member/member_list',array('p'=>$p,'page' => $p)));
+			$this -> error("请选择用户",url('admin/Member/member_list',array('page' => $p)));
 		}
 		if(is_array($ids)){//判断获取文章ID的形式是否数组
 			$where = 'member_list_id in('.implode(',',$ids).')';
@@ -451,9 +451,9 @@ class Member extends Base
 		$member_model=new MemberList;
 		$rst=$member_model->where($where)->setField('user_status',1);
 		if($rst!==false){
-			$this->success("操作成功",url('admin/Member/member_list',array('p'=>$p,'page' => $p)));
+			$this->success("操作成功",url('admin/Member/member_list',array('page' => $p)));
 		}else{
-			$this -> error("操作失败！",url('admin/Member/member_list',array('p'=>$p,'page' => $p)));
+			$this -> error("操作失败！",url('admin/Member/member_list',array('page' => $p)));
 		}
 	}
 	/*
@@ -501,7 +501,7 @@ class Member extends Base
 		$ids = input('n_id/a');
 		$member_model=new MemberList;
 		if(empty($ids)){
-			$this -> error("请选择列表",url('admin/Member/member_list',array('p'=>$p,'page' => $p)));
+			$this -> error("请选择列表",url('admin/Member/member_list',array('page' => $p)));
 		}
 		if(is_array($ids)){
 			$where = 'member_list_id in('.implode(',',$ids).')';
@@ -521,7 +521,7 @@ class Member extends Base
 		$ids = input('n_id/a');
 		$member_model=new MemberList;
 		if(empty($ids)){
-			$this -> error("请选择列表",url('admin/Member/member_list',array('p'=>$p,'page' => $p)));
+			$this -> error("请选择列表",url('admin/Member/member_list',array('page' => $p)));
 		}
 		if(is_array($ids)){
 			$where = 'member_list_id in('.implode(',',$ids).')';

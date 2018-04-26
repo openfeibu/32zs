@@ -45,12 +45,12 @@ class Comment extends Base
 			//所有以$path开头的都删除
 			$rst=Db::name('comments')->where(array('path'=>array('like',$path.'%')))->delete();
 			if($rst!==false){
-				$this->success('评论删除成功',url('admin/Comment/comment_list',array('p'=>$p,'page' => $p)));
+				$this->success('评论删除成功',url('admin/Comment/comment_list',array('page' => $p)));
 			}else{
-				$this->error('评论删除失败',url('admin/Comment/comment_list',array('p'=>$p,'page' => $p)));
+				$this->error('评论删除失败',url('admin/Comment/comment_list',array('page' => $p)));
 			}
 		}else{
-			$this->error('评论不存在',url('admin/Comment/comment_list',array('p'=>$p,'page' => $p)));
+			$this->error('评论不存在',url('admin/Comment/comment_list',array('page' => $p)));
 		}
 	}
 	/*
@@ -62,7 +62,7 @@ class Comment extends Base
 		$p = input('p');
 		$ids = input('c_id/a');
 		if(empty($ids)){
-			$this -> error("请选择删除的评论",url('admin/Comment/comment_list',array('p'=>$p,'page' => $p)));
+			$this -> error("请选择删除的评论",url('admin/Comment/comment_list',array('page' => $p)));
 		}
 		if(!is_array($ids)){
 			$ids[]=$ids;
@@ -74,7 +74,7 @@ class Comment extends Base
 				Db::name('comments')->where(array('path'=>array('like',$path.'%')))->delete();
 			}
 		}
-		$this->success("评论删除成功",url('admin/Comment/comment_list',array('p'=>$p,'page' => $p)));
+		$this->success("评论删除成功",url('admin/Comment/comment_list',array('page' => $p)));
 	}
 	/*
      * 评论审核/取消审核

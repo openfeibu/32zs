@@ -458,16 +458,16 @@ class We extends WeBase
 		$p = input('p');
 		$ids = input('we_reply_id/a');
 		if(empty($ids)){
-			$this -> error("请选择删除的关键词回复",url('wechat/We/reply_list',array('p'=>$p,'page' => $p)));
+			$this -> error("请选择删除的关键词回复",url('wechat/We/reply_list',array('page' => $p)));
 		}
 		if(!is_array($ids)){
 			$ids[]=$ids;
 		}
 		$rst=Db::name('we_reply')->where('we_reply_id','in',$ids)->delete();
 		if($rst!==false){
-			$this->success("关键词回复删除成功",url('wechat/We/reply_list',array('p'=>$p,'page' => $p)));
+			$this->success("关键词回复删除成功",url('wechat/We/reply_list',array('page' => $p)));
 		}else{
-			$this -> error("关键词回复删除失败",url('wechat/We/reply_list',array('p'=>$p,'page' => $p)));
+			$this -> error("关键词回复删除失败",url('wechat/We/reply_list',array('page' => $p)));
 		}
 	}
 	public function reply_del()
@@ -476,9 +476,9 @@ class We extends WeBase
 		$we_reply_id=input('we_reply_id');
 		$rst=Db::name('we_reply')->where('we_reply_id',$we_reply_id)->delete();
 		if($rst!==false){
-			$this->success('关键词回复删除成功',url('wechat/We/reply_list',array('p'=>$p,'page' => $p)));
+			$this->success('关键词回复删除成功',url('wechat/We/reply_list',array('page' => $p)));
 		}else{
-			$this->error('关键词回复删除失败',url('wechat/We/reply_list',array('p'=>$p,'page' => $p)));
+			$this->error('关键词回复删除失败',url('wechat/We/reply_list',array('page' => $p)));
 		}
 	}
 	public function mats_list()

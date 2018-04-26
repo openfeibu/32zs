@@ -98,7 +98,7 @@ class Enrollment extends Base
         $ids = input('n_id/a');
         $enrollment_model = new EnrollmentModel;
         if(empty($ids)){
-            $this -> error("请选择列表",url('admin/Enrollment/enrollment',array('p'=>$p,'page' => $p)));
+            $this -> error("请选择列表",url('admin/Enrollment/enrollment',array('page' => $p)));
         }
         if(is_array($ids)){
             $where = 'enrollment_id in('.implode(',',$ids).')';

@@ -200,7 +200,7 @@ class Center extends Base
         $favorites_model=Db::name("favorites");
         $result=$favorites_model->where(array('id'=>$id,'uid'=>$this->user['member_list_id']))->delete();
         if($result){
-            $this->success(lang('cancel collection success'),url('home/Center/fav',array('p'=>$p,'page' => $p)));
+            $this->success(lang('cancel collection success'),url('home/Center/fav',array('page' => $p)));
         }else {
             $this->error(lang('cancel collection failed'));
         }

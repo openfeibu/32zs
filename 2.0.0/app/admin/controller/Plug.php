@@ -91,9 +91,9 @@ class Plug extends Base
 		$plug_sug_id=input('plug_sug_id');
 		$rst=Db::name('plug_sug')->where(array('plug_sug_id'=>$plug_sug_id))->delete();
 		if($rst!==false){
-			$this->success('留言删除成功',url('admin/Plug/plug_sug_list',array('p'=>$p,'page' => $p)));
+			$this->success('留言删除成功',url('admin/Plug/plug_sug_list',array('page' => $p)));
 		}else{
-			$this->error('留言删除失败',url('admin/Plug/plug_sug_list',array('p'=>$p,'page' => $p)));
+			$this->error('留言删除失败',url('admin/Plug/plug_sug_list',array('page' => $p)));
 		}
 	}
 	/*
@@ -105,7 +105,7 @@ class Plug extends Base
 		$p = input('p');
 		$ids = input('sug_id/a');
 		if(empty($ids)){
-			$this -> error("请选择删除留言",url('admin/Plug/plug_sug_list',array('p'=>$p,'page' => $p)));
+			$this -> error("请选择删除留言",url('admin/Plug/plug_sug_list',array('page' => $p)));
 		}
 		if(is_array($ids)){
 			$where = 'plug_sug_id in('.implode(',',$ids).')';
@@ -114,7 +114,7 @@ class Plug extends Base
 		}
 		$rst=Db::name('plug_sug')->where($where)->delete();
 		if($rst!==false){
-			$this->success("留言删除成功！",url('admin/Plug/plug_sug_list',array('p'=>$p,'page' => $p)));
+			$this->success("留言删除成功！",url('admin/Plug/plug_sug_list',array('page' => $p)));
 		}else{
 			$this -> error("删除留言失败！",url('admin/Plug/plug_sug_list',array('p' => $p)));
 		}
@@ -931,7 +931,7 @@ class Plug extends Base
 		$p = input('p');
 		$ids = input('id/a');
 		if(empty($ids)){
-			$this -> error("请选择要删除的文件",url('admin/Plug/plug_file_filter',array('p'=>$p,'page' => $p)));
+			$this -> error("请选择要删除的文件",url('admin/Plug/plug_file_filter',array('page' => $p)));
 		}
 		if(is_array($ids)){
 			$where = 'id in('.implode(',',$ids).')';
@@ -945,9 +945,9 @@ class Plug extends Base
 				}
 			}
 			if (Db::name('plug_files')->where($where)->delete()!==false) {
-				$this->success("删除文件成功！",url('admin/Plug/plug_file_filter',array('p'=>$p,'page' => $p)));
+				$this->success("删除文件成功！",url('admin/Plug/plug_file_filter',array('page' => $p)));
 			} else {
-				$this->error("删除文件失败！",url('admin/Plug/plug_file_filter',array('p'=>$p,'page' => $p)));
+				$this->error("删除文件失败！",url('admin/Plug/plug_file_filter',array('page' => $p)));
 			}
 		}else{
 			$r=Db::name('plug_files')->find($ids);
@@ -960,12 +960,12 @@ class Plug extends Base
 					unlink($file);
 				}
 				if (Db::name('plug_files')->delete($ids)!==false) {
-					$this->success("删除文件成功！",url('admin/Plug/plug_file_filter',array('p'=>$p,'page' => $p)));
+					$this->success("删除文件成功！",url('admin/Plug/plug_file_filter',array('page' => $p)));
 				}else{
-					$this->error("删除文件失败！",url('admin/Plug/plug_file_filter',array('p'=>$p,'page' => $p)));
+					$this->error("删除文件失败！",url('admin/Plug/plug_file_filter',array('page' => $p)));
 				}
 			}else{
-				$this->error("删除文件失败！",url('admin/Plug/plug_file_filter',array('p'=>$p,'page' => $p)));
+				$this->error("删除文件失败！",url('admin/Plug/plug_file_filter',array('page' => $p)));
 			}
 		}
 	}
@@ -977,7 +977,7 @@ class Plug extends Base
 		$id=input('id');
 		$p = input('p');
 		if (empty($id)){
-			$this->error('参数错误',url('admin/Plug/plug_file_filter',array('p'=>$p,'page' => $p)));
+			$this->error('参数错误',url('admin/Plug/plug_file_filter',array('page' => $p)));
 		}else{
 			$r=Db::name('plug_files')->find($id);
 			if($r){
@@ -989,12 +989,12 @@ class Plug extends Base
 					unlink($file);
 				}
 				if (Db::name('plug_files')->delete($id)!==false) {
-					$this->success("删除文件成功！",url('admin/Plug/plug_file_filter',array('p'=>$p,'page' => $p)));
+					$this->success("删除文件成功！",url('admin/Plug/plug_file_filter',array('page' => $p)));
 				}else{
-					$this->error("删除文件失败！",url('admin/Plug/plug_file_filter',array('p'=>$p,'page' => $p)));
+					$this->error("删除文件失败！",url('admin/Plug/plug_file_filter',array('page' => $p)));
 				}
 			}else{
-				$this->error("删除文件失败！",url('admin/Plug/plug_file_filter',array('p'=>$p,'page' => $p)));
+				$this->error("删除文件失败！",url('admin/Plug/plug_file_filter',array('page' => $p)));
 			}
 		}
 	} 

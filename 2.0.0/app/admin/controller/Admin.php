@@ -124,7 +124,7 @@ class Admin extends Base
 		$p = input('p');
 		$ids = input('n_id/a');
 		if(empty($ids)){
-			$this -> error("请选择列表",url('admin/Admin/admin_list',array('p'=>$p,'page' => $p)));
+			$this -> error("请选择列表",url('admin/Admin/admin_list',array('page' => $p)));
 		}
 		if(is_array($ids)){
 			$where = 'admin_id in('.implode(',',$ids).')';
