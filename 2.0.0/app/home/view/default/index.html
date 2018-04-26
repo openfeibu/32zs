@@ -11,7 +11,7 @@
                 <a href="{:url('home/center/index')}">个人中心</a>
             </div>
             {else}
-            <div class="login-title">三二招生报名登录</div>
+            <div class="login-title">三二分段招生报名登录</div>
             <form action="{:url('home/Login/runlogin')}" method="post">
                 <div class="input-item">
                      <label for="">身份证：</label>
@@ -76,7 +76,7 @@
                 </div>
                 <div class="input-item">
                     {php}$links_3=get_links(3);{/php}
-                    <label for="">院系速览：</label>
+                    <label for="">学院速览：</label>
                     <select onchange="mbar(this)" name="select" style="width:145px;height:27px" >
                         <option selected="selected">----请选择----</option>
                         {foreach name="links_3" item="vo"}
@@ -86,7 +86,7 @@
                 </div>
                 <div class="input-item">
                     {php}$links_4=get_links(4);{/php}
-                    <label for="">各省招办：</label>
+                    <label for="">上级机构：</label>
                     <select onchange="mbar(this)" name="select"style="width:145px;height:27px">
                         <option selected="selected">----请选择----</option>
                         {foreach name="links_4" item="vo"}

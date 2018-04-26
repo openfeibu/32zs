@@ -56,11 +56,11 @@
         }
     }
     function openUrl(url) {
-        // var a = $('<a href="'+url+'" target="_blank"></a>')[0];
-        // var e = document.createEvent('MouseEvents');
-        // e.initEvent('click', true, true);
-        // a.dispatchEvent(e);
-        window.location.href = url;
+        var a = $('<a href="'+url+'" target="_blank"></a>')[0];
+        var e = document.createEvent('MouseEvents');
+        e.initEvent('click', true, true);
+        a.dispatchEvent(e);
+        //window.location.href = url;
     }
 </script>
 <script>
