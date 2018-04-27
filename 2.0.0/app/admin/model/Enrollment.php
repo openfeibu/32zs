@@ -1,6 +1,6 @@
 <?php
 // +----------------------------------------------------------------------
-// | 三二分段 
+// | 三二分段
 // +----------------------------------------------------------------------
 // | Copyright (c) 2015-2016 http://www.feibu.info All rights reserved.
 // +----------------------------------------------------------------------
@@ -66,7 +66,8 @@ class Enrollment extends Model
         foreach ($data as $key => $value) {
             $major = MajorModel::get_major_detail($value['major_id'],$value['school_id']);
             $major_score_arr = [];
-            $major_score_desc = $major_score_total = '';
+            $major_score_desc = '';
+            $major_score_total = 0;
             $major_score_key = $major['major_score_key'] ? array_filter(json_decode($major['major_score_key'],true)) : [];
             if($value['major_score']){
                 $major_score_arr = json_decode($value['major_score'],true);
@@ -80,7 +81,7 @@ class Enrollment extends Model
             $data[$key]['major_score_arr'] = $major_score_arr;
             $data[$key]['major_score_desc'] = $major_score_desc;
             $data[$key]['major_score_total'] = $major_score_total;
-            $data[$key]['recruit_score'] = $recruit_score =  sprintf('%.2f',$value['recruit_score']);
+            $data[$key]['recruit_score'] = $recruit_score =  floatval(sprintf('%.2f',$value['recruit_score']));
             $data[$key]['total_score'] = sprintf('%.2f',$major_score_total + $value['recruit_score']);
             $data[$key]['admission_status'] = 1;
             if($value['recruit_score'] < $min_score)
@@ -129,13 +130,14 @@ class Enrollment extends Model
                 foreach ($data as $key => $value) {
                     $major = MajorModel::get_major_detail($value['major_id'],$value['school_id']);
                     $major_score_arr = [];
-                    $major_score_desc = $major_score_total = '';
+                    $major_score_desc = '';
+                    $major_score_total = 0;
                     if($value['major_score']){
                         $major_score_arr = json_decode($value['major_score'],true);
                         $major_score_total = handle_major_score($major_score_arr);
                     }
                     $data[$key]['major_score_total'] = $major_score_total;
-                    $data[$key]['recruit_score'] = $recruit_score =  sprintf('%.2f',$value['recruit_score']);
+                    $data[$key]['recruit_score'] = $recruit_score =  floatval(sprintf('%.2f',$value['recruit_score']));
                     $data[$key]['total_score'] = sprintf('%.2f',$major_score_total + $value['recruit_score']);
                     $data[$key]['admission_status'] = 1;
                     if($value['recruit_score'] < $min_score)
