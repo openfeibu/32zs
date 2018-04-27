@@ -123,7 +123,7 @@ class Import extends Base
                     ];
                 }
             }
-            DB::name('school_list')->insert($schools);
+            DB::name('school')->insert($schools);
             DB::name('recruit_major')->insert($recruit_major);
             DB::name('major')->insert($major);
             DB::name('enrollment')->insert($enrollment);
