@@ -11,6 +11,7 @@ namespace app\admin\controller;
 use think\Cache;
 use think\Loader;
 use think\DB;
+use app\admin\model\Admin as AdminModel;
 
 class Import extends Base
 {
@@ -148,6 +149,14 @@ class Import extends Base
             DB::name('recruit_major')->insertAll($recruit_major);
             DB::name('major')->insertAll($major);
             DB::name('enrollment')->insertAll($enrollment);
+            $i = 0;
+            foreach($enrollment as $ek => $ev)
+            {
+                $i++;
+                $admin_username = str_pad($i,3,"0",STR_PAD_LEFT);
+                $admin_username =
+                AdminModel::add($admin_username,'','123456','','',input('admin_open',1),'',3,$ev['school_id'],json_encode(array('0' => $ev['major_ids'])));
+            }
             echo 'success';exit;
         //    var_dump($recruit_major);exit;
             echo '-----------------------------------错误-----------------------------------';
