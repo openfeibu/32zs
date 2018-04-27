@@ -1712,3 +1712,15 @@ function assoc_unique($arr, $key)
 
     return $arr=array_values($rAr);
 }
+function get_val_from_arr2($arr,$val,$want_key,$search_key)
+{
+	$return = '';
+	foreach($arr as $k => $v)
+	{
+		if($v[$search_key] == $val)
+		{
+			return $v[$want_key];
+		}
+	}
+	return $return;
+}

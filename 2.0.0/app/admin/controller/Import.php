@@ -49,16 +49,18 @@ class Import extends Base
             {
                 if ($k != 1 && trim($v[0])){
                     $school_name = trim($v[2]);
-                    if(!in_array($school_name,$school_names))
+                    if(in_array($school_name,$school_names))
                     {
+                        $schools[$k]['school_id'] = get_val_from_arr2($schools,$school_name,'school_id','school_name');
+                    }else{
                         $school_id++;
+                        $schools[$k]['school_id'] = $school_id;
                     }
-                    $schools[$k]['school_id'] = $school_id;
                     $schools[$k]['school_name'] = $school_names[] = $school_name = trim($v[2]);
                     $recruit_major_matches = array();
                     $recruit_major_data = trim($v[3]);
                     $recruit_major_name = $recruit_major_code = $major_name = $major_code = '' ;
-                    $regex = '/^(.*?)(\((.*?)\)|\（(.*?)\）)$/';
+                    $regex = '/^(.*?)\((.*?)\)$/';
                     if(preg_match($regex, $recruit_major_data, $recruit_major_matches)){
                         if(isset($recruit_major_matches[1]) && !empty(trim($recruit_major_matches[1])))
                         {
@@ -72,23 +74,26 @@ class Import extends Base
                         }else{
                             $error[] = $recruit_major_data.'_出错了,  请检测正则匹配高职专业代码问题';
                         }
-                        if(!in_array($recruit_major_code,$recruit_major_codes))
-                        {
-                            $recruit_major_id++;
-                        }
-                        $recruit_major_codes[] = $recruit_major_code;
                         $recruit_major[$k] = [
                             'recruit_major_name' => $recruit_major_name,
                             'recruit_major_code' => $recruit_major_code,
-                            'recruit_major_id' => $recruit_major_id
                         ];
+                        if(in_array($recruit_major_code,$recruit_major_codes))
+                        {
+                            $recruit_major[$k]['recruit_major_id'] = get_val_from_arr2($recruit_major,$recruit_major_code,'recruit_major_id','recruit_major_code');
+                        }else{
+                            $recruit_major_id++;
+                            $recruit_major[$k]['recruit_major_id'] = $recruit_major_id;
+                        }
+                        $recruit_major_codes[] = $recruit_major_code;
+
                     }else{
                         $errors[] = $recruit_major_data.'_出错了,  请检测正则问题';
                     }
 
                     $major_matches = array();
                     $major_data = trim($v[5]);
-                    $regex = '/^(.*?)(\((.*?)\)|\（(.*?)\）)$/';
+                    $regex = '/^(.*?)\((.*?)\)$/';
                     if(preg_match($regex, $major_data, $major_matches)){
                         if(isset($major_matches[1]) && !empty(trim($major_matches[1])))
                         {
@@ -102,9 +107,16 @@ class Import extends Base
                         }else{
                             $error[] = $major_data.'_出错了,  请检测正则匹配高职专业代码问题';
                         }
-                        if(!in_array($major_code,$major_codes))
+                        $major[$k] = [
+                            'major_name' => $major_name,
+                            'major_code' => $major_code,
+                        ];
+                        if(in_array($major_code,$major_codes))
                         {
+                            $major[$k]['major_id'] = get_val_from_arr2($major,$major_code,'major_id','major_code');
+                        }else{
                             $major_id++;
+                            $major[$k]['major_id'] = $major_id;
                         }
                         $major_codes[] = $major_code;
                         $major[$k] = [
@@ -115,28 +127,37 @@ class Import extends Base
                     }else{
                         $errors[] = $major_data.'_出错了,  请检测正则问题';
                     }
+
+                }
+            }
+            foreach($res as $k => $v)
+            {
+                if ($k != 1 && trim($v[0])){
                     $enrollment[$k] = [
-                        'school_id' => $school_id,
-                        'major_id' => 'major_id',
-                        'recruit_major_id' => $recruit_major_id,
-                        'enrollment_number' => trim($v[5])
+                        'school_id' => $schools[$k]['school_id'],
+                        'major_ids' => $major[$k]['major_id'],
+                        'recruit_major_id' => $recruit_major[$k]['recruit_major_id'],
+                        'enrollment_number' => intval(trim($v[4]))
                     ];
                 }
             }
-            DB::name('school')->insert($schools);
-            DB::name('recruit_major')->insert($recruit_major);
-            DB::name('major')->insert($major);
-            DB::name('enrollment')->insert($enrollment);
-            exit;
+            $recruit_major = assoc_unique($recruit_major,'recruit_major_code');
+            $major = assoc_unique($major,'major_code');
+            $schools = assoc_unique($schools,'school_name');
+            DB::name('school')->insertAll($schools);
+            DB::name('recruit_major')->insertAll($recruit_major);
+            DB::name('major')->insertAll($major);
+            DB::name('enrollment')->insertAll($enrollment);
+            echo 'success';exit;
         //    var_dump($recruit_major);exit;
             echo '-----------------------------------错误-----------------------------------';
             var_dump($errors);
             echo '--------------------------------高职专业--------------------------------------';
-            var_dump(assoc_unique($recruit_major,'recruit_major_code'));
+            var_dump($recruit_major);
             echo '--------------------------------中职专业--------------------------------------';
-            var_dump(assoc_unique($major,'major_code'));
+            var_dump($major);
             echo '------------------------------中职学校----------------------------------------';
-            var_dump(assoc_unique($schools,'school_name'));
+            var_dump($schools);
             echo '------------------------------招生计划----------------------------------------';
             var_dump($enrollment);exit;
             foreach ( $res as $k => $v ){
