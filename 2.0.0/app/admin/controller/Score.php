@@ -22,6 +22,7 @@ class Score extends Base
     {
         parent::__construct();
         $this->schoolModel = new SchoolModel();
+        $this->scoreModel = new ScoreModel();
     }
     public function score_list()
     {
@@ -45,30 +46,17 @@ class Score extends Base
         $map['m.major_id'] = $major_id;
 
         $map['m.school_id'] = $admin['school_id'];
-        $mapor = '';
+        $where = $mapor = '';
         if($major_score_status == 1){
             $map['ms.major_score_status'] = $major_score_status;
         }else if($major_score_status == ''){
 
         }else{
-            $map['ms.major_score_status'] = ['EXP','IS NULL'];
-            $mapor .= ' ms.major_score_status = 0';
+            $where .= '( ms.major_score_status IS NULL or ms.major_score_status = 0)';
         }
-
-		$score_list = Db::name('major_score')->alias("ms")
-						->join(config('database.prefix').'member_list m','m.member_list_id = ms.member_list_id','right')
-                        ->join(config('database.prefix').'member_info mi','m.member_list_id = mi.member_list_id')
-                        ->join(config('database.prefix').'major mj','mj.major_id = m.major_id')
-						->where($map)
-                        ->whereOr($mapor)
-                        ->where('member_list_username|member_list_nickname|ZexamineeNumber','like',"%".$search_key."%")
-                        ->order('ms.major_score_status desc')
-                        ->order('m.member_list_id desc')
-						->field('ms.major_score, ms.major_score_id,ms.major_score_status,m.member_list_nickname , m.member_list_username, m.member_list_id,mj.major_name,mj.major_name,m.major_id,m.school_id,mi.ZexamineeNumber')
-						->order('major_score_id desc')->paginate(config('paginate.list_rows'),false,['query'=>get_query()]);
+        $score_list = $this->scoreModel->getMajorScoreList($map,$where,$search_key);
 
 		$data = $score_list->all();
-		$status = config("status");
 
         $major = MajorModel::get_major_detail($major_id,$admin['school_id']);
 
@@ -79,19 +67,8 @@ class Score extends Base
 
         $major_score_key = $major['major_score_key'] ? array_filter(json_decode($major['major_score_key'],true)) : [];
 
-		foreach($data as $key => $val)
-		{
-            $major_score_arr = json_decode($val['major_score'],true);
-            $major_score_desc = major_score_desc($major_score_key,$major_score_arr);
-            $major_score_arr = handle_major_score_arr($major_score_key,$major_score_arr);
-            $data[$key]['major_score_arr'] = $major_score_arr;
-            $data[$key]['major_score_desc'] = $major_score_desc;
-            $major_score_status = $val['major_score_status'] ? $val['major_score_status'] : 0 ;
-            $data[$key]['major_score_status'] = $major_score_status ;
-            $data[$key]['status_desc'] = $status[$major_score_status] ;
-            $major_score_total = handle_major_score($major_score_arr);
-            $data[$key]['major_score_total'] = $major_score_total;
-		}
+        $status = config("status");
+        $data = $this->scoreModel->handleMajorScoreList($data,$major_score_key,$status);
 
 		$page = $score_list->render();
 
@@ -117,7 +94,7 @@ class Score extends Base
         $major_score_status = input('major_score_status','');
         $this->assign('major_score_status',$major_score_status);
         $map = [];
-        $mapor = '';
+        $where = $mapor = '';
         if($major_id){
             $map['m.major_id'] = $major_id;
         }
@@ -129,20 +106,10 @@ class Score extends Base
         }else if($major_score_status == ''){
 
         }else{
-            $map['ms.major_score_status'] = ['EXP','IS NULL'];
-            $mapor .= ' ms.major_score_status = 0';
+            $where .= '( ms.major_score_status IS NULL or ms.major_score_status = 0)';
         }
 
-		$score_list = Db::name('major_score')->alias("ms")
-						->join(config('database.prefix').'member_list m','m.member_list_id = ms.member_list_id','left')
-                        ->join(config('database.prefix').'member_info mi','m.member_list_id = mi.member_list_id')
-						->join(config('database.prefix').'major mj','mj.major_id = m.major_id')
-						->where($map)
-                        ->whereOr($mapor)
-                        ->where('member_list_username|member_list_nickname|ZexamineeNumber','like',"%".$search_key."%")
-                        ->order('m.member_list_id desc')
-						->field('mi.ZexamineeNumber,ms.major_score_id,ms.major_score, ms.major_score_status,m.member_list_nickname , m.member_list_username, m.member_list_id,m.major_id,ms.major_score_id,mj.major_name,m.school_id')
-						->order('major_score_id desc')->paginate(config('paginate.list_rows'),false,['query'=>get_query()]);
+		$score_list = $this->scoreModel->getMajorScoreList($map,$where,$search_key);
 
 		$data = $score_list->all();
 		$status = config("status");
@@ -254,17 +221,7 @@ class Score extends Base
 
         $map['m.school_id'] = $this->admin['school_id'];
 
-        $data = Db::name('major_score')->alias("ms")
-                        ->join(config('database.prefix').'member_list m','m.member_list_id = ms.member_list_id','right')
-                        ->join(config('database.prefix').'member_info mi','m.member_list_id = mi.member_list_id')
-                        ->join(config('database.prefix').'major mj','mj.major_id = m.major_id')
-                        ->where($map)
-                        ->order('ms.major_score_status desc')
-                        ->order('m.member_list_id desc')
-                        ->field('ms.major_score, ms.major_score_id,ms.major_score_status,m.member_list_nickname , m.member_list_username, m.member_list_id,mj.major_name,mj.major_name,m.major_id,m.school_id,mi.ZexamineeNumber')
-                        ->order('major_score_id desc')->select();
-
-        $status = config("status_title");
+        $data = $this->scoreModel->getMajorScoreList($map,'','',0);
 
         $major = MajorModel::get_major_detail($major_id,$this->admin['school_id']);
 
@@ -278,26 +235,8 @@ class Score extends Base
 
         $major_score_key = $major['major_score_key'] ? array_filter(json_decode($major['major_score_key'],true)) : [];
 
-		foreach($data as $key => $val)
-		{
-            $major_score_arr = json_decode($val['major_score'],true);
-            $major_score_desc = major_score_desc($major_score_key,$major_score_arr);
-            $major_score_arr = handle_major_score_arr($major_score_key,$major_score_arr);
-            $data[$key]['major_score_arr'] = $major_score_arr;
-            $data[$key]['major_score_desc'] = $major_score_desc;
-            $major_score_status = $val['major_score_status'] ? $val['major_score_status'] : 0 ;
-            $data[$key]['major_score_status'] = $major_score_status ;
-            $data[$key]['status_desc'] = $status[$major_score_status] ;
-            $major_score_total = handle_major_score($major_score_arr);
-            $data[$key]['major_score_total'] = $major_score_total;
-            // $data[$key]['member_list_username'] = $val['member_list_username']."\t";
-            // $data[$key]['ZexamineeNumber'] = $val['ZexamineeNumber']."\t";
-            $j = 0;
-            foreach ($major_score_arr as $major_score_k => $major_score_v) {
-                $data[$key]['major_'.$j] = $major_score_v;
-                $j++;
-            }
-		}
+        $data = $this->scoreModel->handleMajorScoreList($data,$major_score_key,config("status_title"));
+
         $field_titles = ['0' => '姓名','1' => '中职考生号','2' => '身份证','3' => '中职专业'];
         $i = 4;
         foreach ($major_score as $k => $major) {
@@ -321,42 +260,6 @@ class Score extends Base
 
         $this->score_list_export_pdf($field_titles,$fields,$data,$table,$title,$author);
         return false;
-
-        error_reporting(E_ALL);
-        date_default_timezone_set('Asia/chongqing');
-        $objPHPExcel = new \PHPExcel();
-        //import("Org.Util.PHPExcel.Reader.Excel5");
-        /*设置excel的属性*/
-        $objPHPExcel->getProperties()->setCreator("wuzhijie")//创建人
-        ->setLastModifiedBy("wuzhijie")//最后修改人
-        ->setKeywords("excel")//关键字
-        ->setCategory("result file");//种类
-
-        //第一行数据
-        $objPHPExcel->setActiveSheetIndex(0);
-        $active = $objPHPExcel->getActiveSheet();
-        foreach($field_titles as $i=>$name){
-            $ck = num2alpha($i++) . '1';
-            $active->setCellValue($ck, $name);
-        }
-        //填充数据
-        foreach($data as $k => $v){
-            $k=$k+1;
-            $num=$k+1;//数据从第二行开始录入
-            $objPHPExcel->setActiveSheetIndex(0);
-            foreach($fields as $i=>$name){
-                $ck = num2alpha($i++) . $num;
-                $active->setCellValue($ck, $v[$name]);
-            }
-        }
-        $objPHPExcel->getActiveSheet()->setTitle($table);
-        $objPHPExcel->setActiveSheetIndex(0);
-        header('Content-Type: application/vnd.ms-excel');
-        header('Content-Disposition: attachment;filename="'.$table.'.xls"');
-        header('Cache-Control: max-age=0');
-        $objWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
-        $objWriter->save('php://output');
-        exit;
 
     }
     public function recruit_score_list()
@@ -395,34 +298,16 @@ class Score extends Base
         }else if($recruit_score_status == ''){
 
         }else{
-            $map['ms.recruit_score_status'] = ['EXP','IS NULL'];
-            $mapor .= ' ms.recruit_score_status = 0';
+            $where .= '( ms.recruit_score_status IS NULL or ms.recruit_score_status = 0)';
         }
 
-
-		$score_list = Db::name('major_score')->alias("ms")
-						->join(config('database.prefix').'member_list m','m.member_list_id = ms.member_list_id','right')
-                        ->join(config('database.prefix').'member_info mi','m.member_list_id = mi.member_list_id')
-						->join(config('database.prefix').'major mj','mj.major_id = m.major_id')
-                        ->join(config('database.prefix').'school s','s.school_id = m.school_id')
-						->where($map)
-                        ->whereOr($mapor)
-                        ->where('member_list_username|member_list_nickname|ZexamineeNumber','like',"%".$search_key."%")
-                        ->where($where)
-                        ->order('ms.major_score_status ASC')
-                        ->order('s.school_id desc')
-                        ->order('m.member_list_id desc')
-						->field('s.school_id,s.school_name,mi.ZexamineeNumber,ms.major_score_id,ms.major_score, ms.major_score_status,ms.recruit_score,ms.recruit_score_status,m.member_list_nickname,m.member_list_username, m.member_list_id,m.major_id,ms.major_score_id,mj.major_name,mj.major_id')
-						->order('major_score_id desc')->paginate(config('paginate.list_rows'),false,['query'=>get_query()]);
+		$score_list = $this->scoreModel->getRecruitMajorScoreList($map,$where,$search_key);
 
 		$data = $score_list->all();
 		$status = config("status");
 
-		foreach($data as $key => $val)
-		{
-            $val_recruit_score_status = $val['recruit_score_status'] ? $val['recruit_score_status'] : 0;
-            $data[$key]['status_desc'] = $status[$val_recruit_score_status];
-		}
+		$data = $this->scoreModel->handleRecruitMajorScoreList($data,$status,'');
+
 		$page = $score_list->render();
 
 		$this->assign('school_list',$school_list);
@@ -484,30 +369,13 @@ class Score extends Base
             $where = 'ms.recruit_score_status = 1';
         }
 
-		$data = Db::name('major_score')->alias("ms")
-						->join(config('database.prefix').'member_list m','m.member_list_id = ms.member_list_id','right')
-                        ->join(config('database.prefix').'member_info mi','m.member_list_id = mi.member_list_id')
-						->join(config('database.prefix').'major mj','mj.major_id = m.major_id')
-                        ->join(config('database.prefix').'school s','s.school_id = m.school_id')
-						->where($map)
-                        ->where($where)
-                        ->order('ms.major_score_status ASC')
-                        ->order('s.school_id desc')
-                        ->order('m.member_list_id desc')
-						->field('s.school_id,s.school_name,mi.ZexamineeNumber,ms.major_score_id,ms.major_score, ms.major_score_status,ms.recruit_score,ms.recruit_score_status,m.member_list_nickname,m.member_list_username, m.member_list_id,m.major_id,ms.major_score_id,mj.major_name')
-						->order('major_score_id desc')->select();
-
+        $data = $this->scoreModel->getRecruitMajorScoreList($map,$where,'',0);
 
 		$status = config("status_title");
         $recruit_major = Db::name('recruit_major')->where('recruit_major_id',$this->admin['recruit_major_id'])->find();
-		foreach($data as $key => $val)
-		{
-            $val_recruit_score_status = $val['recruit_score_status'] ? $val['recruit_score_status'] : 0;
-            $data[$key]['status_desc'] = $status[$val_recruit_score_status];
-            $data[$key]['recruit_major_name'] = $recruit_major['recruit_major_name'];
-            // $data[$key]['member_list_username'] = $val['member_list_username']."\t";
-            // $data[$key]['ZexamineeNumber'] = $val['ZexamineeNumber']."\t";
-		}
+
+        $data = $this->scoreModel->handleRecruitMajorScoreList($data,$status,$recruit_major);
+
         $field_titles = ['姓名','中职考生号','身份证','高职专业','中职学校','中职专业','技能成绩','审核状态'];
 
         $fields = ['member_list_nickname','ZexamineeNumber','member_list_username','recruit_major_name','school_name','major_name','recruit_score','status_desc'];
@@ -519,42 +387,6 @@ class Score extends Base
         $this->recruit_score_list_export_pdf($field_titles,$fields,$data,$table,$title,$author);
 
         return false;
-
-        error_reporting(E_ALL);
-        date_default_timezone_set('Asia/chongqing');
-        $objPHPExcel = new \PHPExcel();
-        //import("Org.Util.PHPExcel.Reader.Excel5");
-        /*设置excel的属性*/
-        $objPHPExcel->getProperties()->setCreator("wuzhijie")//创建人
-        ->setLastModifiedBy("wuzhijie")//最后修改人
-        ->setKeywords("excel")//关键字
-        ->setCategory("result file");//种类
-
-        //第一行数据
-        $objPHPExcel->setActiveSheetIndex(0);
-        $active = $objPHPExcel->getActiveSheet();
-        foreach($field_titles as $i=>$name){
-            $ck = num2alpha($i++) . '1';
-            $active->setCellValue($ck, $name);
-        }
-        //填充数据
-        foreach($data as $k => $v){
-            $k=$k+1;
-            $num=$k+1;//数据从第二行开始录入
-            $objPHPExcel->setActiveSheetIndex(0);
-            foreach($fields as $i=>$name){
-                $ck = num2alpha($i++) . $num;
-                $active->setCellValue($ck, $v[$name]);
-            }
-        }
-        $objPHPExcel->getActiveSheet()->setTitle($table);
-        $objPHPExcel->setActiveSheetIndex(0);
-        header('Content-Type: application/vnd.ms-excel');
-        header('Content-Disposition: attachment;filename="'.$table.'.xls"');
-        header('Cache-Control: max-age=0');
-        $objWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
-        $objWriter->save('php://output');
-        exit;
 
     }
     public function recruit_score_add()
@@ -648,6 +480,8 @@ class Score extends Base
         if($recruit_major_id){
             $map['rm.recruit_major_id'] = $recruit_major_id;
         }
+
+
         $major_id = input('major_id','');
 
         $school_id = input('school_id','');
@@ -655,23 +489,11 @@ class Score extends Base
 
         if($recruit_score_status != ''){
             $where = 'ms.recruit_score_status = '.$recruit_score_status;
+        }else{
+            $map['ms.recruit_score'] = ['<>','NULL'];
         }
 
-
-		$score_list = Db::name('major_score')->alias("ms")
-						->join(config('database.prefix').'member_list m','m.member_list_id = ms.member_list_id','left')
-                        ->join(config('database.prefix').'member_info mi','m.member_list_id = mi.member_list_id')
-						->join(config('database.prefix').'major mj','mj.major_id = m.major_id')
-                        ->join(config('database.prefix').'school s','s.school_id = m.school_id')
-						->where($map)
-                        ->where($where)
-                        ->where(['ms.recruit_score' => ['<>','NULL']])
-                        ->where('member_list_username|member_list_nickname|ZexamineeNumber','like',"%".$search_key."%")
-                        ->order('ms.major_score_status ASC')
-                        ->order('s.school_id desc')
-                        ->order('m.member_list_id desc')
-						->field('s.school_id,s.school_name,mi.ZexamineeNumber,ms.major_score_id,ms.major_score, ms.major_score_status,ms.recruit_score,ms.recruit_score_status,m.member_list_nickname,m.member_list_username, m.member_list_id,m.major_id,ms.major_score_id,mj.major_name')
-						->order('major_score_id desc')->paginate(config('paginate.list_rows'),false,['query'=>get_query()]);
+        $score_list = $this->scoreModel->getRecruitMajorScoreList($map,$where,$search_key);
 
 		$data = $score_list->all();
 		$status = config("status");
@@ -960,5 +782,16 @@ class Score extends Base
         $showType= 'D'; //PDF输出的方式。I，在浏览器中打开；D，以文件形式下载；F，保存到服务器中；S，以字符串形式输出；E：以邮件的附件输出。
         $pdf->Output("{$fileName}.pdf", $showType);
         exit;
+    }
+    public function major_score_import()
+    {
+        $major_ids = json_decode($this->admin['major_id'],true);
+        $major_list = Db::name('major')->where(array('major_id' => array('in',$major_ids)))->select();
+        $this->assign('major_list',$major_list);
+        return $this->fetch();
+    }
+    public function recruit_major_score_import()
+    {
+        return $this->fetch();
     }
 }

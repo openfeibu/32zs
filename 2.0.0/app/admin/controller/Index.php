@@ -115,4 +115,9 @@ class Index extends Base
 			$this->success('切换成功',session('login_http_referer'));
 		}
 	}
+	public function test()
+	{
+		Db::name('school')->where('school_','1')->find();
+		$this->error('ceshi');
+	}
 }

@@ -3417,6 +3417,7 @@ class TCPDF {
 			}
 			$cell_height = $this->getCellHeight($headerfont[2] / $this->k);
 			// set starting margin for text data cell
+			$headerdata['logo_width'] = intval($headerdata['logo_width']);
 			if ($this->getRTL()) {
 				$header_x = $this->original_rMargin + ($headerdata['logo_width'] * 1.1);
 			} else {
