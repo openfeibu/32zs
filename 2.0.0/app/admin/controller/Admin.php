@@ -630,6 +630,7 @@ class Admin extends Base
 	}
 	public function addMajorAdmins()
 	{
+		exit;
 		$i = 0;
 		$schools = Db::name('school')->select();
 		foreach ($schools as $key => $school) {
@@ -640,6 +641,6 @@ class Admin extends Base
 			Db::name('admin')->where(['school_id' =>$school['school_id'],'major_id' => json_encode($major_ids) ])->delete();
 			AdminModel::add($admin_username,'','123456','','',input('admin_open',1),'',3,$school['school_id'],json_encode($major_ids));
 		}
-		exit;
+
 	}
 }
