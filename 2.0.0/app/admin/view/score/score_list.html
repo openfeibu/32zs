@@ -12,8 +12,8 @@
 					筛选：
 					<select name="major_score_status" class="ajax_change">
 						<option value="">所有状态</option>
-						<option value="1">已审核</option>
-						<option value="0">未审核</option>
+						<option value="1" {if $major_score_status == 1}selected{/if}>已审核</option>
+						<option value="0" {if $major_score_status == 0}selected{/if}>未审核</option>
 					</select>
 					中职专业：
 					<select name="major_id" class="ajax_change" id="major">

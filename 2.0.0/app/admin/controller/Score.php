@@ -45,13 +45,14 @@ class Score extends Base
         $map['m.major_id'] = $major_id;
 
         $map['m.school_id'] = $admin['school_id'];
-
+        $mapor = '';
         if($major_score_status == 1){
             $map['ms.major_score_status'] = $major_score_status;
         }else if($major_score_status == ''){
 
         }else{
             $map['ms.major_score_status'] = ['EXP','IS NULL'];
+            $mapor .= ' ms.major_score_status = 0';
         }
 
 		$score_list = Db::name('major_score')->alias("ms")
@@ -59,6 +60,7 @@ class Score extends Base
                         ->join(config('database.prefix').'member_info mi','m.member_list_id = mi.member_list_id')
                         ->join(config('database.prefix').'major mj','mj.major_id = m.major_id')
 						->where($map)
+                        ->whereOr($mapor)
                         ->where('member_list_username|member_list_nickname|ZexamineeNumber','like',"%".$search_key."%")
                         ->order('ms.major_score_status desc')
                         ->order('m.member_list_id desc')
@@ -95,6 +97,7 @@ class Score extends Base
 
         $major_list = Db::name('major')->where(array('major_id' => array('in',$major_ids)))->select();
         $this->assign('major_id',$major_id);
+        $this->assign('major_score_status',$major_score_status);
         $this->assign('major_list',$major_list);
 		$this->assign('data',$data);
 		$this->assign('page',$page);
@@ -114,14 +117,20 @@ class Score extends Base
         $major_score_status = input('major_score_status','');
         $this->assign('major_score_status',$major_score_status);
         $map = [];
+        $mapor = '';
         if($major_id){
             $map['m.major_id'] = $major_id;
         }
         if($school_id){
             $map['m.school_id'] = $school_id;
         }
-        if($major_score_status!=''){
+        if($major_score_status == 1){
             $map['ms.major_score_status'] = $major_score_status;
+        }else if($major_score_status == ''){
+
+        }else{
+            $map['ms.major_score_status'] = ['EXP','IS NULL'];
+            $mapor .= ' ms.major_score_status = 0';
         }
 
 		$score_list = Db::name('major_score')->alias("ms")
@@ -129,6 +138,7 @@ class Score extends Base
                         ->join(config('database.prefix').'member_info mi','m.member_list_id = mi.member_list_id')
 						->join(config('database.prefix').'major mj','mj.major_id = m.major_id')
 						->where($map)
+                        ->whereOr($mapor)
                         ->where('member_list_username|member_list_nickname|ZexamineeNumber','like',"%".$search_key."%")
                         ->order('m.member_list_id desc')
 						->field('mi.ZexamineeNumber,ms.major_score_id,ms.major_score, ms.major_score_status,m.member_list_nickname , m.member_list_username, m.member_list_id,m.major_id,ms.major_score_id,mj.major_name,m.school_id')
@@ -353,7 +363,7 @@ class Score extends Base
     {
         $school_list = $this->schoolModel->get_school_list_rmi($this->admin['recruit_major_id']);
         $map = [];
-        $where = '';
+        $where = $mapor = '';
         $school_id_arr = $major_id_arrs = array();
         foreach ($school_list as $school_key => $school_value) {
             $school_id_arr[] = $school_value['school_id'];
@@ -380,12 +390,13 @@ class Score extends Base
 
         $recruit_score_status = input('recruit_score_status','');
 
+        if($recruit_score_status == 1){
+            $map['ms.recruit_score_status'] = $recruit_score_status;
+        }else if($recruit_score_status == ''){
 
-        if($recruit_score_status === '0'){
-            $where = 'ms.recruit_score_status <> 1';
-        }
-        else if($recruit_score_status == 1){
-            $where = 'ms.recruit_score_status = 1';
+        }else{
+            $map['ms.recruit_score_status'] = ['EXP','IS NULL'];
+            $mapor .= ' ms.recruit_score_status = 0';
         }
 
 
@@ -395,6 +406,7 @@ class Score extends Base
 						->join(config('database.prefix').'major mj','mj.major_id = m.major_id')
                         ->join(config('database.prefix').'school s','s.school_id = m.school_id')
 						->where($map)
+                        ->whereOr($mapor)
                         ->where('member_list_username|member_list_nickname|ZexamineeNumber','like',"%".$search_key."%")
                         ->where($where)
                         ->order('ms.major_score_status ASC')
@@ -417,9 +429,9 @@ class Score extends Base
 		$this->assign('data',$data);
         $this->assign('school_id',$school_id);
         $this->assign('major_id',$major_id);
+        $this->assign('recruit_score_status',$recruit_score_status);
 		$this->assign('page',$page);
         $this->assign('search_key',$search_key);
-        $this->assign('recruit_score_status',$recruit_score_status);
         if(request()->isAjax()){
             return $this->fetch('ajax_recruit_score_list');
         }else{
