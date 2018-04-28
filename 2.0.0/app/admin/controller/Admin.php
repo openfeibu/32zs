@@ -628,4 +628,18 @@ class Admin extends Base
 			$this->error ('头像更新失败',url('admin/Admin/profile'));
 		}
 	}
+	public function addMajorAdmins()
+	{
+		$i = 0;
+		$schools = Db::name('school')->select();
+		foreach ($schools as $key => $school) {
+			$i++;
+			$admin_username = str_pad($i,3,"0",STR_PAD_LEFT);
+			$major_list = MajorModel::get_major_list($school['school_id']);
+			$major_ids = array_column($major_list,'major_id');
+			Db::name('admin')->where(['school_id' =>$school['school_id'],'major_id' => json_encode($major_ids) ])->delete();
+			AdminModel::add($admin_username,'','123456','','',input('admin_open',1),'',3,$school['school_id'],json_encode($major_ids));
+		}
+		exit;
+	}
 }
