@@ -1703,24 +1703,76 @@ function is_idcard($id)
 function assoc_unique($arr, $key)
 {
     $rAr=array();
-	foreach($arr as $ak => $av)
-	{
-		if (!isset($rAr[$arr[$ak][$key]]) && $arr[$ak][$key]) {
+    foreach ($arr as $ak => $av) {
+        if (!isset($rAr[$arr[$ak][$key]]) && $arr[$ak][$key]) {
             $rAr[$arr[$ak][$key]]=$arr[$ak];
         }
-	}
+    }
 
     return $arr=array_values($rAr);
 }
-function get_val_from_arr2($arr,$val,$want_key,$search_key)
+function get_val_from_arr2($arr, $val, $want_key, $search_key)
 {
-	$return = '';
-	foreach($arr as $k => $v)
-	{
-		if($v[$search_key] == $val)
-		{
-			return $v[$want_key];
-		}
-	}
-	return $return;
+    $return = '';
+    foreach ($arr as $k => $v) {
+        if ($v[$search_key] == $val) {
+            return $v[$want_key];
+        }
+    }
+    return $return;
+}
+function export_excel($data, $table, $field_titles, $fields)
+{
+    error_reporting(E_ALL);
+    date_default_timezone_set('Asia/chongqing');
+    $objPHPExcel = new \PHPExcel();
+    //import("Org.Util.PHPExcel.Reader.Excel5");
+    /*设置excel的属性*/
+    $objPHPExcel->getProperties()->setCreator("wuzhijie")//创建人
+    ->setLastModifiedBy("wuzhijie")//最后修改人
+    ->setKeywords("excel")//关键字
+    ->setCategory("result file");//种类
+
+    //第一行数据
+    $objPHPExcel->setActiveSheetIndex(0);
+    $active = $objPHPExcel->getActiveSheet();
+    foreach ($field_titles as $i=>$name) {
+        $ck = num2alpha($i++) . '1';
+        $active->setCellValue($ck, $name);
+    }
+    //填充数据
+    foreach ($data as $k => $v) {
+        $k=$k+1;
+        $num=$k+1;//数据从第二行开始录入
+        $objPHPExcel->setActiveSheetIndex(0);
+        foreach ($fields as $i=>$name) {
+            $ck = num2alpha($i++) . $num;
+            $active->setCellValueExplicit($ck, $v[$name], PHPExcel_Cell_DataType::TYPE_STRING);
+        }
+    }
+    $objPHPExcel->getActiveSheet()->setTitle($table);
+    $objPHPExcel->setActiveSheetIndex(0);
+    header('Content-Type: application/vnd.ms-excel');
+    header('Content-Disposition: attachment;filename="'.$table.'.xls"');
+    header('Cache-Control: max-age=0');
+    $objWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
+    $objWriter->save('php://output');
+    exit;
+}
+function uploadFile($file,$savePath)
+{
+    $tmp_file = $file['tmp_name'];
+    $file_types = explode(".", $file['name']);
+    $file_type = $file_types[count($file_types) - 1];
+    /*判别是不是.xls文件，判别是不是excel文件*/
+    if (strtolower($file_type) != "xls") {
+        $this->error('不是Excel文件，重新上传');
+    }
+    /*以时间来命名上传的文件*/
+    $str = time();
+    $file_name = $str . "." . $file_type;
+    if (! copy($tmp_file, $savePath . $file_name)) {
+        $this->error('上传失败');
+    }
+    return $savePath . $file_name;
 }

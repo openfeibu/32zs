@@ -18,6 +18,47 @@ use think\Db;
  */
 class Score extends Model
 {
+	public function majorScoreAdd($member_list_id,$major_score)
+	{
+		$rstdata['error'] = 0;
+		$rstdata['content'] = '';
+		$major_score_data = Db::name('major_score')->where(array('member_list_id' => $member_list_id))->find();
+        if($major_score_data)
+        {
+            if($major_score_data['major_score_status'] == 1)
+            {
+				$rstdata['error'] = 1;
+				$rstdata['content'] = '提交失败。已打印通过不能修改';
+                return $rstdata;
+            }
+            $data = [
+                'major_score' => $major_score,
+                'major_score_status' => 0,
+            ];
+            $rst = Db::name('major_score')->where(array('member_list_id' => $member_list_id))->update($data);
+			if($rst!==false){
+				$rstdata['content'] = '提交成功，请等待考生打印';
+				return $rstdata;
+			}else{
+				$rstdata['error'] = 1;
+				$rstdata['content'] = '提交失败。';
+                return $rstdata;
+			}
+        }
+        $data = [
+            'member_list_id' => $member_list_id,
+            'major_score' => $major_score
+        ];
+        $rst = Db::name('major_score')->insert($data);
+		if($rst !== false){
+			$rstdata['content'] = '提交成功，请等待考生打印';
+			return $rstdata;
+		}else{
+			$rstdata['error'] = 1;
+			$rstdata['content'] = '提交失败。';
+			return $rstdata;
+		}
+	}
 	public function getMajorScoreList($map,$where,$search_key = '',$is_page = 1)
 	{
 		$score_list = Db::name('major_score')->alias("ms")

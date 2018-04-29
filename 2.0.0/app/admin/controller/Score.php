@@ -60,7 +60,6 @@ class Score extends Base
 
         $major = MajorModel::get_major_detail($major_id,$admin['school_id']);
 
-
         $major_score = $major['score'] ? json_decode($major['score'],true) :[];
 		$major_score = array_filter($major_score);
 		$this->assign('major_score',$major_score);
@@ -174,33 +173,11 @@ class Score extends Base
         }
         $score = $_POST['score'];
         $major_score = json_encode($score);
-        $major_score_data = Db::name('major_score')->where(array('member_list_id' => $member_list_id))->find();
-        if($major_score_data)
-        {
-            if($major_score_data['major_score_status'] == 1)
-            {
-                $this->error('提交失败。已打印通过不能修改');
-            }
-            $data = [
-                'major_score' => $major_score,
-                'major_score_status' => 0,
-            ];
-            $rst = Db::name('major_score')->where(array('member_list_id' => $member_list_id))->update($data);
-			if($rst!==false){
-            $this->success('提交成功，请等待考生打印',url('admin/Score/score_list'));
-			}else{
-				$this->error('提交失败');
-			}
-        }
-        $data = [
-            'member_list_id' => $member_list_id,
-            'major_score' => $major_score
-        ];
-        $rst = Db::name('major_score')->insert($data);
-        if($rst!==false){
-            $this->success('提交成功，请等待考生打印',url('admin/Score/score_list'));
+        $data = $this->scoreModel->majorScoreAdd($member_list_id,$major_score);
+        if($data['error']){
+            $this->error($data['content']);
         }else{
-            $this->error('提交失败');
+            $this->success($data['content'],url('admin/Score/score_list'));
         }
     }
 	public function score_del()
@@ -786,9 +763,124 @@ class Score extends Base
     public function major_score_import()
     {
         $major_ids = json_decode($this->admin['major_id'],true);
+        if (!empty($_FILES['file_stu']['name'])){
+            $major_id = input('major_id','');
+            if(!$major_id)
+            {
+                $this->error('请先选择中职专业');
+            }
+            if(!in_array($major_id,$major_ids))
+            {
+                $this->error('请勿操作其他中职专业');
+            }
+            $post_file = $_FILES ['file_stu'];
+            $savePath = ROOT_PATH. 'public/excel/';
+            $file = uploadFile($post_file,$savePath);
+            $res = read($file);
+			if (!$res){
+				$this->error ('数据处理失败');
+			}
+            $major = MajorModel::get_major_detail($major_id,$this->admin['school_id']);
+            $major_score = $major['score'] ? json_decode($major['score'],true) :[];
+    		$major_score = array_filter($major_score);
+    		$this->assign('major_score',$major_score);
+            $data = [];
+            foreach ( $res as $k => $v ){
+	            if ($k != 1 && trim($v[0])){
+                    if($major['major_name'] != trim($v[4])){
+                        $this->error('提交的excel数据中的中职专业与筛选中的中职专业不符');
+                    }
+                    $member_list_id = trim($v[0]);
+                    $major_score_data = Db::name('major_score')->where(array('member_list_id' => $member_list_id))->field('major_score_status')->find();
+                    $member_list = Db::name('member_list')->where(array('member_list_id' => $member_list_id))->field('member_list_id')->find();
+                    if(!$member_list || ($major_score_data && $major_score_data['major_score_status'] == 1))
+                    {
+                        continue;
+                    }
+                    $data[$k]['member_list_id'] = $member_list_id;
+                    $data[$k]['member_list_nickname'] = trim($v[1]);
+                    $data[$k]['ZexamineeNumber'] = trim($v[2]);
+                    $data[$k]['member_list_username'] = trim($v[3]);
+                    $data[$k]['major_name'] = trim($v[4]);
+                    $data[$k]['major_score_arr'] = array_slice($v,5);
+                }
+
+            }
+            $this->assign('data',$data);
+            return $this->fetch('ajax_major_score_import');
+        }
+
         $major_list = Db::name('major')->where(array('major_id' => array('in',$major_ids)))->select();
         $this->assign('major_list',$major_list);
         return $this->fetch();
+    }
+    public function major_score_export_forimport()
+    {
+        $major_id = input('major_id','');
+
+        $map['m.major_id'] = $major_id;
+
+        $map['m.school_id'] = $this->admin['school_id'];
+
+        $where = "ms.major_score_status IS NUll or ms.major_score_status = 0";
+
+        $data = $this->scoreModel->getMajorScoreList($map,$where,'',0);
+
+        $major = MajorModel::get_major_detail($major_id,$this->admin['school_id']);
+        $major_name = $major['major_name'];
+
+        $school = Db::name('school')->where(['school_id' =>$this->admin['school_id'] ])->find();
+
+        $title = $school['school_name'].'  '.$major['major_name'].'   核定理论成绩表';
+        $author = '广东农工商职业技术学院   对口';
+
+        $major_score = $major['score'] ? json_decode($major['score'],true) :[];
+		$major_score = array_filter($major_score);
+
+        $major_score_key = $major['major_score_key'] ? array_filter(json_decode($major['major_score_key'],true)) : [];
+
+        $data = $this->scoreModel->handleMajorScoreList($data,$major_score_key,config("status_title"));
+
+        $field_titles = ['考生ID','姓名','中职考生号','身份证','中职专业'];
+        $i = 5;
+        foreach ($major_score as $k => $major) {
+            $field_titles[$i] = $major;
+            $i++;
+        }
+
+        $fields = ['0' => 'member_list_id','1' => 'member_list_nickname','2' => 'ZexamineeNumber','3' => 'member_list_username','4' => 'major_name'];
+        $i = 5; $j = 0;
+        foreach ($major_score as $k => $major) {
+            $fields[$i] = 'major_'.$j;
+            $i++;
+            $j++;
+        }
+
+        $table = '三二分段'.$major_name.'考核理论成绩录入标准表格';
+
+        export_excel($data,$table,$field_titles,$fields);
+
+    }
+    public function major_score_export_runimport()
+    {
+        $major_ids = json_decode($this->admin['major_id'],true);
+        $major_id = input('major_id','');
+        if(!$major_id)
+        {
+            $this->error('请先选择中职专业');
+        }
+        if(!in_array($major_id,$major_ids))
+        {
+            $this->error('请勿操作其他中职专业');
+        }
+        $member_list_ids = input('n_id/a');
+        ;
+        foreach ($member_list_ids as $key => $member_list_id) {
+            $post_score = input('major_score_'.$member_list_id.'/a');
+            $major_score = json_encode($post_score);
+            $data = $this->scoreModel->majorScoreAdd($member_list_id,$major_score);
+        }
+        $this->success('操作成功',url('admin/score/score_list',['major_id' => $major_id]));
     }
     public function recruit_major_score_import()
     {
