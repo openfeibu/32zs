@@ -1,6 +1,6 @@
 <?php
 // +----------------------------------------------------------------------
-// | 三二分段 
+// | 三二分段
 // +----------------------------------------------------------------------
 // | Copyright (c) 2015-2016 http://www.feibu.info All rights reserved.
 // +----------------------------------------------------------------------
@@ -44,12 +44,12 @@ class Base extends Common
 		$this->admin = $admin;
 		$this->assign('admin', $admin);
 		$head_title = '';
-		if($admin['recruit_major_id'])
+		if(isset($admin['recruit_major_id']) && $admin['recruit_major_id'])
 		{
 			$recruit_major = Db::name('recruit_major')->where(['recruit_major_id' => $admin['recruit_major_id']])->find();
 			$head_title = '('.$recruit_major['recruit_major_name'].')';
 		}
-		if($admin['school_id'])
+		if(isset($admin['school_id']) && $admin['school_id'])
 		{
 			$school = Db::name('school')->where(['school_id' => $admin['school_id']])->find();
 			$head_title = '('.$school['school_name'].')';
