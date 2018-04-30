@@ -874,7 +874,6 @@ class Score extends Base
             $this->error('请勿操作其他中职专业');
         }
         $member_list_ids = input('n_id/a');
-        ;
         foreach ($member_list_ids as $key => $member_list_id) {
             $post_score = input('major_score_'.$member_list_id.'/a');
             $major_score = json_encode($post_score);
