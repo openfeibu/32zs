@@ -787,22 +787,21 @@ class Score extends Base
             $data = [];
             foreach ( $res as $k => $v ){
 	            if ($k != 1 && trim($v[0])){
-                    if($major['major_name'] != trim($v[4])){
+                    if($major['major_name'] != trim($v[3])){
                         $this->error('提交的excel数据中的中职专业与筛选中的中职专业不符');
                     }
                     $member_list_id = trim($v[0]);
                     $major_score_data = Db::name('major_score')->where(array('member_list_id' => $member_list_id))->field('major_score_status')->find();
-                    $member_list = Db::name('member_list')->where(array('member_list_id' => $member_list_id))->field('member_list_id')->find();
+                    $member_list = Db::name('member_list')->where(array('member_list_id' => $member_list_id,'major_id' => $major_id,'school_id' => $this->admin['school_id']))->field('member_list_id')->find();
                     if(!$member_list || ($major_score_data && $major_score_data['major_score_status'] == 1))
                     {
                         continue;
                     }
                     $data[$k]['member_list_id'] = $member_list_id;
                     $data[$k]['member_list_nickname'] = trim($v[1]);
-                    $data[$k]['ZexamineeNumber'] = trim($v[2]);
-                    $data[$k]['member_list_username'] = trim($v[3]);
-                    $data[$k]['major_name'] = trim($v[4]);
-                    $data[$k]['major_score_arr'] = array_slice($v,5);
+                    $data[$k]['member_list_username'] = trim($v[2]);
+                    $data[$k]['major_name'] = trim($v[3]);
+                    $data[$k]['major_score_arr'] = array_slice($v,4);
                 }
 
             }
@@ -841,15 +840,15 @@ class Score extends Base
 
         $data = $this->scoreModel->handleMajorScoreList($data,$major_score_key,config("status_title"));
 
-        $field_titles = ['考生ID','姓名','中职考生号','身份证','中职专业'];
-        $i = 5;
+        $field_titles = ['考生ID','姓名','身份证','中职专业'];
+        $i = 4;
         foreach ($major_score as $k => $major) {
             $field_titles[$i] = $major;
             $i++;
         }
 
-        $fields = ['0' => 'member_list_id','1' => 'member_list_nickname','2' => 'ZexamineeNumber','3' => 'member_list_username','4' => 'major_name'];
-        $i = 5; $j = 0;
+        $fields = ['0' => 'member_list_id','1' => 'member_list_nickname','2' => 'member_list_username','3' => 'major_name'];
+        $i = 4; $j = 0;
         foreach ($major_score as $k => $major) {
             $fields[$i] = 'major_'.$j;
             $i++;
