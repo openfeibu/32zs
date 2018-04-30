@@ -117,7 +117,7 @@ class Index extends Base
 	}
 	public function test()
 	{
-		Db::name('school')->where('school_','1')->find();
+		//Db::name('school')->where('school_','1')->find();
 		$this->error('ceshi');
 	}
 }
