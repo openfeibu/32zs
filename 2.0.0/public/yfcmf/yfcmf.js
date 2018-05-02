@@ -776,8 +776,9 @@ $("input[id^=file_]").change(function (e) {
 	$("#file_name").text(name);
 
 });
-function getObjectURL(file,id = '') {
+function getObjectURL(file,id) {
     var url = null;
+    var id = id || '';
     if (window.createObjectURL != undefined) { // basic
         $("#oldcheckpic_"+id).val("nopic");
         url = window.createObjectURL(file);
