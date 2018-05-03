@@ -1,6 +1,6 @@
 <?php
 // +----------------------------------------------------------------------
-// | 三二分段 
+// | 三二分段
 // +----------------------------------------------------------------------
 // | Copyright (c) 2015-2016 http://www.feibu.info All rights reserved.
 // +----------------------------------------------------------------------
@@ -23,6 +23,7 @@ class RecruitMajor extends Model
 		$recruit_major = Db::name('recruit_major')->alias('rm')
 								->join(config('database.prefix').'enrollment e','e.recruit_major_id = rm.recruit_major_id')
 								->where(array('e.major_ids' => array('LIKE' , '%,'.$major_id.',%')))
+								->whereOr('e.major_ids',$major_id)
 								->where(array('e.school_id' => $school_id))
 								->find();
 		return $recruit_major;
