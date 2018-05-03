@@ -1,6 +1,6 @@
 <?php
 // +----------------------------------------------------------------------
-// | 三二分段 
+// | 三二分段
 // +----------------------------------------------------------------------
 // | Copyright (c) 2015-2016 http://www.feibu.info All rights reserved.
 // +----------------------------------------------------------------------
@@ -22,5 +22,15 @@ class School extends Model
                                          ->field('s.school_id,s.school_name,e.major_ids')
                                          ->select();
 		return $school_list;
+	}
+	public function get_school_list_major_ids($school_list)
+	{
+		$major_id_arrs = array();
+		foreach ($school_list as $school_key => $school_value) {
+            $school_id_arr[] = $school_value['school_id'];
+            $major_id_arr = array_filter(explode(',',$school_value['major_ids']));
+            $major_id_arrs = array_merge($major_id_arrs,$major_id_arr);
+        }
+		return $major_id_arrs;
 	}
 }

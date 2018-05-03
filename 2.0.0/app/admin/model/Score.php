@@ -59,6 +59,74 @@ class Score extends Model
 			return $rstdata;
 		}
 	}
+	public function recruitScoreAdd($member_list_id,$recruit_score)
+	{
+        if(!$member_list_id){
+            return [
+				'code' => 0,
+				'msg' => '参数错误'
+			];
+        }
+
+        $major_score_data = Db::name('major_score')->where(array('member_list_id' => $member_list_id))->find();
+        if($major_score_data)
+        {
+            if($major_score_data['recruit_score'] == 1)
+            {
+                return [
+					'code' => 0,
+					'msg' => '提交失败，已打印通过请勿重复提交'
+				];
+            }
+			if($major_score_data['recruit_score'] == $recruit_score){
+				return [
+					'code' => 2,
+					'msg' => ''
+				];
+			}
+            $data = [
+                'recruit_score' => $recruit_score,
+                'recruit_score_status' => 0,
+            ];
+            $rst = Db::name('major_score')->where(array('member_list_id' => $member_list_id))->update($data);
+			if($rst!==false){
+				return [
+					'code' => 1,
+					'msg' => '提交成功，请等待考生打印'
+				];
+			}else{
+				return [
+					'code' => 0,
+					'msg' => '提交失败'
+				];
+			}
+        }
+        else{
+            $data = [
+                'member_list_id' => $member_list_id,
+                'major_score' => '',
+                'recruit_score' => $recruit_score,
+                'recruit_score_status' => 0,
+            ];
+            $rst = Db::name('major_score')->insert($data);
+            if($rst!==false){
+                return [
+					'code' => 1,
+					'msg' => '提交成功，请等待考生打印'
+				];
+            }else{
+                return [
+					'code' => 0,
+					'msg' => '提交失败'
+				];
+            }
+        }
+
+		return [
+			'code' => 0,
+			'msg' => '参数错误'
+		];
+	}
 	public function getMajorScoreList($map,$where,$search_key = '',$is_page = 1)
 	{
 		$score_list = Db::name('major_score')->alias("ms")

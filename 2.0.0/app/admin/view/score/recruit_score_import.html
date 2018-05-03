@@ -1,0 +1,84 @@
+{extend name="admin@public/base" /}
+{block name="main-content"}
+	<div class="page-content">
+
+		<div class="">
+
+			<div class="col-xs-12">
+
+				<form class="form-horizontal ajaxScoreForm" name="excel_runimport" method="post" action="{:url('admin/Score/recruit_score_import')}"  enctype="multipart/form-data">
+                    <p>注：请先选择中职学校，点击"下载对应中职考生表格"（只含未审核），录入成绩时请勿修改其他信息；然后点击"选择上传文件"，选择录好成绩的表格，点击"导入"，页面会显示对应上传表格的信息，确认信息无误后，点击页面显示的"确认后提交"。</p>
+					<div class="fb-export"><a href="javascript:;" onclick="javascript:var school_id = $('#school_id').val();window.location.href='{:url('admin/Score/recruit_score_import')}?school_id='+school_id;">下载对应中职专业考生表格</a></div>
+					<div class="form-group">
+						<label class="control-label no-padding-right" for="form-field-1" style="width:150px !important;"> 请选择中职学校： </label>
+						<div class="col-sm-3">
+							<select name="school_id" id="school_id">
+								<!-- <option value="">所有中职学校</option> -->
+								{foreach name="school_list" item="v"}
+									<option value="{$v.school_id}" {if condition="$school_id eq $v['school_id']"}selected="selected"{/if}>{$v.school_name}</option>
+								{/foreach}
+							</select>
+						</div>
+
+						<div class="col-sm-3">
+							<a href="javascript:;" class="file  btn-fb-blue btn-fb-radio">
+								<input type="file" name="file_stu" id="file_stu"  class="file"  required/>
+								选择上传文件
+							</a>
+							<span class="input-group-btn" style="float:inherit; left:140px;">
+								<button type="submit" class="btn btn-xs  btn-purple btn-fb-orange btn-fb-radio">
+									导入
+								</button>
+							</span>
+						</div>
+
+					</div>
+					<div class="space-4"></div>
+					<div class="form-group">
+						<p id="file_name" style="text-align:center;"></p>
+					</div>
+					<div class="space-4"></div>
+				</form>
+                <div>
+
+                </div>
+			</div>
+            <div class="row">
+    			<div class="col-xs-12">
+    				<div>
+    					<form id="leftnav" class="ajaxForm" name="leftnav" method="post" action="{:url('admin/Score/recruit_score_runimport')}" >
+    						<table class="table table-striped table-bordered table-hover" id="dynamic-table ">
+    							<tbody id="ajax-data">
+                                    {include file="score/ajax_recruit_score_import"/}
+    							</tbody>
+    						</table>
+    					</form>
+
+    				</div>
+    			</div>
+
+    		</div>
+		</div>
+
+
+	</div><!-- /.page-content -->
+<script type="text/javascript">
+$(function(){
+    $(function () {
+        $('.ajaxScoreForm').ajaxForm({
+    		beforeSubmit:beforeAjaxForm,
+            success: function(data){
+                if(typeof load!="undefined"){layer.close(load);}
+                if (data.code == 0) {
+            		if(typeof index!="undefined"){layer.close(index);}
+            		layer.alert(data.msg, {icon: 5});
+                } else {
+                    $("#ajax-data").html(data);
+                }
+            }, // 这是提交后的方法
+            dataType: 'json'
+        });
+    });
+});
+</script>
+{/block}
