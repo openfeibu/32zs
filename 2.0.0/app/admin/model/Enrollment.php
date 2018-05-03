@@ -164,7 +164,6 @@ class Enrollment extends Model
                 $enroll_all_count += $enroll_count;
             }
         }
-        var_dump($enroll_all_count);exit;
         return $enroll_all_count;
     }
 
