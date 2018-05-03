@@ -149,18 +149,22 @@ class Enrollment extends Model
                 $enroll_count = 0;
                 foreach ($data as $key => $value) {
                     $data[$key]['ranking'] = $ranking;
+                    $ranking++;
+                }
+                foreach ($data as $key => $value) {
                     if($value['ranking'] > $enrollment['enrollment_number'])
                     {
                         $data[$key]['admission_status'] = 0;
-                    }else{
+                    }
+                    if($value['admission_status']){
                         $enroll_count++;
                     }
                     $data[$key]['admission_status_desc'] = $data[$key]['admission_status'] ? '是' : '否';
-                    $ranking++;
                 }
                 $enroll_all_count += $enroll_count;
             }
         }
+        var_dump($enroll_all_count);exit;
         return $enroll_all_count;
     }
 
