@@ -16,7 +16,7 @@
 						导出所有中职负责人
 					</a>
 			</div>
-			
+
 			<div class="col-xs-10 col-sm-5 margintop5">
 				<form name="admin_list_sea" class="form-search" method="post" action="{:url('admin/Admin/secondary_vocat_admin_list')}">
 					<div class="input-group">
@@ -24,7 +24,7 @@
 											<i class="ace-icon fa fa-search"></i>
 										</span>
 						<input type="text" name="search_name" class="form-control" value="{$search_name}" placeholder="输入需查询的用户名" />
-										
+
 					</div>
 				</form>
 			</div>
@@ -55,7 +55,7 @@
 								<!-- <th>用户组</th> -->
 								<th class="hidden-sm hidden-xs">登陆次数</th>
 								<th class="hidden-sm hidden-xs">最近登陆IP</th>
-								<th>状态</th>
+								<!-- <th>状态</th> -->
 								<th width="150px">操作</th>
 							</tr>
 							</thead>
@@ -79,7 +79,7 @@
 									<!-- <td>{$v.admin_id|get_groups}</td> -->
 									<td class="hidden-sm hidden-xs">{$v.admin_hits}</td>
 									<td class="hidden-sm hidden-xs">{$v.admin_ip}</td>
-									<td>
+									<!-- <td>
 										{if condition="$v['admin_open'] eq 1"}
 											<a class="red open-btn" href="{:url('admin/Admin/admin_state')}" data-id="{$v.admin_id}" title="已开启">
 												<div id="zt{$v.admin_id}"><button class="btn btn-minier btn-fb-blue">开启</button></div>
@@ -89,7 +89,7 @@
 												<div id="zt{$v.admin_id}"><button class="btn btn-minier btn-fb-orange">禁用</button></div>
 											</a>
 										{/if}
-									</td>
+									</td> -->
 									<td>
 										<div class="hidden-sm hidden-xs action-buttons">
 											<a href="{:url('admin/Admin/secondary_vocat_admin_edit',array('admin_id'=>$v['admin_id']))}" title="修改">

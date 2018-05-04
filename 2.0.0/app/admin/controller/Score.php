@@ -351,12 +351,16 @@ class Score extends Base
 
         $where = "ms.major_score_status IS NUll or ms.major_score_status <= 0";
 
-        $data = $this->scoreModel->getMajorScoreList($map,$where,'',0);
-
-        if(!$data)
+        $major =  Db::name('major_score_config')->alias('m')->where($map)->find();
+        if(!$major)
         {
-            $this->error('目前没有未审核的考生或未导入考生，无法导出模板');
+            $this->error('该中职专业下未设置科目，无法导出模板');
         }
+        // $data = $this->scoreModel->getMajorScoreList($map,$where,'',0);
+        // if(!$data)
+        // {
+        //     $this->error('该中职专业下没有未审核的考生或未导入考生，无法导出模板');
+        // }
         $this->success('',url('admin/score/major_score_export_forimport',['major_id']));
     }
     public function major_score_export_forimport()

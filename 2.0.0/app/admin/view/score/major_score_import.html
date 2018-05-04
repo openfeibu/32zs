@@ -7,8 +7,21 @@
 			<div class="col-xs-12">
 
 				<form class="form-horizontal ajaxScoreForm" name="excel_runimport" method="post" action="{:url('admin/Score/major_score_import')}"  enctype="multipart/form-data">
-                    <p>注：确保科目已建立且不再修改，选择中职专业，点击"下载对应中职专业考生表格"（只含未审核），录入成绩时请勿修改其他信息；然后点击"选择上传文件"，选择录好成绩的表格，点击"导入"，页面会显示对应上传表格的信息，确认信息无误后，点击页面显示的"确认后提交"。</p>
-					<div class="fb-export"><a href="javascript:;" onclick="javascript:var major_id = $('#major').val();window.location.href='{:url('admin/Score/major_score_export_forimport')}?major_id='+major_id;">下载对应中职专业考生表格</a></div>
+					<div style="margin-bottom:10px;">
+						<div style="float:left;margin-right:10px">
+		                    <p>注意事项：</p>
+							<p>1、确保系统内已有考生基础数据，已设好科目，才能导入。</p>
+							<p>2、导出的模板表格中仅含未审核成绩的考生及其科目信息。</p>
+							<p>3、在模板上登记成绩时，仅填分数即可，勿修改其他信息。</p>
+							<p>操作流程：</p>
+							<p>选择专业->导出模板->登记成绩-->选择专业->导入成绩</p>
+						</div>
+						<div class="file_sl"  style="float:left">
+								<img src="__PUBLIC__/img/sl.png" alt="" >
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="fb-export"><a href="javascript:;" id="downexcel">下载对应中职专业考生表格</a></div>
 					<input name="type" value="member" type="hidden"/>
 					<div class="form-group">
 						<label class="control-label no-padding-right" for="form-field-1" style="width:150px !important;"> 请选择中职专业： </label>
@@ -38,9 +51,6 @@
 					<div class="space-4"></div>
 					<div class="form-group">
 						<p id="file_name" style="text-align:center;"></p>
-					</div>
-					<div class="file_sl">
-							<img src="__PUBLIC__/img/sl.png" alt="" >
 					</div>
 					<div class="space-4"></div>
 				</form>
@@ -83,6 +93,25 @@ $(function(){
             }, // 这是提交后的方法
             dataType: 'json'
         });
+		$("#downexcel").click(function(){
+			var major_id = $("#major").val();
+			load = layer.load(1);
+			//var url= "{:url('admin/Score/major_score_export_forimport')}";
+			$.ajax({
+			    url:"{:url('admin/Score/check_major_score_import')}",
+				type:"POST",
+				data:{'major_id':major_id},
+				success: function(data){
+					if(typeof load!="undefined"){layer.close(load);}
+					if (data.code == 1) {
+				        window.location.href = "{:url('admin/Score/major_score_export_forimport')}?major_id="+major_id;
+				    } else {
+				        layer.alert(data.msg, {icon: 5});
+						return false;
+				    }
+				}
+			});
+		})
     });
 });
 </script>
