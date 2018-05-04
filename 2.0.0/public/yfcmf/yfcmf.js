@@ -766,6 +766,7 @@ $("#site_logo").change(function () {
 });
 //
 $("input[id^=file_]").change(function (e) {
+    $("#file_name").text('');
     var field=$(this).data('field'),objUrl = getObjectURL2(this.files[0],field);
 	var name = e.currentTarget.files[0].name;
     console.log("objUrl = " + objUrl);
