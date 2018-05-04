@@ -8,7 +8,7 @@
 
 				<form class="form-horizontal ajaxScoreForm" name="excel_runimport" method="post" action="{:url('admin/Score/recruit_score_import')}"  enctype="multipart/form-data">
                     <p>注：请先选择中职学校，点击"下载对应中职考生表格"（只含未审核），录入成绩时请勿修改其他信息；然后点击"选择上传文件"，选择录好成绩的表格，点击"导入"，页面会显示对应上传表格的信息，确认信息无误后，点击页面显示的"确认后提交"。</p>
-					<div class="fb-export"><a href="javascript:;" onclick="javascript:var school_id = $('#school_id').val();window.location.href='{:url('admin/Score/recruit_score_import')}?school_id='+school_id;">下载对应中职专业考生表格</a></div>
+					<div class="fb-export"><a href="javascript:;" onclick="javascript:var school_id = $('#school_id').val();window.location.href='{:url('admin/Score/recruit_score_export_forimport')}?school_id='+school_id;">下载对应中职专业考生表格</a></div>
 					<div class="form-group">
 						<label class="control-label no-padding-right" for="form-field-1" style="width:150px !important;"> 请选择中职学校： </label>
 						<div class="col-sm-3">
