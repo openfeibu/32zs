@@ -12,7 +12,7 @@
 		<td>{$v.member_list_username}</td>
 		<td>{$v.major_name}</td>
 		<td>{$v.major_code}</td>
-		<td><input type="text" name="GexamineeNumber" value="{$v.GexamineeNumber}"  class="member_GexamineeNumber" data-id="{$v.member_list_id}" url="{:url('admin/Member/member_edit_GexamineeNumber',['member_list_id' => $v['member_list_id']])}"/></td>
+		<!-- <td><input type="text" name="GexamineeNumber" value="{$v.GexamineeNumber}"  class="member_GexamineeNumber" data-id="{$v.member_list_id}" url="{:url('admin/Member/member_edit_GexamineeNumber',['member_list_id' => $v['member_list_id']])}"/></td> -->
 		<td class="hidden-xs">
 			{php}echo config("status")[$v['user_status']]{/php}
 		</td>
