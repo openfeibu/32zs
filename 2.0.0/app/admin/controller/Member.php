@@ -807,8 +807,13 @@ class Member extends Base
 	public function member_export_pdf()
 	{
 		set_time_limit(0);
-		$map = ['a.school_id' => $this->admin['school_id']] ;
-		$map = ['a.user_status' => 1] ;
+		$map['a.school_id']	= $this->admin['school_id']] ;
+		$map['a.user_status'] = 1 ;
+		$major_id = input('major_id');
+		if($major_id)
+		{
+			$map['a.major_id'] = $major_id;
+		}
 		$member_model=new MemberList;
 		$data = $member_model->getMemberList($map,'',0);
 		$data = $member_model->handleMemberList2($data);
@@ -838,6 +843,10 @@ class Member extends Base
 			$this->assign('info',$val);
 			$content = $this->fetch('member_table');
 			$pdf->writeHTML($content, true, false, false, false, '');
+
+			$pdf->lastPage();
+			$pdf->Output("中职考生信息表" . '.pdf', 'D');
+			exit;
 			$pdf->AddPage();
 		}
 		$pdf->lastPage();
