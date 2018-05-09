@@ -807,7 +807,7 @@ class Member extends Base
 	public function member_export_pdf()
 	{
 		set_time_limit(0);
-		$map['a.school_id']	= $this->admin['school_id']] ;
+		$map['a.school_id']	= $this->admin['school_id'];
 		$map['a.user_status'] = 1 ;
 		$major_id = input('major_id');
 		if($major_id)
