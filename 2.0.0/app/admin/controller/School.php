@@ -449,7 +449,7 @@ class School extends Base
 
 			$major_list = MajorModel::get_major_list($school_id);
 
-			$html = '<option>所有中职专业</option>';
+			$html = '<option value="">所有中职专业</option>';
 			foreach($major_list as $key => $major)
 			{
 				$html .= "<option value='".$major['major_id']."'>".$major['major_name']."</option>";
