@@ -56,6 +56,11 @@ class MemberList extends Model
 		$member= self::name('member_list')->alias('m')
 					->join(config('database.prefix').'member_info mi','m.member_list_id =mi.member_list_id')
 					->where(array('m.member_list_id' => $member_list_id))->find();
+  		$member = self::handleMember($member);
+		return $member;
+	}
+	public static function handleMember($member)
+	{
 		$member['certificate'] = json_decode($member['certificate'],true);
 		$member['resume'] = json_decode($member['resume'],true);
 		$member['prize'] = json_decode($member['prize'],true);

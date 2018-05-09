@@ -1276,6 +1276,20 @@ function get_imgurl($url, $cat=0)
         return __ROOT__.$url;
     }
 }
+function get_imgurl2($url, $cat=0)
+{
+    $app_url = config('app_url');
+    $url = '/data/upload/avatar/'.$url;
+    // var_dump(ROOT_PATH.$url);exit;
+    if(is_file(ROOT_PATH.$url))
+    {
+        return $app_url.$url;
+    }else{
+        $imgurl='defaultGraph.jpg';
+        return $app_url.'/public/img/'.$imgurl;
+    }
+
+}
 /**
  * 获取当前request参数数组,去除值为空
  * @return array
@@ -1650,7 +1664,7 @@ function get_birth($idcard)
 }
 function get_sex($idcard)
 {
-    return substr($idcard, -2, 1) % 2 ? '男' : '女';
+    return intval(substr($idcard, -2, 1)) % 2 ? '男' : '女';
 }
 function is_idcard($id)
 {

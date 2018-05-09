@@ -806,42 +806,43 @@ class Member extends Base
 	}
 	public function member_export_pdf()
 	{
-		$member_list_id = 138;
-		$member_list_edit=Db::name('member_list')->where(array('member_list_id'=>$member_list_id))->find();
-		$info =  MemberList::getMember($member_list_id);
-		$major = Db::name('major')->where(array('major_id' => $member_list_edit['major_id']))->find();
-		$this->assign('member_list_edit',$member_list_edit);
-		$this->assign('major',$major);
-		$this->assign('info',$info);
-		$school = Db::name('school')->where(array('school_id' => $member_list_edit['school_id']))->find();
-		$this->assign('school',$school);
-
-		$recruit_major = RecruitMajorModel::get_recruit_major($member_list_edit['school_id'],$member_list_edit['major_id']);
-		$this->assign('recruit_major',$recruit_major);
-		$this->assign('recruit_major',$recruit_major);
-		$content = $this->fetch('member_table');
-
+		set_time_limit(0);
+		$map = ['a.school_id' => $this->admin['school_id']] ;
+		$map = ['a.user_status' => 1] ;
+		$member_model=new MemberList;
+		$data = $member_model->getMemberList($map,'',0);
+		var_dump($data);exit;
+		$data = $member_model->handleMemberList2($data);
 		require_once(EXTEND_PATH . 'tcpdf/examples/lang/eng.php');
         require_once(EXTEND_PATH . 'tcpdf/TCPDF.php');
-		$pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
-		$pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+		$pdf = new \tcpdf\TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 		$pdf->SetCreator(PDF_CREATOR);
-
-		$pdf->SetHeaderData("logo.jpg", 70, 'wanglibao Agreement' . '', '');
+		$pdf->SetAuthor("Gouweiba");
+		$pdf->SetTitle("pdf test");
+		$pdf->SetSubject('TCPDF Tutorial');
+		$pdf->SetKeywords('TCPDF, PDF, example, test, guide');
+		$pdf->setPrintHeader(false);
+		$pdf->setPrintFooter(false);
 		$pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
-		$pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
+		$pdf->SetMargins(PDF_MARGIN_LEFT, 15,PDF_MARGIN_RIGHT);
 		$pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
 		$pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
-		$pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
+		$pdf->SetAutoPageBreak(false);
 		$pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
 		$pdf->AddPage();
 		$pdf->setPageMark();
-		$pdf->SetFont('stsongstdlight', '', 13);
+		//$pdf->SetFont('stsongstdlight', '', 13);
 		$title = "ceshi";
-		$pdf->writeHTML($content, true, false, false, false, '');
-		$pdf->writeHTML($content, true, false, false, false, '');
+		foreach($data as $key=> $val)
+		{
+			$val = MemberList::handleMember($val);
+			$this->assign('info',$val);
+			$content = $this->fetch('member_table');
+			$pdf->writeHTML($content, true, false, false, false, '');
+			$pdf->AddPage();
+		}
 		$pdf->lastPage();
-		$pdf->Output(date('Y-m-d') . '.pdf', 'I');
-		var_dump($content);exit;
+		$pdf->Output("中职考生信息表" . '.pdf', 'D');
+		exit;
 	}
 }

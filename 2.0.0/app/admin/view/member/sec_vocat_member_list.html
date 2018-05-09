@@ -3,19 +3,27 @@
 	<div class="page-content">
 
 		<div class="row maintop">
+			<div class="">
+				<div class="fb-export" style="margin-left: 0px;">
+					<a href="{:url('admin/Member/member_export')}" title="导出所有中职考生" class="export_btn">
+						导出所有中职考生
+					</a>
+				</div>
+				<div class="fb-export">
+					<a href="{:url('admin/Member/member_export_pdf')}" title="导出全部已审核报名表" class="export_btn">
+						导出全部已审核报名表
+					</a>
+				</div>
+				<div class="clearfix"></div>
+			</div>
 			<div class="fb-add">
 				<a href="{:url('admin/Member/member_add')}">
 						添加中职考生
 				</a>
 			</div>
-
 			<button id="member_active_submit" class="btn btn-white btn-yellow btn-sm">批量审核</button>
 			<button id="btnsubmit" class="btn-sm ">批量删除</button>
-			<div class="fb-export">
-				<a href="{:url('admin/Member/member_export')}" title="导出所有中职考生" class="export_btn">
-					导出所有中职考生
-				</a>
-			</div>
+
 			<form name="admin_list_sea" class="form-search" id="list-filter" method="post" action="{:url('admin/Member/member_list')}">
 				<div class="fb-state-search  margintop5">
 					<!-- <select name="opentype_check" class="ajax_change">
