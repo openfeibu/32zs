@@ -843,10 +843,6 @@ class Member extends Base
 			$this->assign('info',$val);
 			$content = $this->fetch('member_table');
 			$pdf->writeHTML($content, true, false, false, false, '');
-
-			$pdf->lastPage();
-			$pdf->Output("中职考生信息表" . '.pdf', 'D');
-			exit;
 			$pdf->AddPage();
 		}
 		$pdf->lastPage();
