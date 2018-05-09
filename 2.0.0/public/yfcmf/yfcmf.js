@@ -1169,6 +1169,18 @@ $(function(){
 			success: function(data){
                 console.log(data.html)
 				$("#major").html(data.html);
+				//$("#major").trigger('change');
+			}
+		});
+	});
+	$("#school2").change(function(){
+		var school_id = $(this).val();
+		$.ajax({
+			url: "/admin/School/ajax_major2",
+			data:{'school_id':school_id},
+			success: function(data){
+                console.log(data.html)
+				$("#major").html(data.html);
 			}
 		});
 	});
