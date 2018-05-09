@@ -811,7 +811,6 @@ class Member extends Base
 		$map = ['a.user_status' => 1] ;
 		$member_model=new MemberList;
 		$data = $member_model->getMemberList($map,'',0);
-		var_dump($data);exit;
 		$data = $member_model->handleMemberList2($data);
 		require_once(EXTEND_PATH . 'tcpdf/examples/lang/eng.php');
         require_once(EXTEND_PATH . 'tcpdf/TCPDF.php');
