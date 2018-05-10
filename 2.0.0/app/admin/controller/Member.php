@@ -835,9 +835,10 @@ class Member extends Base
 		$pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
 		//$pdf->SetFont('stsongstdlight', '', 13);
 		$title = "ceshi";
-		$pdf->AddPage();
+		$i = 0;
 		foreach($data as $key=> $val)
 		{
+			$i = 1;
 			$pdf->AddPage();
 			$pdf->setPageMark();
 			$val = MemberList::handleMember($val);
@@ -845,7 +846,10 @@ class Member extends Base
 			$content = $this->fetch('member_table');
 			$pdf->writeHTML($content, true, false, false, false, '');
 		}
-		$pdf->lastPage();
+		if($i == 0)
+		{
+			$pdf->lastPage();
+		}
 		$pdf->Output("中职考生信息表" . '.pdf', 'D');
 		exit;
 	}
