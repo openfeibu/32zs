@@ -835,6 +835,7 @@ class Member extends Base
 		$pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
 		//$pdf->SetFont('stsongstdlight', '', 13);
 		$title = "ceshi";
+		$pdf->AddPage();
 		foreach($data as $key=> $val)
 		{
 			$pdf->AddPage();
