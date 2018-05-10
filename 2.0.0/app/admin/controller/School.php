@@ -311,7 +311,12 @@ class School extends Base
 							->paginate(config('paginate.list_rows'),false,['query'=>get_query()]);
 
 		$page = $major_list->render();
-		$this->assign('major_list',$major_list);
+		$data = $major_list->all();
+		foreach ($data as $key => $value) {
+			$sum = Db::name('enrollment')->where('recruit_major_id',$value['recruit_major_id'])->sum('enrollment_number');
+			$data[$key]['enrollment'] = $sum ? $sum : 0;
+		}
+		$this->assign('major_list',$data);
 		$this->assign('search_name',$search_name);
 		$this->assign('page',$page);
 		return $this->fetch();
