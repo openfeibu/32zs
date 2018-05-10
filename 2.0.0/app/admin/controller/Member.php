@@ -833,16 +833,17 @@ class Member extends Base
 		$pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
 		$pdf->SetAutoPageBreak(false);
 		$pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
+		$pdf->AddPage();
 		$pdf->setPageMark();
 		//$pdf->SetFont('stsongstdlight', '', 13);
 		$title = "ceshi";
 		foreach($data as $key=> $val)
 		{
-			$pdf->AddPage();
 			$val = MemberList::handleMember($val);
 			$this->assign('info',$val);
 			$content = $this->fetch('member_table');
 			$pdf->writeHTML($content, true, false, false, false, '');
+			$pdf->AddPage();
 		}
 		$pdf->lastPage();
 		$pdf->Output("中职考生信息表" . '.pdf', 'D');
