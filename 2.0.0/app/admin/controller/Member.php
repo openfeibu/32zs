@@ -841,8 +841,8 @@ class Member extends Base
 			$i = 1;
 			$pdf->AddPage();
 			$pdf->setPageMark();
-			$val = MemberList::handleMember($val);
-			$this->assign('info',$val);
+			$info = MemberList::handleMember($val);
+			$this->assign('info',$info);
 			$content = $this->fetch('member_table');
 			$pdf->writeHTML($content, true, false, false, false, '');
 		}
@@ -851,7 +851,7 @@ class Member extends Base
 			$pdf->AddPage();
 		}
 		$pdf->lastPage();
-		$pdf->Output("中职考生信息表" . '.pdf', 'D');
+		$pdf->Output("中职考生信息表" . '.pdf', 'I');
 		exit;
 	}
 }
