@@ -848,8 +848,9 @@ class Member extends Base
 		}
 		if($i == 0)
 		{
-			$pdf->AddPage();
+			//$pdf->AddPage();
 		}
+		$pdf->AddPage();
 		$pdf->lastPage();
 		$pdf->Output("中职考生信息表" . '.pdf', 'D');
 		exit;
