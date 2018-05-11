@@ -851,7 +851,7 @@ class Member extends Base
 			$pdf->AddPage();
 		}
 		$pdf->lastPage();
-		$pdf->Output("中职考生信息表" . '.pdf', 'D');
+		$pdf->Output("已审核考生报名表" . '.pdf', 'D');
 		exit;
 	}
 }
