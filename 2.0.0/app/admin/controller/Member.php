@@ -828,7 +828,7 @@ class Member extends Base
 		$pdf->setPrintHeader(false);
 		$pdf->setPrintFooter(false);
 		$pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
-		$pdf->SetMargins(PDF_MARGIN_LEFT, 2,PDF_MARGIN_RIGHT);
+		$pdf->SetMargins(5, 2,PDF_MARGIN_RIGHT);
 		$pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
 		$pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
 		$pdf->SetAutoPageBreak(false);
@@ -852,6 +852,49 @@ class Member extends Base
 		}
 		$pdf->lastPage();
 		$pdf->Output("已审核考生报名表" . '.pdf', 'D');
+		exit;
+	}
+	public function test()
+	{
+		$member_list_id = 1534;
+		$info =  MemberList::getMember($member_list_id);
+
+		$major = Db::name('major')->where(array('major_id' => $info['major_id']))->find();
+		$this->assign('major',$major);
+		$this->assign('info',$info);
+		$school = Db::name('school')->where(array('school_id' => $info['school_id']))->find();
+		$this->assign('school',$school);
+
+		$recruit_major = RecruitMajorModel::get_recruit_major($info['school_id'],$info['major_id']);
+		$this->assign('recruit_major',$recruit_major);
+
+		$info['major_name'] = $major['major_name'];
+		$info['school_name'] = $school['school_name'];
+		$info['recruit_major_name'] = $recruit_major['recruit_major_name'];
+
+		require_once(EXTEND_PATH . 'tcpdf/examples/lang/eng.php');
+        require_once(EXTEND_PATH . 'tcpdf/TCPDF.php');
+		$pdf = new \tcpdf\TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+		$pdf->SetCreator(PDF_CREATOR);
+		$pdf->SetAuthor("Gouweiba");
+		$pdf->SetTitle("pdf test");
+		$pdf->SetSubject('TCPDF Tutorial');
+		$pdf->SetKeywords('TCPDF, PDF, example, test, guide');
+		$pdf->setPrintHeader(false);
+		$pdf->setPrintFooter(false);
+		$pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
+		$pdf->SetMargins(5, 2,2);
+		$pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
+		$pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
+		$pdf->SetAutoPageBreak(false);
+		$pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
+		$pdf->AddPage();
+		$pdf->setPageMark();
+		$this->assign('info',$info);
+		$content = $this->fetch('member_table');
+		$pdf->writeHTML($content, true, false, false, false, '');
+		$pdf->lastPage();
+		$pdf->Output("已审核考生报名表" . '.pdf', 'I');
 		exit;
 	}
 }
