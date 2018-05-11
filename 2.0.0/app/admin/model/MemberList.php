@@ -67,8 +67,8 @@ class MemberList extends Model
 		$member['family'] = json_decode($member['family'],true);
 		$member['sex'] = get_sex($member['member_list_username']);
 		$member['date'] = get_birth($member['member_list_username']);
-		$member['documentType'] = mb_substr($member['documentType'],0,6);
-		$member['domicile'] = mb_substr($member['domicile'],0,6);
+		$member['documentType'] = mb_substr($member['documentType'],0,6,'utf-8');
+		$member['domicile'] = mb_substr($member['domicile'],0,6,'utf-8');
 		return $member;
 	}
 	public function getMemberList($map,$where,$is_page = 1)
