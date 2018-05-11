@@ -778,7 +778,6 @@ $("input[id^=file_]").change(function (e) {
 		$("#file_name").text('');
 	    var field=$(this).data('field'),objUrl = getObjectURL2(this.files[0],field);
 		var name = e.currentTarget.files[0].name;
-		alert(objUrl);
 	    console.log("objUrl = " + objUrl);
 	    if (objUrl) {
 	        $("#img_"+field).attr("src", objUrl);
