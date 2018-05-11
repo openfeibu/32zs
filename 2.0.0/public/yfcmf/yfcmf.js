@@ -766,15 +766,28 @@ $("#site_logo").change(function () {
 });
 //
 $("input[id^=file_]").change(function (e) {
-    $("#file_name").text('');
-    var field=$(this).data('field'),objUrl = getObjectURL2(this.files[0],field);
-	var name = e.currentTarget.files[0].name;
-    console.log("objUrl = " + objUrl);
-    if (objUrl) {
-        $("#img_"+field).attr("src", objUrl);
-    }
+	var browser=navigator.appName;
+	var b_version=navigator.appVersion
+	var version=b_version.split(";");
+	var trim_Version=version[1].replace(/[ ]/g,"");
+	if(browser=="Microsoft Internet Explorer" && trim_Version=="MSIE9.0")
+	{
+		alert("抱歉,IE 9.0不支持此功能!请更换IE9以上浏览器");
+	}
+	else{
+		$("#file_name").text('');
+	    var field=$(this).data('field'),objUrl = getObjectURL2(this.files[0],field);
+		var name = e.currentTarget.files[0].name;
+		alert(objUrl);
+	    console.log("objUrl = " + objUrl);
+	    if (objUrl) {
+	        $("#img_"+field).attr("src", objUrl);
+	    }
 
-	$("#file_name").text(name);
+		$("#file_name").text(name);
+	}
+
+
 
 });
 function getObjectURL(file,id) {
