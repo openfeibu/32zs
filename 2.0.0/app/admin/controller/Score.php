@@ -405,7 +405,7 @@ class Score extends Base
             $j++;
         }
 
-        $table = '三二分段'.$major_name.'考核理论成绩录入标准表格';
+        $table = '基础理论成绩录入模板（'.$major_name.'）';
 
         export_excel($data,$table,$field_titles,$fields);
 
@@ -883,6 +883,7 @@ class Score extends Base
         $major_id = input('major_id','');
         $recruit_major_id = $this->admin['recruit_major_id'];
         $school_id = input('school_id','');
+        $school = Db::name('school')->where(['school_id' => $school_id])->find();
         $school_list = $this->schoolModel->get_school_list_rmi($recruit_major_id);
         $school_id_arr = $major_id_arr = array();
         $map = [];
@@ -913,7 +914,7 @@ class Score extends Base
 
         $fields = ['member_list_id','member_list_nickname','member_list_username','recruit_major_name','school_name','major_name','recruit_score'];
 
-        $table = '三二分段'.$recruit_major['recruit_major_name'].'技能考核成绩录入标准表格';
+        $table = '技能考核成绩录入模板（'.$school['school_name'].'）';
 
         export_excel($data,$table,$field_titles,$fields);
     }
