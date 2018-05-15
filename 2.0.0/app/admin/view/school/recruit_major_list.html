@@ -57,6 +57,7 @@
 								<th>高职专业代码</th>
 								<th>计划总数</th>
 								<th>已报名数</th>
+								<th>已报名数详情</th>
 								<!-- <th>技能考核成绩分数线</th> -->
 								<th width="150px">操作</th>
 							</tr>
@@ -74,6 +75,11 @@
 									<td>{$v.recruit_major_code}</td>
 									<td>{$v.enrollment_number}</td>
 									<td>{$v.member_count}</td>
+									<td>
+										{foreach name="$v['enrollment_school_mumber_count_arr']" item="sv"}
+											{$sv.school_name} : {$sv.member_count}<br/>
+										{/foreach}
+									</td>
 									<!-- <td>{$v.min_score}</td> -->
 									<td>
 										<div class="action-buttons">

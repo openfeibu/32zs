@@ -316,15 +316,27 @@ class School extends Base
 			$enrollment_number = Db::name('enrollment')->where('recruit_major_id',$value['recruit_major_id'])->sum('enrollment_number');
 			$data[$key]['enrollment_number'] = $enrollment_number ? $enrollment_number : 0;
 
-			$enrollments = Db::name('enrollment')->where(['recruit_major_id' => $value['recruit_major_id']])->field('*')->select();
+			$enrollments = Db::name('enrollment')->alias('e')->join(config('database.prefix').'school s','e.school_id = s.school_id')->where(['recruit_major_id' => $value['recruit_major_id']])->field('e.*,s.school_name')->select();
 			$member_count = 0;
+			$enrollment_school_mumber_count_arr = array();
 			foreach ($enrollments as $ek => $ev) {
 				$major_ids = array_filter(explode(',',$ev['major_ids']));
 				$count = Db::name('member_list')->where(['major_id' => ['in',$major_ids],'school_id' => $ev['school_id']])->count();
 				$member_count += $count;
+				if(isset($enrollment_school_mumber_count_arr[$ev['school_id']]))
+				{
+					$enrollment_school_mumber_count_arr[$ev['school_id']]['member_count'] = $count;
+				}else{
+					$enrollment_school_mumber_count_arr[$ev['school_id']] = [
+						'member_count' => $count,
+						'school_name' => $ev['school_name'],
+					];
+				}
 			}
 			$data[$key]['member_count'] = $member_count ? $member_count : 0;
+			$data[$key]['enrollment_school_mumber_count_arr'] = $enrollment_school_mumber_count_arr;
 		}
+
 		$this->assign('major_list',$data);
 		$this->assign('search_name',$search_name);
 		$this->assign('page',$page);
