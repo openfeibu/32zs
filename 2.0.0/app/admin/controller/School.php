@@ -313,8 +313,17 @@ class School extends Base
 		$page = $major_list->render();
 		$data = $major_list->all();
 		foreach ($data as $key => $value) {
-			$sum = Db::name('enrollment')->where('recruit_major_id',$value['recruit_major_id'])->sum('enrollment_number');
-			$data[$key]['enrollment'] = $sum ? $sum : 0;
+			$enrollment_number = Db::name('enrollment')->where('recruit_major_id',$value['recruit_major_id'])->sum('enrollment_number');
+			$data[$key]['enrollment_number'] = $enrollment_number ? $enrollment_number : 0;
+
+			$enrollments = Db::name('enrollment')->where(['recruit_major_id' => $value['recruit_major_id']])->field('school_id,major_ids')->select();
+			$member_count = 0;
+			foreach ($enrollments as $ek => $ev) {
+				$major_ids = array_filter(explode(',',$ev['major_ids']));
+				$count = Db::name('member_list')->where(['major_id' => ['in',$major_ids]])->count();
+				$member_count += $count;
+			}
+			$data[$key]['member_count'] = $member_count ? $member_count : 0;
 		}
 		$this->assign('major_list',$data);
 		$this->assign('search_name',$search_name);
