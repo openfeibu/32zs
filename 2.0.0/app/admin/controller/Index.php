@@ -76,7 +76,8 @@ class Index extends Base
 			$major_count = Db::name('major')->count();
 			$min_score = Db::name('min_score')->value('min_score');
 			$enroll_count = Db::name('enrollment')->sum('enrollment_number');
-			$enroll_student_count = Db::name('statistics')->where('ydate',$ydate)->value('enroll_student_count');
+			$student_count = Db::name('member_list')->count();
+			$enroll_student_count =  Db::name('statistics')->where('ydate',$ydate)->value('enroll_student_count');
 			$statistics = [
 				'school_count' => $school_count,
 				'recruit_major_count' => $recruit_major_count,
@@ -84,6 +85,7 @@ class Index extends Base
 				'min_score' => $min_score,
 				'enroll_count' => $enroll_count,
 				'enroll_student_count' => $enroll_student_count,
+				'student_count' => $student_count
 			];
 		}
 		$this->assign('statistics',$statistics);
