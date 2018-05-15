@@ -316,11 +316,11 @@ class School extends Base
 			$enrollment_number = Db::name('enrollment')->where('recruit_major_id',$value['recruit_major_id'])->sum('enrollment_number');
 			$data[$key]['enrollment_number'] = $enrollment_number ? $enrollment_number : 0;
 
-			$enrollments = Db::name('enrollment')->where(['recruit_major_id' => $value['recruit_major_id']])->field('school_id,major_ids')->select();
+			$enrollments = Db::name('enrollment')->where(['recruit_major_id' => $value['recruit_major_id']])->field('*')->select();
 			$member_count = 0;
 			foreach ($enrollments as $ek => $ev) {
 				$major_ids = array_filter(explode(',',$ev['major_ids']));
-				$count = Db::name('member_list')->where(['major_id' => ['in',$major_ids]])->count();
+				$count = Db::name('member_list')->where(['major_id' => ['in',$major_ids],'school_id' => $ev['school_id']])->count();
 				$member_count += $count;
 			}
 			$data[$key]['member_count'] = $member_count ? $member_count : 0;
