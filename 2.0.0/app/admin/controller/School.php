@@ -25,7 +25,7 @@ class School extends Base
 		if($search_name){
 			$map['school_name']= array('like',"%".$search_name."%");
 		}
-		$school_list = Db::name('school')->where($map)->order('school_id','DESC')->paginate(config('paginate.list_rows'),false,['query'=>get_query()]);
+		$school_list = Db::name('school')->where($map)->order('school_id','DESC')->paginate(20,false,['query'=>get_query()]);
 		$data = $school_list->all();
 		foreach ($data as $key => $school) {
 			$data[$key]['member_count'] = Db::name('member_list')->where('school_id' , $school['school_id'])->count();
@@ -134,7 +134,7 @@ class School extends Base
 		$major_list = Db::name('major')->alias('m')
 					->where($map)
 					->order('m.major_id','DESC')
-					->paginate(config('paginate.list_rows'),false,['query'=>get_query()]);
+					->paginate(20,false,['query'=>get_query()]);
 
 		$data = $major_list->all();
 
@@ -308,7 +308,7 @@ class School extends Base
 		$major_list = Db::name('recruit_major')
 							->where($map)
 							->order('recruit_major_id','DESC')
-							->paginate(config('paginate.list_rows'),false,['query'=>get_query()]);
+							->paginate(20,false,['query'=>get_query()]);
 
 		$page = $major_list->render();
 		$data = $major_list->all();
