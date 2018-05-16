@@ -20,7 +20,7 @@
     <td height="28" >{$v.member_list_username}</td>
     <td>{$v.major_name}</td>
     {foreach name="$v['major_score_arr']" item="val"}
-    <td data-id="{$v.member_list_id}"><input name="major_score_{$v.member_list_id}[]" value="{$val}" class="major_score score_input"> </td>
+    <td data-id="{$v.member_list_id}"><input name="major_score_{$v.member_list_id}[]" value="{$val}" class="score_input"> </td>
     {/foreach}
     </td>
 </tr>
