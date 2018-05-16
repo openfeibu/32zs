@@ -632,7 +632,14 @@ function read($filename, $type='Excel5')
     $excelData = array();
     for ($row = 1; $row <= $highestRow; $row++) {
         for ($col = 0; $col < $highestColumnIndex; $col++) {
-            $excelData[$row][] =(string)$objWorksheet->getCellByColumnAndRow($col, $row)->getValue();
+            $value = $objWorksheet->getCellByColumnAndRow($col, $row)->getValue();
+            if(strpos($value,'.') !==false)
+            {
+                $excelData[$row][] = sprintf("%.2f", $value);
+            }else{
+                $excelData[$row][] = (string)$value;
+            }
+            //$excelData[$row][] = $value;
         }
     }
     return $excelData;
