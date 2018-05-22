@@ -16,7 +16,7 @@
                     {if $rooms}
                     {foreach $rooms as $key => $room}
                     <div class="form-group common_handle_group">
-                        <input type="hidden" name="id[]" value="{$room.school_id}" />
+                        <input type="hidden" name="id[]" value="{$room.room_id}" />
                         <input type="hidden" name="is_used[]" value="{$room.is_used}" />
 						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 考场号和考试室： </label>
 						<div class="col-sm-2">
