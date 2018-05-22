@@ -15,9 +15,9 @@
 }
 .header_title{
     border:none;
-    font-size: 16px;
+    font-size: 18px;
     text-align: center;
-    line-height: 15px;
+    line-height: 13px;
 }
 .title{
     text-align: left;
@@ -46,9 +46,7 @@
                 <td class="k-s-content content" colspan="2"  width="200px">{$member.member_list_nickname}</td>
                 <td class="k-s-content title" width="100px">性别</td>
                 <td class="k-s-content content" width="100px">{$member.member_list_username|get_sex}</td>
-                <td width="150px" rowspan="7" class="k-s-content">
-                    <img src="{$member.member_list_headpic|get_imgurl2=1}"  style="height:200px;width:150px;">
-                </td>
+                <td width="150px" rowspan="7" class="k-s-content" style="padding-left: 0px;text-align:center"><img src="{$member.member_list_headpic|get_imgurl2=1}"  style="height:200px;width:150px;"></td>
             </tr>
             <tr>
                 <td class="k-s-content title">身份证号</td>
@@ -74,29 +72,8 @@
             </tr>
             <tr>
                 <td class="k-s-content title">考试时间</td>
-                <td colspan="4" class="k-s-content content">{$examination.date} {$examination.starttime}-{$examination.endtime}</td>
+                <td colspan="4" class="k-s-content content">{$examination.date|formatdate} {$examination.starttime}-{$examination.endtime}</td>
             </tr>
-            <!-- <tr>
-                <td class="content" colspan="6">考生须知：</td>
-            </tr>
-            <tr>
-                <td class="content" colspan="6">1、考试前20分钟，凭准考证和身份证进入考场，对号入座。</td>
-            </tr>
-            <tr>
-                <td class="content" colspan="6">2、考生请自备黑色钢笔、签字笔、铅笔、橡皮等考试用品。 </td>
-            </tr>
-            <tr>
-                <td class="content" colspan="6">3、严禁携带各种电子、通信、计算器等设备进入考场。 </td>
-            </tr>
-            <tr>
-                <td class="content" colspan="6">4、考试迟到30分钟以上者，不得再进入考场，视同缺考。</td>
-            </tr>
-            <tr>
-                <td class="content" colspan="6">5、严禁将答题卡、试卷、草稿纸、实训设备等带出考场。</td>
-            </tr>
-            <tr>
-                <td class="content" colspan="6">6、考生须遵守考场规则，若有作弊行为按严重违纪行为处理。</td>
-            </tr> -->
             <tr>
                 <td colspan="6" class="k-s-content content-p" >
                     考生须知：<br>

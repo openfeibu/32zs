@@ -1797,3 +1797,6 @@ function uploadFile($file,$savePath)
     }
     return $savePath . $file_name;
 }
+function formatdate($date){
+    return date('Y年m月d日',strtotime($date));
+}

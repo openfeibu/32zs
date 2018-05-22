@@ -199,7 +199,7 @@ class Examination extends Base
                             ->order('r.room_id','asc')
                             ->select();
         $i = 0;
-        $rooms_data =[];
+        $rooms_data = [];
         foreach ($examination_rooms as $erk => $erv) {
             $room_number = $erv['room_number'];
             for ($num=1; $num < $room_number; $num++) {
