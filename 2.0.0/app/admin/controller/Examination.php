@@ -122,10 +122,37 @@ class Examination extends Base
         $data['endtime'] = $endtime = $post_data['endtime'];
         $data['school_id'] = $this->admin['school_id'];
         $room_ids = $post_data['room_id'];
+        if(strtotime($starttime) >= strtotime($endtime))
+        {
+            $this->error('时间安排不正确');
+        }
         $examination = ExaminationModel::getExamination($recruit_major_id,$this->admin['school_id']);
         foreach ($room_ids as $key => $room_id) {
-
+            $other_examination_rooms = Db::name('examination')->alias('e')
+                                ->join(config('database.prefix').'examination_room er','er.examination_id = e.examination_id')
+                                ->join(config('database.prefix').'room r','r.room_id = er.room_id')
+                                ->where('e.recruit_major_id','<>',$recruit_major_id)
+                                ->where('e.school_id',$this->admin['school_id'])
+                                ->where('r.room_id',$room_id)
+                                ->field('e.*,r.room_name')
+                                ->select();
+            if($other_examination_rooms)
+            {
+                foreach ($other_examination_rooms as $key => $other_examination_room)
+                {
+                    if($other_examination_room['date'] == $date)
+                    {
+                        if(strtotime($starttime) > strtotime($other_examination_room['endtime']) || strtotime($endtime) < strtotime($other_examination_room['starttime']))
+                        {
+                            continue;
+                        }else{
+                            $this->error($other_examination_room['room_name'].'该时间段被占用');
+                        }
+                    }
+                }
+            }
         }
+
         if($examination)
         {
             Db::name('examination')->where('examination_id',$examination['examination_id'])->update([
