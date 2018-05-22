@@ -1,87 +1,112 @@
 <style>
 .main{width: 630px;margin: 0 auto;}
 .k-w-table {
-    border-style:solid;
+    /* border-style:solid; */
     border-color:rgb(148, 192, 210);
 /*  border-color:#ccc; */
-    border-width:1px;
+    /* border-width:0px; */
     border-collapse:collapse;
-    width: 630px;
+    /* width: 630px; */
 }
 .k-s-content{
     border:1px solid #999;
-    text-align: center;
+    text-align: left;
+    padding-left: 5px;
 }
 .header_title{
+    border:none;
     font-size: 16px;
-    font-weight: bold;
-    height: 40px;
-    line-height: 40px;
+    text-align: center;
+    line-height: 15px;
 }
 .title{
-    text-align: center;
+    text-align: left;
     font-size: 14px;
     height:30px;
     line-height: 30px;
 }
-
 .content{
-    text-align: center;
+    text-align: left;
     font-size: 14px;
     height:30px;
     line-height: 30px;
+}
+.content-p{
+    text-align: left;
+    font-size: 14px;
+    line-height: 25px;
 }
 </style>
     <div class="main w1000 clearfix" style="background:#fff;">
+        <p class="header_title">广东农工商职业技术学院{php}echo date('Y');{/php}三二分段转段考核</p>
+        <p class="header_title">准考证</p>
         <table class="k-w-table">
             <tr>
-                <td colspan="5" class="k-s-content header_title">广东农工商职业技术学院{php}echo date('Y');{/php}三二分段转段考核</td>
-            </tr>
-            <tr>
-                <td colspan="5" class="k-s-content header_title">准考证</td>
-            </tr>
-            <tr>
-                <td  class="k-s-content title" height="50px" style="line-height:50px;">考生号</td>
-                <td colspan="2" class="k-s-content content" style="line-height:50px;">{$member.ZexamineeNumber}</td>
-                <td colspan="2" rowspan="4" class="" height="200px">
+                <td class="k-s-content title" width="100px">考生姓名</td>
+                <td class="k-s-content content" colspan="2"  width="200px">{$member.member_list_nickname}</td>
+                <td class="k-s-content title" width="100px">性别</td>
+                <td class="k-s-content content" width="100px">{$member.member_list_username|get_sex}</td>
+                <td width="150px" rowspan="7" class="k-s-content">
                     <img src="{$member.member_list_headpic|get_imgurl2=1}"  style="height:200px;width:150px;">
                 </td>
             </tr>
             <tr>
-                <td class="k-s-content title" height="50px" style="line-height:50px;">身份证</td>
-                <td colspan="2" class="k-s-content" style="line-height:50px;">{$member.member_list_username}</td>
+                <td class="k-s-content title">身份证号</td>
+                <td colspan="4" class="k-s-content content">{$member.member_list_username}</td>
             </tr>
             <tr>
-                <td class="k-s-content title" height="50px" style="line-height:50px;">姓名</td>
-                <td colspan="2" class="k-s-content"  style="line-height:50px;">{$member.member_list_nickname}</td>
+                <td class="k-s-content title">报考学校</td>
+                <td colspan="4" class="k-s-content content">广东农工商职业技术学院</td>
             </tr>
             <tr>
-                <td class="k-s-content title" height="50px" style="line-height:50px;">报考专业</td>
-                <td colspan="2" class="k-s-content" style="line-height:50px;">{$recruit_major.recruit_major_name}</td>
+                <td class="k-s-content title">报考专业</td>
+                <td colspan="4" class="k-s-content content">{$recruit_major.recruit_major_name}</td>
             </tr>
             <tr>
-                <td colspan="5" class="k-s-content header_title">考试日程表</td>
+                <td class="k-s-content title">考试科目</td>
+                <td colspan="4" class="k-s-content content">专业技能考核</td>
             </tr>
             <tr>
-                <td width="120px" class="k-s-content title">考试科目</td>
-                <td width="120px" class="k-s-content title">考试日期</td>
-                <td width="120px" class="k-s-content title">考试时间</td>
-                <td width="170px" class="k-s-content title">考场</td>
-                <td width="100px" class="k-s-content title">座位号</td>
-            </tr>
-            <tr>
-                <td class="k-s-content content">专业技能考核</td>
-                <td class="k-s-content content">{$examination.date}</td>
-                <td class="k-s-content content">{$examination.starttime}-{$examination.endtime}</td>
-                <td class="k-s-content content">{$member.room_name}</td>
+                <td class="k-s-content title">考试地点</td>
+                <td colspan="2" class="k-s-content content">{$member.room_name}</td>
+                <td class="k-s-content title">座位号</td>
                 <td class="k-s-content content">{$member.room_no}</td>
             </tr>
+            <tr>
+                <td class="k-s-content title">考试时间</td>
+                <td colspan="4" class="k-s-content content">{$examination.date} {$examination.starttime}-{$examination.endtime}</td>
+            </tr>
+            <!-- <tr>
+                <td class="content" colspan="6">考生须知：</td>
+            </tr>
+            <tr>
+                <td class="content" colspan="6">1、考试前20分钟，凭准考证和身份证进入考场，对号入座。</td>
+            </tr>
+            <tr>
+                <td class="content" colspan="6">2、考生请自备黑色钢笔、签字笔、铅笔、橡皮等考试用品。 </td>
+            </tr>
+            <tr>
+                <td class="content" colspan="6">3、严禁携带各种电子、通信、计算器等设备进入考场。 </td>
+            </tr>
+            <tr>
+                <td class="content" colspan="6">4、考试迟到30分钟以上者，不得再进入考场，视同缺考。</td>
+            </tr>
+            <tr>
+                <td class="content" colspan="6">5、严禁将答题卡、试卷、草稿纸、实训设备等带出考场。</td>
+            </tr>
+            <tr>
+                <td class="content" colspan="6">6、考生须遵守考场规则，若有作弊行为按严重违纪行为处理。</td>
+            </tr> -->
+            <tr>
+                <td colspan="6" class="k-s-content content-p" >
+                    考生须知：<br>
+                    1、考试前20分钟，凭准考证和身份证进入考场，对号入座。<br>
+                    2、考生请自备黑色钢笔、签字笔、铅笔、橡皮等考试用品。 <br>
+                    3、严禁携带各种电子、通信、计算器等设备进入考场。 <br>
+                    4、考试迟到30分钟以上者，不得再进入考场，视同缺考。<br>
+                    5、严禁将答题卡、试卷、草稿纸、实训设备等带出考场。<br>
+                    6、考生须遵守考场规则，若有作弊行为按严重违纪行为处理。
+                </td>
+            </tr>
         </table>
-        <p style="line-height: 30px;">
-            考生须知：<br>
-            1. 在考试前20分钟，凭准考证和身份证进入考场，对号入座，并将准考证、身份证放在桌面右上角。<br>
-             2. 开始考试30分钟后，不得入场；考试期间，不得提前交卷、离场。 <br>
-            3. 严格按照规定携带文具，开考后不得传递任何物品。 <br>
-             4. 除可携带考试用书写文具（钢笔、签字笔、铅笔、橡皮等）以外，移动电话、电子记事本及计算器等电子设备不得带入考场。已带入考场的要按监考人员的要求切断电源并放在指定位置。凡发现将上述各种设备带至座位的，一律按严重违纪行为处理。
-        </p>
 </div>

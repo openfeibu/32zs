@@ -187,7 +187,9 @@ class Examination extends Base
                 ->join(config('database.prefix').'major m','a.major_id = m.major_id')
                 ->where($where)
                 ->where('a.user_status',1)
+                //->where('a.member_list_id','in',['138','160'])
                 ->field('a.member_list_nickname,a.member_list_username,a.member_list_headpic, mi.ZexamineeNumber')
+                //->limit(2)
                 ->select();
         $examination = ExaminationModel::getExamination($recruit_major['recruit_major_id'],$this->admin['school_id']);
         $examination_rooms = Db::name('examination_room')->alias('er')
@@ -223,7 +225,7 @@ class Examination extends Base
 		$pdf->setPrintHeader(false);
 		$pdf->setPrintFooter(false);
 		$pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
-		$pdf->SetMargins(9, 20,0);
+		$pdf->SetMargins(13, 3,0);
 		$pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
 		$pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
 		$pdf->SetAutoPageBreak(false);
@@ -233,8 +235,11 @@ class Examination extends Base
         $i = 0;
         $page = 0;
         foreach ($member_list as $mk => $mvalue) {
-            $page =1;
-            $pdf->AddPage();
+            if($page%2==0)
+            {
+                $pdf->AddPage();
+            }
+            $page++;
 			$pdf->setPageMark();
             $member_list[$mk]['room_name'] = $rooms_data[$i]['room_name'];
             $member_list[$mk]['room_no'] = $rooms_data[$i]['room_no'];
@@ -250,5 +255,9 @@ class Examination extends Base
 		$pdf->lastPage();
 		$pdf->Output($recruit_major['recruit_major_name']."准考证" . '.pdf', 'D');
         exit;
+    }
+    public function test()
+    {
+
     }
 }
