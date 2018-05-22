@@ -1414,7 +1414,7 @@ $(function(){
 		}
 	});
 	$(".room_id").change(function(){
-		var member_count = parseInt($("#member_count").attr('value'));
+		var member_count = parseInt($(this).parents("tr").find(".member_count").attr('data-value'));
 		count = 0;
 		$(this).parents("tr").find(".room_id:checkbox:checked").each(function(){
 			count += parseInt($(this).attr('attr-value'));
