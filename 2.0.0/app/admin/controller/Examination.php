@@ -155,6 +155,7 @@ class Examination extends Base
                 ->join(config('database.prefix').'school s','a.school_id = s.school_id')
                 ->join(config('database.prefix').'major m','a.major_id = m.major_id')
                 ->where($where)
+                ->where('a.user_status',1)
                 ->field('a.member_list_nickname,a.member_list_username,a.member_list_headpic, mi.ZexamineeNumber')
                 ->select();
         $examination = Db::name('examination')->where('recruit_major_id',$recruit_major['recruit_major_id'])->where('school_id',$this->admin['school_id'])->find();
