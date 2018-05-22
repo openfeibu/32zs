@@ -1343,7 +1343,32 @@ $(function(){
 			}
 		}
 	});
-
+	$(".room_count").click(function(){
+		var count = $("input[name='room_name[]']").length;
+		if($(this).hasClass('fa-plus-circle'))
+		{
+			var options = $(this).prev('select').html();
+			var select_option_index =  $(this).prev('select').find("option:selected").index();
+			var html = '<div class="form-group common_handle_group">\
+				<input type="hidden" name="id[]">\
+				<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 考场号和考试室： </label>\
+				<div class="col-sm-2">\
+				<input type="text" name="room_name[]" value="" />\
+				</div>\
+				<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 容纳数 </label>\
+				<div class="col-sm-2"><input type="text" name="room_number[]" value="" /></div>\
+				</div>';
+			$(this).parent().parent().before(html);
+			$(this).prev('select').find("option:eq("+select_option_index+")").remove();
+		}
+		if($(this).hasClass('fa-minus-circle'))
+		{
+			if(count >=2)
+			{
+				$(".common_handle_group").last().remove();
+			}
+		}
+	});
 	// $('.major_score').blur(function(){
 	//
 	// });
@@ -1388,7 +1413,22 @@ $(function(){
 			});
 		}
 	});
-
+	$(".room_id").change(function(){
+		var member_count = parseInt($("#member_count").attr('value'));
+		count = 0;
+		$(this).parents("tr").find(".room_id:checkbox:checked").each(function(){
+			count += parseInt($(this).attr('attr-value'));
+		});
+		console.log('count'+count);
+		console.log('member_count'+member_count);
+		if(count >= member_count)
+		{
+			$(this).parents("tr").find('.examination-submit').attr('disabled',false);
+		}
+		else{
+			$(this).parents("tr").find('.examination-submit').attr('disabled',true);
+		}
+	});
 });
 function member_active()
 {
