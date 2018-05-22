@@ -40,11 +40,11 @@
                                         {/foreach}
                                     </td>
                                     <td>
-                                        <input type="text" class="layui-input date" id="date_{$v.recruit_major_id}" name="date" style="width:100px;" value="{php}echo date('Y-m-d'){/php}">
+                                        <input type="text" class="layui-input date" id="date_{$v.recruit_major_id}" name="date" style="width:100px;" value="{$v.examination.date|default=date('Y-m-d')}">
                                     </td>
                                     <td>
-                                        <input type="text" class="layui-input starttime" id="starttime_{$v.recruit_major_id}" name="starttime" style="width:80px;margin-right:5px;" value="00:00">
-                                        <input type="text" class="layui-input endtime" id="endtime_{$v.recruit_major_id}" name="starttime" style="width:80px;" value="00:00"></td>
+                                        <input type="text" class="layui-input starttime" id="starttime_{$v.recruit_major_id}" name="starttime" style="width:80px;margin-right:5px;" value="{$v.examination.starttime|default='00:00'}">
+                                        <input type="text" class="layui-input endtime" id="endtime_{$v.recruit_major_id}" name="starttime" style="width:80px;" value="{$v.examination.endtime|default='00:00'}"></td>
                                     <td>
                             			<div class="hidden-sm hidden-xs action-buttons">
                             				<button class="btn btn-fb-blue fb-radio examination-submit" {if !$v['examination']} disabled{/if}>保存</button>
