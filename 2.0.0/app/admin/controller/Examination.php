@@ -213,7 +213,7 @@ class Examination extends Base
 			$pdf->AddPage();
 		}
 		$pdf->lastPage();
-		$pdf->Output("准考证" . '.pdf', 'D');
+		$pdf->Output($recruit_major['recruit_major_name']."准考证" . '.pdf', 'D');
         exit;
     }
 }
