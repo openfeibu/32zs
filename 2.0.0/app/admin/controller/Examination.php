@@ -22,7 +22,7 @@ class Examination extends Base
         $ids = $data['id'];
         $room_names = $data['room_name'];
         $numbers = $data['room_number'];
-        Db::name('room')->where('school_id',$this->admin['school_id'])->delete();
+
         foreach ($room_names as $key => $room_name) {
             if($room_name && $numbers[$key])
             {
@@ -33,10 +33,16 @@ class Examination extends Base
                 ];
                 if($ids[$key])
                 {
-                    $room_data[$key]['room_id'] = $ids[$key];
+                    $room = name('room')->where('room_id',$ids[$key])->find();
+                    if($room)
+                    {
+                        $room_data[$key]['room_id'] = $ids[$key];
+                        $room_data[$key]['is_used'] = $room['is_used'];
+                    }
                 }
             }
         }
+        Db::name('room')->where('school_id',$this->admin['school_id'])->delete();
         Db::name('room')->insertAll($room_data);
         $this->success('添加成功',url('admin/Examination/rooms'));
     }
