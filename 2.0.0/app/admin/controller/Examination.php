@@ -202,7 +202,7 @@ class Examination extends Base
         $rooms_data = [];
         foreach ($examination_rooms as $erk => $erv) {
             $room_number = $erv['room_number'];
-            for ($num=1; $num < $room_number; $num++) {
+            for ($num=1; $num <= $room_number; $num++) {
                 $rooms_data[$i] =[
                     'room_no' => sprintf("%03d", $num),
                     'room_name' => $erv['room_name'],
