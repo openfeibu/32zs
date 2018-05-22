@@ -173,12 +173,8 @@ class School extends Base
 	}
 	public function secondary_vocat_major_list()
 	{
-		$admin=Db::name('admin')->alias("a")->join(config('database.prefix').'auth_group_access b','a.admin_id =b.uid')
-					->join(config('database.prefix').'auth_group c','b.group_id = c.id')
-					->where(array('a.admin_id'=>session('admin_auth.aid')))
-					->find();
-		$school_id = $admin['school_id'];
-		$major_ids = json_decode($admin['major_id'],true);
+		$school_id = $this->admin['school_id'];
+		$major_ids = json_decode($this->admin['major_id'],true);
 		$school_major_arr = $major_list = [];
 
 		$major_list = MajorModel::get_secondary_vocat_major_list($major_ids,$school_id);
@@ -540,7 +536,7 @@ class School extends Base
 
 	        $major_list = [];
 			$major_ids = json_decode($admin['major_id'],true);
-			$major_list = Db::name('major')->where(array('school_id' => $school_id,'major_id' => array('in' , $major_ids)))->select();
+			$major_list = Db::name('major')->where(array('major_id' => array('in' , $major_ids)))->select();
 			$html = '<option value="">请选择中职专业</option>';
 			foreach($major_list as $key => $major)
 			{

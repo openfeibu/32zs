@@ -11,6 +11,7 @@
 							<thead>
 							<tr>
 								<th width="60px"></th>
+								<th>对口高职专业</th>
 								<th>中职专业</th>
                                 <th>科目 </th>
                                 <th>操作</th>
@@ -21,7 +22,8 @@
                                 {foreach name='major_list' item='v'}
                                 <tr>
                                     <td height="28" ></td>
-                                    <td height="28" >{$v.major_name}</td>
+									<td>{$v.recruit_major_name}</td>
+                                    <td>{$v.major_name}</td>
                                     <td>{$v.score_desc}</td>
                                     <td>
                             			<div class="hidden-sm hidden-xs action-buttons">

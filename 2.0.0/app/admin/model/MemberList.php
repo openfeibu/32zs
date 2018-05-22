@@ -98,6 +98,7 @@ class MemberList extends Model
 		foreach ($data as $k => $value) {
 			$recruit_major = RecruitMajorModel::get_recruit_major($value['school_id'],$value['major_id']);
             $data[$k]['recruit_major_name'] = $recruit_major['recruit_major_name'];
+			$data[$k]['recruit_major_code'] = $recruit_major['recruit_major_code'];
 			$major_score_arr = [];
 			$major_score_desc = '';
 			$major_score_total = 0;

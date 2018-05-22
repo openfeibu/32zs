@@ -1,6 +1,6 @@
 <?php
 // +----------------------------------------------------------------------
-// | 三二分段 
+// | 三二分段
 // +----------------------------------------------------------------------
 // | Copyright (c) 2015-2016 http://www.feibu.info All rights reserved.
 // +----------------------------------------------------------------------
@@ -50,6 +50,9 @@ class Major extends Model
 		$major_list  = Db::name('major')->where(array('major_id' => array('in',$major_ids)))->order('major_id','ASC')->select();
 		foreach($major_list as $key => $major)
 		{
+			$recruit_major = \app\admin\model\RecruitMajor::get_recruit_major($school_id,$major['major_id']);
+			$major_list[$key]['recruit_major_name'] = $recruit_major['recruit_major_name'];
+			$major_list[$key]['recruit_major_id'] = $recruit_major['recruit_major_id'];
 			$major_list[$key]['score'] = [];
 			$major_list[$key]['score_config_id'] = '';
 			$major_score_config = Db::name('major_score_config')->where(['major_id' => $major['major_id'] , 'school_id' => $school_id])->find();
@@ -58,6 +61,7 @@ class Major extends Model
 				$major_list[$key]['score_config_id'] =  $major_score_config['score_config_id'];
 			}
 			$major_list[$key]['major_score_key'] = $major_list[$key]['score'];
+
 		}
 
 		return $major_list;
