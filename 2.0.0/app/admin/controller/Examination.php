@@ -95,6 +95,7 @@ class Examination extends Base
             $examination = Db::name('examination')->where('recruit_major_id',$recruit_major['recruit_major_id'])->where('school_id',$this->admin['school_id'])->find();
             $room_id = [];
             $recruit_major_data[$rk]['examination'] = [];
+            $recruit_major_data[$rk]['is_examination'] = 0;
             if($examination)
             {
                 $examination_rooms = Db::name('examination_room')->where('examination_id',$examination['examination_id'])->select();
@@ -102,6 +103,7 @@ class Examination extends Base
                     $room_id[] = $examination_room['room_id'];
                 }
                 $recruit_major_data[$rk]['examination'] = $examination;
+                $recruit_major_data[$rk]['is_examination'] = 1;
             }
             $recruit_major_data[$rk]['room_id'] = $room_id;
         }

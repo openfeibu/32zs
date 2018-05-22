@@ -32,7 +32,7 @@
                                         {/foreach}
                                     </td>
                                     <td class="member_count" attr-value="{$v.member_count}">{$v.member_count}</td>
-                                    <td>
+                                    <td width="300px">
                                         {foreach name="rooms" item='rv'}
                                         <label>
                                             <input type="checkbox" name="room_id" value="{$rv.room_id}" class="room_id" attr-value="{$rv.room_number}" {if in_array($rv['room_id'],$v['room_id'])}checked{/if}/>{$rv.room_name}({$rv.room_number}人)
@@ -47,8 +47,8 @@
                                         <input type="text" class="layui-input endtime" id="endtime_{$v.recruit_major_id}" name="starttime" style="width:80px;" value="{$v.examination.endtime|default='00:00'}"></td>
                                     <td>
                             			<div class="hidden-sm hidden-xs action-buttons">
-                            				<button class="btn btn-fb-blue fb-radio examination-submit" {if !$v['examination']} disabled{/if}>保存</button>
-                                            <button class="btn btn-fb-blue fb-radio" {if !$v['examination']} disabled{/if} style="width:100px" onclick="window.location.href='{:url('admin/Examination/exportExamination',['recruit_major_id' => $v['recruit_major_id']])}'">导出准考证</button>
+                            				<button class="btn btn-fb-blue fb-radio examination-submit" {if $v['is_examination'] == 1}{else}disabled{/if}>保存</button>
+                                            <button class="btn btn-fb-blue fb-radio" {if $v['is_examination'] == 1 }{else}disabled{/if} style="width:100px" onclick="window.location.href='{:url('admin/Examination/exportExamination',['recruit_major_id' => $v['recruit_major_id']])}'">导出准考证</button>
                             			</div>
                                     </td>
                                 </tr>
