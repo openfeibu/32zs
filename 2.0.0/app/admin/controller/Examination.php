@@ -7,6 +7,7 @@ use app\admin\model\RecruitMajor as RecruitMajorModel;
 use app\admin\model\Major as MajorModel;
 use app\admin\model\Enrollment as EnrollmentModel;
 use app\admin\model\MemberList;
+use app\admin\model\Examination as ExaminationModel;
 
 class Examination extends Base
 {
@@ -93,7 +94,7 @@ class Examination extends Base
             $recruit_major_data[$rk]['member_count'] = $member_count;
             $major_list = MajorModel::get_secondary_vocat_major_list($major_id_arr,$this->admin['school_id']);
             $recruit_major_data[$rk]['majors'] = $major_list;
-            $examination = Db::name('examination')->where('recruit_major_id',$recruit_major['recruit_major_id'])->where('school_id',$this->admin['school_id'])->find();
+            $examination = ExaminationModel::getExamination($recruit_major['recruit_major_id'],$this->admin['school_id']);
             $room_id = [];
             $recruit_major_data[$rk]['examination'] = [];
             $recruit_major_data[$rk]['is_examination'] = 0;
@@ -121,7 +122,10 @@ class Examination extends Base
         $data['endtime'] = $endtime = $post_data['endtime'];
         $data['school_id'] = $this->admin['school_id'];
         $room_ids = $post_data['room_id'];
-        $examination = Db::name('examination')->where('recruit_major_id',$recruit_major_id)->where('school_id',$this->admin['school_id'])->find();
+        $examination = ExaminationModel::getExamination($recruit_major_id,$this->admin['school_id']);
+        foreach ($room_ids as $key => $room_id) {
+
+        }
         if($examination)
         {
             Db::name('examination')->where('examination_id',$examination['examination_id'])->update([
@@ -158,7 +162,7 @@ class Examination extends Base
                 ->where('a.user_status',1)
                 ->field('a.member_list_nickname,a.member_list_username,a.member_list_headpic, mi.ZexamineeNumber')
                 ->select();
-        $examination = Db::name('examination')->where('recruit_major_id',$recruit_major['recruit_major_id'])->where('school_id',$this->admin['school_id'])->find();
+        $examination = ExaminationModel::getExamination($recruit_major['recruit_major_id'],$this->admin['school_id']);
         $examination_rooms = Db::name('examination_room')->alias('er')
                             ->join(config('database.prefix').'room r','r.room_id = er.room_id')
                             ->where('er.examination_id',$examination['examination_id'])
