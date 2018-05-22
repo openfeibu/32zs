@@ -47,8 +47,8 @@
                                         <input type="text" class="layui-input endtime" id="endtime_{$v.recruit_major_id}" name="starttime" style="width:80px;" value="{$v.examination.endtime|default='00:00'}"></td>
                                     <td>
                             			<div class="hidden-sm hidden-xs action-buttons">
-                            				<button class="btn btn-fb-blue fb-radio examination-submit" {if $v['is_examination'] == 1}{else}disabled{/if}>保存</button>
-                                            <button class="btn btn-fb-blue fb-radio" {if $v['is_examination'] == 1 }{else}disabled{/if} style="width:100px" onclick="window.location.href='{:url('admin/Examination/exportExamination',['recruit_major_id' => $v['recruit_major_id']])}'">导出准考证</button>
+                            				<button class="btn btn-fb-blue fb-radio examination-btn examination-submit" {if $v['is_examination'] == 1}{else}disabled{/if}>保存</button>
+                                            <button class="btn btn-fb-blue fb-radio examination-btn examination-submit download" {if $v['is_examination'] == 1 }{else}disabled{/if} style="width:100px" href='{:url('admin/Examination/exportExamination',['recruit_major_id' => $v['recruit_major_id']])}'>导出准考证</button>
                             			</div>
                                     </td>
                                 </tr>
@@ -88,17 +88,24 @@
                 pobject.find("input[name='room_id']:checked").each(function(i){
                     room_id[i] =$(this).val();
                 });
+                var is_download = $(this).hasClass('download');
+                var $this = $(this);
                 $.ajax({
                     url: "/admin/examination/storeExamination",
                     type:'POST',
                     data:{'recruit_major_id':recruit_major_id,'date':date,'starttime':starttime,'endtime':endtime,'room_id':room_id},
                     success: function(data){
                         layer.close(load);
-                        layer.msg(data.msg);
                         if (data.code == 1) {
-                            window.location.href=data.url;
+                            if(download){
+                                window.location.href=$this.attr('href');
+                            }
+                            else{
+                                layer.msg(data.msg);
+                                window.location.href=data.url;
+                            }
                         }else if(data.code == 0){
-
+                            layer.msg(data.msg);
                         }
                     }
                 });

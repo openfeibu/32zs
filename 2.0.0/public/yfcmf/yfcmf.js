@@ -1423,10 +1423,10 @@ $(function(){
 		console.log('member_count'+member_count);
 		if(count >= member_count)
 		{
-			$(this).parents("tr").find('.examination-submit').attr('disabled',false);
+			$(this).parents("tr").find('.examination-btn').attr('disabled',false);
 		}
 		else{
-			$(this).parents("tr").find('.examination-submit').attr('disabled',true);
+			$(this).parents("tr").find('.examination-btn').attr('disabled',true);
 		}
 	});
 });

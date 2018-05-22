@@ -44,7 +44,7 @@ class Examination extends Base
                 }
             }
         }
-        $this->success('添加成功',url('admin/Examination/rooms'));
+        $this->success('已保存',url('admin/Examination/rooms'));
     }
     /*
     public function createExamination()
@@ -138,7 +138,7 @@ class Examination extends Base
         foreach ($room_ids as $key => $room_id) {
             Db::name('examination_room')->insert(['room_id' => $room_id,'examination_id' => $examination_id]);
         }
-        $this->success('添加成功',url('admin/Examination/createExamination'));
+        $this->success('已保存',url('admin/Examination/createExamination'));
     }
     public function exportExamination()
     {
