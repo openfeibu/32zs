@@ -32,7 +32,7 @@
                                         {/foreach}
                                     </td>
                                     <td class="member_count" attr-value="{$v.member_count}">{$v.member_count}</td>
-                                    <td width="300px">
+                                    <td width="400px">
                                         {foreach name="rooms" item='rv'}
                                         <label>
                                             <input type="checkbox" name="room_id" value="{$rv.room_id}" class="room_id" attr-value="{$rv.room_number}" {if in_array($rv['room_id'],$v['room_id'])}checked{/if}/>{$rv.room_name}({$rv.room_number}人)
