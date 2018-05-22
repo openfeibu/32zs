@@ -33,7 +33,7 @@ class Examination extends Base
                 ];
                 if($ids[$key])
                 {
-                    $room = name('room')->where('room_id',$ids[$key])->find();
+                    $room = Db::name('room')->where('room_id',$ids[$key])->find();
                     if($room)
                     {
                         $room_data[$key]['room_id'] = $ids[$key];
