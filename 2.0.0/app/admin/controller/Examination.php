@@ -23,7 +23,7 @@ class Examination extends Base
         $room_names = $data['room_name'];
         $numbers = $data['room_number'];
 
-        Db::name('room')->where('school_id',$this->admin['school_id'])->where('room_id','not in',$ids)->select();
+        Db::name('room')->where('school_id',$this->admin['school_id'])->where('room_id','not in',$ids)->delete();
         foreach ($room_names as $key => $room_name) {
             if($room_name && $numbers[$key])
             {
