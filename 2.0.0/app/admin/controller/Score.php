@@ -190,6 +190,16 @@ class Score extends Base
 			$this -> error("删除失败！",url('admin/Score/score_list',array('page' => $p)));
 		}
 	}
+    public function check_score_list_export()
+    {
+        $major_id = input('major_id','');
+        $unauditing_count = Db::name('member_list')->alias('m')->join(config('database.prefix').'major_score ms','m.member_list_id = ms.member_list_id','left')->where('ms.major_score_status IS NUll or ms.major_score_status <= 0')->where(['m.major_id' => $major_id,'m.school_id' => $this->admin['school_id']])->count();
+        if($unauditing_count>0)
+        {
+            $this -> error("该专业存在未审核成绩，无法导出。");
+        }
+        $this->success('导出');
+    }
     public function score_list_export()
     {
         $major_id = input('major_id','');
@@ -198,13 +208,15 @@ class Score extends Base
 
         $map['m.school_id'] = $this->admin['school_id'];
 
+        $map['ms.major_score_status'] = 1;
+
         $data = $this->scoreModel->getMajorScoreList($map,'','',0);
 
         $major = MajorModel::get_major_detail($major_id,$this->admin['school_id']);
 
         $school = Db::name('school')->where(['school_id' =>$this->admin['school_id'] ])->find();
 
-        $title = $school['school_name'].'  '.$major['major_name'].'专业   核定理论成绩单';
+        $title = $school['school_name'].'  '.$major['major_name'].'专业   基础理论成绩单';
 
         $major_score = $major['score'] ? json_decode($major['score'],true) :[];
 		$major_score = array_filter($major_score);
@@ -219,10 +231,10 @@ class Score extends Base
             $field_titles[$i] = $major;
             $i++;
         }
-        $field_titles[$i] = '核定理论成绩';
-        $field_titles[$i+1] = '审核状态';
+        $field_titles[$i] = '基础理论成绩';
+        //$field_titles[$i+1] = '审核状态';
 
-        $fields = ['0' => 'member_list_nickname','1' => 'ZexamineeNumber','2' => 'member_list_username','3' => 'major_name','major_score_total','status_desc'];
+        $fields = ['0' => 'member_list_nickname','1' => 'ZexamineeNumber','2' => 'member_list_username','3' => 'major_name','major_score_total'];
         $i = 4; $j = 0;
         foreach ($major_score as $k => $major) {
             $fields[$i] = 'major_'.$j;
@@ -484,6 +496,34 @@ class Score extends Base
             return $this->fetch();
         }
     }
+    public function check_recruit_score_list_export()
+    {
+        $school_id = input('school_id','');
+        $school_list = $this->schoolModel->get_school_list_rmi($this->admin['recruit_major_id']);
+        $school_id_arr = $major_id_arr = array();
+        $map = [];
+        $where = '';
+        $school_id_arr = $major_id_arrs = array();
+        foreach ($school_list as $school_key => $school_value) {
+            $school_id_arr[] = $school_value['school_id'];
+            $major_id_arr = array_filter(explode(',',$school_value['major_ids']));
+            $major_id_arrs = array_merge($major_id_arrs,$major_id_arr);
+        }
+        if($school_id){
+            $map['m.school_id'] = $school_id;
+        }else{
+            $map['m.school_id'] = ['in',$school_id_arr];
+        }
+        $where = ' (ms.recruit_score_status IS NULL or ms.recruit_score_status <= 0) ';
+
+        $unauditing_count = Db::name('member_list')->alias('m')->join(config('database.prefix').'major_score ms','m.member_list_id = ms.member_list_id','left')->where($where)->where($map)->count();
+        if($unauditing_count>0)
+        {
+            $this -> error("所选中职学校存在未审核成绩，无法导出。");
+        }
+        $this->success('导出');
+
+    }
     public function recruit_score_list_export()
     {
         $school_list = $this->schoolModel->get_school_list_rmi($this->admin['recruit_major_id']);
@@ -514,6 +554,7 @@ class Score extends Base
             $map['m.school_id'] = ['in',$school_id_arr];
         }
 
+        /*
         if($recruit_score_status == 1){
             $map['ms.recruit_score_status'] = $recruit_score_status;
         }else if($recruit_score_status == ''){
@@ -521,6 +562,7 @@ class Score extends Base
         }else{
             $where .= '( ms.recruit_score_status IS NULL or ms.recruit_score_status <= 0)';
         }
+        */
 
         $data = $this->scoreModel->getRecruitMajorScoreList($map,$where,'',0);
 
@@ -975,21 +1017,21 @@ class Score extends Base
 		$status = config("status_title");
 
         $data = $this->scoreModel->handleRecruitMajorScoreList($data,$status,$recruit_major);
+        $title = $school['school_name'].'      对口'.$recruit_major['recruit_major_name'].'专业      ';
         if(!$is_score = input('score',1)){
             foreach($data as $k => $v)
             {
                 $data[$k]['recruit_score'] = '';
             }
             $table = $recruit_major['recruit_major_name'].'技能考核登分表';
-            $title = $school['school_name'].'      '.$recruit_major['recruit_major_name'].'专业      技能考核登分表';
+            $title.="技能考核登分表";
         }else{
             $table = $recruit_major['recruit_major_name'].'技能考核成绩单';
-            $title = $school['school_name'].'      '.$recruit_major['recruit_major_name'].'专业      技能考核成绩单';
+            $title.="技能考核成绩单";
         }
         $field_titles = ['姓名','中职考生号','身份证','高职专业','中职专业','技能成绩'];
 
         $fields = ['member_list_nickname','ZexamineeNumber','member_list_username','recruit_major_name','major_name','recruit_score'];
-
 
         $this->school_recruit_score_export_pdf($field_titles,$fields,$data,$table,$title,$is_score);
 

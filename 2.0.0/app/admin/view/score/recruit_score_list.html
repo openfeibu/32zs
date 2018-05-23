@@ -4,16 +4,17 @@
 		<div class="row maintop">
 			<button id="member_active_submit" class="">批量审核</button>
 			<div class="fb-export">
-				<a href="javascript:;" onclick="javascript:var school_id = $('#school_id').val();var recruit_score_status = $('#recruit_score_status').val();window.location.href='{:url('admin/Score/recruit_score_list_export')}?school_id='+school_id+'&recruit_score_status='+recruit_score_status;" title="按筛选导出考生成绩">按筛选导出考生成绩</a>
+				<a href="javascript:;" id="recruit_score_list_export" title="按中职学校导出技能考核成绩">按中职学校导出技能考核成绩</a>
 			</div>
 			<form name="admin_list_sea" class="form-search" id="list-filter" method="post" action="{:url('admin/score/recruit_score_list')}">
 				<div class="fb-state-search  margintop5">
-					筛选：
+					审核状态：
 					<select name="recruit_score_status" class="ajax_change" id="recruit_score_status">
-						<option value="">所有状态</option>
+						<option value="">所有</option>
 						<option value="0" {if condition="$recruit_score_status eq '0'"}selected="selected"{/if}>未审核</option>
 						<option value="1" {if condition="$recruit_score_status eq '1'"}selected="selected"{/if}>已审核</option>
 					</select>
+					中职学校：
 					<select name="school_id" class="ajax_change" id="school_id">
 						<option value="">所有中职学校</option>
 						{foreach name="school_list" item="v"}
@@ -110,5 +111,24 @@
             }
         }
     });
+	$("#recruit_score_list_export").click(function(){
+		var school_id = $('#school_id').val();
+		load = layer.load(1);
+		$.ajax({
+			url:"{:url('admin/Score/check_recruit_score_list_export')}",
+			type:"POST",
+			data:{'school_id':school_id},
+			success: function(data){
+				if(typeof load!="undefined"){layer.close(load);}
+				if (data.code == 1) {
+					window.location.href="{:url('admin/Score/recruit_score_list_export')}?school_id="+school_id
+				} else {
+					layer.alert(data.msg, {icon: 5});
+					return false;
+				}
+			}
+		});
+
+	});
 </script>
 {/block}

@@ -4,14 +4,14 @@
 		<div class="row maintop">
 			<button id="member_active_submit" class="btn btn-white btn-yellow  btn-active">批量审核</button>
 			<div class="fb-export">
-				<a href="javascript:;" onclick="javascript:var major_id = $('#major').val();window.location.href='{:url('admin/Score/score_list_export')}?major_id='+major_id;" title="按筛选导出成绩">按筛选导出成绩</a>
+				<a href="javascript:;" id="score_list_export"  title="按中职专业导出成绩">按中职专业导出成绩</a>
 			</div>
 
 			<form name="admin_list_sea" class="form-search" id="list-filter" method="post" action="{:url('admin/score/score_list')}">
 				<div class="fb-state-search  margintop5">
-					筛选：
+					审核状态：
 					<select name="major_score_status" class="ajax_change">
-						<option value="">所有状态</option>
+						<option value="">所有</option>
 						<option value="0" {if $major_score_status == '0'}selected{/if}>未审核</option>
 						<option value="1" {if $major_score_status == '1'}selected{/if}>已审核</option>
 					</select>
@@ -58,6 +58,25 @@
 
 			$(".ajaxForm").submit()
 			return true;
+		});
+		$("#score_list_export").click(function(){
+			var major_id = $('#major').val();
+			load = layer.load(1);
+			$.ajax({
+			    url:"{:url('admin/Score/check_score_list_export')}",
+				type:"POST",
+				data:{'major_id':major_id},
+				success: function(data){
+					if(typeof load!="undefined"){layer.close(load);}
+					if (data.code == 1) {
+				        window.location.href="{:url('admin/Score/score_list_export')}?major_id="+major_id;
+				    } else {
+				        layer.alert(data.msg, {icon: 5});
+						return false;
+				    }
+				}
+			});
+
 		});
 	</script>
 {/block}
