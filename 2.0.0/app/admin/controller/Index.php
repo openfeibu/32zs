@@ -46,10 +46,9 @@ class Index extends Base
                 $statistics[$key]['student_count'] = Db::name('member_list')->where(['major_id' => $major['major_id'],'school_id' => $this->admin['school_id']])->count();
                 $statistics[$key]['enrolment_auditing_count'] = Db::name('member_list')->where(['major_id' => $major['major_id'],'school_id' => $this->admin['school_id'],'user_status' => '1' ])->count();
                 $statistics[$key]['enrolment_unauditing_count'] = $statistics[$key]['student_count']  - $statistics[$key]['enrolment_auditing_count'];
-                $statistics[$key]['score_auditing_count'] = Db::name('member_list')->where(['major_id' => $major['major_id'],'school_id' => $this->admin['school_id']])->where(['major_score' => ['NEQ','']])->count();
+                $statistics[$key]['score_auditing_count'] = Db::name('member_list')->alias('m')->join(config('database.prefix').'major_score ms','m.member_list_id = ms.member_list_id','left')->where('ms.major_score_status',1)->where(['m.major_id' => $major['major_id'],'m.school_id' => $this->admin['school_id']])->count();
                 $statistics[$key]['score_unauditing_count'] = $statistics[$key]['student_count']  - $statistics[$key]['score_auditing_count'];
             }
-
         }
 		//高职专业负责人
 		if($this->admin['group_id'] == 4)
@@ -65,7 +64,7 @@ class Index extends Base
 			}
 			$map['m.major_id'] = ['in',$major_id_arrs];
 			$statistics['student_count'] =  Db::name('member_list')->alias('m')->where($map)->count();
-			$statistics['score_auditing_count'] = Db::name('member_list')->alias('m')->join(config('database.prefix').'major_score ms','m.member_list_id = ms.member_list_id','left')->where($map)->where('ms.recruit_score_status',1)->count();
+			$statistics['score_auditing_count'] = Db::name('member_list')->alias('m')->join(config('database.prefix').'major_score ms','m.member_list_id = ms.member_list_id','left')->where('ms.recruit_score_status',1)->where($map)->count();
 			$statistics['score_unauditing_count'] = $statistics['student_count'] - $statistics['score_auditing_count'];
 		}
 		//高职招生负责人 系统运维工程师
