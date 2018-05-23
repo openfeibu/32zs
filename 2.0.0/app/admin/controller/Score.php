@@ -981,8 +981,10 @@ class Score extends Base
                 $data[$k]['recruit_score'] = '';
             }
             $table = $recruit_major['recruit_major_name'].'技能考核登分表';
+            $title = $school['school_name'].'      '.$recruit_major['recruit_major_name'].'专业      技能考核登分表';
         }else{
             $table = $recruit_major['recruit_major_name'].'技能考核成绩单';
+            $title = $school['school_name'].'      '.$recruit_major['recruit_major_name'].'专业      技能考核成绩单';
         }
         $field_titles = ['姓名','中职考生号','身份证','高职专业','中职专业','技能成绩'];
 
