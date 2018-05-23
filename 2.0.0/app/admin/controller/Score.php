@@ -991,9 +991,6 @@ class Score extends Base
         $fields = ['member_list_nickname','ZexamineeNumber','member_list_username','recruit_major_name','major_name','recruit_score'];
 
 
-
-        $title = $school['school_name'].'      '.$recruit_major['recruit_major_name'].'专业      技能考核成绩单';
-
         $this->school_recruit_score_export_pdf($field_titles,$fields,$data,$table,$title,$is_score);
 
         //export_excel($data,$table,$field_titles,$fields);
