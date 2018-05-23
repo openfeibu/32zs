@@ -40,7 +40,7 @@ class RecruitScoreListTCPDF extends \tcpdf\TCPDF
     <tr>
         <td>高职专业负责人签名：</td>
         <td></td>
-        <td width="100px;">高职院(系)盖公章:</td>
+        <td width="100px;">高职院(系)盖章:</td>
     </tr>
     <tr>
 		<td></td>

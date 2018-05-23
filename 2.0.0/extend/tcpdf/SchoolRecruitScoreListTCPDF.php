@@ -40,7 +40,7 @@ class SchoolRecruitScoreListTCPDF extends \tcpdf\TCPDF
     <tr>
         <td>考官签名：</td>
         <td></td>
-        <td width="100px;">中职学校盖公章:</td>
+        <td width="100px;">中职学校盖章:</td>
     </tr>
     <tr>
 		<td></td>
