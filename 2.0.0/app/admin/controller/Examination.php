@@ -219,7 +219,7 @@ class Examination extends Base
 		$pdf = new \tcpdf\TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 		$pdf->SetCreator(PDF_CREATOR);
 		$pdf->SetAuthor("Gouweiba");
-		$pdf->SetTitle("pdf test");
+		$pdf->SetTitle("专业技能考核准考证");
 		$pdf->SetSubject('TCPDF Tutorial');
 		$pdf->SetKeywords('TCPDF, PDF, example, test, guide');
 		$pdf->setPrintHeader(false);
@@ -256,8 +256,102 @@ class Examination extends Base
 		$pdf->Output($recruit_major['recruit_major_name']."准考证" . '.pdf', 'D');
         exit;
     }
-    public function test()
+    public function exportExaminationSeats()
     {
+        $recruit_major_id = input('recruit_major_id');
+        $school_id = $this->admin['school_id'];
+        $enrollment = Db::name('enrollment')->where(['school_id' => $school_id,'recruit_major_id' => $recruit_major_id])->find();
+        $recruit_major = Db::name('recruit_major')->where(['recruit_major_id' => $recruit_major_id])->find();
+        $major_ids = array_filter(explode(',',$enrollment['major_ids']));
+        $where['s.school_id'] = $school_id;
+        $where['a.major_id'] = array('in',$major_ids);
+        $member_model=new MemberList;
+        $member_list = $member_model->alias('a')->join(config('database.prefix').'member_group b','a.member_list_groupid=b.member_group_id')
+                ->join(config('database.prefix').'member_info mi','mi.member_list_id = a.member_list_id')
+                ->join(config('database.prefix').'school s','a.school_id = s.school_id')
+                ->join(config('database.prefix').'major m','a.major_id = m.major_id')
+                ->where($where)
+                ->where('a.user_status',1)
+                ->field('a.member_list_nickname,a.member_list_username,a.member_list_headpic, mi.ZexamineeNumber')
+                //->limit(11)
+                ->select();
+        $examination = ExaminationModel::getExamination($recruit_major['recruit_major_id'],$this->admin['school_id']);
+        $examination_rooms = Db::name('examination_room')->alias('er')
+                            ->join(config('database.prefix').'room r','r.room_id = er.room_id')
+                            ->where('er.examination_id',$examination['examination_id'])
+                            ->field('r.room_id,r.room_number,r.room_name')
+                            ->order('r.room_id','asc')
+                            ->select();
+        $i = 0;
+        $rooms_data = [];
+        foreach ($examination_rooms as $erk => $erv) {
+            $room_number = $erv['room_number'];
+            for ($num=1; $num <= $room_number; $num++) {
+                $rooms_data[$i] =[
+                    'room_no' => sprintf("%03d", $num),
+                    'room_name' => $erv['room_name'],
+                ];
+                $i++;
+            }
+        }
 
+        $this->assign('recruit_major',$recruit_major);
+        $this->assign('examination',$examination);
+
+        require_once(EXTEND_PATH . 'tcpdf/examples/lang/eng.php');
+        require_once(EXTEND_PATH . 'tcpdf/TCPDF.php');
+		$pdf = new \tcpdf\TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+		$pdf->SetCreator(PDF_CREATOR);
+		$pdf->SetAuthor("Gouweiba");
+		$pdf->SetTitle("专业技能考核座位贴");
+		$pdf->SetSubject('TCPDF Tutorial');
+		$pdf->SetKeywords('TCPDF, PDF, example, test, guide');
+		$pdf->setPrintHeader(false);
+		$pdf->setPrintFooter(false);
+		$pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
+		$pdf->SetMargins(13, 3,0);
+		$pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
+		$pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
+		$pdf->SetAutoPageBreak(false);
+		$pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
+		//$pdf->SetFont('stsongstdlight', '', 13);
+		$title = "ceshi";
+        $i = 0;
+        foreach ($member_list as $mk => $mvalue) {
+            $member_list[$mk]['room_name'] = $rooms_data[$i]['room_name'];
+            $member_list[$mk]['room_no'] = $rooms_data[$i]['room_no'];
+            $i++;
+        }
+        $page = 0;
+        $count = count($member_list);
+        for ($page=$page; $page < $count; $page++) {
+            if($page%10==0)
+            {
+                $pdf->AddPage();
+                $pdf->setPageMark();
+                $member_seats = array_slice($member_list,$page,10);
+                $this->assign('member_seats',$member_seats);
+                $i=$j=0;
+                foreach ($member_seats as $key => $member) {
+                    $this->assign('member',$member);
+                    $content = $this->fetch('seats');
+                    if($i%2==0)
+                    {
+                        $pdf->writeHTMLCell(0, 0, 3, 28*$i+10, $content, $border=0, true, false, false, false, '');
+                    }else{
+                        $pdf->writeHTMLCell(0, 0, 108, 28*($i-1)+10, $content, $border=0, true, false, false, false, '');
+                    }
+                    $i++;
+                }
+            }
+
+        }
+		if($page == 0)
+		{
+			$pdf->AddPage();
+		}
+		$pdf->lastPage();
+		$pdf->Output($recruit_major['recruit_major_name']."专业技能考核座位贴" . '.pdf', 'D');
+        exit;
     }
 }

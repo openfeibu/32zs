@@ -49,6 +49,7 @@
                             			<div class="hidden-sm hidden-xs action-buttons">
                             				<button class="btn btn-fb-blue fb-radio examination-btn examination-submit" {if $v['is_examination'] == 1}{else}disabled{/if}>保存</button>
                                             <button class="btn btn-fb-blue fb-radio examination-btn examination-submit download" {if $v['is_examination'] == 1 }{else}disabled{/if} style="width:100px" href='{:url('admin/Examination/exportExamination',['recruit_major_id' => $v['recruit_major_id']])}'>导出准考证</button>
+                                            <button class="btn btn-fb-blue fb-radio examination-btn examination-submit download" {if $v['is_examination'] == 1 }{else}disabled{/if} style="width:100px" href='{:url('admin/Examination/exportExaminationSeats',['recruit_major_id' => $v['recruit_major_id']])}'>导出座位贴</button>
                             			</div>
                                     </td>
                                 </tr>

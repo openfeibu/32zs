@@ -18,11 +18,11 @@
                     <div class="form-group common_handle_group">
                         <input type="hidden" name="id[]" value="{$room.room_id}" />
                         <input type="hidden" name="is_used[]" value="{$room.is_used}" />
-						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 考场号和考试室： </label>
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 考场名称： </label>
 						<div class="col-sm-2">
 							<input type="text" name="room_name[]" value="{$room.room_name}" />
 						</div>
-                        <label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 容纳数 </label>
+                        <label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 容纳人数： </label>
 						<div class="col-sm-2">
 							<input type="text" name="room_number[]" value="{$room.room_number}" />
 						</div>
@@ -31,11 +31,11 @@
                     {else}
 					<div class="form-group common_handle_group">
                         <input type="hidden" name="id[]" value="" />
-						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 考场号和考试室： </label>
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 考场名称： </label>
 						<div class="col-sm-2">
 							<input type="text" name="room_name[]" value="" />
 						</div>
-                        <label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 容纳数 </label>
+                        <label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 容纳人数： </label>
 						<div class="col-sm-2">
 							<input type="text" name="room_number[]" value="" />
 						</div>
