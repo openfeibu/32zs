@@ -514,9 +514,11 @@ class Score extends Base
         }else{
             $map['m.school_id'] = ['in',$school_id_arr];
         }
+        $map['m.major_id'] = ['in',$major_id_arrs];
         $where = ' (ms.recruit_score_status IS NULL or ms.recruit_score_status <= 0) ';
 
-        $unauditing_count = Db::name('member_list')->alias('m')->join(config('database.prefix').'major_score ms','m.member_list_id = ms.member_list_id','left')->where($where)->where($map)->count();
+        $unauditing_count = Db::name('member_list')->alias('m')->join(config('database.prefix').'major_score ms','m.member_list_id = ms.member_list_id','left')->where($where)->where($map)->select();
+
         if($unauditing_count>0)
         {
             $this -> error("所选中职学校存在未审核成绩，无法导出。");
