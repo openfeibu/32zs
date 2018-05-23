@@ -199,7 +199,7 @@ class Score extends Model
 		{
 			$score_list = $score_list->where('member_list_username|member_list_nickname|ZexamineeNumber','like',"%".$search_key."%");
 		}
-        $score_list =$score_list->order('ms.major_score_status ASC')
+        $score_list =$score_list->order('ms.recruit_score_status ASC')
 				                ->order('s.school_id desc')
 				                ->order('m.member_list_id desc')
 								->field('s.school_id,s.school_name,mi.ZexamineeNumber,ms.major_score_id,ms.major_score, ms.major_score_status,ms.recruit_score,ms.recruit_score_status,m.member_list_nickname,m.member_list_username, m.member_list_id,m.major_id,ms.major_score_id,mj.major_name,mj.major_id')
