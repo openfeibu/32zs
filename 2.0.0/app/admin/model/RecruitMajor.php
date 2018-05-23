@@ -28,4 +28,16 @@ class RecruitMajor extends Model
 								->find();
 		return $recruit_major;
 	}
+	public static function get_sec_vocat_recruit_major_list($school_id,$major_id_arr)
+	{
+		$recruit_major_list = [];
+		foreach ($major_id_arr as $key => $major_id) {
+			$recruit_major = self::get_recruit_major($school_id,$major_id);
+			if($recruit_major)
+			{
+				$recruit_major_list[$recruit_major['recruit_major_id']] = $recruit_major;
+			}
+		}
+		return $recruit_major_list;
+	}
 }

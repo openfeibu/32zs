@@ -65,7 +65,7 @@ class Index extends Base
 			}
 			$map['m.major_id'] = ['in',$major_id_arrs];
 			$statistics['student_count'] =  Db::name('member_list')->alias('m')->where($map)->count();
-			$statistics['score_auditing_count'] = Db::name('member_list')->alias('m')->where($map)->where(['m.recruit_score' => ['NEQ','']])->count();
+			$statistics['score_auditing_count'] = Db::name('member_list')->alias('m')->join(config('database.prefix').'major_score ms','m.member_list_id = ms.member_list_id','left')->where($map)->where('ms.recruit_score_status',1)->count();
 			$statistics['score_unauditing_count'] = $statistics['student_count'] - $statistics['score_auditing_count'];
 		}
 		//高职招生负责人 系统运维工程师

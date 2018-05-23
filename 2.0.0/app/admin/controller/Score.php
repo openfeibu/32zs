@@ -646,7 +646,8 @@ class Score extends Base
 			{
 				$data = Db::name('major_score')->where(array('member_list_id' => $id))->find();
 				if($data){
-					Db::name('member_list')->where(array('member_list_id' => $data['member_list_id']))->update(array('recruit_score' => $data['recruit_score']));
+                    $recruit_score = $data['recruit_score'] ? $data['recruit_score'] : 0;
+					Db::name('member_list')->where(array('member_list_id' => $data['member_list_id']))->update(array('recruit_score' => $recruit_score));
 				}
 			}
 			$this->success("操作成功",url('admin/score/recruit_score_list',array('p'=>$p,'school_id' =>$school_id,'major_id'=>$major_id )));
@@ -928,33 +929,146 @@ class Score extends Base
         }
         $this->success('操作成功',url('admin/score/recruit_score_list',['school_id' => $school_id]));
     }
-    public function school_recruit_score_export_forimport()
+    public function sec_vocat_recruit_score_list()
     {
-
-        $recruit_major_id = input('recruit_major_id','');
+        $major_ids = json_decode($this->admin['major_id'],true);
         $school_id = $this->admin['school_id'];
-        $school = Db::name('school')->where(['school_id' => $school_id])->find();
+        $recruit_major_list = RecruitMajorModel::get_sec_vocat_recruit_major_list($school_id,$major_ids);
 
         $map = [];
         $where = '';
 
-        $map['m.school_id'] = $school_id;
+        $recruit_major_id = input('recruit_major_id',current($recruit_major_list)['recruit_major_id']);
+        $enrollment = Db::name('enrollment')->where(['school_id' => $school_id,'recruit_major_id' => $recruit_major_id])->find();
+        $recruit_major = Db::name('recruit_major')->where(['recruit_major_id' => $recruit_major_id])->find();
+        $major_ids = array_filter(explode(',',$enrollment['major_ids']));
+        $map['s.school_id'] = $school_id;
+        $map['mj.major_id'] = array('in',$major_ids);
 
-        $where .= '( ms.recruit_score_status IS NULL or ms.recruit_score_status <= 0)';
+		$score_list = $this->scoreModel->getRecruitMajorScoreList($map,$where,'');
+
+		$data = $score_list->all();
+		$status = config("status");
+
+		$data = $this->scoreModel->handleRecruitMajorScoreList($data,$status,'');
+		$page = $score_list->render();
+
+		$this->assign('data',$data);
+        $this->assign('recruit_major_list',$recruit_major_list);
+        $this->assign('recruit_major',$recruit_major);
+		$this->assign('page',$page);
+        if(request()->isAjax()){
+            return $this->fetch('ajax_sec_vocat_recruit_score_list');
+        }else{
+            return $this->fetch();
+        }
+    }
+    public function school_recruit_score_export_forimport()
+    {
+        $recruit_major_id = input('recruit_major_id','');
+        $school_id = $this->admin['school_id'];
+        $school = Db::name('school')->where(['school_id' => $school_id])->find();
+        $enrollment = Db::name('enrollment')->where(['school_id' => $school_id,'recruit_major_id' => $recruit_major_id])->find();
+        $recruit_major = Db::name('recruit_major')->where(['recruit_major_id' => $recruit_major_id])->find();
+        $major_ids = array_filter(explode(',',$enrollment['major_ids']));
+        $map = [];
+        $where = '';
+        $map['m.school_id'] = $school_id;
+        $map['mj.major_id'] = ['in',$major_ids];
 
         $data = $this->scoreModel->getRecruitMajorScoreList($map,$where,'',0);
 
 		$status = config("status_title");
-        $recruit_major = Db::name('recruit_major')->where('recruit_major_id',$recruit_major_id)->find();
 
         $data = $this->scoreModel->handleRecruitMajorScoreList($data,$status,$recruit_major);
 
-        $field_titles = ['考生ID','姓名','身份证','高职专业','中职学校','中职专业','技能成绩'];
+        $field_titles = ['姓名','中职考生号','身份证','高职专业','中职专业','技能成绩'];
 
-        $fields = ['member_list_id','member_list_nickname','member_list_username','recruit_major_name','school_name','major_name','recruit_score'];
+        $fields = ['member_list_nickname','ZexamineeNumber','member_list_username','recruit_major_name','major_name','recruit_score'];
 
-        $table = $recruit_major['recruit_major_name'].'技能考核成绩登记表';
+        $table = $recruit_major['recruit_major_name'].'技能考核成绩表';
 
-        export_excel($data,$table,$field_titles,$fields);
+        $title = $recruit_major['recruit_major_name'].'      技能考核成绩';
+
+        $author = '广东农工商职业技术学院      三二分段对接      '.$school['school_name'];
+
+        $this->school_recruit_score_export_pdf_forimport($field_titles,$fields,$data,$table,$title,$author);
+
+        //export_excel($data,$table,$field_titles,$fields);
+    }
+    private function school_recruit_score_export_pdf_forimport($field_titles=array(),$fields=array(),$data=array(),$table,$title,$author)
+    {
+        set_time_limit(120);
+        require_once(EXTEND_PATH . 'tcpdf/examples/lang/eng.php');
+        require_once(EXTEND_PATH . 'tcpdf/SchoolRecruitScoreListTCPDF.php');
+		$pdf = new \SchoolRecruitScoreListTCPDF('P', PDF_UNIT, 'A4', true, 'UTF-8', false);//新建pdf文件
+		 //设置文件信息
+		$pdf->SetCreator(PDF_CREATOR);
+		$pdf->SetAuthor("Gouweiba");
+		$pdf->SetTitle($table);
+		$pdf->SetSubject('TCPDF Tutorial');
+		$pdf->SetKeywords('TCPDF, PDF, example, test, guide');
+        //设置页眉页脚
+        $pdf->SetHeaderData('', '', $author,$title,array(66,66,66), array(0,0,0));
+        $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
+        $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
+        $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);//设置默认等宽字体
+        $pdf->SetMargins(PDF_MARGIN_LEFT, 24, PDF_MARGIN_RIGHT);//设置页面边幅
+        $pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
+        $pdf->SetFooterMargin(30);
+        $pdf->SetAutoPageBreak(TRUE, 30);//设置自动分页符
+        $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
+        $pdf->setLanguageArray($l);
+        $pdf->SetFont('droidsansfallback', '');
+        $pdf->AddPage();
+
+        $pdf->SetFillColor(245, 245, 245);
+        $pdf->SetTextColor(0);
+        $pdf->SetDrawColor(66, 66, 66);
+        $pdf->SetLineWidth(0.3);
+        $pdf->SetFont('droidsansfallback', '',9);
+        // Header
+        $num_headers = count($field_titles);
+        for($i = 0; $i < $num_headers; ++$i) {
+            $pdf->Cell(180/$num_headers, 8, $field_titles[$i], 1, 0, 'C', 1);
+        }
+        $pdf->Ln();
+
+        // 填充数据
+        $fill = 0;
+        foreach($data as $list) {
+            //每頁重复表格标题行
+            if(($pdf->getPageHeight()-$pdf->getY())<($pdf->getBreakMargin()+2)){
+                $pdf->SetFillColor(245, 245, 245);
+                $pdf->SetTextColor(0);
+                $pdf->SetDrawColor(66, 66, 66);
+                $pdf->SetLineWidth(0.3);
+                $pdf->SetFont('droidsansfallback', '',9);
+                // Header
+                for($i = 0; $i < $num_headers; ++$i) {
+                    $pdf->Cell(180/$num_headers, 8, $field_titles[$i], 1, 0, 'C', 1);
+                }
+                $pdf->Ln();
+            }
+            // Color and font restoration
+            $pdf->SetFillColor(245, 245, 245);
+            $pdf->SetTextColor(40);
+            $pdf->SetLineWidth(0.1);
+            $pdf->SetFont('droidsansfallback', '');
+
+            foreach($fields as $i=>$name){
+				$pdf->MultiCell(180/$num_headers, 6, $list[$name], $border=1, $align='C',$fill, $ln=0, $x='', $y='',  $reseth=true, $stretch=0,$ishtml=false, $autopadding=true, $maxh=0, $valign='C', $fitcell=true);
+            }
+
+            $pdf->Ln();
+            $fill=!$fill;
+        }
+
+		// reset pointer to the last page
+		$pdf->lastPage();
+
+        $showType= 'D'; //PDF输出的方式。I，在浏览器中打开；D，以文件形式下载；F，保存到服务器中；S，以字符串形式输出；E：以邮件的附件输出。
+        $pdf->Output("{$table}.pdf", $showType);
+        exit;
     }
 }

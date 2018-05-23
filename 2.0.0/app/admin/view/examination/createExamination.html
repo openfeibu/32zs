@@ -47,9 +47,9 @@
                                         <input type="text" class="layui-input endtime" id="endtime_{$v.recruit_major_id}" name="starttime" style="width:80px;" value="{$v.examination.endtime|default='00:00'}"></td>
                                     <td>
                             			<div class="hidden-sm hidden-xs action-buttons">
+                            				<button class="btn btn-fb-blue fb-radio examination-btn examination-submit" {if $v['is_examination'] == 1}{else}disabled{/if}>保存</button>
                                             <button class="btn btn-fb-blue fb-radio examination-btn examination-submit download" {if $v['is_examination'] == 1 }{else}disabled{/if} style="width:100px" href='{:url('admin/Examination/exportExamination',['recruit_major_id' => $v['recruit_major_id']])}'>导出准考证</button>
                                             <button class="btn btn-fb-blue fb-radio examination-btn examination-submit download" {if $v['is_examination'] == 1 }{else}disabled{/if} style="width:100px" href='{:url('admin/Examination/exportExaminationSeats',['recruit_major_id' => $v['recruit_major_id']])}'>导出座位贴</button>
-                                            <button class="btn btn-fb-blue fb-radio" style="width:100px" onclick="javascript:window.location.href='{:url('admin/Score/school_recruit_score_export_forimport',['recruit_major_id' => $v['recruit_major_id']])}'">导出登分表</button>
                             			</div>
                                     </td>
                                 </tr>

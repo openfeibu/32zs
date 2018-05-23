@@ -15,7 +15,7 @@
 						<option value="1" {if condition="$recruit_score_status eq '1'"}selected="selected"{/if}>已审核</option>
 					</select>
 					<select name="school_id" class="ajax_change" id="school_id">
-						<option value="">选择中职学校</option>
+						<option value="">所有中职学校</option>
 						{foreach name="school_list" item="v"}
 							<option value="{$v.school_id}" {if condition="$school_id eq $v['school_id']"}selected="selected"{/if}>{$v.school_name}</option>
 						{/foreach}
