@@ -880,7 +880,6 @@ class Score extends Base
     }
     public function recruit_score_export_forimport()
     {
-        $major_id = input('major_id','');
         $recruit_major_id = $this->admin['recruit_major_id'];
         $school_id = input('school_id','');
         $school = Db::name('school')->where(['school_id' => $school_id])->find();
@@ -928,5 +927,34 @@ class Score extends Base
             $this->scoreModel->recruitScoreAdd($member_list_id,$recruit_score);
         }
         $this->success('操作成功',url('admin/score/recruit_score_list',['school_id' => $school_id]));
+    }
+    public function school_recruit_score_export_forimport()
+    {
+
+        $recruit_major_id = input('recruit_major_id','');
+        $school_id = $this->admin['school_id'];
+        $school = Db::name('school')->where(['school_id' => $school_id])->find();
+
+        $map = [];
+        $where = '';
+
+        $map['m.school_id'] = $school_id;
+
+        $where .= '( ms.recruit_score_status IS NULL or ms.recruit_score_status <= 0)';
+
+        $data = $this->scoreModel->getRecruitMajorScoreList($map,$where,'',0);
+
+		$status = config("status_title");
+        $recruit_major = Db::name('recruit_major')->where('recruit_major_id',$recruit_major_id)->find();
+
+        $data = $this->scoreModel->handleRecruitMajorScoreList($data,$status,$recruit_major);
+
+        $field_titles = ['考生ID','姓名','身份证','高职专业','中职学校','中职专业','技能成绩'];
+
+        $fields = ['member_list_id','member_list_nickname','member_list_username','recruit_major_name','school_name','major_name','recruit_score'];
+
+        $table = $recruit_major['recruit_major_name'].'技能考核成绩登记表';
+
+        export_excel($data,$table,$field_titles,$fields);
     }
 }

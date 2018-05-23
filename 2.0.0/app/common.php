@@ -1742,7 +1742,7 @@ function get_val_from_arr2($arr, $val, $want_key, $search_key)
     }
     return $return;
 }
-function export_excel($data, $table, $field_titles, $fields)
+function export_excel($data, $table, $field_titles, $fields,$type = 'Excel5')
 {
     error_reporting(E_ALL);
     date_default_timezone_set('Asia/chongqing');
@@ -1773,10 +1773,19 @@ function export_excel($data, $table, $field_titles, $fields)
     }
     $objPHPExcel->getActiveSheet()->setTitle($table);
     $objPHPExcel->setActiveSheetIndex(0);
-    header('Content-Type: application/vnd.ms-excel');
-    header('Content-Disposition: attachment;filename="'.$table.'.xls"');
-    header('Cache-Control: max-age=0');
-    $objWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
+    switch ($type) {
+        case 'PDF':
+            header('Content-Type: application/pdf');
+            header('Content-Disposition: attachment;filename="'.$table.'.pdf"');
+            header('Cache-Control: max-age=0');
+            break;
+        default:
+            header('Content-Type: application/vnd.ms-excel');
+            header('Content-Disposition: attachment;filename="'.$table.'.xls"');
+            header('Cache-Control: max-age=0');
+            break;
+    }
+    $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, $type);
     $objWriter->save('php://output');
     exit;
 }
