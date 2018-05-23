@@ -225,7 +225,7 @@ class Score extends Base
 
         $data = $this->scoreModel->handleMajorScoreList($data,$major_score_key,config("status_title"));
 
-        $field_titles = ['0' => '姓名','1' => '中职考生号','2' => '身份证','3' => '中职专业'];
+        $field_titles = ['序号','姓名','中职考生号','身份证','中职专业'];
         $i = 4;
         foreach ($major_score as $k => $major) {
             $field_titles[$i] = $major;
@@ -234,7 +234,7 @@ class Score extends Base
         $field_titles[$i] = '基础理论成绩';
         //$field_titles[$i+1] = '审核状态';
 
-        $fields = ['0' => 'member_list_nickname','1' => 'ZexamineeNumber','2' => 'member_list_username','3' => 'major_name','major_score_total'];
+        $fields = ['no','member_list_nickname','ZexamineeNumber','member_list_username','major_name','major_score_total'];
         $i = 4; $j = 0;
         foreach ($major_score as $k => $major) {
             $fields[$i] = 'major_'.$j;
@@ -242,7 +242,7 @@ class Score extends Base
             $j++;
         }
         $fields[$i] = 'major_score_total';
-        $fields[$i+1] = 'status_desc';
+        //$fields[$i+1] = 'status_desc';
 
         $table = '三二分段考核理论成绩'.date('YmdHis');
 
@@ -263,7 +263,7 @@ class Score extends Base
 		}else{
 			$where = 'member_list_id ='.$ids;
 		}
-
+        
 		$rst=Db::name('major_score')->where($where)->setField('major_score_status',1);
 		if($rst!==false){
 			foreach($ids as $key => $id)
@@ -517,7 +517,7 @@ class Score extends Base
         $map['m.major_id'] = ['in',$major_id_arrs];
         $where = ' (ms.recruit_score_status IS NULL or ms.recruit_score_status <= 0) ';
 
-        $unauditing_count = Db::name('member_list')->alias('m')->join(config('database.prefix').'major_score ms','m.member_list_id = ms.member_list_id','left')->where($where)->where($map)->select();
+        $unauditing_count = Db::name('member_list')->alias('m')->join(config('database.prefix').'major_score ms','m.member_list_id = ms.member_list_id','left')->where($where)->where($map)->count();
 
         if($unauditing_count>0)
         {
@@ -573,9 +573,9 @@ class Score extends Base
 
         $data = $this->scoreModel->handleRecruitMajorScoreList($data,$status,$recruit_major);
 
-        $field_titles = ['姓名','中职考生号','身份证','高职专业','中职学校','中职专业','技能成绩','审核状态'];
+        $field_titles = ['序号','姓名','中职考生号','身份证','高职专业','中职学校','中职专业','技能成绩'];
 
-        $fields = ['member_list_nickname','ZexamineeNumber','member_list_username','recruit_major_name','school_name','major_name','recruit_score','status_desc'];
+        $fields = ['no','member_list_nickname','ZexamineeNumber','member_list_username','recruit_major_name','school_name','major_name','recruit_score'];
 
         $table = '三二分段'.$recruit_major['recruit_major_name'].'技能考核成绩'.date('YmdHis');
         $title = $recruit_major['recruit_major_name'].'专业      技能考核成绩单';
@@ -1031,9 +1031,9 @@ class Score extends Base
             $table = $recruit_major['recruit_major_name'].'技能考核成绩单';
             $title.="技能考核成绩单";
         }
-        $field_titles = ['姓名','中职考生号','身份证','高职专业','中职专业','技能成绩'];
+        $field_titles = ['序号','姓名','中职考生号','身份证','高职专业','中职专业','技能成绩'];
 
-        $fields = ['member_list_nickname','ZexamineeNumber','member_list_username','recruit_major_name','major_name','recruit_score'];
+        $fields = ['no','member_list_nickname','ZexamineeNumber','member_list_username','recruit_major_name','major_name','recruit_score'];
 
         $this->school_recruit_score_export_pdf($field_titles,$fields,$data,$table,$title,$is_score);
 

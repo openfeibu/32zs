@@ -159,6 +159,7 @@ class Score extends Model
 	}
 	public function handleMajorScoreList($score_list,$major_score_key,$status)
 	{
+		$no = 1;
 		foreach($score_list as $key => $val)
 		{
             $major_score_arr = json_decode($val['major_score'],true);
@@ -176,6 +177,8 @@ class Score extends Model
                 $score_list[$key]['major_'.$j] = $major_score_v;
                 $j++;
             }
+			$score_list[$key]['no'] = $no;
+			$no++;
 		}
 		return $score_list;
 	}
@@ -212,6 +215,7 @@ class Score extends Model
 	}
 	public function handleRecruitMajorScoreList($score_list,$status,$recruit_major)
 	{
+		$no = 1;
 		foreach($score_list as $key => $val)
 		{
             $val_recruit_score_status = $val['recruit_score_status'] ? $val['recruit_score_status'] : 0;
@@ -220,6 +224,8 @@ class Score extends Model
 			{
 				$score_list[$key]['recruit_major_name'] = $recruit_major['recruit_major_name'];
 			}
+			$score_list[$key]['no'] = $no;
+			$no++;
 		}
 		return $score_list;
 	}
