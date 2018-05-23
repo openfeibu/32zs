@@ -1,6 +1,6 @@
 <?php
 
-class SchoolRecruitScoreListTCPDF extends \tcpdf\TCPDF
+class SchoolRecruitScoreListTCPDFWithScore extends \tcpdf\TCPDF
 {
     // Page footer
     public function Footer() {
@@ -38,9 +38,9 @@ class SchoolRecruitScoreListTCPDF extends \tcpdf\TCPDF
         $html = '
 <table border="0" cellspacing="3" cellpadding="4">
     <tr>
-        <td>考官签名：</td>
         <td></td>
-        <td width="100px;">中职学校盖公章:</td>
+        <td></td>
+        <td width="120px;">'.config('higher_school_name').'</td>
     </tr>
     <tr>
 		<td></td>
