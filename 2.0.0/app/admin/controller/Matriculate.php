@@ -146,7 +146,7 @@ class Matriculate extends Base
             }
         }
 
-        $field_titles = ['姓名','中职考生号','身份证','高职专业','基础理论成绩','技能考核成绩','总分','排名','是否录取'];
+        $field_titles = ['姓名','中职考生号','身份证','高职专业','核定理论成绩','技能考核成绩','总分','排名','是否录取'];
         $fields = ['member_list_nickname','ZexamineeNumber','member_list_username','recruit_major_name','major_score_total','recruit_score','total_score','ranking','admission_status_desc'];
         $table = $recruit_major['recruit_major_name'].'-'.$school['school_name'].'录取结果'.date('YmdHis');
         error_reporting(E_ALL);
