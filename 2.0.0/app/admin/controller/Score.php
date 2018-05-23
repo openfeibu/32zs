@@ -204,8 +204,7 @@ class Score extends Base
 
         $school = Db::name('school')->where(['school_id' =>$this->admin['school_id'] ])->find();
 
-        $title = $school['school_name'].'  '.$major['major_name'].'   核定理论成绩表';
-        $author = '广东农工商职业技术学院   对口';
+        $title = $school['school_name'].'  '.$major['major_name'].'专业   核定理论成绩单';
 
         $major_score = $major['score'] ? json_decode($major['score'],true) :[];
 		$major_score = array_filter($major_score);
@@ -235,7 +234,7 @@ class Score extends Base
 
         $table = '三二分段考核理论成绩'.date('YmdHis');
 
-        $this->score_list_export_pdf($field_titles,$fields,$data,$table,$title,$author);
+        $this->score_list_export_pdf($field_titles,$fields,$data,$table,$title);
         return false;
 
     }
@@ -379,9 +378,6 @@ class Score extends Base
         $major_name = $major['major_name'];
 
         $school = Db::name('school')->where(['school_id' =>$this->admin['school_id'] ])->find();
-
-        $title = $school['school_name'].'  '.$major['major_name'].'   核定理论成绩表';
-        $author = '广东农工商职业技术学院   对口';
 
         $major_score = $major['score'] ? json_decode($major['score'],true) :[];
 		$major_score = array_filter($major_score);
@@ -538,10 +534,8 @@ class Score extends Base
         $fields = ['member_list_nickname','ZexamineeNumber','member_list_username','recruit_major_name','school_name','major_name','recruit_score','status_desc'];
 
         $table = '三二分段'.$recruit_major['recruit_major_name'].'技能考核成绩'.date('YmdHis');
-        $title = $recruit_major['recruit_major_name'].'      技能考核成绩';
-        $author = '广东农工商职业技术学院      三二分段';
-        //$this->export_pdf($field_titles,$fields,$data,$table,$title,$author);
-        $this->recruit_score_list_export_pdf($field_titles,$fields,$data,$table,$title,$author);
+        $title = $recruit_major['recruit_major_name'].'专业      技能考核成绩单';
+        $this->recruit_score_list_export_pdf($field_titles,$fields,$data,$table,$title);
 
         return false;
 
@@ -676,7 +670,7 @@ class Score extends Base
 		}
 	}
 
-    public function score_list_export_pdf($field_titles=array(),$fields=array(),$data=array(),$fileName='Newfile',$title,$author=''){
+    public function score_list_export_pdf($field_titles=array(),$fields=array(),$data=array(),$table='Newfile',$title){
 
 		set_time_limit(120);
 		if(empty($field_titles) || empty($data)) $this->error("导出的数据为空！");
@@ -685,12 +679,12 @@ class Score extends Base
 		$pdf = new \ScoreListTCPDF('L', PDF_UNIT, 'A4', true, 'UTF-8', false);//新建pdf文件
 		 //设置文件信息
 		$pdf->SetCreator(PDF_CREATOR);
-		$pdf->SetAuthor("Author");
-		$pdf->SetTitle("pdf test");
+		$pdf->SetAuthor(config('pdf_common.author'));
+		$pdf->SetTitle($table);
 		$pdf->SetSubject('TCPDF Tutorial');
 		$pdf->SetKeywords('TCPDF, PDF, example, test, guide');
         //设置页眉页脚
-        $pdf->SetHeaderData('', '', $author,$title,array(66,66,66), array(0,0,0));
+        $pdf->SetHeaderData('', '', config('pdf_common.header_name'),$title,array(66,66,66), array(0,0,0));
         $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
         $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
         $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);//设置默认等宽字体
@@ -753,10 +747,10 @@ class Score extends Base
 		$pdf->lastPage();
 
         $showType= 'D';//PDF输出的方式。I，在浏览器中打开；D，以文件形式下载；F，保存到服务器中；S，以字符串形式输出；E：以邮件的附件输出。
-        $pdf->Output("{$fileName}.pdf", $showType);
+        $pdf->Output("{$table}.pdf", $showType);
         exit;
 	}
-    public function recruit_score_list_export_pdf($field_titles=array(),$fields=array(),$data=array(),$fileName='Newfile',$title,$author='')
+    public function recruit_score_list_export_pdf($field_titles=array(),$fields=array(),$data=array(),$table='Newfile',$title)
     {
         set_time_limit(120);
 		if(empty($field_titles) || empty($data)) $this->error("导出的数据为空！");
@@ -765,12 +759,12 @@ class Score extends Base
 		$pdf = new \RecruitScoreListTCPDF('P', PDF_UNIT, 'A4', true, 'UTF-8', false);//新建pdf文件
 		 //设置文件信息
 		$pdf->SetCreator(PDF_CREATOR);
-		$pdf->SetAuthor("Author");
-		$pdf->SetTitle("pdf test");
+		$pdf->SetAuthor(config('pdf_common.author'));
+		$pdf->SetTitle($table);
 		$pdf->SetSubject('TCPDF Tutorial');
 		$pdf->SetKeywords('TCPDF, PDF, example, test, guide');
         //设置页眉页脚
-        $pdf->SetHeaderData('', '', $author,$title,array(66,66,66), array(0,0,0));
+        $pdf->SetHeaderData('', '', config('pdf_common.header_name'),$title,array(66,66,66), array(0,0,0));
         $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
         $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
         $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);//设置默认等宽字体
@@ -829,7 +823,7 @@ class Score extends Base
 		$pdf->lastPage();
 
         $showType= 'D'; //PDF输出的方式。I，在浏览器中打开；D，以文件形式下载；F，保存到服务器中；S，以字符串形式输出；E：以邮件的附件输出。
-        $pdf->Output("{$fileName}.pdf", $showType);
+        $pdf->Output("{$table}.pdf", $showType);
         exit;
     }
 
@@ -963,7 +957,7 @@ class Score extends Base
             return $this->fetch();
         }
     }
-    public function school_recruit_score_export_forimport()
+    public function school_recruit_score_export()
     {
         $recruit_major_id = input('recruit_major_id','');
         $school_id = $this->admin['school_id'];
@@ -981,35 +975,48 @@ class Score extends Base
 		$status = config("status_title");
 
         $data = $this->scoreModel->handleRecruitMajorScoreList($data,$status,$recruit_major);
-
+        if(!$is_score = input('score',1)){
+            foreach($data as $k => $v)
+            {
+                $data[$k]['recruit_score'] = '';
+            }
+            $table = $recruit_major['recruit_major_name'].'技能考核登分表';
+        }else{
+            $table = $recruit_major['recruit_major_name'].'技能考核成绩单';
+        }
         $field_titles = ['姓名','中职考生号','身份证','高职专业','中职专业','技能成绩'];
 
         $fields = ['member_list_nickname','ZexamineeNumber','member_list_username','recruit_major_name','major_name','recruit_score'];
 
-        $table = $recruit_major['recruit_major_name'].'技能考核成绩表';
 
-        $title = $recruit_major['recruit_major_name'].'      技能考核成绩';
 
-        $author = '广东农工商职业技术学院      三二分段对接      '.$school['school_name'];
+        $title = $school['school_name'].'      '.$recruit_major['recruit_major_name'].'专业      技能考核成绩单';
 
-        $this->school_recruit_score_export_pdf_forimport($field_titles,$fields,$data,$table,$title,$author);
+        $this->school_recruit_score_export_pdf($field_titles,$fields,$data,$table,$title,$is_score);
 
         //export_excel($data,$table,$field_titles,$fields);
     }
-    private function school_recruit_score_export_pdf_forimport($field_titles=array(),$fields=array(),$data=array(),$table,$title,$author)
+    private function school_recruit_score_export_pdf($field_titles=array(),$fields=array(),$data=array(),$table,$title,$is_score = 1)
     {
         set_time_limit(120);
         require_once(EXTEND_PATH . 'tcpdf/examples/lang/eng.php');
-        require_once(EXTEND_PATH . 'tcpdf/SchoolRecruitScoreListTCPDF.php');
-		$pdf = new \SchoolRecruitScoreListTCPDF('P', PDF_UNIT, 'A4', true, 'UTF-8', false);//新建pdf文件
+        if($is_score == 1)
+        {
+            require_once(EXTEND_PATH . 'tcpdf/SchoolRecruitScoreListTCPDFWithScore.php');
+            $pdf = new \SchoolRecruitScoreListTCPDFWithScore('P', PDF_UNIT, 'A4', true, 'UTF-8', false);
+        }else{
+            require_once(EXTEND_PATH . 'tcpdf/SchoolRecruitScoreListTCPDF.php');
+            $pdf = new \SchoolRecruitScoreListTCPDF('P', PDF_UNIT, 'A4', true, 'UTF-8', false);
+        }
+
 		 //设置文件信息
 		$pdf->SetCreator(PDF_CREATOR);
-		$pdf->SetAuthor("Gouweiba");
+		$pdf->SetAuthor(config('pdf_common.author'));
 		$pdf->SetTitle($table);
 		$pdf->SetSubject('TCPDF Tutorial');
 		$pdf->SetKeywords('TCPDF, PDF, example, test, guide');
         //设置页眉页脚
-        $pdf->SetHeaderData('', '', $author,$title,array(66,66,66), array(0,0,0));
+        $pdf->SetHeaderData('', '', config('pdf_common.header_name'),$title,array(66,66,66), array(0,0,0));
         $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
         $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
         $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);//设置默认等宽字体

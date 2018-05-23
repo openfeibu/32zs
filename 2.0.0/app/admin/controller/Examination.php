@@ -218,7 +218,7 @@ class Examination extends Base
         require_once(EXTEND_PATH . 'tcpdf/TCPDF.php');
 		$pdf = new \tcpdf\TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 		$pdf->SetCreator(PDF_CREATOR);
-		$pdf->SetAuthor("Gouweiba");
+		$pdf->SetAuthor(config('pdf_common.author'));
 		$pdf->SetTitle("专业技能考核准考证");
 		$pdf->SetSubject('TCPDF Tutorial');
 		$pdf->SetKeywords('TCPDF, PDF, example, test, guide');
@@ -302,7 +302,7 @@ class Examination extends Base
         require_once(EXTEND_PATH . 'tcpdf/TCPDF.php');
 		$pdf = new \tcpdf\TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 		$pdf->SetCreator(PDF_CREATOR);
-		$pdf->SetAuthor("Gouweiba");
+		$pdf->SetAuthor(config('pdf_common.author'));
 		$pdf->SetTitle("专业技能考核座位贴");
 		$pdf->SetSubject('TCPDF Tutorial');
 		$pdf->SetKeywords('TCPDF, PDF, example, test, guide');
