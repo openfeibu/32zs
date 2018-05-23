@@ -18,7 +18,7 @@ $configs= [
   // +----------------------------------------------------------------------
   // | 应用设置
   // +----------------------------------------------------------------------
-
+    'app_url' => 'http://32zs.gdngs.cn',
   // 应用命名空间
     'app_namespace'          => 'app',
   // 应用调试模式
@@ -241,7 +241,7 @@ $configs= [
     'paginate'               => [
         'type'      => 'bootstrap',
         'var_page'  => 'page',
-        'list_rows' => 10,
+        'list_rows' => 20,
     ],
 	//数据库备份设置
 	'db_path'     => './data/backup/',     //数据库备份路径必须以 / 结尾；
@@ -350,7 +350,13 @@ $configs= [
         '0' => '未审核',
         '1' => '已审核',
         '2' => '审核不通过'
-    ]
+    ],
+    'pdf_common' => [
+        'header_name' => '2018年广东农工商职业技术学院三二分段招生',
+        'author' => 'Gouweiba',
+    ],
+    'higher_school_name' => '广东农工商职业技术学院',
+    'date' => '2018'
 ];
 //动态设置
 if(file_exists($file=ROOT_PATH."data/conf/config.php")){
