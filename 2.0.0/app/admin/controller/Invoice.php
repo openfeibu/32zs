@@ -82,7 +82,7 @@ class Invoice extends Base
             'bank' => 'max:50',
             'tel' => "regex:0\d{2,3}-?\d{7,8}",
             'blank_count' => "regex:\d{13,}",
-
+            'other' => 'max:100',
         ];
         $msg = [
             'name.require' => lang('invoice')['name'].'不能为空',
@@ -97,6 +97,7 @@ class Invoice extends Base
             'bank.max' => lang('invoice')['bank'].'不能超过50个字',
             'blank_count.require' => lang('invoice')['blank_count'].'不能为空',
             'blank_count.regex' => lang('invoice')['blank_count'].'格式不正确',
+            'other.max' => lang('invoice')['other'].'不能超过100个字',
         ];
         $validate = new Validate($rules,$msg);
         $result = $validate->check($data);
