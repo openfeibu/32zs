@@ -1,0 +1,62 @@
+{extend name="admin@public/base" /}
+{block name="main-content"}
+	<div class="page-content">
+		<div class="row">
+			<div class="col-xs-12">
+				<form class="form-horizontal ajaxForm" name="school_list_add" method="post" action="{:url('admin/Invoice/create')}">
+					<input type="hidden" name="invoice_id" value=""/>
+					<div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> {$Think.lang.invoice['name']}： </label>
+						<div class="col-sm-4">
+							<input type="text" name="name" placeholder="必填" value="{$invoice.name|default=''}" required/>
+							<span class="lbl"><span class="red">*</span>必填</span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> {$Think.lang.invoice['duty_paragraph']}： </label>
+						<div class="col-sm-4">
+							<input type="text" name="duty_paragraph" placeholder="必填" value="{$invoice.duty_paragraph|default=''}" required/>
+							<span class="lbl"><span class="red">*</span>必填</span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> {$Think.lang.invoice['address']}： </label>
+						<div class="col-sm-4">
+							<input type="text" name="address" value="{$invoice.address|default=''}" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> {$Think.lang.invoice['tel']}： </label>
+						<div class="col-sm-4">
+							<input type="text" name="tel" value="{$invoice.tel|default=''}" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> {$Think.lang.invoice['bank']}： </label>
+						<div class="col-sm-4">
+							<input type="text" name="bank" value="{$invoice.bank|default=''}" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> {$Think.lang.invoice['blank_count']}： </label>
+						<div class="col-sm-4">
+							<input type="text" name="blank_count" value="{$invoice.blank_count|default=''}"/>
+						</div>
+					</div>
+
+					<div class="clearfix form-actions">
+						<div class="col-md-offset-3 col-md-9">
+							<button class="btn btn-fb-blue fb-radio" type="submit">
+								保存
+							</button>
+							 <button class="btn fb-radio btn-fb-orange" type="reset" onclick="window.history.go(-1);">
+                                返回
+                            </button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+
+	</div><!-- /.page-content -->
+{/block}

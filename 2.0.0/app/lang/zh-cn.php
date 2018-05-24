@@ -48,4 +48,12 @@ return [
 	'save'=>'保存',
 	'edit'=>'编辑',
 	'admin manage'=>'后台管理',
+	'invoice' => [
+		'name' => '名称',
+		'duty_paragraph' => '税号',
+		'address' => '单位地址',
+		'tel' => '电话号码',
+		'bank' => '开户银行',
+		'blank_count' => '银行账户',
+	],
 ];
