@@ -44,6 +44,8 @@ input[disabled] {
 .no-skin .nav-list>li .submenu>li>a:hover{color: #3fb869 !important;background: none;}
 .no-skin .nav-list>li .submenu>li.active>a{color: #3fb869  !important;background: none;}
 .no-skin .nav-list>li.active>a{color: #3fb869  !important;background: none;}
+.no-skin .nav-list>li.active:after{border: none;}
+.no-skin .nav-list>li.active{background: rgba(63,184,105,0.1);color: #3fb869;}
 .no-skin .nav-list>li:hover>a{color: #3fb869;background: rgba(63,184,105,0.1);}
 .no-skin .nav-list>li:hover>a .menu-icon{color: #3fb869;}
 .no-skin .nav-list>li.open .fa-angle-down:before{content: "\f106";}
