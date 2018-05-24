@@ -24,7 +24,7 @@ class Invoice extends Base
     }
     public function index()
     {
-        $invoice_list = $this->invoiceModel->order('id','asc')->select();
+        $invoice_list = $this->invoiceModel->order('invoice_id','asc')->select();
         $this->assign('invoice_list',$invoice_list);
         return $this->fetch();
     }
@@ -39,7 +39,7 @@ class Invoice extends Base
     }
     public function invoice_list_export()
     {
-        $invoice_list = $this->invoiceModel->order('id','asc')->select();
+        $invoice_list = $this->invoiceModel->order('invoice_id','asc')->select();
 
         $field_titles = [lang('invoice')['name'], lang('invoice')['duty_paragraph'], lang('invoice')['address'], lang('invoice')['tel'], lang('invoice')['bank'], lang('invoice')['blank_count']];
 
