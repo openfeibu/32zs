@@ -23,11 +23,11 @@
 								<th>{$Think.lang.invoice['tel']}</th>
 								<th>{$Think.lang.invoice['bank']}</th>
 								<th>{$Think.lang.invoice['blank_count']}</th>
+								<th>{$Think.lang.invoice['other']}</th>
 							</tr>
 							</thead>
 
 							<tbody>
-
 							{foreach name="invoice_list" item="v"}
 								<tr>
 									<td height="28"></td>
@@ -38,6 +38,7 @@
 									<td>{$v.tel}</td>
 									<td>{$v.bank}</td>
 									<td>{$v.blank_count}</td>
+									<td>{$v.other}</td>
 								</tr>
 							{/foreach}
 							<!-- <tr>

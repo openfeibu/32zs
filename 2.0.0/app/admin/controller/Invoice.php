@@ -41,9 +41,9 @@ class Invoice extends Base
     {
         $invoice_list = $this->invoiceModel->order('invoice_id','asc')->select();
 
-        $field_titles = [lang('invoice')['name'], lang('invoice')['duty_paragraph'], lang('invoice')['address'], lang('invoice')['tel'], lang('invoice')['bank'], lang('invoice')['blank_count']];
+        $field_titles = [lang('invoice')['name'], lang('invoice')['duty_paragraph'], lang('invoice')['address'], lang('invoice')['tel'], lang('invoice')['bank'], lang('invoice')['blank_count'], lang('invoice')['other']];
 
-        $fields = ['name','duty_paragraph','address','tel','bank','blank_count'];
+        $fields = ['name','duty_paragraph','address','tel','bank','blank_count','other'];
 
         $table = '中职学校发票'.date('Ymd');
         export_excel($invoice_list,$table,$field_titles,$fields);
@@ -63,22 +63,31 @@ class Invoice extends Base
             'tel' => input('tel',''),
             'bank' => input('bank',''),
             'blank_count' => input('blank_count',''),
+            'other' => input('other',''),
         ];
         $rules = [
             'name' => 'require',
-            'duty_paragraph' => 'require',
+            'duty_paragraph' => [
+                'require',
+                'regex'=>'/^[A-Z0-9]{15}$|^[A-Z0-9]{17}$|^[A-Z0-9]{18}$|^[A-Z0-9]{20}$/i'
+            ],
              //'address' => 'require',
             // 'tel' => 'require',
             // 'bank' => 'require',
             // 'blank_count' => 'require',
+            'tel' => "regex:0\d{2,3}-?\d{7,8}",
+            'blank_count' => "regex:\d{13,}",
         ];
         $msg = [
             'name.require' => lang('invoice')['name'].'不能为空',
             'duty_paragraph.require' => lang('invoice')['duty_paragraph'].'不能为空',
+            'duty_paragraph.regex' => lang('invoice')['duty_paragraph'].'格式不正确',
             'address.require' => lang('invoice')['address'].'不能为空',
             'tel.require' => lang('invoice')['tel'].'不能为空',
+            'tel.regex' => lang('invoice')['tel'].'格式不正确',
             'bank.require' => lang('invoice')['bank'].'不能为空',
             'blank_count.require' => lang('invoice')['blank_count'].'不能为空',
+            'blank_count.regex' => lang('invoice')['blank_count'].'格式不正确',
         ];
         $validate = new Validate($rules,$msg);
         $result = $validate->check($data);

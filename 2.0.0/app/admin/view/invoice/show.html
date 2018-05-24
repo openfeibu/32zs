@@ -6,6 +6,9 @@
 				<form class="form-horizontal ajaxForm" name="school_list_add" method="post" action="{:url('admin/Invoice/create')}">
 					<input type="hidden" name="invoice_id" value=""/>
 					<div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1" style="font-size:16px;"> {$Think.lang.invoice['title']}</label>
+					</div>
+					<div class="form-group">
 						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> {$Think.lang.invoice['name']}： </label>
 						<div class="col-sm-4">
 							<input type="text" name="name" placeholder="必填" value="{$invoice.name|default=''}" required/>
@@ -28,7 +31,7 @@
 					<div class="form-group">
 						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> {$Think.lang.invoice['tel']}： </label>
 						<div class="col-sm-4">
-							<input type="text" name="tel" value="{$invoice.tel|default=''}" />
+							<input type="text" name="tel" value="{$invoice.tel|default=''}" regex="0\d{2,3}-?\d{7,8}" />
 						</div>
 					</div>
 					<div class="form-group">
@@ -41,6 +44,12 @@
 						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> {$Think.lang.invoice['blank_count']}： </label>
 						<div class="col-sm-4">
 							<input type="text" name="blank_count" value="{$invoice.blank_count|default=''}"/>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> {$Think.lang.invoice['other']}： </label>
+						<div class="col-sm-4">
+							<input type="text" name="other" value="{$invoice.other|default=''}"/>
 						</div>
 					</div>
 
