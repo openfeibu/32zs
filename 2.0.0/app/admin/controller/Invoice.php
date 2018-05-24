@@ -57,16 +57,19 @@ class Invoice extends Base
     public function create()
     {
         $data = [
-            'name' => input('name',''),
-            'duty_paragraph' => input('duty_paragraph',''),
-            'address' => input('address',''),
-            'tel' => input('tel',''),
-            'bank' => input('bank',''),
-            'blank_count' => input('blank_count',''),
-            'other' => input('other',''),
+            'name' => trim(input('name','')),
+            'duty_paragraph' => trim(input('duty_paragraph','')),
+            'address' => trim(input('address','')),
+            'tel' => trim(input('tel','')),
+            'bank' => trim(input('bank','')),
+            'blank_count' => trim(input('blank_count','')),
+            'other' => trim(input('other','')),
         ];
         $rules = [
-            'name' => 'require',
+            'name' => [
+                'require',
+                //'regex'=>'/^(([\\u4e00-\\u9fff]{2,50})|([a-z\.\s\,]{2,50}))$/i'
+            ],
             'duty_paragraph' => [
                 'require',
                 'regex'=>'/^[A-Z0-9]{15}$|^[A-Z0-9]{17}$|^[A-Z0-9]{18}$|^[A-Z0-9]{20}$/i'
@@ -75,14 +78,18 @@ class Invoice extends Base
             // 'tel' => 'require',
             // 'bank' => 'require',
             // 'blank_count' => 'require',
+            'address' => 'max:200',
             'tel' => "regex:0\d{2,3}-?\d{7,8}",
             'blank_count' => "regex:\d{13,}",
+
         ];
         $msg = [
             'name.require' => lang('invoice')['name'].'不能为空',
+            //'name.regex' => lang('invoice')['name'].'格式不正确',
             'duty_paragraph.require' => lang('invoice')['duty_paragraph'].'不能为空',
             'duty_paragraph.regex' => lang('invoice')['duty_paragraph'].'格式不正确',
             'address.require' => lang('invoice')['address'].'不能为空',
+            'address.max' => lang('invoice')['address'].'不能超过100个字',
             'tel.require' => lang('invoice')['tel'].'不能为空',
             'tel.regex' => lang('invoice')['tel'].'格式不正确',
             'bank.require' => lang('invoice')['bank'].'不能为空',
