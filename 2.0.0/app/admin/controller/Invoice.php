@@ -78,7 +78,8 @@ class Invoice extends Base
             // 'tel' => 'require',
             // 'bank' => 'require',
             // 'blank_count' => 'require',
-            'address' => 'max:200',
+            'address' => 'max:100',
+            'bank' => 'max:50',
             'tel' => "regex:0\d{2,3}-?\d{7,8}",
             'blank_count' => "regex:\d{13,}",
 
@@ -93,6 +94,7 @@ class Invoice extends Base
             'tel.require' => lang('invoice')['tel'].'不能为空',
             'tel.regex' => lang('invoice')['tel'].'格式不正确',
             'bank.require' => lang('invoice')['bank'].'不能为空',
+            'bank.max' => lang('invoice')['bank'].'不能超过50个字',
             'blank_count.require' => lang('invoice')['blank_count'].'不能为空',
             'blank_count.regex' => lang('invoice')['blank_count'].'格式不正确',
         ];
