@@ -58,7 +58,7 @@ class Invoice extends Base
     {
         $data = [
             'name' => trim(input('name','')),
-            'duty_paragraph' => trim(input('duty_paragraph','')),
+            'duty_paragraph' => strtoupper(trim(input('duty_paragraph',''))),
             'address' => trim(input('address','')),
             'tel' => trim(input('tel','')),
             'bank' => trim(input('bank','')),
