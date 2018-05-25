@@ -49,13 +49,24 @@ return [
 	'edit'=>'编辑',
 	'admin manage'=>'后台管理',
 	'invoice' => [
-		'name' => '单位名称',
-		'duty_paragraph' => '税号',
-		'address' => '地址',
-		'tel' => '电话',
-		'bank' => '开户行',
-		'blank_count' => '账号',
-		'other' => '其他要求',
 		'title' => '单位发票信息',
+		'high_school' => [
+			'name' => '单位名称',
+			'duty_paragraph' => '税号',
+			'address' => '地址',
+			'tel' => '电话',
+			'bank' => '开户行',
+			'blank_count' => '账号',
+			'other' => '其他要求',
+		],
+		'secondary' => [
+			'name' => '名称',
+			'duty_paragraph' => '统一社会信用代码',
+			'address' => '单位地址',
+			'tel' => '电话号码',
+			'bank' => '开户银行',
+			'blank_count' => '银行账号',
+			'other' => '其他要求',
+		]
 	],
 ];

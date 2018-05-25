@@ -9,45 +9,45 @@
 						<label class="col-sm-2 control-label no-padding-right" for="form-field-1" style="font-size:16px;"> {$Think.lang.invoice['title']}</label>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> {$Think.lang.invoice['name']}： </label>
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> {$Think.lang.invoice['secondary']['name']}： </label>
 						<div class="col-sm-4">
 							<input type="text" name="name" placeholder="必填" value="{$invoice.name|default=''}" required/>
 							<span class="lbl"><span class="red">*</span>必填</span>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> {$Think.lang.invoice['duty_paragraph']}： </label>
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> {$Think.lang.invoice['secondary']['duty_paragraph']}： </label>
 						<div class="col-sm-4">
 							<input type="text" name="duty_paragraph" placeholder="必填" value="{$invoice.duty_paragraph|default=''}" required/>
 							<span class="lbl"><span class="red">*</span>必填</span>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> {$Think.lang.invoice['address']}： </label>
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> {$Think.lang.invoice['secondary']['address']}： </label>
 						<div class="col-sm-4">
 							<input type="text" name="address" value="{$invoice.address|default=''}" />
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> {$Think.lang.invoice['tel']}： </label>
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> {$Think.lang.invoice['secondary']['tel']}： </label>
 						<div class="col-sm-4">
 							<input type="text" name="tel" value="{$invoice.tel|default=''}" regex="0\d{2,3}-?\d{7,8}" />
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> {$Think.lang.invoice['bank']}： </label>
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> {$Think.lang.invoice['secondary']['bank']}： </label>
 						<div class="col-sm-4">
 							<input type="text" name="bank" value="{$invoice.bank|default=''}" />
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> {$Think.lang.invoice['blank_count']}： </label>
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> {$Think.lang.invoice['secondary']['blank_count']}： </label>
 						<div class="col-sm-4">
 							<input type="text" name="blank_count" value="{$invoice.blank_count|default=''}"/>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> {$Think.lang.invoice['other']}： </label>
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> {$Think.lang.invoice['secondary']['other']}： </label>
 						<div class="col-sm-4">
 							<input type="text" name="other" value="{$invoice.other|default=''}"/>
 						</div>

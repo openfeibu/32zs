@@ -41,7 +41,7 @@ class Invoice extends Base
     {
         $invoice_list = $this->invoiceModel->order('invoice_id','asc')->select();
 
-        $field_titles = [lang('invoice')['name'], lang('invoice')['duty_paragraph'], lang('invoice')['address'], lang('invoice')['tel'], lang('invoice')['bank'], lang('invoice')['blank_count'], lang('invoice')['other']];
+        $field_titles = [lang('invoice')['high_school']['name'], lang('invoice')['high_school']['duty_paragraph'], lang('invoice')['high_school']['address'], lang('invoice')['high_school']['tel'], lang('invoice')['high_school']['bank'], lang('invoice')['high_school']['blank_count'], lang('invoice')['high_school']['other']];
 
         $fields = ['name','duty_paragraph','address','tel','bank','blank_count','other'];
 
@@ -85,19 +85,19 @@ class Invoice extends Base
             'other' => 'max:100',
         ];
         $msg = [
-            'name.require' => lang('invoice')['name'].'不能为空',
-            //'name.regex' => lang('invoice')['name'].'格式不正确',
-            'duty_paragraph.require' => lang('invoice')['duty_paragraph'].'不能为空',
-            'duty_paragraph.regex' => lang('invoice')['duty_paragraph'].'格式不正确',
-            'address.require' => lang('invoice')['address'].'不能为空',
-            'address.max' => lang('invoice')['address'].'不能超过100个字',
-            'tel.require' => lang('invoice')['tel'].'不能为空',
-            'tel.regex' => lang('invoice')['tel'].'格式不正确',
-            'bank.require' => lang('invoice')['bank'].'不能为空',
-            'bank.max' => lang('invoice')['bank'].'不能超过50个字',
-            'blank_count.require' => lang('invoice')['blank_count'].'不能为空',
-            'blank_count.regex' => lang('invoice')['blank_count'].'格式不正确',
-            'other.max' => lang('invoice')['other'].'不能超过100个字',
+            'name.require' => lang('invoice')['secondary']['name'].'不能为空',
+            //'name.regex' => lang('invoice')['secondary']['name'].'格式不正确',
+            'duty_paragraph.require' => lang('invoice')['secondary']['duty_paragraph'].'不能为空',
+            'duty_paragraph.regex' => lang('invoice')['secondary']['duty_paragraph'].'格式不正确',
+            'address.require' => lang('invoice')['secondary']['address'].'不能为空',
+            'address.max' => lang('invoice')['secondary']['address'].'不能超过100个字',
+            'tel.require' => lang('invoice')['secondary']['tel'].'不能为空',
+            'tel.regex' => lang('invoice')['secondary']['tel'].'格式不正确',
+            'bank.require' => lang('invoice')['secondary']['bank'].'不能为空',
+            'bank.max' => lang('invoice')['secondary']['bank'].'不能超过50个字',
+            'blank_count.require' => lang('invoice')['secondary']['blank_count'].'不能为空',
+            'blank_count.regex' => lang('invoice')['secondary']['blank_count'].'格式不正确',
+            'other.max' => lang('invoice')['secondary']['other'].'不能超过100个字',
         ];
         $validate = new Validate($rules,$msg);
         $result = $validate->check($data);
