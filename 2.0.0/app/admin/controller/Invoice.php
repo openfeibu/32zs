@@ -72,7 +72,7 @@ class Invoice extends Base
             ],
             'duty_paragraph' => [
                 'require',
-                'regex'=>'/^[A-Z0-9]{15}$|^[A-Z0-9]{17}$|^[A-Z0-9]{18}$|^[A-Z0-9]{20}$/i'
+                'regex'=>'/^[A-Z0-9]{15}$|^[A-Z0-9]{17}$|^[A-Z0-9]{18}$|^[A-Z0-9]{20}$/'
             ],
              //'address' => 'require',
             // 'tel' => 'require',
