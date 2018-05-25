@@ -24,7 +24,7 @@ class Invoice extends Base
     }
     public function index()
     {
-        $invoice_list = $this->invoiceModel->order('invoice_id','asc')->select();
+        $invoice_list = $this->invoiceModel->alias('i')->join(config('database.prefix').'school s','s.school_id = i.school_id')->order('i.invoice_id','desc')->field('s.school_name,i.*')->select();
         $this->assign('invoice_list',$invoice_list);
         return $this->fetch();
     }
