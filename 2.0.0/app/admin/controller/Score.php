@@ -232,7 +232,7 @@ class Score extends Base
             $i++;
         }
         $field_titles[$i] = '核定理论成绩';
-        //$field_titles[$i+1] = '审核状态';
+        $field_titles[$i+1] = '审核状态';
 
         $fields = ['no','member_list_nickname','ZexamineeNumber','member_list_username','major_name','major_score_total'];
         $i = 4; $j = 0;
@@ -242,7 +242,7 @@ class Score extends Base
             $j++;
         }
         $fields[$i] = 'major_score_total';
-        //$fields[$i+1] = 'status_desc';
+        $fields[$i+1] = 'status_desc';
 
         $table = $school['school_name'].$major['major_name'].'专业核定理论成绩单'.date('Ymd');
 
@@ -573,9 +573,9 @@ class Score extends Base
 
         $data = $this->scoreModel->handleRecruitMajorScoreList($data,$status,$recruit_major);
 
-        $field_titles = ['序号','姓名','中职考生号','身份证号','中职学校','中职专业','技能考核成绩'];
+        $field_titles = ['序号','姓名','中职考生号','身份证号','中职学校','中职专业','技能考核成绩','状态'];
 
-        $fields = ['no','member_list_nickname','ZexamineeNumber','member_list_username','school_name','major_name','recruit_score'];
+        $fields = ['no','member_list_nickname','ZexamineeNumber','member_list_username','school_name','major_name','recruit_score','status_desc'];
 
         $table = $recruit_major['recruit_major_name'].'专业技能考核成绩单'.date('Ymd');
         $title = $recruit_major['recruit_major_name'].'专业      技能考核成绩单';
