@@ -15,7 +15,7 @@
 					<select name="school_id" class="ajax_change" id="school">
 						<option value="">选择中职学校</option>
 						{foreach name="school_list" item="v"}
-							<option value="{$v.school_id}" >{$v.school_name}</option>
+							<option value="{$v.school_id}" {if $school_id == $v['school_id']}selected{/if}>{$v.school_name}</option>
 						{/foreach}
 					</select>
 					<select name="major_id" class="ajax_change" id="major">
@@ -73,7 +73,7 @@
 	</div><!-- /.page-content -->
 <script>
 
-
+	//$("#school").change();
 	$('body').on('click','.btn-unactive',function(){
 		url = "{:url('admin/score/score_unactive')}";
 		$("#score_form").attr('action',url);
