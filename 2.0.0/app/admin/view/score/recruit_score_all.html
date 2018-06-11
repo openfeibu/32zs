@@ -14,7 +14,7 @@
 					<select name="school_id" class="ajax_change" id="recruit_school">
 						<option value="">选择中职学校</option>
 						{foreach name="school_list" item="v"}
-							<option value="{$v.school_id}" >{$v.school_name}</option>
+							<option value="{$v.school_id}" {if $school_id == $v['school_id']}selected{/if}>{$v.school_name}</option>
 						{/foreach}
 					</select>
 					<!-- <select name="recruit_major_id" class="ajax_change" id="recruit_major">

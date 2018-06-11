@@ -653,6 +653,7 @@ class Score extends Base
 		$page = $score_list->render();
         $school_list = Db::name('school')->select();
 		$this->assign('school_list',$school_list);
+        $this->assign('school_id',$school_id);
 		$this->assign('data',$data);
 		$this->assign('page',$page);
         $this->assign('search_key',$search_key);
