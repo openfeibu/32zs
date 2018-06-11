@@ -20,6 +20,9 @@
 					</select>
 					<select name="major_id" class="ajax_change" id="major">
 						<option value="">选择中职专业</option>
+						{foreach name="major_list" item="v"}
+							<option value="{$v.major_id}" {if $major_id == $v['major_id']}selected{/if}>{$v.major_name}</option>
+						{/foreach}
 					</select>
 				</div>
 				<div class="col-xs-12 col-sm-3  margintop5">

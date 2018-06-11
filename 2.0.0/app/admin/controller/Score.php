@@ -93,12 +93,14 @@ class Score extends Base
         $major_score_status = input('major_score_status','');
         $this->assign('major_score_status',$major_score_status);
         $map = [];
+        $major_list = [];
         $where = $mapor = '';
         if($major_id){
             $map['m.major_id'] = $major_id;
         }
         if($school_id){
             $map['m.school_id'] = $school_id;
+            $major_list = MajorModel::get_major_list($school_id);
         }
         if($major_score_status == 1){
             $map['ms.major_score_status'] = $major_score_status;
@@ -140,7 +142,9 @@ class Score extends Base
         $school_list = Db::name('school')->select();
 
 		$this->assign('school_list',$school_list);
+        $this->assign('major_list',$major_list);
         $this->assign('school_id',$school_id);
+        $this->assign('major_id',$major_id);
 		$this->assign('data',$data);
 		$this->assign('page',$page);
         $this->assign('search_key',$search_key);
