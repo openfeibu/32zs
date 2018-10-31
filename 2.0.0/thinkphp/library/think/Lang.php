@@ -151,6 +151,8 @@ class Lang
     public static function detect()
     {
         // 自动侦测设置获取语言选择
+		/*
+		G_sign
         $langSet = '';
         if (isset($_GET[self::$langDetectVar])) {
             // url中设置了语言变量
@@ -172,6 +174,7 @@ class Lang
         if ('zh-hans-cn' == self::$range) {
             self::$range = 'zh-cn';
         }
+		*/
         return self::$range;
     }
 
