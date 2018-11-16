@@ -1,0 +1,105 @@
+{extend name="admin@public/base" /}
+{block name="main-content"}
+	<div class="page-content">
+
+
+
+		<div class="row maintop">
+			<div class="fb-add">
+				<a href="{:url('admin/School/recruit_major_add')}" class="fb-transition">
+						添加高职专业
+				</a>
+			</div>
+			<button id="btnsubmit" class="btn btn-white btn-blue btn-sm hidden-xs">批量删除</button>
+			<div class="search-box">
+				<form name="admin_list_sea" class="form-search" method="post" action="{:url('admin/School/recruit_major_list')}">
+					<div class="input-group">
+										<span class="input-group-addon">
+											<i class="ace-icon fa fa-search"></i>
+										</span>
+						<input type="text" name="search_name" class="form-control" value="{$search_name}" placeholder="输入需查询的用户名" />
+										<!--  -->
+					</div>
+				</form>
+			</div>
+			<!-- <div class="col-xs-4 col-sm-5 margintop5">
+				<div class="input-group-btn">
+					<a href="{:url('admin/School/recruit_major_list')}">
+						<button type="button" class="btn btn-sm  btn-purple">
+							<span class="ace-icon fa fa-globe icon-on-right bigger-110"></span>
+							显示全部
+						</button>
+					</a>
+				</div>
+			</div> -->
+		</div>
+
+
+
+		<div class="row">
+			<div class="col-xs-12">
+				<div>
+					<form id="leftnav" class="ajaxForm" name="leftnav" method="post" action="{:url('/admin/school/recruit_major_delall')}" >
+						<input name="p" id="p" value="{:input('page',input('p',1))}" type="hidden" />
+						<input type="hidden" name="checkk" id="checkk" value="1" /><!--用于判断操作类型-->
+						<table class="table table-striped table-bordered table-hover" id="dynamic-table">
+							<thead>
+							<tr>
+								<th  width='60px'>
+									<label class="pos-rel">
+										<input type="checkbox" class="ace" id="chkAll" onclick="CheckAll(this.form)" value="全选">
+										<span class="lbl"></span>
+									</label>
+
+								</th>
+								<th  width='60px'>ID</th>
+								<th>高职专业名称</th>
+								<th>高职专业代码</th>
+								<th>计划总数</th>
+								<th>已报名数</th>
+								<th>已报名数详情</th>
+								<!-- <th>技能考核成绩分数线</th> -->
+								<th width="150px">操作</th>
+							</tr>
+							</thead>
+							{foreach name="major_list" item="v"}
+								<tr>
+									<td height="28" >
+							            <label class="pos-rel">
+							                <input name="n_id[]" id="navid" class="ace" type="checkbox" value="{$v.recruit_major_id}">
+							                <span class="lbl"></span>
+							            </label>
+							        </td>
+							        <td>{$v.recruit_major_id}</td>
+									<td height="28" >{$v.recruit_major_name}</td>
+									<td>{$v.recruit_major_code}</td>
+									<td>{$v.enrollment_number}</td>
+									<td>{$v.member_count}</td>
+									<td>
+										{foreach name="$v['enrollment_school_mumber_count_arr']" item="sv"}
+											{$sv.school_name} : {$sv.member_count}<br/>
+										{/foreach}
+									</td>
+									<!-- <td>{$v.min_score}</td> -->
+									<td>
+										<div class="action-buttons">
+											<a  href="{:url('admin/School/recruit_major_edit',array('recruit_major_id'=>$v['recruit_major_id']))}" title="修改">
+												<i class="ace-icon fa fa-edit bigger-130"></i>																</a>
+												<a class="confirm-rst-url-btn" data-info="确定要删除吗？" href="{:url('admin/School/recruit_major_del',array('recruit_major_id'=>$v['recruit_major_id']))}" title="删除">
+													<i class="ace-icon fa fa-trash-o bigger-130"></i>
+												</a>
+										</div>
+									</td>
+								</tr>
+							{/foreach}
+							<tr><td colspan="20"><div class="fb-page">{$page}</div></td></tr>
+
+						</table>
+					</form>
+
+				</div>
+			</div>
+		</div>
+
+	</div><!-- /.page-content -->
+{/block}

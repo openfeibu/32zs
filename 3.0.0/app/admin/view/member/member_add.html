@@ -1,0 +1,122 @@
+{extend name="admin@public/base" /}
+{block name="main-content"}
+	<div class="page-content">
+
+		<!--主题-->
+		<div class="page-header">
+			<span>添加中职考生</span>
+</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<form class="form-horizontal memberform" name="member_list_add" method="post" action="{:url('admin/Member/member_runadd')}">
+					<!-- <div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 所属用户组： </label>
+						<div class="col-sm-10">
+							<select name="member_list_groupid"  class="col-sm-4 selector" required>
+								<option value="">请选择所属用户组</option>
+								{foreach name="member_group" item="v"}
+									<option value="{$v.member_group_id}">{$v.member_group_name}</option>
+								{/foreach}
+							</select>
+						</div>
+					</div>
+					<div class="space-4"></div> -->
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 身份证号码：  </label>
+						<div class="col-sm-10">
+							<input type="text" name="member_list_username" id="member_list_username" placeholder="输入登录身份证号码" class="col-xs-10 col-sm-4" required/>
+							<span class="lbl">&nbsp;&nbsp;<span class="red">*</span>必填</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 登入密码：  </label>
+						<div class="col-sm-10">
+							<input type="text" name="member_list_pwd" id="member_list_pwd" placeholder="输入登录密码" class="col-xs-10 col-sm-4" />
+							<span class="lbl">&nbsp;&nbsp;不填默认身份证后六位</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 姓名：  </label>
+						<div class="col-sm-10">
+							<input type="text" name="member_list_nickname" id="member_list_nickname" placeholder="输入姓名" class="col-xs-10 col-sm-4" required/>
+							<span class="lbl">&nbsp;&nbsp;<span class="red">*</span>必填</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+					{if $admin['major_id']}
+					<input name="school_id"  value="{$admin['school_id']}" type="hidden"/>
+					<div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 所属中职专业: </label>
+						<div class="col-sm-10">
+							<select name="major_id"  class="col-sm-5" id="major" required>
+								{foreach name='major_list' item='v'}
+								<option value="{$v.major_id}">{$v.major_name}</option>
+								{/foreach}
+							</select>
+							<span class="lbl">&nbsp;&nbsp;<span class="red">*</span>必填</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+					{else}
+					<div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 所属中职：  </label>
+						<div class="col-sm-10">
+							<select name="school_id"  class="col-sm-5" id="school2" required>
+								<option value="">请选择所属中职</option>
+								{foreach name="school_list" item="v"}
+									<option value="{$v.school_id}">{$v.school_name}</option>
+								{/foreach}
+							</select>
+							<span class="lbl">&nbsp;&nbsp;<span class="red">*</span>必填</span>
+						</div>
+					</div>
+
+					<div class="space-4"></div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 所属中职专业: </label>
+						<div class="col-sm-10">
+							<select name="major_id"  class="col-sm-5" id="major" required>
+								<option value="">请选择所属中职专业</option>
+								{foreach name='major_list' item='v'}
+								<option value="{$v.major_id}">{$v.major_name}</option>
+								{/foreach}
+							</select>
+							<span class="lbl">&nbsp;&nbsp;<span class="red">*</span>必填</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+					{/if}
+
+				<!-- 	<div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 审核（上传资料审核）： </label>
+						<div class="col-sm-10" style="padding-top:5px;">
+							<input name="user_status" id="user_status" value="1" class="ace ace-switch ace-switch-4 btn-flat" type="checkbox" />
+							<span class="lbl">&nbsp;&nbsp;默认未审核</span>
+						</div>
+					</div> -->
+					<div class="space-4"></div>
+
+					<div class="clearfix form-actions">
+						<div class="col-md-offset-3 col-md-9">
+							<button class="btn btn-fb-blue fb-radio" type="submit">
+								保存
+							</button>
+							 <button class="btn fb-radio btn-fb-orange" type="reset" onclick="window.history.go(-1);">
+                                返回
+                            </button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div><!-- /.page-content -->
+{/block}
+{block name="scripts"}
+	<script type="text/javascript" src="__PUBLIC__/others/region.js"></script>
+{/block}

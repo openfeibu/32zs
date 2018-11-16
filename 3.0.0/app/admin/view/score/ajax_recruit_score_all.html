@@ -1,0 +1,22 @@
+{foreach name="data" item="v"}
+<tr>
+    <td >
+        <label class="pos-rel">
+            <input name="n_id[]" id="navid" class="ace" type="checkbox" value="{$v.member_list_id}">
+            <span class="lbl"></span>
+        </label>
+    </td>
+    <td>{$v.member_list_id}</td>
+    <td>{$v.ZexamineeNumber}</td>
+    <td>{$v.member_list_nickname}</td>
+    <td height="28" >{$v.member_list_username}</td>
+    <td>{$v.school_name}</td>
+    <td>{$v.major_name}</td>
+    <td>{$v.recruit_major_name}</td>
+    <td>
+        {$v.recruit_major_score}
+    </td>
+    <td>{$v.status_desc}</td>
+</tr>
+{/foreach}
+<tr><td colspan="20"><div class="fb-page">{$page}</div></td></tr>

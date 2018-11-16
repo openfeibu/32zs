@@ -1,0 +1,36 @@
+{extend name="admin@public/base" /}
+{block name="main-content"}
+<div class="page-content">
+
+    <div class="">
+
+        <div class="col-xs-12">
+
+            <form class="form-horizontal" name="excel_runimport" method="post" action="{:url('admin/Enrollment/enrollment_runimport')}"  enctype="multipart/form-data" id="member_import_form">
+                <div class="fb-export"><a href="{:url('admin/Download/enrollment_excel')}" >下载示例表格</a></div>
+                <div class="form-group">
+                    <div class="col-sm-3">
+                        <a href="javascript:;" class="file  btn-fb-blue btn-fb-radio">
+                            <input type="file" name="file_stu" id="file_stu"  class="file"  required accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
+                            选择上传文件
+                        </a>
+                        <span class="input-group-btn" style="float:inherit; left:140px;">
+                            <button type="submit" class="btn btn-xs  btn-purple btn-fb-orange btn-fb-radio" id="import_btn">
+                                导入
+                            </button>
+                        </span>
+                    </div>
+                </div>
+                <div class="space-4"></div>
+                <div class="form-group">
+                    <p id="file_name" style="text-align:center;"></p>
+                </div>
+                <div class="space-4"></div>
+            </form>
+        </div>
+    </div>
+
+
+</div><!-- /.page-content -->
+
+{/block}

@@ -1,0 +1,86 @@
+{extend name="admin@public/base" /}
+{block name="main-content"}
+	<div class="page-content">
+
+		<div class="row maintop">
+			<div class="fb-add">
+				<a href="{:url('admin/Enrollment/enrollment_add')}">
+						添加招生计划
+				</a>
+			</div>
+			<div class="fb-export">
+				<a href="{:url('admin/Enrollment/export_enrollment')}">导出招生计划</a>
+			</div>
+			<button id="btnsubmit" class="btn btn-white btn-blue btn-sm hidden-xs">批量删除</button>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-12">
+				<div>
+					<form class="ajaxForm" id="alldel" name="alldel" method="post" action="{:url('admin/enrollment/enrollment_delall')}">
+					<table class="table table-striped table-bordered table-hover" id="dynamic-table">
+						<thead>
+						<tr>
+							<th width="60px">
+								<label class="pos-rel">
+									<input type="checkbox" class="ace" id="chkAll" onclick="CheckAll(this.form)" value="全选">
+									<span class="lbl"></span>
+								</label>
+							</th>
+							<th width="60px">ID</th>
+							<th>年份</th>
+							<th>对口中职学校名称</th>
+							<th>高职专业名称</th>
+							<th>高职专业代码</th>
+							<th>对口中职专业名称(含代码)</th>
+							<th>招生计划数</th>
+							<th width="150px">操作</th>
+						</tr>
+						</thead>
+
+						<tbody id="ajax-data">
+							{if condition="!empty($enrollments)"}
+							{foreach name="enrollments" item="v"}
+								<tr>
+									<td  height="28" >
+										<label class="pos-rel">
+											<input name="n_id[]" id="navid" class="ace" type="checkbox" value="{$v.enrollment_id}">
+											<span class="lbl"></span>
+										</label>
+									</td>
+									<td>{$v.enrollment_id}</td>
+									<td>{$v.year}</td>
+									<td>{$v.school_name}</td>
+									<td>{$v.recruit_major_name}</td>
+									<td>{$v.recruit_major_code}</td>
+
+									<td>
+										{$v.major_desc}
+									</td>
+									<td>{$v.enrollment_number}</td>
+									<td>
+							            <div class=" action-buttons">
+							                <a href="{:url('admin/Enrollment/enrollment_edit',array('enrollment_id'=>$v['enrollment_id']))}" title="修改">
+							                    <i class="ace-icon fa fa-edit bigger-130"></i>																</a>
+							                    <a class=" confirm-rst-url-btn" data-info="确定要删除吗？" href="{:url('admin/Enrollment/enrollment_del',array('enrollment_id'=>$v['enrollment_id']))}" title="删除">
+							                        <i class="ace-icon fa fa-trash-o bigger-130"></i>
+							                    </a>
+							            </div>
+							        </td>
+
+								</tr>
+							{/foreach}
+
+							{else}
+								<tr>
+									<td colspan="20" align="center">暂无数据</td>
+								</tr>
+							{/if}
+						</tbody>
+					</table>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div><!-- /.page-content -->
+{/block}

@@ -1,0 +1,30 @@
+{foreach name="plug_link" item="v"}
+	<tr>
+		<td></td>
+		<td height="28" >{$v.plug_link_id}</td>
+		<td>{$v.plug_link_name}</td>
+		<td><a href="{$v.plug_link_url}" target="_blank">{$v.plug_link_url}</a></td>
+
+		<td class="hidden-xs">{$v.plug_linktype_name}</td>
+		
+		<td class="hidden-sm hidden-xs">{$v.plug_link_addtime|date='Y-m-d',###}</td>
+		<td class="hidden-xs">
+			{if condition='$v.plug_link_open eq 1'}
+				<a class="red open-btn" href="{:url('admin/Plug/plug_link_state')}" data-id="{$v.plug_link_id}" title="已开启">
+					<div id="zt{$v.plug_link_id}"><button class="btn btn-minier btn-fb-blue">开启</button></div>
+				</a>
+				{else/}
+				<a class="red open-btn" href="{:url('admin/Plug/plug_link_state')}" data-id="{$v.plug_link_id}" title="已禁用">
+					<div id="zt{$v.plug_link_id}"><button class="btn btn-minier btn-fb-orange">禁用</button></div>
+				</a>														{/if}														</td>
+		<td>
+			<div class="hidden-sm hidden-xs action-buttons">
+				<a class=" linkedit-btn"  href="{:url('admin/Plug/plug_link_edit')}" data-id="{$v.plug_link_id}"  title="修改">
+					<i class="ace-icon fa fa-edit bigger-130"></i>																</a>
+				<a class=" confirm-rst-url-btn" data-info="确定要删除吗？" href="{:url('admin/Plug/plug_link_del',array('plug_link_id'=>$v['plug_link_id']))}" title="删除">
+					<i class="ace-icon fa fa-trash-o bigger-130"></i>																</a>										</div>
+
+		</td>
+	</tr>
+{/foreach}
+<tr><td colspan="20"><div class="fb-page">{$page}</div></td></tr>

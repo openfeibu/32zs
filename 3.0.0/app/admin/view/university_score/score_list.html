@@ -1,0 +1,89 @@
+{extend name="admin@public/base" /}
+{block name="main-content"}
+	<div class="page-content">
+		<div class="row maintop">
+			<button id="member_active_submit" class="btn btn-white btn-yellow  btn-active">批量审核</button>
+			<div class="fb-export">
+				<a href="javascript:;" id="score_list_export"  title="按中职专业导出成绩">按中职专业导出成绩</a>
+			</div>
+			<div class="clearfix"></div>
+			<form name="admin_list_sea" class="form-search" id="list-filter" method="post" action="{:url('admin/universityScore/score_list')}">
+				<div class="fb-state-search  margintop5">
+					审核状态：
+					<select name="major_score_status" class="ajax_change">
+						<option value="">所有</option>
+						<option value="0" {if $major_score_status == '0'}selected{/if}>未审核</option>
+						<option value="1" {if $major_score_status == '1'}selected{/if}>已审核</option>
+					</select>
+					中职学校：
+					<select name="school_id" class="ajax_change" id="school_id">
+						{foreach name="school_list" item="v"}
+						<option value="{$v.school_id}" {if condition="$school_id eq $v['school_id']"}selected="selected"{/if}>{$v.school_name}</option>
+						{/foreach}
+					</select>
+					中职专业：
+					<select name="major_id" class="ajax_change" id="major">
+						{foreach name='major_list' item='v'}
+						<option value="{$v.major_id}" {if $major_id == $v['major_id']}selected{/if}>{$v.major_name}</option>
+						{/foreach}
+					</select>
+				</div>
+				<div class="col-xs-12 col-sm-3  margintop5">
+					<div class="input-group">
+						<span class="input-group-addon">
+							<i class="ace-icon fa fa-search"></i>
+						</span>
+						<input type="text" name="search_key" id="key" class="form-control" value="{$search_key}" placeholder="请输入身份证、姓名、中职考生号" />
+
+					</div>
+				</div>
+
+			</form>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<div>
+					<form id="leftnav" class="ajaxForm" name="leftnav" method="post" action="{:url('admin/universityScore/score_active')}" >
+						<input name="p" id="p" value="{:input('page',input('p',1))}" type="hidden" />
+						<input type="hidden" name="checkk" id="checkk" value="1" /><!--用于判断操作类型-->
+						<table class="table table-striped table-bordered table-hover" id="dynamic-table ">
+							<tbody id="ajax-data">
+								{include file="university_score/ajax_score_list"/}
+							</tbody>
+						</table>
+					</form>
+
+				</div>
+			</div>
+
+		</div>
+
+	</div><!-- /.page-content -->
+	<script type="text/javascript">
+		$('body').on('click','#member_active_submit',function(){
+
+			$(".ajaxForm").submit()
+			return true;
+		});
+		$("#score_list_export").click(function(){
+			var major_id = $('#major').val();
+            var school_id = $('#school_id').val();
+			load = layer.load(1);
+			$.ajax({
+			    url:"{:url('admin/UniversityScore/check_score_list_export')}",
+				type:"POST",
+				data:{'major_id':major_id,'school_id':school_id},
+				success: function(data){
+					if(typeof load!="undefined"){layer.close(load);}
+					if (data.code == 1) {
+				        window.location.href="{:url('admin/UniversityScore/score_list_export')}?major_id="+major_id+"&school_id="+school_id;
+				    } else {
+				        layer.alert(data.msg, {icon: 5});
+						return false;
+				    }
+				}
+			});
+
+		});
+	</script>
+{/block}

@@ -1,0 +1,32 @@
+{include file="public:head_center" /}
+    <!-- 主体内容 S -->
+    <div class="main w1000" style="background:#fff;">
+        <div class="updatePass">
+          <div class="updatePass-title">修改密码</div>
+          <form action="{:url('home/Center/runchangepwd')}"  method="post">
+                <div class="input-item">
+                     <label for="">旧密码：</label>
+                     <input type="password" name="old_password">
+                </div>
+                <div class="input-item">
+                     <label for="">新密码：</label>
+                     <input type="password" name="password">
+                </div>
+                <div class="input-item">
+                     <label for="">新密码确认：</label>
+                     <input type="password" name="repassword">
+                </div>
+                <input type="submit" value="保存">
+            </form>
+        </div>
+    </div>
+    <!-- 主体内容 E -->
+    <!-- footer S -->
+{include file="public:footer" /}
+<script>
+    $('.nowtime').html(new Date().toLocaleString()+' 星期'+'日一二三四五六'.charAt(new Date().getDay()));
+   setInterval(function(){
+    $('.nowtime').html(new Date().toLocaleString()+' 星期'+'日一二三四五六'.charAt(new Date().getDay()));
+   },1000);
+
+</script>

@@ -1,0 +1,41 @@
+{extend name="admin@public/base" /}
+{block name="main-content"}
+	<div class="page-content">
+
+
+
+		<!--主题-->
+		<div class="page-header">
+			<span>编辑中职</span>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<form class="form-horizontal ajaxForm" name="school_list_add" method="post" action="{:url('admin/School/school_runedit')}">
+					<input type="hidden" name="school_id" value="{$school.school_id}"/>
+					<div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 学院名称： </label>
+						<div class="col-sm-6">
+							<input type="text" name="school_name" value="{$school.school_name}" />
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+					<div class="clearfix form-actions">
+						<div class="col-md-offset-3 col-md-9">
+							<button class="btn btn-fb-blue fb-radio" type="submit">
+								保存
+							</button>
+
+ 
+ 
+							 <button class="btn fb-radio btn-fb-orange" type="reset" onclick="window.history.go(-1);">
+                                返回
+                            </button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+
+	</div><!-- /.page-content -->
+{/block}
