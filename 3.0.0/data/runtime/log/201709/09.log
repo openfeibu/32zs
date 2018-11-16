@@ -1,0 +1,225 @@
+[ 2017-09-09T02:22:51+08:00 ] [ log ] Cron:clearlog Runat 2017-09-09 02:22:51 Use 0.001870 s
+
+
+[ 2017-09-09T02:22:51+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.010887s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.005962s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (17) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000923s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (18) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000635s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (16) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000824s ]
+
+---------------------------------------------------------------
+[ 2017-09-09T05:33:31+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.006332s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.007518s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (17) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000887s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (18) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000750s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (16) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000862s ]
+
+---------------------------------------------------------------
+[ 2017-09-09T11:27:29+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.006511s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.006048s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (17) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000937s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (18) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000691s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (16) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000952s ]
+
+---------------------------------------------------------------
+[ 2017-09-09T18:14:08+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.007023s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.006574s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 17 LIMIT 1 [ RunTime:0.001191s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_model` [ RunTime:0.006765s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_model` WHERE  `model_id` = 0 LIMIT 1 [ RunTime:0.002999s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.007350s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (17) LIMIT 1 [ RunTime:0.000944s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (17) LIMIT 1 [ RunTime:0.001142s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (17) ORDER BY news_time desc LIMIT 0,10 [ RunTime:0.001086s ]
+
+---------------------------------------------------------------
+[ 2017-09-09T18:57:55+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.007215s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.006755s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (17) ORDER BY news_time desc LIMIT 7 [ RunTime:0.002155s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (18) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000817s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (16) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000875s ]
+
+---------------------------------------------------------------
+[ 2017-09-09T21:10:32+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.006597s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.005930s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (17) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000907s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (18) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000665s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (16) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000821s ]
+
+---------------------------------------------------------------
+[ 2017-09-09T21:11:18+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.011722s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_web_log` [ RunTime:0.005688s ]
+[ sql ] [ SQL ] INSERT INTO `zs_web_log` (`uid` , `ip` , `location` , `os` , `browser` , `url` , `module` , `controller` , `action` , `method` , `data` , `otime`) VALUES (0 , '223.104.64.44' , '中国 中国  ' , 'Linux' , 'Safari(537.36)' , '/home/login/runlogin.html' , 'home' , 'Login' , 'runlogin' , 'Ajax' , 's:12:\"保密数据\";' , 1504962678) [ RunTime:0.000890s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_member_list` [ RunTime:0.005855s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_member_list` WHERE  `member_list_username` = '440513199702232941' LIMIT 1 [ RunTime:0.000965s ]
+[ sql ] [ SQL ] UPDATE `zs_member_list`  SET `last_login_time`=1504962678,`last_login_ip`='223.104.64.44'  WHERE  `member_list_id` = 204 [ RunTime:0.000547s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.005298s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` WHERE  `member_id` = 204 LIMIT 1 [ RunTime:0.000730s ]
+
+---------------------------------------------------------------
+[ 2017-09-09T21:11:19+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.006367s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_member_list` [ RunTime:0.006101s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_member_list` WHERE  `member_list_id` = 204 LIMIT 1 [ RunTime:0.000945s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.005370s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` WHERE  `member_id` = 204 LIMIT 1 [ RunTime:0.000750s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_member_list` `m` INNER JOIN `zs_member_info` `mi` ON `m`.`member_list_id`=`mi`.`member_list_id` WHERE  `m`.`member_list_id` = 204 LIMIT 1 [ RunTime:0.002107s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major` [ RunTime:0.005206s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major` WHERE  `major_id` = 17 LIMIT 1 [ RunTime:0.000696s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.004958s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 20 LIMIT 1 [ RunTime:0.000657s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_recruit_major` [ RunTime:0.005024s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_recruit_major` `rm` INNER JOIN `zs_enrollment` `e` ON `e`.`recruit_major_id`=`rm`.`recruit_major_id` WHERE  `e`.`major_ids` LIKE '%,17,%'  AND `e`.`school_id` = 20 LIMIT 1 [ RunTime:0.000950s ]
+
+---------------------------------------------------------------
+[ 2017-09-09T21:12:31+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.012768s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_member_list` [ RunTime:0.006081s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_member_list` WHERE  `member_list_id` = 204 LIMIT 1 [ RunTime:0.000804s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.006094s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` WHERE  `member_id` = 204 LIMIT 1 [ RunTime:0.001063s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.005760s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 40  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.000989s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.005072s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 17 LIMIT 1 [ RunTime:0.000527s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_action_log` [ RunTime:0.004983s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_action_log` WHERE  `uid` = 204  AND `action` = 'home-News-index'  AND `object` = 'news40' LIMIT 1 [ RunTime:0.000844s ]
+[ sql ] [ SQL ] INSERT INTO `zs_action_log` (`uid` , `action` , `object` , `count` , `last_time` , `ip`) VALUES (204 , 'home-News-index' , 'news40' , count+1 , 1504962751 , '223.104.64.44') [ RunTime:0.000576s ]
+[ sql ] [ SQL ] UPDATE `zs_news`  SET `news_hits`=news_hits+1  WHERE  `n_id` = 40 [ RunTime:0.000521s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` WHERE  `news_time` >= 1490535723  AND `n_id` <> 40  AND `news_open` = '1'  AND `news_back` = 0  AND `news_columnid` = 17 ORDER BY news_time asc LIMIT 1 [ RunTime:0.000860s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` WHERE  `news_time` <= 1490535723  AND `n_id` <> 40  AND `news_open` = '1'  AND `news_back` = 0  AND `news_columnid` = 17 ORDER BY news_time desc LIMIT 1 [ RunTime:0.000882s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_comments` [ RunTime:0.005140s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_comments` `a` INNER JOIN `zs_member_list` `b` ON `a`.`uid`=`b`.`member_list_id` WHERE  `a`.`t_name` = 'news'  AND `a`.`t_id` = '40'  AND `a`.`c_status` = 1 ORDER BY a.createtime ASC [ RunTime:0.000730s ]
+
+---------------------------------------------------------------
+[ 2017-09-09T21:12:46+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.004425s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_member_list` [ RunTime:0.005796s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_member_list` WHERE  `member_list_id` = 204 LIMIT 1 [ RunTime:0.000757s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.005426s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` WHERE  `member_id` = 204 LIMIT 1 [ RunTime:0.000621s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.005836s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 18 LIMIT 1 [ RunTime:0.000705s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_model` [ RunTime:0.005333s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_model` WHERE  `model_id` = 0 LIMIT 1 [ RunTime:0.000680s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.005498s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (18) LIMIT 1 [ RunTime:0.000765s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (18) LIMIT 1 [ RunTime:0.000919s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (18) ORDER BY news_time desc LIMIT 0,10 [ RunTime:0.000871s ]
+
+---------------------------------------------------------------
+[ 2017-09-09T21:12:47+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.005372s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_member_list` [ RunTime:0.005471s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_member_list` WHERE  `member_list_id` = 204 LIMIT 1 [ RunTime:0.000753s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.005058s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` WHERE  `member_id` = 204 LIMIT 1 [ RunTime:0.000691s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 17 LIMIT 1 [ RunTime:0.000568s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_model` [ RunTime:0.005070s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_model` WHERE  `model_id` = 0 LIMIT 1 [ RunTime:0.000597s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.005172s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (17) LIMIT 1 [ RunTime:0.000662s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (17) LIMIT 1 [ RunTime:0.000641s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (17) ORDER BY news_time desc LIMIT 0,10 [ RunTime:0.000824s ]
+
+---------------------------------------------------------------
+[ 2017-09-09T21:13:02+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.005214s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_member_list` [ RunTime:0.005654s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_member_list` WHERE  `member_list_id` = 204 LIMIT 1 [ RunTime:0.000961s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.005153s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` WHERE  `member_id` = 204 LIMIT 1 [ RunTime:0.000652s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.005708s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (17) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000833s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (18) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000633s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (16) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000823s ]
+
+---------------------------------------------------------------
+[ 2017-09-09T21:13:05+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.015414s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_member_list` [ RunTime:0.005588s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_member_list` WHERE  `member_list_id` = 204 LIMIT 1 [ RunTime:0.000761s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.005066s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` WHERE  `member_id` = 204 LIMIT 1 [ RunTime:0.000618s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_member_list` `m` INNER JOIN `zs_member_info` `mi` ON `m`.`member_list_id`=`mi`.`member_list_id` WHERE  `m`.`member_list_id` = 204 LIMIT 1 [ RunTime:0.002048s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major` [ RunTime:0.005506s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major` WHERE  `major_id` = 17 LIMIT 1 [ RunTime:0.000610s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.005427s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 20 LIMIT 1 [ RunTime:0.000580s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_recruit_major` [ RunTime:0.005481s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_recruit_major` `rm` INNER JOIN `zs_enrollment` `e` ON `e`.`recruit_major_id`=`rm`.`recruit_major_id` WHERE  `e`.`major_ids` LIKE '%,17,%'  AND `e`.`school_id` = 20 LIMIT 1 [ RunTime:0.001966s ]
+
+---------------------------------------------------------------
+[ 2017-09-09T21:13:06+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.017502s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_member_list` [ RunTime:0.005631s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_member_list` WHERE  `member_list_id` = 204 LIMIT 1 [ RunTime:0.000763s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.005255s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` WHERE  `member_id` = 204 LIMIT 1 [ RunTime:0.000634s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_member_list` `m` INNER JOIN `zs_member_info` `mi` ON `m`.`member_list_id`=`mi`.`member_list_id` WHERE  `m`.`member_list_id` = 204 LIMIT 1 [ RunTime:0.001894s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major` [ RunTime:0.007765s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major` WHERE  `major_id` = 17 LIMIT 1 [ RunTime:0.001767s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.005410s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 20 LIMIT 1 [ RunTime:0.000604s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_recruit_major` [ RunTime:0.005180s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_recruit_major` `rm` INNER JOIN `zs_enrollment` `e` ON `e`.`recruit_major_id`=`rm`.`recruit_major_id` WHERE  `e`.`major_ids` LIKE '%,17,%'  AND `e`.`school_id` = 20 LIMIT 1 [ RunTime:0.000655s ]
+
+---------------------------------------------------------------
+[ 2017-09-09T21:13:13+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.006384s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_member_list` [ RunTime:0.007212s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_member_list` WHERE  `member_list_id` = 204 LIMIT 1 [ RunTime:0.000877s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.006504s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` WHERE  `member_id` = 204 LIMIT 1 [ RunTime:0.000738s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major` [ RunTime:0.009244s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major` WHERE  `major_id` = 17 LIMIT 1 [ RunTime:0.000582s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major_score_config` [ RunTime:0.005542s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major_score_config` WHERE  `major_id` = 17  AND `school_id` = 20 LIMIT 1 [ RunTime:0.000720s ]
+
+---------------------------------------------------------------
+[ 2017-09-09T21:13:30+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.005858s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_member_list` [ RunTime:0.005992s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_member_list` WHERE  `member_list_id` = 204 LIMIT 1 [ RunTime:0.000760s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.005051s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` WHERE  `member_id` = 204 LIMIT 1 [ RunTime:0.000628s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.005691s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (17) ORDER BY news_time desc LIMIT 7 [ RunTime:0.001023s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (18) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000779s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (16) ORDER BY news_time desc LIMIT 7 [ RunTime:0.001149s ]
+
+---------------------------------------------------------------
+[ 2017-09-09T21:13:32+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.011022s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_member_list` [ RunTime:0.005544s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_member_list` WHERE  `member_list_id` = 204 LIMIT 1 [ RunTime:0.000739s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.005035s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` WHERE  `member_id` = 204 LIMIT 1 [ RunTime:0.000611s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_member_list` `m` INNER JOIN `zs_member_info` `mi` ON `m`.`member_list_id`=`mi`.`member_list_id` WHERE  `m`.`member_list_id` = 204 LIMIT 1 [ RunTime:0.002002s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major` [ RunTime:0.005098s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major` WHERE  `major_id` = 17 LIMIT 1 [ RunTime:0.000634s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.004619s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 20 LIMIT 1 [ RunTime:0.002270s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_recruit_major` [ RunTime:0.004672s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_recruit_major` `rm` INNER JOIN `zs_enrollment` `e` ON `e`.`recruit_major_id`=`rm`.`recruit_major_id` WHERE  `e`.`major_ids` LIKE '%,17,%'  AND `e`.`school_id` = 20 LIMIT 1 [ RunTime:0.000630s ]
+
+---------------------------------------------------------------
+[ 2017-09-09T21:14:09+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.009945s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_member_list` [ RunTime:0.006573s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_member_list` WHERE  `member_list_id` = 204 LIMIT 1 [ RunTime:0.000839s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.005397s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` WHERE  `member_id` = 204 LIMIT 1 [ RunTime:0.000681s ]
+
+---------------------------------------------------------------
+[ 2017-09-09T21:14:10+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.011570s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.005626s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (17) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000893s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (18) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000731s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (16) ORDER BY news_time desc LIMIT 7 [ RunTime:0.001201s ]
+
+---------------------------------------------------------------
+[ 2017-09-09T21:17:23+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.006728s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.005829s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (17) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000918s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (18) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000663s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (16) ORDER BY news_time desc LIMIT 7 [ RunTime:0.001456s ]
+
+---------------------------------------------------------------
+[ 2017-09-09T21:17:23+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.004629s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.005677s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (17) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000797s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (18) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000629s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (16) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000910s ]
+
+---------------------------------------------------------------

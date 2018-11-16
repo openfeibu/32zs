@@ -1,0 +1,71 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:67:"/home/vagrant/Code/32zs/2.0.0/app/admin/view/examination/seats.html";i:1527049475;}*/ ?>
+<style>
+.k-w-table {
+    /* border-style:solid; */
+    border-color:rgb(148, 192, 210);
+/*  border-color:#ccc; */
+    /* border-width:0px; */
+    border-collapse:collapse;
+    /* width: 630px; */
+    display: inline-block;
+    float:left;
+}
+.k-s-content{
+    border:1px solid #999;
+    text-align: left;
+    padding-left: 5px;
+}
+.header_title{
+    border:none;
+    font-size: 18px;
+    text-align: center;
+    line-height: 13px;
+}
+.title{
+    text-align: left;
+    font-size: 14px;
+    height:30px;
+    line-height: 30px;
+}
+.content{
+    text-align: left;
+    font-size: 14px;
+    height:30px;
+    line-height: 30px;
+}
+</style>
+<div style="width:900px;">
+
+<table width="340px" class="k-w-table">
+    <tr>
+        <td class="k-s-content title">考生姓名</td>
+        <td colspan="2" class="k-s-content content"><?php echo $member['member_list_nickname']; ?></td>
+        <td class="k-s-content title">性别</td>
+        <td class="k-s-content content"><?php echo get_sex($member['member_list_username']); ?></td>
+    </tr>
+    <tr>
+        <td class="k-s-content title">身份证号</td>
+        <td colspan="4" class="k-s-content content"><?php echo $member['member_list_username']; ?></td>
+    </tr>
+    <tr>
+        <td class="k-s-content title">报考学校</td>
+        <td colspan="4" class="k-s-content content">广东农工商职业技术学院</td>
+    </tr>
+    <tr>
+        <td class="k-s-content title">报考专业</td>
+        <td colspan="4" class="k-s-content content"><?php echo $recruit_major['recruit_major_name']; ?></td>
+    </tr>
+    <tr>
+        <td class="k-s-content title">考试科目</td>
+        <td colspan="2" class="k-s-content content">专业技能考核</td>
+        <td rowspan="2" class="k-s-content title" style="line-height:60px;font-size:18px;text-align:center">座位号</td>
+        <td rowspan="2" class="k-s-content content" style="line-height:60px;font-size:18px;text-align:center"><?php echo $member['room_no']; ?></td>
+    </tr>
+    <tr>
+        <td class="k-s-content title">考试地点</td>
+        <td colspan="2" class="k-s-content content"><?php echo $member['room_name']; ?></td>
+    </tr>
+</table>
+
+
+</div>

@@ -1,0 +1,2237 @@
+[ 2018-05-23T23:28:23+08:00 ] 192.168.10.10 192.168.10.1 GET /admin/score/school_recruit_score_export.html?score=0&recruit_major_id=2
+[ log ] 32zs.com/admin/score/school_recruit_score_export.html?score=0&recruit_major_id=2 [运行时间：2.558204s][吞吐率：0.39req/s] [内存消耗：1,392.23kb] [文件加载：87]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'score',
+    2 => 'school_recruit_score_export',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|5; thinkphp_show_page_trace=0|0; PHPSESSID=40084fsb4ckl7ripf13tmrmbfl; aid=53; thinkphp_show_page_trace=0|0; signin_token=64854185759f12c9e16edada6178097436a270a6; think_var=zh-cn',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/score/sec_vocat_recruit_score_list.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'score' => '0',
+  'recruit_major_id' => '2',
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.002238s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.013447s ]
+[ info ] [ RUN ] app\admin\controller\Score->school_recruit_score_export[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Score.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.087397s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.071712s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/school_recruit_score_export' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.104267s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/school_recruit_score_export'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.108355s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/school_recruit_score_export'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.098492s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.124009s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (15,27,37,108,109,110,111,112,113,114,170,178,179,180,396,345,346,350,351,354,356,363,364,384,388,389,390,397,400,414,417,418,421,422,424,426,428,429,430,431)  AND `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.100132s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.030517s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 53 LIMIT 1 [ RunTime:0.109744s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.040563s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.108616s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.032357s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 22 LIMIT 1 [ RunTime:0.104513s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 22 LIMIT 1 [ RunTime:0.112072s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_enrollment` [ RunTime:0.041811s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_enrollment` WHERE  `school_id` = 22  AND `recruit_major_id` = 2 LIMIT 1 [ RunTime:0.107654s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_recruit_major` [ RunTime:0.040385s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_recruit_major` WHERE  `recruit_major_id` = 2 LIMIT 1 [ RunTime:0.097665s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major_score` [ RunTime:0.032431s ]
+[ sql ] [ SQL ] SELECT `s`.`school_id`,`s`.`school_name`,`mi`.`ZexamineeNumber`,`ms`.`major_score_id`,`ms`.`major_score`,`ms`.`major_score_status`,`ms`.`recruit_score`,`ms`.`recruit_score_status`,`m`.`member_list_nickname`,`m`.`member_list_username`,`m`.`member_list_id`,`m`.`major_id`,`mj`.`major_name`,`mj`.`major_id` FROM `zs_major_score` `ms` RIGHT JOIN `zs_member_list` `m` ON `m`.`member_list_id`=`ms`.`member_list_id` INNER JOIN `zs_member_info` `mi` ON `m`.`member_list_id`=`mi`.`member_list_id` INNER JOIN `zs_major` `mj` ON `mj`.`major_id`=`m`.`major_id` INNER JOIN `zs_school` `s` ON `s`.`school_id`=`m`.`school_id` WHERE  `m`.`school_id` = 22  AND `mj`.`major_id` IN ('8','4') ORDER BY ms.major_score_status ASC,s.school_id desc,m.member_list_id desc,major_score_id desc [ RunTime:0.110174s ]
+
+---------------------------------------------------------------
+[ 2018-05-23T23:28:41+08:00 ] 192.168.10.10 192.168.10.1 GET /admin/score/sec_vocat_recruit_score_list.html
+[ log ] 32zs.com/admin/score/sec_vocat_recruit_score_list.html [运行时间：2.477421s][吞吐率：0.40req/s] [内存消耗：899.28kb] [文件加载：86]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'score',
+    2 => 'sec_vocat_recruit_score_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|5; thinkphp_show_page_trace=0|0; PHPSESSID=40084fsb4ckl7ripf13tmrmbfl; aid=53; thinkphp_show_page_trace=0|0; signin_token=64854185759f12c9e16edada6178097436a270a6; think_var=zh-cn',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/score/sec_vocat_recruit_score_list.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.002258s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.012923s ]
+[ info ] [ RUN ] app\admin\controller\Score->sec_vocat_recruit_score_list[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Score.php ]
+[ info ] [ VIEW ] /home/vagrant/Code/32zs/2.0.0/app/admin/view/score/sec_vocat_recruit_score_list.html [ array (
+  0 => 'lang',
+  1 => 'menus',
+  2 => 'menus_curr',
+  3 => 'menus_child',
+  4 => 'id_curr',
+  5 => 'admin',
+  6 => 'head_title',
+  7 => 'admin_avatar',
+  8 => 'data',
+  9 => 'recruit_major_list',
+  10 => 'recruit_major',
+  11 => 'page',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.006198s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.058970s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.028428s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/sec_vocat_recruit_score_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.088612s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.118458s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/sec_vocat_recruit_score_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.094066s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 431 LIMIT 1 [ RunTime:0.091176s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (15,27,37,108,109,110,111,112,113,114,170,178,179,180,396,345,346,350,351,354,356,363,364,384,388,389,390,397,400,414,417,418,421,422,424,426,428,429,430,431)  AND `status` = 1  AND `pid` = 345 ORDER BY `sort` [ RunTime:0.121787s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.037786s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 53 LIMIT 1 [ RunTime:0.117752s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.090404s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.111125s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.029753s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 22 LIMIT 1 [ RunTime:0.111195s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_recruit_major` [ RunTime:0.028743s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_recruit_major` `rm` INNER JOIN `zs_enrollment` `e` ON `e`.`recruit_major_id`=`rm`.`recruit_major_id` WHERE  `e`.`major_ids` LIKE '%,4,%'  AND `e`.`school_id` = 22 OR `e`.`major_ids` = '4' LIMIT 1 [ RunTime:0.095893s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_recruit_major` `rm` INNER JOIN `zs_enrollment` `e` ON `e`.`recruit_major_id`=`rm`.`recruit_major_id` WHERE  `e`.`major_ids` LIKE '%,8,%'  AND `e`.`school_id` = 22 OR `e`.`major_ids` = '8' LIMIT 1 [ RunTime:0.295126s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_recruit_major` `rm` INNER JOIN `zs_enrollment` `e` ON `e`.`recruit_major_id`=`rm`.`recruit_major_id` WHERE  `e`.`major_ids` LIKE '%,17,%'  AND `e`.`school_id` = 22 OR `e`.`major_ids` = '17' LIMIT 1 [ RunTime:0.125470s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_enrollment` [ RunTime:0.028793s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_enrollment` WHERE  `school_id` = 22  AND `recruit_major_id` = 2 LIMIT 1 [ RunTime:0.143173s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_recruit_major` WHERE  `recruit_major_id` = 2 LIMIT 1 [ RunTime:0.134049s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major_score` [ RunTime:0.030310s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_major_score` `ms` RIGHT JOIN `zs_member_list` `m` ON `m`.`member_list_id`=`ms`.`member_list_id` INNER JOIN `zs_member_info` `mi` ON `m`.`member_list_id`=`mi`.`member_list_id` INNER JOIN `zs_major` `mj` ON `mj`.`major_id`=`m`.`major_id` INNER JOIN `zs_school` `s` ON `s`.`school_id`=`m`.`school_id` WHERE  `s`.`school_id` = 22  AND `mj`.`major_id` IN ('8','4') LIMIT 1 [ RunTime:0.126988s ]
+[ sql ] [ SQL ] SELECT `s`.`school_id`,`s`.`school_name`,`mi`.`ZexamineeNumber`,`ms`.`major_score_id`,`ms`.`major_score`,`ms`.`major_score_status`,`ms`.`recruit_score`,`ms`.`recruit_score_status`,`m`.`member_list_nickname`,`m`.`member_list_username`,`m`.`member_list_id`,`m`.`major_id`,`mj`.`major_name`,`mj`.`major_id` FROM `zs_major_score` `ms` RIGHT JOIN `zs_member_list` `m` ON `m`.`member_list_id`=`ms`.`member_list_id` INNER JOIN `zs_member_info` `mi` ON `m`.`member_list_id`=`mi`.`member_list_id` INNER JOIN `zs_major` `mj` ON `mj`.`major_id`=`m`.`major_id` INNER JOIN `zs_school` `s` ON `s`.`school_id`=`m`.`school_id` WHERE  `s`.`school_id` = 22  AND `mj`.`major_id` IN ('8','4') ORDER BY ms.major_score_status ASC,s.school_id desc,m.member_list_id desc,major_score_id desc LIMIT 0,20 [ RunTime:0.103685s ]
+
+---------------------------------------------------------------
+[ 2018-05-23T23:28:41+08:00 ] 192.168.10.10 192.168.10.1 GET /public/datePicker/bootstrap-datepicker.css.map
+[ log ] 32zs.com/public/datePicker/bootstrap-datepicker.css.map [运行时间：0.232896s][吞吐率：4.29req/s] [内存消耗：248.92kb] [文件加载：57]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'public',
+    1 => 'datePicker',
+    2 => 'bootstrap-datepicker.css.map',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=40084fsb4ckl7ripf13tmrmbfl; aid=53; thinkphp_show_page_trace=0|0; signin_token=64854185759f12c9e16edada6178097436a270a6; think_var=zh-cn',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-05-23T23:28:48+08:00 ] 192.168.10.10 192.168.10.1 GET /admin/score/school_recruit_score_export.html?score=0&recruit_major_id=2
+[ log ] 32zs.com/admin/score/school_recruit_score_export.html?score=0&recruit_major_id=2 [运行时间：2.572861s][吞吐率：0.39req/s] [内存消耗：1,391.06kb] [文件加载：87]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'score',
+    2 => 'school_recruit_score_export',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|5; thinkphp_show_page_trace=0|0; PHPSESSID=40084fsb4ckl7ripf13tmrmbfl; aid=53; thinkphp_show_page_trace=0|0; signin_token=64854185759f12c9e16edada6178097436a270a6; think_var=zh-cn',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/score/sec_vocat_recruit_score_list.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'score' => '0',
+  'recruit_major_id' => '2',
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.001947s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.010837s ]
+[ info ] [ RUN ] app\admin\controller\Score->school_recruit_score_export[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Score.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.039713s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.038888s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/school_recruit_score_export' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.096133s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/school_recruit_score_export'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.086563s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/school_recruit_score_export'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.100251s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.102177s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (15,27,37,108,109,110,111,112,113,114,170,178,179,180,396,345,346,350,351,354,356,363,364,384,388,389,390,397,400,414,417,418,421,422,424,426,428,429,430,431)  AND `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.151029s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.049081s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 53 LIMIT 1 [ RunTime:0.243558s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.040305s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.097978s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.025582s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 22 LIMIT 1 [ RunTime:0.095029s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 22 LIMIT 1 [ RunTime:0.099119s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_enrollment` [ RunTime:0.038719s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_enrollment` WHERE  `school_id` = 22  AND `recruit_major_id` = 2 LIMIT 1 [ RunTime:0.106224s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_recruit_major` [ RunTime:0.025904s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_recruit_major` WHERE  `recruit_major_id` = 2 LIMIT 1 [ RunTime:0.114230s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major_score` [ RunTime:0.025481s ]
+[ sql ] [ SQL ] SELECT `s`.`school_id`,`s`.`school_name`,`mi`.`ZexamineeNumber`,`ms`.`major_score_id`,`ms`.`major_score`,`ms`.`major_score_status`,`ms`.`recruit_score`,`ms`.`recruit_score_status`,`m`.`member_list_nickname`,`m`.`member_list_username`,`m`.`member_list_id`,`m`.`major_id`,`mj`.`major_name`,`mj`.`major_id` FROM `zs_major_score` `ms` RIGHT JOIN `zs_member_list` `m` ON `m`.`member_list_id`=`ms`.`member_list_id` INNER JOIN `zs_member_info` `mi` ON `m`.`member_list_id`=`mi`.`member_list_id` INNER JOIN `zs_major` `mj` ON `mj`.`major_id`=`m`.`major_id` INNER JOIN `zs_school` `s` ON `s`.`school_id`=`m`.`school_id` WHERE  `m`.`school_id` = 22  AND `mj`.`major_id` IN ('8','4') ORDER BY ms.major_score_status ASC,s.school_id desc,m.member_list_id desc,major_score_id desc [ RunTime:0.152611s ]
+
+---------------------------------------------------------------
+[ 2018-05-23T23:28:50+08:00 ] 192.168.10.10 192.168.10.1 GET /admin/score/school_recruit_score_export.html?score=1&recruit_major_id=2
+[ log ] 32zs.com/admin/score/school_recruit_score_export.html?score=1&recruit_major_id=2 [运行时间：1.876051s][吞吐率：0.53req/s] [内存消耗：1,076.88kb] [文件加载：91]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'score',
+    2 => 'school_recruit_score_export',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|5; thinkphp_show_page_trace=0|0; PHPSESSID=40084fsb4ckl7ripf13tmrmbfl; aid=53; thinkphp_show_page_trace=0|0; signin_token=64854185759f12c9e16edada6178097436a270a6; think_var=zh-cn',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/score/sec_vocat_recruit_score_list.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'score' => '1',
+  'recruit_major_id' => '2',
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.002022s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.011585s ]
+[ info ] [ RUN ] app\admin\controller\Score->school_recruit_score_export[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Score.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.047498s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.062439s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/school_recruit_score_export' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.106564s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/school_recruit_score_export'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.097752s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/school_recruit_score_export'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.113630s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.101495s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (15,27,37,108,109,110,111,112,113,114,170,178,179,180,396,345,346,350,351,354,356,363,364,384,388,389,390,397,400,414,417,418,421,422,424,426,428,429,430,431)  AND `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.124205s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.039368s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 53 LIMIT 1 [ RunTime:0.094484s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.031938s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.094220s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.047713s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 22 LIMIT 1 [ RunTime:0.104086s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 22 LIMIT 1 [ RunTime:0.106476s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_enrollment` [ RunTime:0.046539s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_enrollment` WHERE  `school_id` = 22  AND `recruit_major_id` = 2 LIMIT 1 [ RunTime:0.100416s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_recruit_major` [ RunTime:0.032267s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_recruit_major` WHERE  `recruit_major_id` = 2 LIMIT 1 [ RunTime:0.100713s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major_score` [ RunTime:0.035521s ]
+[ sql ] [ SQL ] SELECT `s`.`school_id`,`s`.`school_name`,`mi`.`ZexamineeNumber`,`ms`.`major_score_id`,`ms`.`major_score`,`ms`.`major_score_status`,`ms`.`recruit_score`,`ms`.`recruit_score_status`,`m`.`member_list_nickname`,`m`.`member_list_username`,`m`.`member_list_id`,`m`.`major_id`,`mj`.`major_name`,`mj`.`major_id` FROM `zs_major_score` `ms` RIGHT JOIN `zs_member_list` `m` ON `m`.`member_list_id`=`ms`.`member_list_id` INNER JOIN `zs_member_info` `mi` ON `m`.`member_list_id`=`mi`.`member_list_id` INNER JOIN `zs_major` `mj` ON `mj`.`major_id`=`m`.`major_id` INNER JOIN `zs_school` `s` ON `s`.`school_id`=`m`.`school_id` WHERE  `m`.`school_id` = 22  AND `mj`.`major_id` IN ('8','4') ORDER BY ms.major_score_status ASC,s.school_id desc,m.member_list_id desc,major_score_id desc [ RunTime:0.119525s ]
+[ error ] [0]致命错误: Class 'SchoolRecruitScoreListTCPDFWithScore' not found[/home/vagrant/Code/32zs/2.0.0/app/admin/controller/Score.php:1006]
+
+---------------------------------------------------------------
+[ 2018-05-23T23:29:22+08:00 ] 192.168.10.10 192.168.10.1 GET /admin/score/school_recruit_score_export.html?score=1&recruit_major_id=2
+[ log ] 32zs.com/admin/score/school_recruit_score_export.html?score=1&recruit_major_id=2 [运行时间：2.268052s][吞吐率：0.44req/s] [内存消耗：1,763.38kb] [文件加载：87]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'score',
+    2 => 'school_recruit_score_export',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|5; thinkphp_show_page_trace=0|0; PHPSESSID=40084fsb4ckl7ripf13tmrmbfl; aid=53; thinkphp_show_page_trace=0|0; signin_token=64854185759f12c9e16edada6178097436a270a6; think_var=zh-cn',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/score/sec_vocat_recruit_score_list.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'score' => '1',
+  'recruit_major_id' => '2',
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.002384s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.013621s ]
+[ info ] [ RUN ] app\admin\controller\Score->school_recruit_score_export[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Score.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.035279s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.026458s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/school_recruit_score_export' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.082925s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/school_recruit_score_export'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.107009s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/school_recruit_score_export'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.118432s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.100947s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (15,27,37,108,109,110,111,112,113,114,170,178,179,180,396,345,346,350,351,354,356,363,364,384,388,389,390,397,400,414,417,418,421,422,424,426,428,429,430,431)  AND `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.107939s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.032004s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 53 LIMIT 1 [ RunTime:0.110187s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.026080s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.093715s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.024715s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 22 LIMIT 1 [ RunTime:0.100847s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 22 LIMIT 1 [ RunTime:0.101997s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_enrollment` [ RunTime:0.027080s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_enrollment` WHERE  `school_id` = 22  AND `recruit_major_id` = 2 LIMIT 1 [ RunTime:0.095448s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_recruit_major` [ RunTime:0.030379s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_recruit_major` WHERE  `recruit_major_id` = 2 LIMIT 1 [ RunTime:0.092470s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major_score` [ RunTime:0.024829s ]
+[ sql ] [ SQL ] SELECT `s`.`school_id`,`s`.`school_name`,`mi`.`ZexamineeNumber`,`ms`.`major_score_id`,`ms`.`major_score`,`ms`.`major_score_status`,`ms`.`recruit_score`,`ms`.`recruit_score_status`,`m`.`member_list_nickname`,`m`.`member_list_username`,`m`.`member_list_id`,`m`.`major_id`,`mj`.`major_name`,`mj`.`major_id` FROM `zs_major_score` `ms` RIGHT JOIN `zs_member_list` `m` ON `m`.`member_list_id`=`ms`.`member_list_id` INNER JOIN `zs_member_info` `mi` ON `m`.`member_list_id`=`mi`.`member_list_id` INNER JOIN `zs_major` `mj` ON `mj`.`major_id`=`m`.`major_id` INNER JOIN `zs_school` `s` ON `s`.`school_id`=`m`.`school_id` WHERE  `m`.`school_id` = 22  AND `mj`.`major_id` IN ('8','4') ORDER BY ms.major_score_status ASC,s.school_id desc,m.member_list_id desc,major_score_id desc [ RunTime:0.115256s ]
+
+---------------------------------------------------------------
+[ 2018-05-23T23:29:53+08:00 ] 192.168.10.10 192.168.10.1 GET /admin/score/school_recruit_score_export.html?score=1&recruit_major_id=2
+[ log ] 32zs.com/admin/score/school_recruit_score_export.html?score=1&recruit_major_id=2 [运行时间：2.524846s][吞吐率：0.40req/s] [内存消耗：1,399.58kb] [文件加载：87]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'score',
+    2 => 'school_recruit_score_export',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|5; thinkphp_show_page_trace=0|0; PHPSESSID=40084fsb4ckl7ripf13tmrmbfl; aid=53; thinkphp_show_page_trace=0|0; signin_token=64854185759f12c9e16edada6178097436a270a6; think_var=zh-cn',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/score/sec_vocat_recruit_score_list.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'score' => '1',
+  'recruit_major_id' => '2',
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.001609s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.006722s ]
+[ info ] [ RUN ] app\admin\controller\Score->school_recruit_score_export[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Score.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.074479s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.038093s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/school_recruit_score_export' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.106363s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/school_recruit_score_export'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.141604s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/school_recruit_score_export'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.121197s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.106498s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (15,27,37,108,109,110,111,112,113,114,170,178,179,180,396,345,346,350,351,354,356,363,364,384,388,389,390,397,400,414,417,418,421,422,424,426,428,429,430,431)  AND `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.106678s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.031029s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 53 LIMIT 1 [ RunTime:0.107170s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.032030s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.110413s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.042318s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 22 LIMIT 1 [ RunTime:0.102061s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 22 LIMIT 1 [ RunTime:0.142611s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_enrollment` [ RunTime:0.038163s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_enrollment` WHERE  `school_id` = 22  AND `recruit_major_id` = 2 LIMIT 1 [ RunTime:0.093642s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_recruit_major` [ RunTime:0.031698s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_recruit_major` WHERE  `recruit_major_id` = 2 LIMIT 1 [ RunTime:0.085652s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major_score` [ RunTime:0.049228s ]
+[ sql ] [ SQL ] SELECT `s`.`school_id`,`s`.`school_name`,`mi`.`ZexamineeNumber`,`ms`.`major_score_id`,`ms`.`major_score`,`ms`.`major_score_status`,`ms`.`recruit_score`,`ms`.`recruit_score_status`,`m`.`member_list_nickname`,`m`.`member_list_username`,`m`.`member_list_id`,`m`.`major_id`,`mj`.`major_name`,`mj`.`major_id` FROM `zs_major_score` `ms` RIGHT JOIN `zs_member_list` `m` ON `m`.`member_list_id`=`ms`.`member_list_id` INNER JOIN `zs_member_info` `mi` ON `m`.`member_list_id`=`mi`.`member_list_id` INNER JOIN `zs_major` `mj` ON `mj`.`major_id`=`m`.`major_id` INNER JOIN `zs_school` `s` ON `s`.`school_id`=`m`.`school_id` WHERE  `m`.`school_id` = 22  AND `mj`.`major_id` IN ('8','4') ORDER BY ms.major_score_status ASC,s.school_id desc,m.member_list_id desc,major_score_id desc [ RunTime:0.114840s ]
+
+---------------------------------------------------------------
+[ 2018-05-23T23:30:14+08:00 ] 192.168.10.10 192.168.10.1 GET /admin/score/sec_vocat_recruit_score_list.html
+[ log ] 32zs.com/admin/score/sec_vocat_recruit_score_list.html [运行时间：1.350111s][吞吐率：0.74req/s] [内存消耗：899.32kb] [文件加载：86]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'score',
+    2 => 'sec_vocat_recruit_score_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|5; thinkphp_show_page_trace=0|0; PHPSESSID=40084fsb4ckl7ripf13tmrmbfl; aid=53; thinkphp_show_page_trace=0|0; signin_token=64854185759f12c9e16edada6178097436a270a6; think_var=zh-cn',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/examination/createExamination.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.001272s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.006977s ]
+[ info ] [ RUN ] app\admin\controller\Score->sec_vocat_recruit_score_list[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Score.php ]
+[ info ] [ VIEW ] /home/vagrant/Code/32zs/2.0.0/app/admin/view/score/sec_vocat_recruit_score_list.html [ array (
+  0 => 'lang',
+  1 => 'menus',
+  2 => 'menus_curr',
+  3 => 'menus_child',
+  4 => 'id_curr',
+  5 => 'admin',
+  6 => 'head_title',
+  7 => 'admin_avatar',
+  8 => 'data',
+  9 => 'recruit_major_list',
+  10 => 'recruit_major',
+  11 => 'page',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.005298s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.065699s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.031103s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/sec_vocat_recruit_score_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.064361s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.052867s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/sec_vocat_recruit_score_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.049473s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 431 LIMIT 1 [ RunTime:0.058239s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (15,27,37,108,109,110,111,112,113,114,170,178,179,180,396,345,346,350,351,354,356,363,364,384,388,389,390,397,400,414,417,418,421,422,424,426,428,429,430,431)  AND `status` = 1  AND `pid` = 345 ORDER BY `sort` [ RunTime:0.062020s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.029311s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 53 LIMIT 1 [ RunTime:0.043620s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.027973s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.072724s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.047978s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 22 LIMIT 1 [ RunTime:0.048664s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_recruit_major` [ RunTime:0.028257s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_recruit_major` `rm` INNER JOIN `zs_enrollment` `e` ON `e`.`recruit_major_id`=`rm`.`recruit_major_id` WHERE  `e`.`major_ids` LIKE '%,4,%'  AND `e`.`school_id` = 22 OR `e`.`major_ids` = '4' LIMIT 1 [ RunTime:0.050388s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_recruit_major` `rm` INNER JOIN `zs_enrollment` `e` ON `e`.`recruit_major_id`=`rm`.`recruit_major_id` WHERE  `e`.`major_ids` LIKE '%,8,%'  AND `e`.`school_id` = 22 OR `e`.`major_ids` = '8' LIMIT 1 [ RunTime:0.045989s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_recruit_major` `rm` INNER JOIN `zs_enrollment` `e` ON `e`.`recruit_major_id`=`rm`.`recruit_major_id` WHERE  `e`.`major_ids` LIKE '%,17,%'  AND `e`.`school_id` = 22 OR `e`.`major_ids` = '17' LIMIT 1 [ RunTime:0.045440s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_enrollment` [ RunTime:0.038167s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_enrollment` WHERE  `school_id` = 22  AND `recruit_major_id` = 2 LIMIT 1 [ RunTime:0.069269s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_recruit_major` WHERE  `recruit_major_id` = 2 LIMIT 1 [ RunTime:0.044296s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major_score` [ RunTime:0.030463s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_major_score` `ms` RIGHT JOIN `zs_member_list` `m` ON `m`.`member_list_id`=`ms`.`member_list_id` INNER JOIN `zs_member_info` `mi` ON `m`.`member_list_id`=`mi`.`member_list_id` INNER JOIN `zs_major` `mj` ON `mj`.`major_id`=`m`.`major_id` INNER JOIN `zs_school` `s` ON `s`.`school_id`=`m`.`school_id` WHERE  `s`.`school_id` = 22  AND `mj`.`major_id` IN ('8','4') LIMIT 1 [ RunTime:0.066472s ]
+[ sql ] [ SQL ] SELECT `s`.`school_id`,`s`.`school_name`,`mi`.`ZexamineeNumber`,`ms`.`major_score_id`,`ms`.`major_score`,`ms`.`major_score_status`,`ms`.`recruit_score`,`ms`.`recruit_score_status`,`m`.`member_list_nickname`,`m`.`member_list_username`,`m`.`member_list_id`,`m`.`major_id`,`mj`.`major_name`,`mj`.`major_id` FROM `zs_major_score` `ms` RIGHT JOIN `zs_member_list` `m` ON `m`.`member_list_id`=`ms`.`member_list_id` INNER JOIN `zs_member_info` `mi` ON `m`.`member_list_id`=`mi`.`member_list_id` INNER JOIN `zs_major` `mj` ON `mj`.`major_id`=`m`.`major_id` INNER JOIN `zs_school` `s` ON `s`.`school_id`=`m`.`school_id` WHERE  `s`.`school_id` = 22  AND `mj`.`major_id` IN ('8','4') ORDER BY ms.major_score_status ASC,s.school_id desc,m.member_list_id desc,major_score_id desc LIMIT 0,20 [ RunTime:0.070346s ]
+
+---------------------------------------------------------------
+[ 2018-05-23T23:30:15+08:00 ] 192.168.10.10 192.168.10.1 GET /public/datePicker/bootstrap-datepicker.css.map
+[ log ] 32zs.com/public/datePicker/bootstrap-datepicker.css.map [运行时间：0.134260s][吞吐率：7.45req/s] [内存消耗：248.92kb] [文件加载：57]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'public',
+    1 => 'datePicker',
+    2 => 'bootstrap-datepicker.css.map',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=40084fsb4ckl7ripf13tmrmbfl; aid=53; thinkphp_show_page_trace=0|0; signin_token=64854185759f12c9e16edada6178097436a270a6; think_var=zh-cn',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-05-23T23:30:22+08:00 ] 192.168.10.10 192.168.10.1 GET /admin/score/score_list.html
+[ log ] 32zs.com/admin/score/score_list.html [运行时间：1.779948s][吞吐率：0.56req/s] [内存消耗：887.16kb] [文件加载：86]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'score',
+    2 => 'score_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|5; thinkphp_show_page_trace=0|0; PHPSESSID=40084fsb4ckl7ripf13tmrmbfl; aid=53; thinkphp_show_page_trace=0|0; signin_token=64854185759f12c9e16edada6178097436a270a6; think_var=zh-cn',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/score/sec_vocat_recruit_score_list.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.001154s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.010626s ]
+[ info ] [ RUN ] app\admin\controller\Score->score_list[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Score.php ]
+[ info ] [ VIEW ] /home/vagrant/Code/32zs/2.0.0/app/admin/view/score/score_list.html [ array (
+  0 => 'lang',
+  1 => 'menus',
+  2 => 'menus_curr',
+  3 => 'menus_child',
+  4 => 'id_curr',
+  5 => 'admin',
+  6 => 'head_title',
+  7 => 'admin_avatar',
+  8 => 'major_score',
+  9 => 'major_id',
+  10 => 'major_score_status',
+  11 => 'major_list',
+  12 => 'data',
+  13 => 'page',
+  14 => 'search_key',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.005985s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.037946s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.025119s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/score_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.091522s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.090341s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/score_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.091080s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 346 LIMIT 1 [ RunTime:0.093477s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (15,27,37,108,109,110,111,112,113,114,170,178,179,180,396,345,346,350,351,354,356,363,364,384,388,389,390,397,400,414,417,418,421,422,424,426,428,429,430,431)  AND `status` = 1  AND `pid` = 345 ORDER BY `sort` [ RunTime:0.096386s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.040378s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 53 LIMIT 1 [ RunTime:0.091202s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.042850s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.102629s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.027129s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 22 LIMIT 1 [ RunTime:0.084650s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 53 LIMIT 1 [ RunTime:0.096741s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major_score` [ RunTime:0.027114s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_major_score` `ms` RIGHT JOIN `zs_member_list` `m` ON `m`.`member_list_id`=`ms`.`member_list_id` INNER JOIN `zs_member_info` `mi` ON `m`.`member_list_id`=`mi`.`member_list_id` INNER JOIN `zs_major` `mj` ON `mj`.`major_id`=`m`.`major_id` WHERE  `m`.`major_id` = '4'  AND `m`.`school_id` = 22 LIMIT 1 [ RunTime:0.094121s ]
+[ sql ] [ SQL ] SELECT `ms`.`major_score`,`ms`.`major_score_id`,`ms`.`major_score_status`,`m`.`member_list_nickname`,`m`.`member_list_username`,`m`.`member_list_id`,`mj`.`major_name`,`m`.`major_id`,`m`.`school_id`,`mi`.`ZexamineeNumber` FROM `zs_major_score` `ms` RIGHT JOIN `zs_member_list` `m` ON `m`.`member_list_id`=`ms`.`member_list_id` INNER JOIN `zs_member_info` `mi` ON `m`.`member_list_id`=`mi`.`member_list_id` INNER JOIN `zs_major` `mj` ON `mj`.`major_id`=`m`.`major_id` WHERE  `m`.`major_id` = '4'  AND `m`.`school_id` = 22 ORDER BY ms.major_score_status asc,m.member_list_id desc,major_score_id desc LIMIT 0,20 [ RunTime:0.093418s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major` [ RunTime:0.025772s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major` WHERE  `major_id` = 4 LIMIT 1 [ RunTime:0.090377s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major_score_config` [ RunTime:0.036838s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major_score_config` WHERE  `major_id` = 4  AND `school_id` = 22 LIMIT 1 [ RunTime:0.091516s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major` WHERE  `major_id` IN (4,8,17) [ RunTime:0.094304s ]
+
+---------------------------------------------------------------
+[ 2018-05-23T23:30:23+08:00 ] 192.168.10.10 192.168.10.1 GET /public/datePicker/bootstrap-datepicker.css.map
+[ log ] 32zs.com/public/datePicker/bootstrap-datepicker.css.map [运行时间：0.192131s][吞吐率：5.20req/s] [内存消耗：248.92kb] [文件加载：57]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'public',
+    1 => 'datePicker',
+    2 => 'bootstrap-datepicker.css.map',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=40084fsb4ckl7ripf13tmrmbfl; aid=53; thinkphp_show_page_trace=0|0; signin_token=64854185759f12c9e16edada6178097436a270a6; think_var=zh-cn',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-05-23T23:30:25+08:00 ] 192.168.10.10 192.168.10.1 GET /admin/score/major_score_import.html
+[ log ] 32zs.com/admin/score/major_score_import.html [运行时间：0.985437s][吞吐率：1.01req/s] [内存消耗：816.68kb] [文件加载：84]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'score',
+    2 => 'major_score_import',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|5; thinkphp_show_page_trace=0|0; PHPSESSID=40084fsb4ckl7ripf13tmrmbfl; aid=53; thinkphp_show_page_trace=0|0; signin_token=64854185759f12c9e16edada6178097436a270a6; think_var=zh-cn',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/score/score_list.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.000928s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.008224s ]
+[ info ] [ RUN ] app\admin\controller\Score->major_score_import[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Score.php ]
+[ info ] [ VIEW ] /home/vagrant/Code/32zs/2.0.0/app/admin/view/score/major_score_import.html [ array (
+  0 => 'lang',
+  1 => 'menus',
+  2 => 'menus_curr',
+  3 => 'menus_child',
+  4 => 'id_curr',
+  5 => 'admin',
+  6 => 'head_title',
+  7 => 'admin_avatar',
+  8 => 'major_list',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.005358s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.097104s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.037063s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/major_score_import' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.049380s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.060362s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/major_score_import'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.045621s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 426 LIMIT 1 [ RunTime:0.068762s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (15,27,37,108,109,110,111,112,113,114,170,178,179,180,396,345,346,350,351,354,356,363,364,384,388,389,390,397,400,414,417,418,421,422,424,426,428,429,430,431)  AND `status` = 1  AND `pid` = 345 ORDER BY `sort` [ RunTime:0.049261s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.035105s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 53 LIMIT 1 [ RunTime:0.056685s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.029716s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.071459s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.033372s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 22 LIMIT 1 [ RunTime:0.067956s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major` [ RunTime:0.029636s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major` WHERE  `major_id` IN (4,8,17) [ RunTime:0.045912s ]
+
+---------------------------------------------------------------
+[ 2018-05-23T23:30:25+08:00 ] 192.168.10.10 192.168.10.1 GET /public/datePicker/bootstrap-datepicker.css.map
+[ log ] 32zs.com/public/datePicker/bootstrap-datepicker.css.map [运行时间：0.189128s][吞吐率：5.29req/s] [内存消耗：248.92kb] [文件加载：57]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'public',
+    1 => 'datePicker',
+    2 => 'bootstrap-datepicker.css.map',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=40084fsb4ckl7ripf13tmrmbfl; aid=53; thinkphp_show_page_trace=0|0; signin_token=64854185759f12c9e16edada6178097436a270a6; think_var=zh-cn',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-05-23T23:30:28+08:00 ] 192.168.10.10 192.168.10.1 GET /admin/score/score_list.html
+[ log ] 32zs.com/admin/score/score_list.html [运行时间：2.008935s][吞吐率：0.50req/s] [内存消耗：887.16kb] [文件加载：86]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'score',
+    2 => 'score_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|5; thinkphp_show_page_trace=0|0; PHPSESSID=40084fsb4ckl7ripf13tmrmbfl; aid=53; thinkphp_show_page_trace=0|0; signin_token=64854185759f12c9e16edada6178097436a270a6; think_var=zh-cn',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/score/major_score_import.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.003839s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.013488s ]
+[ info ] [ RUN ] app\admin\controller\Score->score_list[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Score.php ]
+[ info ] [ VIEW ] /home/vagrant/Code/32zs/2.0.0/app/admin/view/score/score_list.html [ array (
+  0 => 'lang',
+  1 => 'menus',
+  2 => 'menus_curr',
+  3 => 'menus_child',
+  4 => 'id_curr',
+  5 => 'admin',
+  6 => 'head_title',
+  7 => 'admin_avatar',
+  8 => 'major_score',
+  9 => 'major_id',
+  10 => 'major_score_status',
+  11 => 'major_list',
+  12 => 'data',
+  13 => 'page',
+  14 => 'search_key',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.006837s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.073645s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.032696s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/score_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.095857s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.088368s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/score_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.092360s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 346 LIMIT 1 [ RunTime:0.105957s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (15,27,37,108,109,110,111,112,113,114,170,178,179,180,396,345,346,350,351,354,356,363,364,384,388,389,390,397,400,414,417,418,421,422,424,426,428,429,430,431)  AND `status` = 1  AND `pid` = 345 ORDER BY `sort` [ RunTime:0.090905s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.047431s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 53 LIMIT 1 [ RunTime:0.104859s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.030174s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.095464s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.050525s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 22 LIMIT 1 [ RunTime:0.099553s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 53 LIMIT 1 [ RunTime:0.089286s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major_score` [ RunTime:0.034539s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_major_score` `ms` RIGHT JOIN `zs_member_list` `m` ON `m`.`member_list_id`=`ms`.`member_list_id` INNER JOIN `zs_member_info` `mi` ON `m`.`member_list_id`=`mi`.`member_list_id` INNER JOIN `zs_major` `mj` ON `mj`.`major_id`=`m`.`major_id` WHERE  `m`.`major_id` = '4'  AND `m`.`school_id` = 22 LIMIT 1 [ RunTime:0.109489s ]
+[ sql ] [ SQL ] SELECT `ms`.`major_score`,`ms`.`major_score_id`,`ms`.`major_score_status`,`m`.`member_list_nickname`,`m`.`member_list_username`,`m`.`member_list_id`,`mj`.`major_name`,`m`.`major_id`,`m`.`school_id`,`mi`.`ZexamineeNumber` FROM `zs_major_score` `ms` RIGHT JOIN `zs_member_list` `m` ON `m`.`member_list_id`=`ms`.`member_list_id` INNER JOIN `zs_member_info` `mi` ON `m`.`member_list_id`=`mi`.`member_list_id` INNER JOIN `zs_major` `mj` ON `mj`.`major_id`=`m`.`major_id` WHERE  `m`.`major_id` = '4'  AND `m`.`school_id` = 22 ORDER BY ms.major_score_status asc,m.member_list_id desc,major_score_id desc LIMIT 0,20 [ RunTime:0.103428s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major` [ RunTime:0.029712s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major` WHERE  `major_id` = 4 LIMIT 1 [ RunTime:0.100959s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major_score_config` [ RunTime:0.044714s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major_score_config` WHERE  `major_id` = 4  AND `school_id` = 22 LIMIT 1 [ RunTime:0.086242s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major` WHERE  `major_id` IN (4,8,17) [ RunTime:0.094023s ]
+
+---------------------------------------------------------------
+[ 2018-05-23T23:30:28+08:00 ] 192.168.10.10 192.168.10.1 GET /public/datePicker/bootstrap-datepicker.css.map
+[ log ] 32zs.com/public/datePicker/bootstrap-datepicker.css.map [运行时间：0.195962s][吞吐率：5.10req/s] [内存消耗：248.92kb] [文件加载：57]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'public',
+    1 => 'datePicker',
+    2 => 'bootstrap-datepicker.css.map',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=40084fsb4ckl7ripf13tmrmbfl; aid=53; thinkphp_show_page_trace=0|0; signin_token=64854185759f12c9e16edada6178097436a270a6; think_var=zh-cn',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-05-23T23:31:02+08:00 ] 192.168.10.10 192.168.10.1 GET /admin/score/major_score_import.html
+[ log ] 32zs.com/admin/score/major_score_import.html [运行时间：1.249343s][吞吐率：0.80req/s] [内存消耗：773.27kb] [文件加载：82]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'score',
+    2 => 'major_score_import',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|5; thinkphp_show_page_trace=0|0; PHPSESSID=40084fsb4ckl7ripf13tmrmbfl; aid=53; thinkphp_show_page_trace=0|0; signin_token=64854185759f12c9e16edada6178097436a270a6; think_var=zh-cn',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/score/score_list.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.001895s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.011559s ]
+[ info ] [ RUN ] app\admin\controller\Score->major_score_import[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Score.php ]
+[ info ] [ VIEW ] /home/vagrant/Code/32zs/2.0.0/app/admin/view/score/major_score_import.html [ array (
+  0 => 'lang',
+  1 => 'menus',
+  2 => 'menus_curr',
+  3 => 'menus_child',
+  4 => 'id_curr',
+  5 => 'admin',
+  6 => 'head_title',
+  7 => 'admin_avatar',
+  8 => 'major_list',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.006828s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.046327s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.025954s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/major_score_import' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.100954s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.108312s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/major_score_import'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.106110s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 426 LIMIT 1 [ RunTime:0.094041s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (15,27,37,108,109,110,111,112,113,114,170,178,179,180,396,345,346,350,351,354,356,363,364,384,388,389,390,397,400,414,417,418,421,422,424,426,428,429,430,431)  AND `status` = 1  AND `pid` = 345 ORDER BY `sort` [ RunTime:0.086948s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.025657s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 53 LIMIT 1 [ RunTime:0.101969s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.025864s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.074327s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.038068s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 22 LIMIT 1 [ RunTime:0.089319s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major` [ RunTime:0.026692s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major` WHERE  `major_id` IN (4,8,17) [ RunTime:0.087814s ]
+
+---------------------------------------------------------------
+[ 2018-05-23T23:31:02+08:00 ] 192.168.10.10 192.168.10.1 GET /public/datePicker/bootstrap-datepicker.css.map
+[ log ] 32zs.com/public/datePicker/bootstrap-datepicker.css.map [运行时间：0.236763s][吞吐率：4.22req/s] [内存消耗：248.92kb] [文件加载：57]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'public',
+    1 => 'datePicker',
+    2 => 'bootstrap-datepicker.css.map',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=40084fsb4ckl7ripf13tmrmbfl; aid=53; thinkphp_show_page_trace=0|0; signin_token=64854185759f12c9e16edada6178097436a270a6; think_var=zh-cn',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-05-23T23:31:04+08:00 ] 192.168.10.10 192.168.10.1 GET /admin/score/score_list.html
+[ log ] 32zs.com/admin/score/score_list.html [运行时间：1.396467s][吞吐率：0.72req/s] [内存消耗：887.16kb] [文件加载：86]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'score',
+    2 => 'score_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|5; thinkphp_show_page_trace=0|0; PHPSESSID=40084fsb4ckl7ripf13tmrmbfl; aid=53; thinkphp_show_page_trace=0|0; signin_token=64854185759f12c9e16edada6178097436a270a6; think_var=zh-cn',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/score/major_score_import.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.002489s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.010276s ]
+[ info ] [ RUN ] app\admin\controller\Score->score_list[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Score.php ]
+[ info ] [ VIEW ] /home/vagrant/Code/32zs/2.0.0/app/admin/view/score/score_list.html [ array (
+  0 => 'lang',
+  1 => 'menus',
+  2 => 'menus_curr',
+  3 => 'menus_child',
+  4 => 'id_curr',
+  5 => 'admin',
+  6 => 'head_title',
+  7 => 'admin_avatar',
+  8 => 'major_score',
+  9 => 'major_id',
+  10 => 'major_score_status',
+  11 => 'major_list',
+  12 => 'data',
+  13 => 'page',
+  14 => 'search_key',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.006971s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.077288s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.028974s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/score_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.049041s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.088812s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/score_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.052657s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 346 LIMIT 1 [ RunTime:0.056370s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (15,27,37,108,109,110,111,112,113,114,170,178,179,180,396,345,346,350,351,354,356,363,364,384,388,389,390,397,400,414,417,418,421,422,424,426,428,429,430,431)  AND `status` = 1  AND `pid` = 345 ORDER BY `sort` [ RunTime:0.041681s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.029079s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 53 LIMIT 1 [ RunTime:0.099440s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.035093s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.061197s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.027626s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 22 LIMIT 1 [ RunTime:0.048825s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 53 LIMIT 1 [ RunTime:0.050542s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major_score` [ RunTime:0.036064s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_major_score` `ms` RIGHT JOIN `zs_member_list` `m` ON `m`.`member_list_id`=`ms`.`member_list_id` INNER JOIN `zs_member_info` `mi` ON `m`.`member_list_id`=`mi`.`member_list_id` INNER JOIN `zs_major` `mj` ON `mj`.`major_id`=`m`.`major_id` WHERE  `m`.`major_id` = '4'  AND `m`.`school_id` = 22 LIMIT 1 [ RunTime:0.068258s ]
+[ sql ] [ SQL ] SELECT `ms`.`major_score`,`ms`.`major_score_id`,`ms`.`major_score_status`,`m`.`member_list_nickname`,`m`.`member_list_username`,`m`.`member_list_id`,`mj`.`major_name`,`m`.`major_id`,`m`.`school_id`,`mi`.`ZexamineeNumber` FROM `zs_major_score` `ms` RIGHT JOIN `zs_member_list` `m` ON `m`.`member_list_id`=`ms`.`member_list_id` INNER JOIN `zs_member_info` `mi` ON `m`.`member_list_id`=`mi`.`member_list_id` INNER JOIN `zs_major` `mj` ON `mj`.`major_id`=`m`.`major_id` WHERE  `m`.`major_id` = '4'  AND `m`.`school_id` = 22 ORDER BY ms.major_score_status asc,m.member_list_id desc,major_score_id desc LIMIT 0,20 [ RunTime:0.073882s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major` [ RunTime:0.029315s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major` WHERE  `major_id` = 4 LIMIT 1 [ RunTime:0.050331s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major_score_config` [ RunTime:0.050128s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major_score_config` WHERE  `major_id` = 4  AND `school_id` = 22 LIMIT 1 [ RunTime:0.054364s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major` WHERE  `major_id` IN (4,8,17) [ RunTime:0.046734s ]
+
+---------------------------------------------------------------
+[ 2018-05-23T23:31:05+08:00 ] 192.168.10.10 192.168.10.1 GET /public/datePicker/bootstrap-datepicker.css.map
+[ log ] 32zs.com/public/datePicker/bootstrap-datepicker.css.map [运行时间：0.191870s][吞吐率：5.21req/s] [内存消耗：248.92kb] [文件加载：57]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'public',
+    1 => 'datePicker',
+    2 => 'bootstrap-datepicker.css.map',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=40084fsb4ckl7ripf13tmrmbfl; aid=53; thinkphp_show_page_trace=0|0; signin_token=64854185759f12c9e16edada6178097436a270a6; think_var=zh-cn',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-05-23T23:33:43+08:00 ] 192.168.10.10 192.168.10.1 GET /admin/score/score_list.html
+[ log ] 32zs.com/admin/score/score_list.html [运行时间：1.958069s][吞吐率：0.51req/s] [内存消耗：888.13kb] [文件加载：86]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'score',
+    2 => 'score_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|5; thinkphp_show_page_trace=0|0; PHPSESSID=40084fsb4ckl7ripf13tmrmbfl; aid=53; thinkphp_show_page_trace=0|0; signin_token=64854185759f12c9e16edada6178097436a270a6; think_var=zh-cn',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/score/score_list.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.002099s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.012355s ]
+[ info ] [ RUN ] app\admin\controller\Score->score_list[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Score.php ]
+[ info ] [ VIEW ] /home/vagrant/Code/32zs/2.0.0/app/admin/view/score/score_list.html [ array (
+  0 => 'lang',
+  1 => 'menus',
+  2 => 'menus_curr',
+  3 => 'menus_child',
+  4 => 'id_curr',
+  5 => 'admin',
+  6 => 'head_title',
+  7 => 'admin_avatar',
+  8 => 'major_score',
+  9 => 'major_id',
+  10 => 'major_score_status',
+  11 => 'major_list',
+  12 => 'data',
+  13 => 'page',
+  14 => 'search_key',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.005395s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.034459s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.028522s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/score_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.104203s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.118422s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/score_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.116182s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 346 LIMIT 1 [ RunTime:0.091974s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (15,27,37,108,109,110,111,112,113,114,170,178,179,180,396,345,346,350,351,354,356,363,364,384,388,389,390,397,400,414,417,418,421,422,424,426,428,429,430,431)  AND `status` = 1  AND `pid` = 345 ORDER BY `sort` [ RunTime:0.144482s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.024767s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 53 LIMIT 1 [ RunTime:0.088026s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.026741s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.089628s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.026378s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 22 LIMIT 1 [ RunTime:0.112372s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 53 LIMIT 1 [ RunTime:0.096037s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major_score` [ RunTime:0.029847s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_major_score` `ms` RIGHT JOIN `zs_member_list` `m` ON `m`.`member_list_id`=`ms`.`member_list_id` INNER JOIN `zs_member_info` `mi` ON `m`.`member_list_id`=`mi`.`member_list_id` INNER JOIN `zs_major` `mj` ON `mj`.`major_id`=`m`.`major_id` WHERE  `m`.`major_id` = '4'  AND `m`.`school_id` = 22 LIMIT 1 [ RunTime:0.099076s ]
+[ sql ] [ SQL ] SELECT `ms`.`major_score`,`ms`.`major_score_id`,`ms`.`major_score_status`,`m`.`member_list_nickname`,`m`.`member_list_username`,`m`.`member_list_id`,`mj`.`major_name`,`m`.`major_id`,`m`.`school_id`,`mi`.`ZexamineeNumber` FROM `zs_major_score` `ms` RIGHT JOIN `zs_member_list` `m` ON `m`.`member_list_id`=`ms`.`member_list_id` INNER JOIN `zs_member_info` `mi` ON `m`.`member_list_id`=`mi`.`member_list_id` INNER JOIN `zs_major` `mj` ON `mj`.`major_id`=`m`.`major_id` WHERE  `m`.`major_id` = '4'  AND `m`.`school_id` = 22 ORDER BY ms.major_score_status asc,m.member_list_id desc,major_score_id desc LIMIT 0,20 [ RunTime:0.109304s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major` [ RunTime:0.029717s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major` WHERE  `major_id` = 4 LIMIT 1 [ RunTime:0.083011s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major_score_config` [ RunTime:0.031264s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major_score_config` WHERE  `major_id` = 4  AND `school_id` = 22 LIMIT 1 [ RunTime:0.103322s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major` WHERE  `major_id` IN (4,8,17) [ RunTime:0.098084s ]
+
+---------------------------------------------------------------
+[ 2018-05-23T23:33:43+08:00 ] 192.168.10.10 192.168.10.1 GET /public/datePicker/bootstrap-datepicker.css.map
+[ log ] 32zs.com/public/datePicker/bootstrap-datepicker.css.map [运行时间：0.224732s][吞吐率：4.45req/s] [内存消耗：248.92kb] [文件加载：57]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'public',
+    1 => 'datePicker',
+    2 => 'bootstrap-datepicker.css.map',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=40084fsb4ckl7ripf13tmrmbfl; aid=53; thinkphp_show_page_trace=0|0; signin_token=64854185759f12c9e16edada6178097436a270a6; think_var=zh-cn',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-05-23T23:33:45+08:00 ] 192.168.10.10 192.168.10.1 GET /admin/score/score_list_export.html?major_id=4
+[ log ] 32zs.com/admin/score/score_list_export.html?major_id=4 [运行时间：2.122965s][吞吐率：0.47req/s] [内存消耗：1,350.67kb] [文件加载：88]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'score',
+    2 => 'score_list_export',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|5; thinkphp_show_page_trace=0|0; PHPSESSID=40084fsb4ckl7ripf13tmrmbfl; aid=53; thinkphp_show_page_trace=0|0; signin_token=64854185759f12c9e16edada6178097436a270a6; think_var=zh-cn',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/score/score_list.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'major_id' => '4',
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.002426s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.011244s ]
+[ info ] [ RUN ] app\admin\controller\Score->score_list_export[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Score.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.042409s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.024568s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/score_list_export' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.118454s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.081481s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/score_list_export'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.093956s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.094165s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (15,27,37,108,109,110,111,112,113,114,170,178,179,180,396,345,346,350,351,354,356,363,364,384,388,389,390,397,400,414,417,418,421,422,424,426,428,429,430,431)  AND `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.110629s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.044278s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 53 LIMIT 1 [ RunTime:0.085544s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.035004s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.100555s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.027822s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 22 LIMIT 1 [ RunTime:0.076981s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major_score` [ RunTime:0.032744s ]
+[ sql ] [ SQL ] SELECT `ms`.`major_score`,`ms`.`major_score_id`,`ms`.`major_score_status`,`m`.`member_list_nickname`,`m`.`member_list_username`,`m`.`member_list_id`,`mj`.`major_name`,`m`.`major_id`,`m`.`school_id`,`mi`.`ZexamineeNumber` FROM `zs_major_score` `ms` RIGHT JOIN `zs_member_list` `m` ON `m`.`member_list_id`=`ms`.`member_list_id` INNER JOIN `zs_member_info` `mi` ON `m`.`member_list_id`=`mi`.`member_list_id` INNER JOIN `zs_major` `mj` ON `mj`.`major_id`=`m`.`major_id` WHERE  `m`.`major_id` = '4'  AND `m`.`school_id` = 22 ORDER BY ms.major_score_status asc,m.member_list_id desc,major_score_id desc [ RunTime:0.101661s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major` [ RunTime:0.031242s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major` WHERE  `major_id` = 4 LIMIT 1 [ RunTime:0.125096s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major_score_config` [ RunTime:0.028075s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major_score_config` WHERE  `major_id` = 4  AND `school_id` = 22 LIMIT 1 [ RunTime:0.081470s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 22 LIMIT 1 [ RunTime:0.091822s ]
+
+---------------------------------------------------------------
+[ 2018-05-23T23:37:03+08:00 ] 192.168.10.10 192.168.10.1 GET /admin/score/recruit_score_list.html
+[ log ] 32zs.com/admin/score/recruit_score_list.html [运行时间：1.617269s][吞吐率：0.62req/s] [内存消耗：710.40kb] [文件加载：85]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'score',
+    2 => 'recruit_score_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|4; PHPSESSID=l3k76f1gl2ilels02b0k10g7rd; thinkphp_show_page_trace=0|0',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/score/recruit_score_list.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.003056s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.012010s ]
+[ info ] [ RUN ] app\admin\controller\Score->recruit_score_list[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Score.php ]
+[ info ] [ VIEW ] /home/vagrant/Code/32zs/2.0.0/app/admin/view/score/recruit_score_list.html [ array (
+  0 => 'lang',
+  1 => 'menus',
+  2 => 'menus_curr',
+  3 => 'menus_child',
+  4 => 'id_curr',
+  5 => 'admin',
+  6 => 'head_title',
+  7 => 'admin_avatar',
+  8 => 'school_list',
+  9 => 'data',
+  10 => 'school_id',
+  11 => 'major_id',
+  12 => 'recruit_score_status',
+  13 => 'page',
+  14 => 'search_key',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.006801s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.038135s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.029908s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/recruit_score_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.106181s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.109903s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/recruit_score_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.092214s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 348 LIMIT 1 [ RunTime:0.105783s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (15,178,179,180,345,348,352,353,358,385,423,424,427)  AND `status` = 1  AND `pid` = 345 ORDER BY `sort` [ RunTime:0.087460s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.032735s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 38 LIMIT 1 [ RunTime:0.106636s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.029458s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.108418s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_recruit_major` [ RunTime:0.029143s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_recruit_major` WHERE  `recruit_major_id` = 9 LIMIT 1 [ RunTime:0.109862s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.027474s ]
+[ sql ] [ SQL ] SELECT `s`.`school_id`,`s`.`school_name`,`e`.`major_ids` FROM `zs_school` `s` INNER JOIN `zs_enrollment` `e` ON `e`.`school_id`=`s`.`school_id` WHERE  `e`.`recruit_major_id` = 9 [ RunTime:0.092215s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major_score` [ RunTime:0.033923s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_major_score` `ms` RIGHT JOIN `zs_member_list` `m` ON `m`.`member_list_id`=`ms`.`member_list_id` INNER JOIN `zs_member_info` `mi` ON `m`.`member_list_id`=`mi`.`member_list_id` INNER JOIN `zs_major` `mj` ON `mj`.`major_id`=`m`.`major_id` INNER JOIN `zs_school` `s` ON `s`.`school_id`=`m`.`school_id` WHERE  `mj`.`major_id` IN ('17','17','17','18')  AND `m`.`school_id` IN (22,20,23,25) LIMIT 1 [ RunTime:0.107237s ]
+[ sql ] [ SQL ] SELECT `s`.`school_id`,`s`.`school_name`,`mi`.`ZexamineeNumber`,`ms`.`major_score_id`,`ms`.`major_score`,`ms`.`major_score_status`,`ms`.`recruit_score`,`ms`.`recruit_score_status`,`m`.`member_list_nickname`,`m`.`member_list_username`,`m`.`member_list_id`,`m`.`major_id`,`mj`.`major_name`,`mj`.`major_id` FROM `zs_major_score` `ms` RIGHT JOIN `zs_member_list` `m` ON `m`.`member_list_id`=`ms`.`member_list_id` INNER JOIN `zs_member_info` `mi` ON `m`.`member_list_id`=`mi`.`member_list_id` INNER JOIN `zs_major` `mj` ON `mj`.`major_id`=`m`.`major_id` INNER JOIN `zs_school` `s` ON `s`.`school_id`=`m`.`school_id` WHERE  `mj`.`major_id` IN ('17','17','17','18')  AND `m`.`school_id` IN (22,20,23,25) ORDER BY ms.major_score_status ASC,s.school_id desc,m.member_list_id desc,major_score_id desc LIMIT 0,20 [ RunTime:0.099585s ]
+
+---------------------------------------------------------------
+[ 2018-05-23T23:37:04+08:00 ] 192.168.10.10 192.168.10.1 GET /public/datePicker/bootstrap-datepicker.css.map
+[ log ] 32zs.com/public/datePicker/bootstrap-datepicker.css.map [运行时间：0.212952s][吞吐率：4.70req/s] [内存消耗：248.80kb] [文件加载：57]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'public',
+    1 => 'datePicker',
+    2 => 'bootstrap-datepicker.css.map',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=l3k76f1gl2ilels02b0k10g7rd; thinkphp_show_page_trace=0|0; think_var=zh-cn',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-05-23T23:37:37+08:00 ] 192.168.10.10 192.168.10.1 GET /admin/score/recruit_score_import.html
+[ log ] 32zs.com/admin/score/recruit_score_import.html [运行时间：1.494240s][吞吐率：0.67req/s] [内存消耗：659.05kb] [文件加载：82]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'score',
+    2 => 'recruit_score_import',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|4; PHPSESSID=l3k76f1gl2ilels02b0k10g7rd; thinkphp_show_page_trace=0|0; think_var=zh-cn',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/score/recruit_score_list.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.001920s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.011219s ]
+[ info ] [ RUN ] app\admin\controller\Score->recruit_score_import[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Score.php ]
+[ info ] [ VIEW ] /home/vagrant/Code/32zs/2.0.0/app/admin/view/score/recruit_score_import.html [ array (
+  0 => 'lang',
+  1 => 'menus',
+  2 => 'menus_curr',
+  3 => 'menus_child',
+  4 => 'id_curr',
+  5 => 'admin',
+  6 => 'head_title',
+  7 => 'admin_avatar',
+  8 => 'school_id',
+  9 => 'school_list',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.005764s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.036885s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.027412s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/recruit_score_import' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.093865s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.116389s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/recruit_score_import'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.110023s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 427 LIMIT 1 [ RunTime:0.099805s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (15,178,179,180,345,348,352,353,358,385,423,424,427)  AND `status` = 1  AND `pid` = 345 ORDER BY `sort` [ RunTime:0.199711s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.026528s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 38 LIMIT 1 [ RunTime:0.099519s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.028101s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.104622s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_recruit_major` [ RunTime:0.081188s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_recruit_major` WHERE  `recruit_major_id` = 9 LIMIT 1 [ RunTime:0.093310s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.028320s ]
+[ sql ] [ SQL ] SELECT `s`.`school_id`,`s`.`school_name`,`e`.`major_ids` FROM `zs_school` `s` INNER JOIN `zs_enrollment` `e` ON `e`.`school_id`=`s`.`school_id` WHERE  `e`.`recruit_major_id` = 9 [ RunTime:0.095406s ]
+
+---------------------------------------------------------------
+[ 2018-05-23T23:37:37+08:00 ] 192.168.10.10 192.168.10.1 GET /public/datePicker/bootstrap-datepicker.css.map
+[ log ] 32zs.com/public/datePicker/bootstrap-datepicker.css.map [运行时间：0.188159s][吞吐率：5.31req/s] [内存消耗：248.80kb] [文件加载：57]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'public',
+    1 => 'datePicker',
+    2 => 'bootstrap-datepicker.css.map',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=l3k76f1gl2ilels02b0k10g7rd; thinkphp_show_page_trace=0|0; think_var=zh-cn',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-05-23T23:38:08+08:00 ] 192.168.10.10 192.168.10.1 GET /admin/score/sec_vocat_recruit_score_list.html
+[ log ] 32zs.com/admin/score/sec_vocat_recruit_score_list.html [运行时间：5.917133s][吞吐率：0.17req/s] [内存消耗：899.28kb] [文件加载：86]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'score',
+    2 => 'sec_vocat_recruit_score_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|5; thinkphp_show_page_trace=0|0; PHPSESSID=40084fsb4ckl7ripf13tmrmbfl; aid=53; thinkphp_show_page_trace=0|0; signin_token=64854185759f12c9e16edada6178097436a270a6; think_var=zh-cn',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/score/score_list.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.001874s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.011563s ]
+[ info ] [ RUN ] app\admin\controller\Score->sec_vocat_recruit_score_list[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Score.php ]
+[ info ] [ VIEW ] /home/vagrant/Code/32zs/2.0.0/app/admin/view/score/sec_vocat_recruit_score_list.html [ array (
+  0 => 'lang',
+  1 => 'menus',
+  2 => 'menus_curr',
+  3 => 'menus_child',
+  4 => 'id_curr',
+  5 => 'admin',
+  6 => 'head_title',
+  7 => 'admin_avatar',
+  8 => 'data',
+  9 => 'recruit_major_list',
+  10 => 'recruit_major',
+  11 => 'page',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.005538s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.161529s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.026343s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/sec_vocat_recruit_score_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.138966s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.394989s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/sec_vocat_recruit_score_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.608131s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 431 LIMIT 1 [ RunTime:0.601754s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (15,27,37,108,109,110,111,112,113,114,170,178,179,180,396,345,346,350,351,354,356,363,364,384,388,389,390,397,400,414,417,418,421,422,424,426,428,429,430,431)  AND `status` = 1  AND `pid` = 345 ORDER BY `sort` [ RunTime:0.594187s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.491112s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 53 LIMIT 1 [ RunTime:0.725593s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.393002s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.575150s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.032926s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 22 LIMIT 1 [ RunTime:0.154927s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_recruit_major` [ RunTime:0.029321s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_recruit_major` `rm` INNER JOIN `zs_enrollment` `e` ON `e`.`recruit_major_id`=`rm`.`recruit_major_id` WHERE  `e`.`major_ids` LIKE '%,4,%'  AND `e`.`school_id` = 22 OR `e`.`major_ids` = '4' LIMIT 1 [ RunTime:0.101709s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_recruit_major` `rm` INNER JOIN `zs_enrollment` `e` ON `e`.`recruit_major_id`=`rm`.`recruit_major_id` WHERE  `e`.`major_ids` LIKE '%,8,%'  AND `e`.`school_id` = 22 OR `e`.`major_ids` = '8' LIMIT 1 [ RunTime:0.099396s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_recruit_major` `rm` INNER JOIN `zs_enrollment` `e` ON `e`.`recruit_major_id`=`rm`.`recruit_major_id` WHERE  `e`.`major_ids` LIKE '%,17,%'  AND `e`.`school_id` = 22 OR `e`.`major_ids` = '17' LIMIT 1 [ RunTime:0.093850s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_enrollment` [ RunTime:0.031417s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_enrollment` WHERE  `school_id` = 22  AND `recruit_major_id` = 2 LIMIT 1 [ RunTime:0.106546s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_recruit_major` WHERE  `recruit_major_id` = 2 LIMIT 1 [ RunTime:0.096965s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major_score` [ RunTime:0.026869s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_major_score` `ms` RIGHT JOIN `zs_member_list` `m` ON `m`.`member_list_id`=`ms`.`member_list_id` INNER JOIN `zs_member_info` `mi` ON `m`.`member_list_id`=`mi`.`member_list_id` INNER JOIN `zs_major` `mj` ON `mj`.`major_id`=`m`.`major_id` INNER JOIN `zs_school` `s` ON `s`.`school_id`=`m`.`school_id` WHERE  `s`.`school_id` = 22  AND `mj`.`major_id` IN ('8','4') LIMIT 1 [ RunTime:0.096267s ]
+[ sql ] [ SQL ] SELECT `s`.`school_id`,`s`.`school_name`,`mi`.`ZexamineeNumber`,`ms`.`major_score_id`,`ms`.`major_score`,`ms`.`major_score_status`,`ms`.`recruit_score`,`ms`.`recruit_score_status`,`m`.`member_list_nickname`,`m`.`member_list_username`,`m`.`member_list_id`,`m`.`major_id`,`mj`.`major_name`,`mj`.`major_id` FROM `zs_major_score` `ms` RIGHT JOIN `zs_member_list` `m` ON `m`.`member_list_id`=`ms`.`member_list_id` INNER JOIN `zs_member_info` `mi` ON `m`.`member_list_id`=`mi`.`member_list_id` INNER JOIN `zs_major` `mj` ON `mj`.`major_id`=`m`.`major_id` INNER JOIN `zs_school` `s` ON `s`.`school_id`=`m`.`school_id` WHERE  `s`.`school_id` = 22  AND `mj`.`major_id` IN ('8','4') ORDER BY ms.major_score_status ASC,s.school_id desc,m.member_list_id desc,major_score_id desc LIMIT 0,20 [ RunTime:0.117031s ]
+
+---------------------------------------------------------------
+[ 2018-05-23T23:38:09+08:00 ] 192.168.10.10 192.168.10.1 GET /public/datePicker/bootstrap-datepicker.css.map
+[ log ] 32zs.com/public/datePicker/bootstrap-datepicker.css.map [运行时间：0.184305s][吞吐率：5.43req/s] [内存消耗：248.92kb] [文件加载：57]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'public',
+    1 => 'datePicker',
+    2 => 'bootstrap-datepicker.css.map',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=40084fsb4ckl7ripf13tmrmbfl; aid=53; thinkphp_show_page_trace=0|0; signin_token=64854185759f12c9e16edada6178097436a270a6; think_var=zh-cn',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-05-23T23:44:27+08:00 ] 192.168.10.10 192.168.10.1 GET /admin/score/school_recruit_score_export.html?score=0&recruit_major_id=2
+[ log ] 32zs.com/admin/score/school_recruit_score_export.html?score=0&recruit_major_id=2 [运行时间：2.405706s][吞吐率：0.42req/s] [内存消耗：1,392.44kb] [文件加载：87]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'score',
+    2 => 'school_recruit_score_export',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|5; thinkphp_show_page_trace=0|0; PHPSESSID=40084fsb4ckl7ripf13tmrmbfl; aid=53; thinkphp_show_page_trace=0|0; signin_token=64854185759f12c9e16edada6178097436a270a6; think_var=zh-cn',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/score/sec_vocat_recruit_score_list.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'score' => '0',
+  'recruit_major_id' => '2',
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.001853s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.015549s ]
+[ info ] [ RUN ] app\admin\controller\Score->school_recruit_score_export[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Score.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.041765s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.029971s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/school_recruit_score_export' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.092123s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/school_recruit_score_export'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.109907s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/school_recruit_score_export'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.100216s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.095043s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (15,27,37,108,109,110,111,112,113,114,170,178,179,180,396,345,346,350,351,354,356,363,364,384,388,389,390,397,400,414,417,418,421,422,424,426,428,429,430,431)  AND `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.113625s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.029826s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 53 LIMIT 1 [ RunTime:0.095253s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.030578s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.106568s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.031031s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 22 LIMIT 1 [ RunTime:0.093087s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 22 LIMIT 1 [ RunTime:0.094113s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_enrollment` [ RunTime:0.061819s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_enrollment` WHERE  `school_id` = 22  AND `recruit_major_id` = 2 LIMIT 1 [ RunTime:0.100089s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_recruit_major` [ RunTime:0.029573s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_recruit_major` WHERE  `recruit_major_id` = 2 LIMIT 1 [ RunTime:0.093843s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major_score` [ RunTime:0.047752s ]
+[ sql ] [ SQL ] SELECT `s`.`school_id`,`s`.`school_name`,`mi`.`ZexamineeNumber`,`ms`.`major_score_id`,`ms`.`major_score`,`ms`.`major_score_status`,`ms`.`recruit_score`,`ms`.`recruit_score_status`,`m`.`member_list_nickname`,`m`.`member_list_username`,`m`.`member_list_id`,`m`.`major_id`,`mj`.`major_name`,`mj`.`major_id` FROM `zs_major_score` `ms` RIGHT JOIN `zs_member_list` `m` ON `m`.`member_list_id`=`ms`.`member_list_id` INNER JOIN `zs_member_info` `mi` ON `m`.`member_list_id`=`mi`.`member_list_id` INNER JOIN `zs_major` `mj` ON `mj`.`major_id`=`m`.`major_id` INNER JOIN `zs_school` `s` ON `s`.`school_id`=`m`.`school_id` WHERE  `m`.`school_id` = 22  AND `mj`.`major_id` IN ('8','4') ORDER BY ms.major_score_status ASC,s.school_id desc,m.member_list_id desc,major_score_id desc [ RunTime:0.125865s ]
+
+---------------------------------------------------------------
+[ 2018-05-23T23:44:47+08:00 ] 192.168.10.10 192.168.10.1 GET /admin/score/school_recruit_score_export.html?score=0&recruit_major_id=2
+[ log ] 32zs.com/admin/score/school_recruit_score_export.html?score=0&recruit_major_id=2 [运行时间：2.436018s][吞吐率：0.41req/s] [内存消耗：1,392.19kb] [文件加载：87]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'score',
+    2 => 'school_recruit_score_export',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|5; thinkphp_show_page_trace=0|0; PHPSESSID=40084fsb4ckl7ripf13tmrmbfl; aid=53; thinkphp_show_page_trace=0|0; signin_token=64854185759f12c9e16edada6178097436a270a6; think_var=zh-cn',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/score/sec_vocat_recruit_score_list.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'score' => '0',
+  'recruit_major_id' => '2',
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.002382s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.013034s ]
+[ info ] [ RUN ] app\admin\controller\Score->school_recruit_score_export[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Score.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.051561s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.029540s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/school_recruit_score_export' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.093012s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/school_recruit_score_export'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.104227s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/school_recruit_score_export'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.089899s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.088724s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (15,27,37,108,109,110,111,112,113,114,170,178,179,180,396,345,346,350,351,354,356,363,364,384,388,389,390,397,400,414,417,418,421,422,424,426,428,429,430,431)  AND `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.092508s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.028880s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 53 LIMIT 1 [ RunTime:0.134950s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.031296s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.104492s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.028959s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 22 LIMIT 1 [ RunTime:0.082889s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 22 LIMIT 1 [ RunTime:0.102649s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_enrollment` [ RunTime:0.042005s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_enrollment` WHERE  `school_id` = 22  AND `recruit_major_id` = 2 LIMIT 1 [ RunTime:0.117424s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_recruit_major` [ RunTime:0.037137s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_recruit_major` WHERE  `recruit_major_id` = 2 LIMIT 1 [ RunTime:0.172267s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major_score` [ RunTime:0.027188s ]
+[ sql ] [ SQL ] SELECT `s`.`school_id`,`s`.`school_name`,`mi`.`ZexamineeNumber`,`ms`.`major_score_id`,`ms`.`major_score`,`ms`.`major_score_status`,`ms`.`recruit_score`,`ms`.`recruit_score_status`,`m`.`member_list_nickname`,`m`.`member_list_username`,`m`.`member_list_id`,`m`.`major_id`,`mj`.`major_name`,`mj`.`major_id` FROM `zs_major_score` `ms` RIGHT JOIN `zs_member_list` `m` ON `m`.`member_list_id`=`ms`.`member_list_id` INNER JOIN `zs_member_info` `mi` ON `m`.`member_list_id`=`mi`.`member_list_id` INNER JOIN `zs_major` `mj` ON `mj`.`major_id`=`m`.`major_id` INNER JOIN `zs_school` `s` ON `s`.`school_id`=`m`.`school_id` WHERE  `m`.`school_id` = 22  AND `mj`.`major_id` IN ('8','4') ORDER BY ms.major_score_status ASC,s.school_id desc,m.member_list_id desc,major_score_id desc [ RunTime:0.096100s ]
+
+---------------------------------------------------------------
+[ 2018-05-23T23:48:03+08:00 ] 192.168.10.10 192.168.10.1 GET /admin/score/school_recruit_score_export.html?score=0&recruit_major_id=2
+[ log ] 32zs.com/admin/score/school_recruit_score_export.html?score=0&recruit_major_id=2 [运行时间：5.805114s][吞吐率：0.17req/s] [内存消耗：1,391.00kb] [文件加载：87]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'score',
+    2 => 'school_recruit_score_export',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|5; thinkphp_show_page_trace=0|0; PHPSESSID=40084fsb4ckl7ripf13tmrmbfl; aid=53; thinkphp_show_page_trace=0|0; signin_token=64854185759f12c9e16edada6178097436a270a6; think_var=zh-cn',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/score/sec_vocat_recruit_score_list.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'score' => '0',
+  'recruit_major_id' => '2',
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.002101s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.011360s ]
+[ info ] [ RUN ] app\admin\controller\Score->school_recruit_score_export[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Score.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.085185s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.030310s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/school_recruit_score_export' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.053285s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/school_recruit_score_export'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.072290s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/school_recruit_score_export'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.058767s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.045452s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (15,27,37,108,109,110,111,112,113,114,170,178,179,180,396,345,346,350,351,354,356,363,364,384,388,389,390,397,400,414,417,418,421,422,424,426,428,429,430,431)  AND `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.059689s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.027009s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 53 LIMIT 1 [ RunTime:0.048628s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.028327s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.059035s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.379941s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 22 LIMIT 1 [ RunTime:0.123840s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 22 LIMIT 1 [ RunTime:0.304643s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_enrollment` [ RunTime:0.454182s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_enrollment` WHERE  `school_id` = 22  AND `recruit_major_id` = 2 LIMIT 1 [ RunTime:0.817144s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_recruit_major` [ RunTime:0.362610s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_recruit_major` WHERE  `recruit_major_id` = 2 LIMIT 1 [ RunTime:0.728825s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major_score` [ RunTime:0.406418s ]
+[ sql ] [ SQL ] SELECT `s`.`school_id`,`s`.`school_name`,`mi`.`ZexamineeNumber`,`ms`.`major_score_id`,`ms`.`major_score`,`ms`.`major_score_status`,`ms`.`recruit_score`,`ms`.`recruit_score_status`,`m`.`member_list_nickname`,`m`.`member_list_username`,`m`.`member_list_id`,`m`.`major_id`,`mj`.`major_name`,`mj`.`major_id` FROM `zs_major_score` `ms` RIGHT JOIN `zs_member_list` `m` ON `m`.`member_list_id`=`ms`.`member_list_id` INNER JOIN `zs_member_info` `mi` ON `m`.`member_list_id`=`mi`.`member_list_id` INNER JOIN `zs_major` `mj` ON `mj`.`major_id`=`m`.`major_id` INNER JOIN `zs_school` `s` ON `s`.`school_id`=`m`.`school_id` WHERE  `m`.`school_id` = 22  AND `mj`.`major_id` IN ('8','4') ORDER BY ms.major_score_status ASC,s.school_id desc,m.member_list_id desc,major_score_id desc [ RunTime:0.823844s ]
+
+---------------------------------------------------------------
+[ 2018-05-23T23:49:00+08:00 ] 192.168.10.10 192.168.10.1 GET /admin/score/sec_vocat_recruit_score_list.html
+[ log ] 32zs.com/admin/score/sec_vocat_recruit_score_list.html [运行时间：2.080423s][吞吐率：0.48req/s] [内存消耗：950.84kb] [文件加载：88]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'score',
+    2 => 'sec_vocat_recruit_score_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|5; thinkphp_show_page_trace=0|0; PHPSESSID=40084fsb4ckl7ripf13tmrmbfl; aid=53; thinkphp_show_page_trace=0|0; signin_token=64854185759f12c9e16edada6178097436a270a6; think_var=zh-cn',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/score/sec_vocat_recruit_score_list.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.002101s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.012971s ]
+[ info ] [ RUN ] app\admin\controller\Score->sec_vocat_recruit_score_list[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Score.php ]
+[ info ] [ VIEW ] /home/vagrant/Code/32zs/2.0.0/app/admin/view/score/sec_vocat_recruit_score_list.html [ array (
+  0 => 'lang',
+  1 => 'menus',
+  2 => 'menus_curr',
+  3 => 'menus_child',
+  4 => 'id_curr',
+  5 => 'admin',
+  6 => 'head_title',
+  7 => 'admin_avatar',
+  8 => 'data',
+  9 => 'recruit_major_list',
+  10 => 'recruit_major',
+  11 => 'page',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.005514s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.038519s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.062779s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/sec_vocat_recruit_score_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.091170s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.107304s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/sec_vocat_recruit_score_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.098533s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 431 LIMIT 1 [ RunTime:0.092022s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (15,27,37,108,109,110,111,112,113,114,170,178,179,180,396,345,346,350,351,354,356,363,364,384,388,389,390,397,400,414,417,418,421,422,424,426,428,429,430,431)  AND `status` = 1  AND `pid` = 345 ORDER BY `sort` [ RunTime:0.086942s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.028295s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 53 LIMIT 1 [ RunTime:0.102471s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.037293s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.091688s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.025998s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 22 LIMIT 1 [ RunTime:0.096079s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_recruit_major` [ RunTime:0.040464s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_recruit_major` `rm` INNER JOIN `zs_enrollment` `e` ON `e`.`recruit_major_id`=`rm`.`recruit_major_id` WHERE  `e`.`major_ids` LIKE '%,4,%'  AND `e`.`school_id` = 22 OR `e`.`major_ids` = '4' LIMIT 1 [ RunTime:0.106355s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_recruit_major` `rm` INNER JOIN `zs_enrollment` `e` ON `e`.`recruit_major_id`=`rm`.`recruit_major_id` WHERE  `e`.`major_ids` LIKE '%,8,%'  AND `e`.`school_id` = 22 OR `e`.`major_ids` = '8' LIMIT 1 [ RunTime:0.090599s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_recruit_major` `rm` INNER JOIN `zs_enrollment` `e` ON `e`.`recruit_major_id`=`rm`.`recruit_major_id` WHERE  `e`.`major_ids` LIKE '%,17,%'  AND `e`.`school_id` = 22 OR `e`.`major_ids` = '17' LIMIT 1 [ RunTime:0.098249s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_enrollment` [ RunTime:0.030624s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_enrollment` WHERE  `school_id` = 22  AND `recruit_major_id` = 2 LIMIT 1 [ RunTime:0.090142s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_recruit_major` WHERE  `recruit_major_id` = 2 LIMIT 1 [ RunTime:0.092531s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major_score` [ RunTime:0.027097s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_major_score` `ms` RIGHT JOIN `zs_member_list` `m` ON `m`.`member_list_id`=`ms`.`member_list_id` INNER JOIN `zs_member_info` `mi` ON `m`.`member_list_id`=`mi`.`member_list_id` INNER JOIN `zs_major` `mj` ON `mj`.`major_id`=`m`.`major_id` INNER JOIN `zs_school` `s` ON `s`.`school_id`=`m`.`school_id` WHERE  `s`.`school_id` = 22  AND `mj`.`major_id` IN ('8','4') LIMIT 1 [ RunTime:0.123813s ]
+[ sql ] [ SQL ] SELECT `s`.`school_id`,`s`.`school_name`,`mi`.`ZexamineeNumber`,`ms`.`major_score_id`,`ms`.`major_score`,`ms`.`major_score_status`,`ms`.`recruit_score`,`ms`.`recruit_score_status`,`m`.`member_list_nickname`,`m`.`member_list_username`,`m`.`member_list_id`,`m`.`major_id`,`mj`.`major_name`,`mj`.`major_id` FROM `zs_major_score` `ms` RIGHT JOIN `zs_member_list` `m` ON `m`.`member_list_id`=`ms`.`member_list_id` INNER JOIN `zs_member_info` `mi` ON `m`.`member_list_id`=`mi`.`member_list_id` INNER JOIN `zs_major` `mj` ON `mj`.`major_id`=`m`.`major_id` INNER JOIN `zs_school` `s` ON `s`.`school_id`=`m`.`school_id` WHERE  `s`.`school_id` = 22  AND `mj`.`major_id` IN ('8','4') ORDER BY ms.major_score_status ASC,s.school_id desc,m.member_list_id desc,major_score_id desc LIMIT 0,20 [ RunTime:0.106203s ]
+
+---------------------------------------------------------------
+[ 2018-05-23T23:49:01+08:00 ] 192.168.10.10 192.168.10.1 GET /public/datePicker/bootstrap-datepicker.css.map
+[ log ] 32zs.com/public/datePicker/bootstrap-datepicker.css.map [运行时间：0.218137s][吞吐率：4.58req/s] [内存消耗：248.92kb] [文件加载：57]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'public',
+    1 => 'datePicker',
+    2 => 'bootstrap-datepicker.css.map',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=40084fsb4ckl7ripf13tmrmbfl; aid=53; thinkphp_show_page_trace=0|0; signin_token=64854185759f12c9e16edada6178097436a270a6; think_var=zh-cn',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-05-23T23:50:29+08:00 ] 192.168.10.10 192.168.10.1 GET /admin/score/school_recruit_score_export.html?score=1&recruit_major_id=2
+[ log ] 32zs.com/admin/score/school_recruit_score_export.html?score=1&recruit_major_id=2 [运行时间：2.440628s][吞吐率：0.41req/s] [内存消耗：1,399.35kb] [文件加载：87]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'score',
+    2 => 'school_recruit_score_export',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|5; thinkphp_show_page_trace=0|0; PHPSESSID=40084fsb4ckl7ripf13tmrmbfl; aid=53; thinkphp_show_page_trace=0|0; signin_token=64854185759f12c9e16edada6178097436a270a6; think_var=zh-cn',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/score/sec_vocat_recruit_score_list.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'score' => '1',
+  'recruit_major_id' => '2',
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.002574s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.013676s ]
+[ info ] [ RUN ] app\admin\controller\Score->school_recruit_score_export[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Score.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.048445s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.044953s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/school_recruit_score_export' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.102523s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/school_recruit_score_export'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.112652s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/school_recruit_score_export'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.098318s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.107540s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (15,27,37,108,109,110,111,112,113,114,170,178,179,180,396,345,346,350,351,354,356,363,364,384,388,389,390,397,400,414,417,418,421,422,424,426,428,429,430,431)  AND `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.116088s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.030922s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 53 LIMIT 1 [ RunTime:0.120022s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.028423s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.100494s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.031707s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 22 LIMIT 1 [ RunTime:0.088154s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 22 LIMIT 1 [ RunTime:0.094047s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_enrollment` [ RunTime:0.031335s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_enrollment` WHERE  `school_id` = 22  AND `recruit_major_id` = 2 LIMIT 1 [ RunTime:0.096675s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_recruit_major` [ RunTime:0.033598s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_recruit_major` WHERE  `recruit_major_id` = 2 LIMIT 1 [ RunTime:0.096605s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major_score` [ RunTime:0.047310s ]
+[ sql ] [ SQL ] SELECT `s`.`school_id`,`s`.`school_name`,`mi`.`ZexamineeNumber`,`ms`.`major_score_id`,`ms`.`major_score`,`ms`.`major_score_status`,`ms`.`recruit_score`,`ms`.`recruit_score_status`,`m`.`member_list_nickname`,`m`.`member_list_username`,`m`.`member_list_id`,`m`.`major_id`,`mj`.`major_name`,`mj`.`major_id` FROM `zs_major_score` `ms` RIGHT JOIN `zs_member_list` `m` ON `m`.`member_list_id`=`ms`.`member_list_id` INNER JOIN `zs_member_info` `mi` ON `m`.`member_list_id`=`mi`.`member_list_id` INNER JOIN `zs_major` `mj` ON `mj`.`major_id`=`m`.`major_id` INNER JOIN `zs_school` `s` ON `s`.`school_id`=`m`.`school_id` WHERE  `m`.`school_id` = 22  AND `mj`.`major_id` IN ('8','4') ORDER BY ms.major_score_status ASC,s.school_id desc,m.member_list_id desc,major_score_id desc [ RunTime:0.138759s ]
+
+---------------------------------------------------------------
+[ 2018-05-23T23:50:45+08:00 ] 192.168.10.10 192.168.10.1 GET /admin/score/school_recruit_score_export.html?score=0&recruit_major_id=2
+[ log ] 32zs.com/admin/score/school_recruit_score_export.html?score=0&recruit_major_id=2 [运行时间：2.344849s][吞吐率：0.43req/s] [内存消耗：1,391.00kb] [文件加载：87]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'score',
+    2 => 'school_recruit_score_export',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|5; thinkphp_show_page_trace=0|0; PHPSESSID=40084fsb4ckl7ripf13tmrmbfl; aid=53; thinkphp_show_page_trace=0|0; signin_token=64854185759f12c9e16edada6178097436a270a6; think_var=zh-cn',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/score/sec_vocat_recruit_score_list.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'score' => '0',
+  'recruit_major_id' => '2',
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.002075s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.013290s ]
+[ info ] [ RUN ] app\admin\controller\Score->school_recruit_score_export[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Score.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.045220s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.026926s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/school_recruit_score_export' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.095503s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/school_recruit_score_export'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.093808s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/school_recruit_score_export'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.090940s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.102903s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (15,27,37,108,109,110,111,112,113,114,170,178,179,180,396,345,346,350,351,354,356,363,364,384,388,389,390,397,400,414,417,418,421,422,424,426,428,429,430,431)  AND `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.111298s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.030943s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 53 LIMIT 1 [ RunTime:0.106528s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.040937s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.092594s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.027436s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 22 LIMIT 1 [ RunTime:0.082288s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 22 LIMIT 1 [ RunTime:0.087740s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_enrollment` [ RunTime:0.025659s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_enrollment` WHERE  `school_id` = 22  AND `recruit_major_id` = 2 LIMIT 1 [ RunTime:0.101273s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_recruit_major` [ RunTime:0.030182s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_recruit_major` WHERE  `recruit_major_id` = 2 LIMIT 1 [ RunTime:0.091913s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major_score` [ RunTime:0.043672s ]
+[ sql ] [ SQL ] SELECT `s`.`school_id`,`s`.`school_name`,`mi`.`ZexamineeNumber`,`ms`.`major_score_id`,`ms`.`major_score`,`ms`.`major_score_status`,`ms`.`recruit_score`,`ms`.`recruit_score_status`,`m`.`member_list_nickname`,`m`.`member_list_username`,`m`.`member_list_id`,`m`.`major_id`,`mj`.`major_name`,`mj`.`major_id` FROM `zs_major_score` `ms` RIGHT JOIN `zs_member_list` `m` ON `m`.`member_list_id`=`ms`.`member_list_id` INNER JOIN `zs_member_info` `mi` ON `m`.`member_list_id`=`mi`.`member_list_id` INNER JOIN `zs_major` `mj` ON `mj`.`major_id`=`m`.`major_id` INNER JOIN `zs_school` `s` ON `s`.`school_id`=`m`.`school_id` WHERE  `m`.`school_id` = 22  AND `mj`.`major_id` IN ('8','4') ORDER BY ms.major_score_status ASC,s.school_id desc,m.member_list_id desc,major_score_id desc [ RunTime:0.141878s ]
+
+---------------------------------------------------------------
+[ 2018-05-23T23:54:21+08:00 ] 192.168.10.10 192.168.10.1 GET /admin/score/score_list.html
+[ log ] 32zs.com/admin/score/score_list.html [运行时间：2.000412s][吞吐率：0.50req/s] [内存消耗：887.16kb] [文件加载：86]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'score',
+    2 => 'score_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|5; thinkphp_show_page_trace=0|0; PHPSESSID=40084fsb4ckl7ripf13tmrmbfl; aid=53; thinkphp_show_page_trace=0|0; signin_token=64854185759f12c9e16edada6178097436a270a6; think_var=zh-cn',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/score/sec_vocat_recruit_score_list.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.002425s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.011770s ]
+[ info ] [ RUN ] app\admin\controller\Score->score_list[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Score.php ]
+[ info ] [ VIEW ] /home/vagrant/Code/32zs/2.0.0/app/admin/view/score/score_list.html [ array (
+  0 => 'lang',
+  1 => 'menus',
+  2 => 'menus_curr',
+  3 => 'menus_child',
+  4 => 'id_curr',
+  5 => 'admin',
+  6 => 'head_title',
+  7 => 'admin_avatar',
+  8 => 'major_score',
+  9 => 'major_id',
+  10 => 'major_score_status',
+  11 => 'major_list',
+  12 => 'data',
+  13 => 'page',
+  14 => 'search_key',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.005450s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.045031s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.030263s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/score_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.086096s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.112002s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/score_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.105285s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 346 LIMIT 1 [ RunTime:0.113348s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (15,27,37,108,109,110,111,112,113,114,170,178,179,180,396,345,346,350,351,354,356,363,364,384,388,389,390,397,400,414,417,418,421,422,424,426,428,429,430,431)  AND `status` = 1  AND `pid` = 345 ORDER BY `sort` [ RunTime:0.105754s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.029009s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 53 LIMIT 1 [ RunTime:0.101390s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.027837s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.099514s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.045710s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 22 LIMIT 1 [ RunTime:0.098072s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 53 LIMIT 1 [ RunTime:0.099594s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major_score` [ RunTime:0.028784s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_major_score` `ms` RIGHT JOIN `zs_member_list` `m` ON `m`.`member_list_id`=`ms`.`member_list_id` INNER JOIN `zs_member_info` `mi` ON `m`.`member_list_id`=`mi`.`member_list_id` INNER JOIN `zs_major` `mj` ON `mj`.`major_id`=`m`.`major_id` WHERE  `m`.`major_id` = '4'  AND `m`.`school_id` = 22 LIMIT 1 [ RunTime:0.133445s ]
+[ sql ] [ SQL ] SELECT `ms`.`major_score`,`ms`.`major_score_id`,`ms`.`major_score_status`,`m`.`member_list_nickname`,`m`.`member_list_username`,`m`.`member_list_id`,`mj`.`major_name`,`m`.`major_id`,`m`.`school_id`,`mi`.`ZexamineeNumber` FROM `zs_major_score` `ms` RIGHT JOIN `zs_member_list` `m` ON `m`.`member_list_id`=`ms`.`member_list_id` INNER JOIN `zs_member_info` `mi` ON `m`.`member_list_id`=`mi`.`member_list_id` INNER JOIN `zs_major` `mj` ON `mj`.`major_id`=`m`.`major_id` WHERE  `m`.`major_id` = '4'  AND `m`.`school_id` = 22 ORDER BY ms.major_score_status asc,m.member_list_id desc,major_score_id desc LIMIT 0,20 [ RunTime:0.105089s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major` [ RunTime:0.029216s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major` WHERE  `major_id` = 4 LIMIT 1 [ RunTime:0.112817s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major_score_config` [ RunTime:0.043983s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major_score_config` WHERE  `major_id` = 4  AND `school_id` = 22 LIMIT 1 [ RunTime:0.093912s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major` WHERE  `major_id` IN (4,8,17) [ RunTime:0.090606s ]
+
+---------------------------------------------------------------
+[ 2018-05-23T23:54:21+08:00 ] 192.168.10.10 192.168.10.1 GET /public/datePicker/bootstrap-datepicker.css.map
+[ log ] 32zs.com/public/datePicker/bootstrap-datepicker.css.map [运行时间：0.188587s][吞吐率：5.30req/s] [内存消耗：248.92kb] [文件加载：57]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'public',
+    1 => 'datePicker',
+    2 => 'bootstrap-datepicker.css.map',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=40084fsb4ckl7ripf13tmrmbfl; aid=53; thinkphp_show_page_trace=0|0; signin_token=64854185759f12c9e16edada6178097436a270a6; think_var=zh-cn',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-05-23T23:54:53+08:00 ] 192.168.10.10 192.168.10.1 GET /admin/score/score_list.html
+[ log ] 32zs.com/admin/score/score_list.html [运行时间：2.031677s][吞吐率：0.49req/s] [内存消耗：887.16kb] [文件加载：86]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'score',
+    2 => 'score_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|5; thinkphp_show_page_trace=0|0; PHPSESSID=40084fsb4ckl7ripf13tmrmbfl; aid=53; thinkphp_show_page_trace=0|0; signin_token=64854185759f12c9e16edada6178097436a270a6; think_var=zh-cn',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/score/score_list.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.002064s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.011056s ]
+[ info ] [ RUN ] app\admin\controller\Score->score_list[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Score.php ]
+[ info ] [ VIEW ] /home/vagrant/Code/32zs/2.0.0/app/admin/view/score/score_list.html [ array (
+  0 => 'lang',
+  1 => 'menus',
+  2 => 'menus_curr',
+  3 => 'menus_child',
+  4 => 'id_curr',
+  5 => 'admin',
+  6 => 'head_title',
+  7 => 'admin_avatar',
+  8 => 'major_score',
+  9 => 'major_id',
+  10 => 'major_score_status',
+  11 => 'major_list',
+  12 => 'data',
+  13 => 'page',
+  14 => 'search_key',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.010283s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.066579s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.027013s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/score_list' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.098449s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.103379s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Score/score_list'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.106454s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 346 LIMIT 1 [ RunTime:0.094983s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (15,27,37,108,109,110,111,112,113,114,170,178,179,180,396,345,346,350,351,354,356,363,364,384,388,389,390,397,400,414,417,418,421,422,424,426,428,429,430,431)  AND `status` = 1  AND `pid` = 345 ORDER BY `sort` [ RunTime:0.112743s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.054572s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 53 LIMIT 1 [ RunTime:0.091618s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.032016s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.087434s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.040290s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 22 LIMIT 1 [ RunTime:0.095102s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 53 LIMIT 1 [ RunTime:0.106307s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major_score` [ RunTime:0.029108s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_major_score` `ms` RIGHT JOIN `zs_member_list` `m` ON `m`.`member_list_id`=`ms`.`member_list_id` INNER JOIN `zs_member_info` `mi` ON `m`.`member_list_id`=`mi`.`member_list_id` INNER JOIN `zs_major` `mj` ON `mj`.`major_id`=`m`.`major_id` WHERE  `m`.`major_id` = '4'  AND `m`.`school_id` = 22 LIMIT 1 [ RunTime:0.089042s ]
+[ sql ] [ SQL ] SELECT `ms`.`major_score`,`ms`.`major_score_id`,`ms`.`major_score_status`,`m`.`member_list_nickname`,`m`.`member_list_username`,`m`.`member_list_id`,`mj`.`major_name`,`m`.`major_id`,`m`.`school_id`,`mi`.`ZexamineeNumber` FROM `zs_major_score` `ms` RIGHT JOIN `zs_member_list` `m` ON `m`.`member_list_id`=`ms`.`member_list_id` INNER JOIN `zs_member_info` `mi` ON `m`.`member_list_id`=`mi`.`member_list_id` INNER JOIN `zs_major` `mj` ON `mj`.`major_id`=`m`.`major_id` WHERE  `m`.`major_id` = '4'  AND `m`.`school_id` = 22 ORDER BY ms.major_score_status asc,m.member_list_id desc,major_score_id desc LIMIT 0,20 [ RunTime:0.133823s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major` [ RunTime:0.048997s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major` WHERE  `major_id` = 4 LIMIT 1 [ RunTime:0.101978s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major_score_config` [ RunTime:0.024954s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major_score_config` WHERE  `major_id` = 4  AND `school_id` = 22 LIMIT 1 [ RunTime:0.080944s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_major` WHERE  `major_id` IN (4,8,17) [ RunTime:0.091419s ]
+
+---------------------------------------------------------------
+[ 2018-05-23T23:54:53+08:00 ] 192.168.10.10 192.168.10.1 GET /public/datePicker/bootstrap-datepicker.css.map
+[ log ] 32zs.com/public/datePicker/bootstrap-datepicker.css.map [运行时间：0.191600s][吞吐率：5.22req/s] [内存消耗：248.92kb] [文件加载：57]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'public',
+    1 => 'datePicker',
+    2 => 'bootstrap-datepicker.css.map',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=40084fsb4ckl7ripf13tmrmbfl; aid=53; thinkphp_show_page_trace=0|0; signin_token=64854185759f12c9e16edada6178097436a270a6; think_var=zh-cn',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------

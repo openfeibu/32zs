@@ -1,0 +1,298 @@
+[ 2018-06-07T23:40:35+08:00 ] 192.168.10.10 192.168.10.1 GET /admin/index/index.html
+[ log ] 32zs.com/admin/index/index.html [运行时间：0.554438s][吞吐率：1.80req/s] [内存消耗：492.84kb] [文件加载：74]
+[ log ] Cron:clearlog Runat 2018-06-07 23:40:35 Use 0.004974 s
+
+
+[ 2018-06-07T23:40:35+08:00 ] 192.168.10.10 192.168.10.1 GET /admin/index/index.html
+[ log ] 32zs.com/admin/index/index.html [运行时间：0.593284s][吞吐率：1.69req/s] [内存消耗：457.77kb] [文件加载：76]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip, deflate',
+  'dnt' => '1',
+  'accept-language' => 'zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/605.1.15 (KHTML, like Gecko)',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.006878s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.059094s ]
+
+---------------------------------------------------------------
+[ 2018-06-07T23:40:36+08:00 ] 192.168.10.10 192.168.10.1 GET /admin/login/login.html
+[ log ] 32zs.com/admin/login/login.html [运行时间：0.818011s][吞吐率：1.22req/s] [内存消耗：458.78kb] [文件加载：78]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip, deflate',
+  'dnt' => '1',
+  'accept-language' => 'zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/605.1.15 (KHTML, like Gecko)',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.006175s ]
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.063217s ]
+[ info ] [ RUN ] app\admin\controller\Login->login[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Login.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] /home/vagrant/Code/32zs/2.0.0/app/admin/view/login/login.html [ array (
+  0 => 'lang',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.027768s ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-06-07T23:40:36+08:00 ] 192.168.10.10 192.168.10.1 GET /apple-touch-icon-precomposed.png
+[ log ] 32zs.com/apple-touch-icon-precomposed.png [运行时间：0.483331s][吞吐率：2.07req/s] [内存消耗：250.69kb] [文件加载：57]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'apple-touch-icon-precomposed.png',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'user-agent' => 'Safari%20%E6%B5%8F%E8%A7%88%E5%99%A8/13605.1.33.1.4 CFNetwork/897.15 Darwin/17.5.0 (x86_64)',
+  'accept-encoding' => 'gzip, deflate',
+  'connection' => 'keep-alive',
+  'accept-language' => 'zh-cn',
+  'accept' => '*/*',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-06-07T23:40:37+08:00 ] 192.168.10.10 192.168.10.1 GET /apple-touch-icon.png
+[ log ] 32zs.com/apple-touch-icon.png [运行时间：0.465023s][吞吐率：2.15req/s] [内存消耗：248.87kb] [文件加载：57]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'apple-touch-icon.png',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'user-agent' => 'Safari%20%E6%B5%8F%E8%A7%88%E5%99%A8/13605.1.33.1.4 CFNetwork/897.15 Darwin/17.5.0 (x86_64)',
+  'cookie' => 'think_var=zh-cn',
+  'accept' => '*/*',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-06-07T23:40:37+08:00 ] 192.168.10.10 192.168.10.1 GET /admin/index/index.html
+[ log ] 32zs.com/admin/index/index.html [运行时间：0.510413s][吞吐率：1.96req/s] [内存消耗：455.27kb] [文件加载：75]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip, deflate',
+  'dnt' => '1',
+  'accept-language' => 'zh-cn',
+  'user-agent' => '"Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1"',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.010690s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.026323s ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-06-07T23:40:38+08:00 ] 192.168.10.10 192.168.10.1 GET /admin/login/login.html
+[ log ] 32zs.com/admin/login/login.html [运行时间：0.489000s][吞吐率：2.04req/s] [内存消耗：458.44kb] [文件加载：78]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip, deflate',
+  'dnt' => '1',
+  'accept-language' => 'zh-cn',
+  'user-agent' => '"Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1"',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.007709s ]
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.034577s ]
+[ info ] [ RUN ] app\admin\controller\Login->login[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Login.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] /home/vagrant/Code/32zs/2.0.0/app/admin/view/login/login.html [ array (
+  0 => 'lang',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.017881s ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-06-07T23:40:38+08:00 ] 192.168.10.10 192.168.10.1 GET /apple-touch-icon-precomposed.png
+[ log ] 32zs.com/apple-touch-icon-precomposed.png [运行时间：0.274414s][吞吐率：3.64req/s] [内存消耗：248.94kb] [文件加载：57]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'apple-touch-icon-precomposed.png',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'user-agent' => 'Safari%20%E6%B5%8F%E8%A7%88%E5%99%A8/13605.1.33.1.4 CFNetwork/897.15 Darwin/17.5.0 (x86_64)',
+  'cookie' => 'think_var=zh-cn',
+  'accept' => '*/*',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-06-07T23:40:39+08:00 ] 192.168.10.10 192.168.10.1 GET /apple-touch-icon.png
+[ log ] 32zs.com/apple-touch-icon.png [运行时间：0.468766s][吞吐率：2.13req/s] [内存消耗：248.87kb] [文件加载：57]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'apple-touch-icon.png',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'user-agent' => 'Safari%20%E6%B5%8F%E8%A7%88%E5%99%A8/13605.1.33.1.4 CFNetwork/897.15 Darwin/17.5.0 (x86_64)',
+  'cookie' => 'think_var=zh-cn',
+  'accept' => '*/*',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------

@@ -1,0 +1,1296 @@
+[ 2018-01-29T02:27:38+08:00 ] [ log ] Cron:clearlog Runat 2018-01-29 02:27:38 Use 0.001800 s
+
+
+[ 2018-01-29T02:27:38+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.008817s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.007814s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 18 LIMIT 1 [ RunTime:0.000854s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_model` [ RunTime:0.004739s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_model` WHERE  `model_id` = 0 LIMIT 1 [ RunTime:0.000568s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.005170s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (18) LIMIT 1 [ RunTime:0.001496s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (18) LIMIT 1 [ RunTime:0.000934s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (18) ORDER BY news_time desc LIMIT 0,10 [ RunTime:0.001062s ]
+
+---------------------------------------------------------------
+[ 2018-01-29T05:27:19+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.005953s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.006217s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (17) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000806s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (18) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000598s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (16) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000767s ]
+
+---------------------------------------------------------------
+[ 2018-01-29T07:25:19+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.037415s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.005908s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (17) ORDER BY news_time desc LIMIT 7 [ RunTime:0.046108s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (18) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000935s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (16) ORDER BY news_time desc LIMIT 7 [ RunTime:0.010593s ]
+
+---------------------------------------------------------------
+[ 2018-01-29T09:05:50+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.005755s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.009404s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (17) ORDER BY news_time desc LIMIT 7 [ RunTime:0.001130s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (18) ORDER BY news_time desc LIMIT 7 [ RunTime:0.001805s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (16) ORDER BY news_time desc LIMIT 7 [ RunTime:0.001182s ]
+
+---------------------------------------------------------------
+[ 2018-01-29T09:26:53+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.005997s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.007898s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (17) ORDER BY news_time desc LIMIT 7 [ RunTime:0.001052s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (18) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000820s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (16) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000862s ]
+
+---------------------------------------------------------------
+[ 2018-01-29T10:20:30+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.014256s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.005357s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (17) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000856s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (18) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000694s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (16) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000785s ]
+
+---------------------------------------------------------------
+[ 2018-01-29T11:26:03+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.008289s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.007115s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (17) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000993s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (18) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000931s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (16) ORDER BY news_time desc LIMIT 7 [ RunTime:0.001206s ]
+
+---------------------------------------------------------------
+[ 2018-01-29T13:24:00+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.006064s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.005689s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (17) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000903s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (18) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000654s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (16) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000800s ]
+
+---------------------------------------------------------------
+[ 2018-01-29T15:28:40+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.008002s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.005449s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (17) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000790s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (18) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000651s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (16) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000787s ]
+
+---------------------------------------------------------------
+[ 2018-01-29T17:24:07+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.005891s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.008150s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (17) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000844s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (18) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000628s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (16) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000766s ]
+
+---------------------------------------------------------------
+[ 2018-01-29T19:29:08+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.010688s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.005774s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (17) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000820s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (18) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000603s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (16) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000825s ]
+
+---------------------------------------------------------------
+[ 2018-01-29T21:25:51+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.005720s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.007813s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (17) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000941s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (18) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000852s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (16) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000787s ]
+
+---------------------------------------------------------------
+[ 2018-01-29T21:52:18+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.004335s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.005657s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (17) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000834s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (18) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000603s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (16) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000773s ]
+
+---------------------------------------------------------------
+[ 2018-01-29T21:52:58+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.004051s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.007489s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000723s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:52:58+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.017547s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.007966s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000824s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:52:58+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.005010s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.007823s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000858s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:52:58+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.020130s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.010674s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000990s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:52:59+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.022449s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.006626s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000707s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:52:59+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.012333s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.005457s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000581s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:52:59+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.007726s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.005293s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000623s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:52:59+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.005991s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.006057s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.001001s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:52:59+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.005555s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.005733s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000650s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:52:59+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.022207s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.007041s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000629s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:00+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.011152s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.010000s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.053758s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:00+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.016769s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.007340s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.002291s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:00+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.015662s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.008467s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000795s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:00+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.016895s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.006873s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000978s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:00+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.013850s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.006621s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.001317s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:00+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.016408s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.007994s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.002098s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:01+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.012131s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.005383s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000602s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:01+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.006430s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.006578s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000751s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:01+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.007223s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.006814s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.001527s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:01+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.008972s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.005337s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.001018s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:02+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.011197s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.006779s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000587s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:02+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.011570s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.007081s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000598s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:02+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.008165s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.010297s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000641s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:02+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.007171s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.010706s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000630s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:02+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.007056s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.007360s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.001307s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:02+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.015726s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.006630s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.002008s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:03+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.006398s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.006262s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000586s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:03+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.016530s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.005655s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000593s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:03+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.012910s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.005719s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000598s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:03+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.004649s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.005482s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000604s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:03+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.016371s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.005361s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000732s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:03+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.020135s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.006784s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000768s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:04+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.011974s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.007291s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000643s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:04+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.019287s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.008254s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000733s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:04+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.006151s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.032189s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.012117s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:04+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.018744s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.006382s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.001397s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:04+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.018578s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.008340s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000707s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:04+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.015913s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.005409s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000744s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:05+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.016894s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.006409s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.001040s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:05+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.017349s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.005440s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000985s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:05+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.011759s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.006333s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.002083s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:05+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.016980s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.005598s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.001153s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:05+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.010477s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.005928s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000587s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:06+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.013877s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.008029s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.002401s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:06+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.014850s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.006066s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000637s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:06+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.014347s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.007400s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000791s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:06+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.006477s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.006564s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000622s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:06+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.013753s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.007499s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.001284s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:06+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.017886s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.006787s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000596s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:06+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.015845s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.007911s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000869s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:07+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.009619s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.005924s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000604s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:07+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.013623s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.007952s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000734s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:07+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.009114s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.007387s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000747s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:07+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.018376s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.007369s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000652s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:08+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.015198s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.008832s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001039s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:08+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.014566s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.013102s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000620s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:08+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.014961s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.026804s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000617s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:08+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.025884s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.038368s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000751s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:09+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.016176s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.015790s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000619s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:09+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.015480s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.005640s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000596s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:09+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.021082s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.005651s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000632s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:09+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.013794s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.031977s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000738s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:09+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.011463s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.036658s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000889s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:10+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.006868s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.005540s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000581s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:10+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.010409s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.005571s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000697s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:10+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.013796s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.005489s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000609s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:10+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.018101s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.005685s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000577s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:10+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.013289s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.005397s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000604s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:11+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.013502s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.005349s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000606s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:11+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.004411s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.005554s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000646s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:11+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.015453s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.005796s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000630s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:11+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.010153s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.006501s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000644s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:11+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.017687s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.005496s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000582s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:11+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.008593s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.005565s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000613s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:11+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.008674s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.013680s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = INF LIMIT 1 [ RunTime:0.000646s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:11+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.014766s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.005525s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000654s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:12+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.021485s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.013215s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000636s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:12+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.015307s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.005864s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000592s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:12+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.003547s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.007357s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000585s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:12+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.011127s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.007997s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.001311s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:12+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.008790s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.008287s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000540s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:13+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.010842s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.008487s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000750s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:13+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.017112s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.007193s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.001096s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:13+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.016436s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.006037s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.001077s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:13+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.009552s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.006464s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000950s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:13+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.004082s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.005779s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000619s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:14+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.012868s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.005707s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000933s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:14+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.018429s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.006653s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000615s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:14+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.017472s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.006358s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000754s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:14+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.015994s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.008992s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.001370s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:14+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.011489s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.006229s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000832s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:14+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.011134s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.006939s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000737s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:15+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.015021s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.006227s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000618s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:15+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.006096s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.005634s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000601s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:15+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.006310s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.005644s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000621s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:15+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.010659s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.006359s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000587s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:15+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.009532s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.006206s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000609s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:16+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.016948s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.005919s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001016s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:16+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.014553s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.006370s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001062s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:16+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.012766s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.007038s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001170s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:16+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.012777s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.006433s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001068s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:16+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.004380s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.006233s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001180s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:17+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.004427s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.006313s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001123s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:17+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.004618s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.006073s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.000872s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:17+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.015817s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.006120s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001289s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:17+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.004745s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.005931s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.000946s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:17+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.016256s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.006281s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.002140s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:17+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.015417s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.009735s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001016s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:17+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.016972s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.007219s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001577s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:17+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.010197s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.006444s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.002511s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:18+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.016702s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.010013s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001066s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:18+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.005114s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.006001s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.000977s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:18+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.016093s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.021559s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.002447s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:18+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.014258s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.005625s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.000939s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:18+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.006246s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.005789s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001058s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:18+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.018007s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.005672s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001109s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:18+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.006638s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.007865s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.004406s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:18+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.004644s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.006250s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.000961s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:19+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.004509s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.006945s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.000962s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:19+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.004416s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.006356s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001085s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:19+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.005168s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.006172s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.000970s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:19+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.004417s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.006337s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001215s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:19+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.005151s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.005839s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001032s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:19+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.014664s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.005830s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001011s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:19+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.013095s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.007472s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001592s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:19+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.005426s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.007203s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001120s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:20+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.014343s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.006432s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001033s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:20+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.020137s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.020409s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.005250s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:20+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.004391s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.007188s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001264s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:21+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.055637s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.006821s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.009611s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:21+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.011246s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.013081s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001311s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:22+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.008325s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.022995s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.002728s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:22+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.003847s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.006274s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001079s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:22+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.018979s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.005996s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.000963s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:22+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.004698s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.005762s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.000937s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:22+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.004199s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.005712s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001481s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:23+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.017535s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.005761s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.000967s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:23+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.014203s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.006078s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001030s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:23+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.016933s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.005856s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001213s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:23+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.015607s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.006425s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001387s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:23+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.005771s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.005918s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.000971s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:23+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.004950s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.005883s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001835s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:23+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.009037s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.006027s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.002043s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:23+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.005775s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.006225s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001034s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:24+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.009093s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.013969s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001130s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:24+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.016107s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.013935s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001088s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:24+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.013626s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.006068s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.018219s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:24+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.011300s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.006162s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001239s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:24+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.004746s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.005420s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.000946s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:24+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.003489s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.020587s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.002150s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:25+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.006718s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.024371s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.094714s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:25+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.008103s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.006482s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.000973s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:25+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.027247s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.005823s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 1  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001184s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:26+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.016579s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.006018s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001051s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:26+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.003640s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.005588s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.000968s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:26+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.010007s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.006183s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.000956s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:26+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.006148s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.006512s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001104s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:27+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.021598s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.084063s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001065s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:28+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.098893s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.008408s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.002325s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:28+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.011689s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.006381s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001006s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:28+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.008763s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.009720s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001137s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:29+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.015013s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.006931s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001063s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:29+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.012323s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.006218s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001149s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:29+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.014665s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.006247s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001076s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:29+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.004762s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.010534s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001265s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:29+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.005126s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.007834s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.002097s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:29+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.008000s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.006187s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.002908s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:30+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.014983s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.017277s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001511s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:30+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.017576s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.009976s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001098s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:30+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.007788s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.006548s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001160s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:30+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.004556s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.007979s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001113s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:30+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.013884s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.007205s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001402s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:30+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.004468s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.007185s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = INF  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001239s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:31+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.016687s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.007124s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001487s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:31+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.009549s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.007882s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001486s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:31+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.024753s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.006494s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001041s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:31+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.004691s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.009790s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001089s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:31+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.004799s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.009894s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.002378s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:31+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.009639s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.006383s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001018s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:31+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.003525s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.007781s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.000947s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:31+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.014398s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.005818s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.000930s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:32+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.015667s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.005516s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.000948s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:32+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.004093s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.006462s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001028s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:32+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.011704s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.005695s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.000993s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:32+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.004284s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.006615s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001065s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:32+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.006967s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.005889s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.000964s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:33+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.004892s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.006092s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.000938s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:33+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.027903s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.006564s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001044s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:33+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.004297s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.005736s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.000950s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:33+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.012220s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.006257s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001808s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:33+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.016186s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.005723s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001329s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:33+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.004482s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.006218s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001001s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:33+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.004954s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.005687s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.000972s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:33+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.014899s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.005648s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001060s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:53:33+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.013375s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.006936s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` `a` INNER JOIN `zs_admin` `b` ON `a`.`news_auto`=`b`.`admin_id` WHERE  `n_id` = 0  AND `news_open` = '1'  AND `news_back` = 0 LIMIT 1 [ RunTime:0.001952s ]
+[ error ] [8]未定义变量: error
+
+---------------------------------------------------------------
+[ 2018-01-29T21:57:36+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.006361s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.006122s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (17) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000856s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (18) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000638s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (16) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000837s ]
+
+---------------------------------------------------------------
+[ 2018-01-29T22:08:20+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.019569s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.006874s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (17) ORDER BY news_time desc LIMIT 7 [ RunTime:0.002669s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (18) ORDER BY news_time desc LIMIT 7 [ RunTime:0.002592s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (16) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000914s ]
+
+---------------------------------------------------------------
+[ 2018-01-29T22:09:20+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.006292s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.005896s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (17) ORDER BY news_time desc LIMIT 7 [ RunTime:0.001059s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (18) ORDER BY news_time desc LIMIT 7 [ RunTime:0.001037s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (16) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000920s ]
+
+---------------------------------------------------------------
+[ 2018-01-29T22:16:00+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.006156s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.008347s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (17) ORDER BY news_time desc LIMIT 7 [ RunTime:0.001107s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (18) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000848s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (16) ORDER BY news_time desc LIMIT 7 [ RunTime:0.001225s ]
+
+---------------------------------------------------------------

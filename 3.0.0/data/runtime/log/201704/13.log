@@ -1,0 +1,17 @@
+[ 2017-04-13T14:38:14+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.014463s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.005051s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` INNER JOIN `zs_member_list` `b` ON `a`.`news_auto`=`b`.`member_list_id` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (17) ORDER BY news_time desc LIMIT 7 [ RunTime:0.001667s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` INNER JOIN `zs_member_list` `b` ON `a`.`news_auto`=`b`.`member_list_id` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (18) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000780s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` INNER JOIN `zs_member_list` `b` ON `a`.`news_auto`=`b`.`member_list_id` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (16) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000605s ]
+
+---------------------------------------------------------------
+[ 2017-04-13T18:08:49+08:00 ] [ log ] Cron:clearlog Runat 2017-04-13 18:08:49 Use 0.000272 s
+
+
+[ 2017-04-13T18:08:49+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.014337s ] mysql:dbname=zhaosheng;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:2.548912s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` INNER JOIN `zs_member_list` `b` ON `a`.`news_auto`=`b`.`member_list_id` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (17) ORDER BY news_time desc LIMIT 7 [ RunTime:0.015088s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` INNER JOIN `zs_member_list` `b` ON `a`.`news_auto`=`b`.`member_list_id` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (18) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000891s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` INNER JOIN `zs_member_list` `b` ON `a`.`news_auto`=`b`.`member_list_id` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (16) ORDER BY news_time desc LIMIT 7 [ RunTime:0.000668s ]
+
+---------------------------------------------------------------

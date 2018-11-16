@@ -1,0 +1,293 @@
+[ 2018-09-03T12:07:41+08:00 ] 192.168.10.10 192.168.10.1 GET /home/center/index.html
+[ log ] 32zs.com/home/center/index.html [运行时间：0.171389s][吞吐率：5.83req/s] [内存消耗：420.34kb] [文件加载：70]
+[ log ] Cron:clearlog Runat 2018-09-03 12:07:41 Use 0.001821 s
+
+
+[ 2018-09-03T12:07:41+08:00 ] 192.168.10.10 192.168.10.1 GET /home/center/index.html
+[ log ] 32zs.com/home/center/index.html [运行时间：0.226641s][吞吐率：4.41req/s] [内存消耗：374.66kb] [文件加载：73]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'center',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=mk4uhfefov8tq326pfmsb4gtak; thinkphp_show_page_trace=0|0',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/home/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.002781s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] /home/vagrant/Code/32zs/2.0.0/thinkphp/tpl/dispatch_jump.tpl [ array (
+  0 => 'lang',
+  1 => 'map_lat',
+  2 => 'map_lng',
+  3 => 'site_name',
+  4 => 'site_host',
+  5 => 'school_name',
+  6 => 'site_tpl',
+  7 => 'site_tpl_m',
+  8 => 'site_logo',
+  9 => 'site_img',
+  10 => 'site_icp',
+  11 => 'site_copyright',
+  12 => 'site_co_name',
+  13 => 'site_address',
+  14 => 'site_tel',
+  15 => 'site_admin_email',
+  16 => 'site_qq',
+  17 => 'site_seo_title',
+  18 => 'site_seo_keywords',
+  19 => 'site_seo_description',
+  20 => 'site_tongji',
+  21 => 'schoolimg',
+  22 => 'yf_theme_path',
+  23 => 'user',
+  24 => 'is_admin',
+  25 => 'code',
+  26 => 'msg',
+  27 => 'data',
+  28 => 'url',
+  29 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.019815s ]
+
+---------------------------------------------------------------
+[ 2018-09-03T12:07:44+08:00 ] 192.168.10.10 192.168.10.1 GET /
+[ log ] 32zs.com/ [运行时间：1.091066s][吞吐率：0.92req/s] [内存消耗：642.21kb] [文件加载：82]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'Index',
+    2 => 'index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=mk4uhfefov8tq326pfmsb4gtak; thinkphp_show_page_trace=0|0; think_var=zh-cn',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/home/center/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/home/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.005484s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.024347s ]
+[ info ] [ RUN ] app\home\controller\Index->index[ /home/vagrant/Code/32zs/2.0.0/app/home/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/vagrant/Code/32zs/2.0.0/app/home/view/default/index.html [ array (
+  0 => 'lang',
+  1 => 'map_lat',
+  2 => 'map_lng',
+  3 => 'site_name',
+  4 => 'site_host',
+  5 => 'school_name',
+  6 => 'site_tpl',
+  7 => 'site_tpl_m',
+  8 => 'site_logo',
+  9 => 'site_img',
+  10 => 'site_icp',
+  11 => 'site_copyright',
+  12 => 'site_co_name',
+  13 => 'site_address',
+  14 => 'site_tel',
+  15 => 'site_admin_email',
+  16 => 'site_qq',
+  17 => 'site_seo_title',
+  18 => 'site_seo_keywords',
+  19 => 'site_seo_description',
+  20 => 'site_tongji',
+  21 => 'schoolimg',
+  22 => 'yf_theme_path',
+  23 => 'user',
+  24 => 'is_admin',
+  25 => 'center_slideshow_imgs',
+  26 => 'footer_slideshow_imgs',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.016546s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.030641s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.022320s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` WHERE  `news_open` = '1'  AND `news_back` = 0  AND `news_columnid` = 19 LIMIT 1 [ RunTime:0.092758s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` WHERE  `news_open` = '1'  AND `news_back` = 0  AND `news_columnid` = 20 LIMIT 1 [ RunTime:0.075548s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (17) ORDER BY news_time desc LIMIT 7 [ RunTime:0.076630s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_plug_link` [ RunTime:0.021844s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_plug_link` WHERE  `plug_link_l` = 'zh-cn'  AND `plug_link_typeid` = 3  AND `plug_link_open` = 1 ORDER BY plug_link_order ASC [ RunTime:0.085111s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_plug_link` WHERE  `plug_link_l` = 'zh-cn'  AND `plug_link_typeid` = 4  AND `plug_link_open` = 1 ORDER BY plug_link_order ASC [ RunTime:0.092865s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (18) ORDER BY news_time desc LIMIT 7 [ RunTime:0.093828s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (16) ORDER BY news_time desc LIMIT 7 [ RunTime:0.093719s ]
+
+---------------------------------------------------------------
+[ 2018-09-03T12:07:45+08:00 ] 192.168.10.10 192.168.10.1 GET /
+[ log ] 32zs.com/ [运行时间：1.227330s][吞吐率：0.81req/s] [内存消耗：642.05kb] [文件加载：82]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'Index',
+    2 => 'index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=mk4uhfefov8tq326pfmsb4gtak; thinkphp_show_page_trace=0|0; think_var=zh-cn',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/home/center/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/home/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.002192s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.011813s ]
+[ info ] [ RUN ] app\home\controller\Index->index[ /home/vagrant/Code/32zs/2.0.0/app/home/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/vagrant/Code/32zs/2.0.0/app/home/view/default/index.html [ array (
+  0 => 'lang',
+  1 => 'map_lat',
+  2 => 'map_lng',
+  3 => 'site_name',
+  4 => 'site_host',
+  5 => 'school_name',
+  6 => 'site_tpl',
+  7 => 'site_tpl_m',
+  8 => 'site_logo',
+  9 => 'site_img',
+  10 => 'site_icp',
+  11 => 'site_copyright',
+  12 => 'site_co_name',
+  13 => 'site_address',
+  14 => 'site_tel',
+  15 => 'site_admin_email',
+  16 => 'site_qq',
+  17 => 'site_seo_title',
+  18 => 'site_seo_keywords',
+  19 => 'site_seo_description',
+  20 => 'site_tongji',
+  21 => 'schoolimg',
+  22 => 'yf_theme_path',
+  23 => 'user',
+  24 => 'is_admin',
+  25 => 'center_slideshow_imgs',
+  26 => 'footer_slideshow_imgs',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.009496s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.033790s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.022064s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` WHERE  `news_open` = '1'  AND `news_back` = 0  AND `news_columnid` = 19 LIMIT 1 [ RunTime:0.088385s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` WHERE  `news_open` = '1'  AND `news_back` = 0  AND `news_columnid` = 20 LIMIT 1 [ RunTime:0.102134s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (17) ORDER BY news_time desc LIMIT 7 [ RunTime:0.080369s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_plug_link` [ RunTime:0.021786s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_plug_link` WHERE  `plug_link_l` = 'zh-cn'  AND `plug_link_typeid` = 3  AND `plug_link_open` = 1 ORDER BY plug_link_order ASC [ RunTime:0.089621s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_plug_link` WHERE  `plug_link_l` = 'zh-cn'  AND `plug_link_typeid` = 4  AND `plug_link_open` = 1 ORDER BY plug_link_order ASC [ RunTime:0.092468s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (18) ORDER BY news_time desc LIMIT 7 [ RunTime:0.090238s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'zh-cn'  AND `news_back` = 0  AND `news_columnid` IN (16) ORDER BY news_time desc LIMIT 7 [ RunTime:0.094363s ]
+
+---------------------------------------------------------------
+[ 2018-09-03T12:07:45+08:00 ] 192.168.10.10 192.168.10.1 GET /home/login/verify.html
+[ log ] 32zs.com/home/login/verify.html [运行时间：0.315847s][吞吐率：3.17req/s] [内存消耗：374.88kb] [文件加载：73]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'login',
+    2 => 'verify',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=mk4uhfefov8tq326pfmsb4gtak; thinkphp_show_page_trace=0|0; think_var=zh-cn',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/home/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.004130s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.020130s ]
+[ info ] [ RUN ] app\home\controller\Login->verify[ /home/vagrant/Code/32zs/2.0.0/app/home/controller/Login.php ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.012647s ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------

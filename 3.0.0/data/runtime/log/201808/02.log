@@ -1,0 +1,93 @@
+[ 2018-08-02T22:46:36+08:00 ] 192.168.10.10 192.168.10.1 GET /admin/index/index.html
+[ log ] 32zs.com/admin/index/index.html [运行时间：0.279687s][吞吐率：3.58req/s] [内存消耗：487.08kb] [文件加载：73]
+[ log ] Cron:clearlog Runat 2018-08-02 22:46:36 Use 0.002235 s
+
+
+[ 2018-08-02T22:46:36+08:00 ] 192.168.10.10 192.168.10.1 GET /admin/index/index.html
+[ log ] 32zs.com/admin/index/index.html [运行时间：0.296299s][吞吐率：3.37req/s] [内存消耗：451.99kb] [文件加载：75]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/en-us.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip, deflate',
+  'dnt' => '1',
+  'accept-language' => 'en-us',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/11.1.2 Safari/605.1.15',
+  'x-purpose' => 'preview',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.005063s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.023187s ]
+
+---------------------------------------------------------------
+[ 2018-08-02T22:46:36+08:00 ] 192.168.10.10 192.168.10.1 GET /admin/login/login.html
+[ log ] 32zs.com/admin/login/login.html [运行时间：0.277983s][吞吐率：3.60req/s] [内存消耗：452.84kb] [文件加载：77]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/en-us.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'dnt' => '1',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'en-us',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/11.1.2 Safari/605.1.15',
+  'x-purpose' => 'preview',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'cookie' => 'PHPSESSID=7dml7kvcogs4966n4sfqid8ps6; think_var=en-us',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.002668s ]
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.013901s ]
+[ info ] [ RUN ] app\admin\controller\Login->login[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Login.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] /home/vagrant/Code/32zs/2.0.0/app/admin/view/login/login.html [ array (
+  0 => 'lang',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.009588s ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------

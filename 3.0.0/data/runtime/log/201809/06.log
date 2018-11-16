@@ -1,0 +1,267 @@
+[ 2018-09-06T18:15:01+08:00 ] 192.168.10.10 192.168.10.1 GET /
+[ log ] 32zs.com/ [运行时间：0.495760s][吞吐率：2.02req/s] [内存消耗：573.01kb] [文件加载：81]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/en-us.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'Index',
+    2 => 'index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip, deflate',
+  'dnt' => '1',
+  'accept-language' => 'en-us',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/605.1.15 (KHTML, like Gecko)',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/home/lang/en-us.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.002436s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.019046s ]
+[ info ] [ RUN ] app\home\controller\Index->index[ /home/vagrant/Code/32zs/2.0.0/app/home/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/vagrant/Code/32zs/2.0.0/app/home/view/default/index.html [ array (
+  0 => 'lang',
+  1 => 'map_lat',
+  2 => 'map_lng',
+  3 => 'site_name',
+  4 => 'site_host',
+  5 => 'school_name',
+  6 => 'site_tpl',
+  7 => 'site_tpl_m',
+  8 => 'site_logo',
+  9 => 'site_img',
+  10 => 'site_icp',
+  11 => 'site_copyright',
+  12 => 'site_co_name',
+  13 => 'site_address',
+  14 => 'site_tel',
+  15 => 'site_admin_email',
+  16 => 'site_qq',
+  17 => 'site_seo_title',
+  18 => 'site_seo_keywords',
+  19 => 'site_seo_description',
+  20 => 'site_tongji',
+  21 => 'yf_theme_path',
+  22 => 'user',
+  23 => 'is_admin',
+  24 => 'center_slideshow_imgs',
+  25 => 'footer_slideshow_imgs',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.036477s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.022456s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` WHERE  `news_open` = '1'  AND `news_back` = 0  AND `news_columnid` = 19 LIMIT 1 [ RunTime:0.089709s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` WHERE  `news_open` = '1'  AND `news_back` = 0  AND `news_columnid` = 20 LIMIT 1 [ RunTime:0.092101s ]
+[ error ] [8]Undefined variable: schoolimg[/home/vagrant/Code/32zs/2.0.0/data/runtime/temp/4c7d781d5ddcbaa4643f1caba812c943.php:334]
+
+---------------------------------------------------------------
+[ 2018-09-06T18:15:01+08:00 ] 192.168.10.10 192.168.10.1 GET /apple-touch-icon-precomposed.png
+[ log ] 32zs.com/apple-touch-icon-precomposed.png [运行时间：0.205750s][吞吐率：4.86req/s] [内存消耗：242.96kb] [文件加载：56]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/en-us.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'apple-touch-icon-precomposed.png',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'user-agent' => 'Safari/13605.3.8 CFNetwork/902.1 Darwin/17.7.0 (x86_64)',
+  'accept-encoding' => 'gzip, deflate',
+  'connection' => 'keep-alive',
+  'accept-language' => 'en-us',
+  'accept' => '*/*',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-09-06T18:15:01+08:00 ] 192.168.10.10 192.168.10.1 GET /apple-touch-icon.png
+[ log ] 32zs.com/apple-touch-icon.png [运行时间：0.207647s][吞吐率：4.82req/s] [内存消耗：242.70kb] [文件加载：56]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/en-us.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'apple-touch-icon.png',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'en-us',
+  'user-agent' => 'Safari/13605.3.8 CFNetwork/902.1 Darwin/17.7.0 (x86_64)',
+  'cookie' => 'think_var=en-us',
+  'accept' => '*/*',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-09-06T18:15:02+08:00 ] 192.168.10.10 192.168.10.1 GET /
+[ log ] 32zs.com/ [运行时间：0.622214s][吞吐率：1.61req/s] [内存消耗：573.14kb] [文件加载：81]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/en-us.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'Index',
+    2 => 'index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip, deflate',
+  'dnt' => '1',
+  'accept-language' => 'en-us',
+  'user-agent' => '"Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1"',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/home/lang/en-us.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.000991s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.006724s ]
+[ info ] [ RUN ] app\home\controller\Index->index[ /home/vagrant/Code/32zs/2.0.0/app/home/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/vagrant/Code/32zs/2.0.0/app/home/view/default/index.html [ array (
+  0 => 'lang',
+  1 => 'map_lat',
+  2 => 'map_lng',
+  3 => 'site_name',
+  4 => 'site_host',
+  5 => 'school_name',
+  6 => 'site_tpl',
+  7 => 'site_tpl_m',
+  8 => 'site_logo',
+  9 => 'site_img',
+  10 => 'site_icp',
+  11 => 'site_copyright',
+  12 => 'site_co_name',
+  13 => 'site_address',
+  14 => 'site_tel',
+  15 => 'site_admin_email',
+  16 => 'site_qq',
+  17 => 'site_seo_title',
+  18 => 'site_seo_keywords',
+  19 => 'site_seo_description',
+  20 => 'site_tongji',
+  21 => 'yf_theme_path',
+  22 => 'user',
+  23 => 'is_admin',
+  24 => 'center_slideshow_imgs',
+  25 => 'footer_slideshow_imgs',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.036911s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.021406s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` WHERE  `news_open` = '1'  AND `news_back` = 0  AND `news_columnid` = 19 LIMIT 1 [ RunTime:0.128927s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` WHERE  `news_open` = '1'  AND `news_back` = 0  AND `news_columnid` = 20 LIMIT 1 [ RunTime:0.203200s ]
+[ error ] [8]Undefined variable: schoolimg[/home/vagrant/Code/32zs/2.0.0/data/runtime/temp/4c7d781d5ddcbaa4643f1caba812c943.php:334]
+
+---------------------------------------------------------------
+[ 2018-09-06T18:15:02+08:00 ] 192.168.10.10 192.168.10.1 GET /apple-touch-icon-precomposed.png
+[ log ] 32zs.com/apple-touch-icon-precomposed.png [运行时间：0.158054s][吞吐率：6.33req/s] [内存消耗：242.77kb] [文件加载：56]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/en-us.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'apple-touch-icon-precomposed.png',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'en-us',
+  'user-agent' => 'Safari/13605.3.8 CFNetwork/902.1 Darwin/17.7.0 (x86_64)',
+  'cookie' => 'think_var=en-us',
+  'accept' => '*/*',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-09-06T18:15:02+08:00 ] 192.168.10.10 192.168.10.1 GET /apple-touch-icon.png
+[ log ] 32zs.com/apple-touch-icon.png [运行时间：0.101508s][吞吐率：9.85req/s] [内存消耗：242.70kb] [文件加载：56]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/en-us.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'apple-touch-icon.png',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'en-us',
+  'user-agent' => 'Safari/13605.3.8 CFNetwork/902.1 Darwin/17.7.0 (x86_64)',
+  'cookie' => 'think_var=en-us',
+  'accept' => '*/*',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------

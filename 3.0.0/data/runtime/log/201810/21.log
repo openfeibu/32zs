@@ -1,0 +1,2341 @@
+[ 2018-10-21T00:45:06+08:00 ] 192.168.20.10 192.168.20.1 GET /
+[ log ] 32zs.com/ [运行时间：5.974397s][吞吐率：0.17req/s] [内存消耗：1,047.46kb] [文件加载：81]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/en-us.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'Index',
+    2 => 'index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'en-US,en;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/home/lang/en-us.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.011245s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.034136s ]
+[ info ] [ RUN ] app\home\controller\Index->index[ /home/vagrant/Code/32zs/2.0.0/app/home/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/vagrant/Code/32zs/2.0.0/app/home/view/default/index.html [ array (
+  0 => 'lang',
+  1 => 'map_lat',
+  2 => 'map_lng',
+  3 => 'site_name',
+  4 => 'site_host',
+  5 => 'school_name',
+  6 => 'site_tpl',
+  7 => 'site_tpl_m',
+  8 => 'site_logo',
+  9 => 'site_img',
+  10 => 'site_icp',
+  11 => 'site_copyright',
+  12 => 'site_co_name',
+  13 => 'site_address',
+  14 => 'site_tel',
+  15 => 'site_admin_email',
+  16 => 'site_qq',
+  17 => 'site_seo_title',
+  18 => 'site_seo_keywords',
+  19 => 'site_seo_description',
+  20 => 'site_tongji',
+  21 => 'yf_theme_path',
+  22 => 'user',
+  23 => 'is_admin',
+  24 => 'center_slideshow_imgs',
+  25 => 'footer_slideshow_imgs',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:4.845145s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.101349s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` WHERE  `news_open` = '1'  AND `news_back` = 0  AND `news_columnid` = 19 LIMIT 1 [ RunTime:0.109952s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` WHERE  `news_open` = '1'  AND `news_back` = 0  AND `news_columnid` = 20 LIMIT 1 [ RunTime:0.104945s ]
+[ error ] [8]Undefined variable: schoolimg[/home/vagrant/Code/32zs/2.0.0/data/runtime/temp/4c7d781d5ddcbaa4643f1caba812c943.php:334]
+
+---------------------------------------------------------------
+[ 2018-10-21T00:45:09+08:00 ] 192.168.20.10 192.168.20.1 GET /
+[ log ] 32zs.com/ [运行时间：5.233326s][吞吐率：0.19req/s] [内存消耗：573.73kb] [文件加载：81]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/en-us.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'Index',
+    2 => 'index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'en-US,en;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/home/lang/en-us.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.005500s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.027187s ]
+[ info ] [ RUN ] app\home\controller\Index->index[ /home/vagrant/Code/32zs/2.0.0/app/home/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/vagrant/Code/32zs/2.0.0/app/home/view/default/index.html [ array (
+  0 => 'lang',
+  1 => 'map_lat',
+  2 => 'map_lng',
+  3 => 'site_name',
+  4 => 'site_host',
+  5 => 'school_name',
+  6 => 'site_tpl',
+  7 => 'site_tpl_m',
+  8 => 'site_logo',
+  9 => 'site_img',
+  10 => 'site_icp',
+  11 => 'site_copyright',
+  12 => 'site_co_name',
+  13 => 'site_address',
+  14 => 'site_tel',
+  15 => 'site_admin_email',
+  16 => 'site_qq',
+  17 => 'site_seo_title',
+  18 => 'site_seo_keywords',
+  19 => 'site_seo_description',
+  20 => 'site_tongji',
+  21 => 'yf_theme_path',
+  22 => 'user',
+  23 => 'is_admin',
+  24 => 'center_slideshow_imgs',
+  25 => 'footer_slideshow_imgs',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:4.566844s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.031206s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` WHERE  `news_open` = '1'  AND `news_back` = 0  AND `news_columnid` = 19 LIMIT 1 [ RunTime:0.121949s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` WHERE  `news_open` = '1'  AND `news_back` = 0  AND `news_columnid` = 20 LIMIT 1 [ RunTime:0.077225s ]
+[ error ] [8]Undefined variable: schoolimg[/home/vagrant/Code/32zs/2.0.0/data/runtime/temp/4c7d781d5ddcbaa4643f1caba812c943.php:334]
+
+---------------------------------------------------------------
+[ 2018-10-21T00:45:14+08:00 ] 192.168.20.10 192.168.20.1 GET /
+[ log ] 32zs.com/ [运行时间：0.530612s][吞吐率：1.88req/s] [内存消耗：573.25kb] [文件加载：81]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/en-us.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'Index',
+    2 => 'index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_var=en-us; PHPSESSID=cf0mqe26f3afuuv9brrv9mh4on; thinkphp_show_page_trace=0|0',
+  'accept-language' => 'en-US,en;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/home/lang/en-us.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.003107s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.013498s ]
+[ info ] [ RUN ] app\home\controller\Index->index[ /home/vagrant/Code/32zs/2.0.0/app/home/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/vagrant/Code/32zs/2.0.0/app/home/view/default/index.html [ array (
+  0 => 'lang',
+  1 => 'map_lat',
+  2 => 'map_lng',
+  3 => 'site_name',
+  4 => 'site_host',
+  5 => 'school_name',
+  6 => 'site_tpl',
+  7 => 'site_tpl_m',
+  8 => 'site_logo',
+  9 => 'site_img',
+  10 => 'site_icp',
+  11 => 'site_copyright',
+  12 => 'site_co_name',
+  13 => 'site_address',
+  14 => 'site_tel',
+  15 => 'site_admin_email',
+  16 => 'site_qq',
+  17 => 'site_seo_title',
+  18 => 'site_seo_keywords',
+  19 => 'site_seo_description',
+  20 => 'site_tongji',
+  21 => 'yf_theme_path',
+  22 => 'user',
+  23 => 'is_admin',
+  24 => 'center_slideshow_imgs',
+  25 => 'footer_slideshow_imgs',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.050647s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.026782s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` WHERE  `news_open` = '1'  AND `news_back` = 0  AND `news_columnid` = 19 LIMIT 1 [ RunTime:0.105539s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` WHERE  `news_open` = '1'  AND `news_back` = 0  AND `news_columnid` = 20 LIMIT 1 [ RunTime:0.081360s ]
+[ error ] [8]Undefined variable: schoolimg[/home/vagrant/Code/32zs/2.0.0/data/runtime/temp/4c7d781d5ddcbaa4643f1caba812c943.php:334]
+
+---------------------------------------------------------------
+[ 2018-10-21T01:04:57+08:00 ] 192.168.20.10 192.168.20.1 GET /admin
+[ log ] 32zs.com/admin [运行时间：0.188382s][吞吐率：5.31req/s] [内存消耗：486.55kb] [文件加载：73]
+[ log ] Cron:clearlog Runat 2018-10-21 01:04:57 Use 0.003670 s
+
+
+[ 2018-10-21T01:04:57+08:00 ] 192.168.20.10 192.168.20.1 GET /admin
+[ log ] 32zs.com/admin [运行时间：0.206187s][吞吐率：4.85req/s] [内存消耗：451.98kb] [文件加载：75]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/en-us.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_var=en-us; PHPSESSID=cf0mqe26f3afuuv9brrv9mh4on; thinkphp_show_page_trace=0|0',
+  'accept-language' => 'en-US,en;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.002605s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.026060s ]
+
+---------------------------------------------------------------
+[ 2018-10-21T01:04:57+08:00 ] 192.168.20.10 192.168.20.1 GET /admin/login/login.html
+[ log ] 32zs.com/admin/login/login.html [运行时间：0.234304s][吞吐率：4.27req/s] [内存消耗：452.77kb] [文件加载：77]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/en-us.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_var=en-us; PHPSESSID=cf0mqe26f3afuuv9brrv9mh4on; thinkphp_show_page_trace=0|0',
+  'accept-language' => 'en-US,en;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.002202s ]
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.012707s ]
+[ info ] [ RUN ] app\admin\controller\Login->login[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Login.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] /home/vagrant/Code/32zs/2.0.0/app/admin/view/login/login.html [ array (
+  0 => 'lang',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.008066s ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-10-21T01:05:00+08:00 ] 192.168.20.10 192.168.20.1 POST /admin/login/runlogin.html
+[ log ] 32zs.com/admin/login/runlogin.html [运行时间：1.147220s][吞吐率：0.87req/s] [内存消耗：3,375.26kb] [文件加载：105]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/en-us.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'runlogin',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; think_var=en-us; PHPSESSID=cf0mqe26f3afuuv9brrv9mh4on; thinkphp_show_page_trace=0|0',
+  'accept-language' => 'en-US,en;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/login/login.html',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://32zs.com',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '41',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+)
+[ info ] [ PARAM ] array (
+  'admin_username' => 'gdaib',
+  'admin_pwd' => 'gdaibadmin',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.549928s ]
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.012285s ]
+[ info ] [ RUN ] app\admin\controller\Login->runlogin[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Login.php ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.009439s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.039840s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_web_log` [ RunTime:0.041962s ]
+[ sql ] [ SQL ] INSERT INTO `zs_web_log` (`uid` , `ip` , `location` , `os` , `browser` , `url` , `module` , `controller` , `action` , `method` , `data` , `otime`) VALUES (0 , '192.168.20.1' , '局域网 局域网  ' , 'Mac' , 'Chrome(69.0.3497.100)' , '/admin/login/runlogin.html' , 'admin' , 'Login' , 'runlogin' , 'Ajax' , 's:12:\"保密数据\";' , 1540055099) [ RunTime:0.191428s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.027884s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` WHERE  `admin_username` = 'gdaib'  AND `admin_open` = 1 LIMIT 1 [ RunTime:0.173631s ]
+[ sql ] [ SQL ] UPDATE `zs_admin`  SET `admin_hits`=145,`admin_last_ip`='192.168.20.1',`admin_last_time`=1540055100  WHERE  `admin_id` = 6 [ RunTime:0.094950s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` WHERE  `admin_id` = 6 LIMIT 1 [ RunTime:0.116228s ]
+
+---------------------------------------------------------------
+[ 2018-10-21T01:05:01+08:00 ] 192.168.20.10 192.168.20.1 GET /admin/index/index.html
+[ log ] 32zs.com/admin/index/index.html [运行时间：1.423160s][吞吐率：0.70req/s] [内存消耗：930.72kb] [文件加载：83]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/en-us.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_var=en-us; PHPSESSID=cf0mqe26f3afuuv9brrv9mh4on; thinkphp_show_page_trace=0|0',
+  'accept-language' => 'en-US,en;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/login/login.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.003024s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.017343s ]
+[ info ] [ RUN ] app\admin\controller\Index->index[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Index.php ]
+[ info ] [ VIEW ] /home/vagrant/Code/32zs/2.0.0/app/admin/view/index/index.html [ array (
+  0 => 'lang',
+  1 => 'menus',
+  2 => 'menus_curr',
+  3 => 'menus_child',
+  4 => 'id_curr',
+  5 => 'admin',
+  6 => 'head_title',
+  7 => 'admin_avatar',
+  8 => 'statistics',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.009872s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.073265s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.026995s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.046012s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = -1 LIMIT 1 [ RunTime:0.063829s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (7,11,12,15,16,25,27,37,68,69,70,71,72,73,93,94,95,96,97,98,99,100,101,108,109,110,111,112,113,114,156,170,173,174,175,178,179,180,327,328,396,330,331,332,333,334,335,336,337,338,339,395,394,393,345,347,349,354,355,360,361,392,365,366,367,368,369,370,387,386,372,373,374,375,376,377,378,379,380,381,382,383,385,398,390,391,397,399,400,401,402,403,405,406,407,408,409,410,411,412,413,415,416,417,419,420,421,424,433)  AND `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.064441s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.058684s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 6 LIMIT 1 [ RunTime:0.055698s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.025080s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.053325s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.045966s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_school` LIMIT 1 [ RunTime:0.042976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_recruit_major` [ RunTime:0.029861s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_recruit_major` LIMIT 1 [ RunTime:0.079307s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major` [ RunTime:0.026617s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_major` LIMIT 1 [ RunTime:0.041551s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_min_score` [ RunTime:0.024538s ]
+[ sql ] [ SQL ] SELECT `min_score` FROM `zs_min_score` LIMIT 1 [ RunTime:0.047650s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_enrollment` [ RunTime:0.019643s ]
+[ sql ] [ SQL ] SELECT SUM(enrollment_number) AS tp_sum FROM `zs_enrollment` LIMIT 1 [ RunTime:0.065436s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_member_list` [ RunTime:0.022982s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_member_list` LIMIT 1 [ RunTime:0.056178s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_statistics` [ RunTime:0.022664s ]
+[ sql ] [ SQL ] SELECT `enroll_student_count` FROM `zs_statistics` WHERE  `ydate` = '2018' LIMIT 1 [ RunTime:0.037548s ]
+
+---------------------------------------------------------------
+[ 2018-10-21T01:05:08+08:00 ] 192.168.20.10 192.168.20.1 GET /admin/login/logout.html
+[ log ] 32zs.com/admin/login/logout.html [运行时间：0.173214s][吞吐率：5.77req/s] [内存消耗：340.23kb] [文件加载：69]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/en-us.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'logout',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; think_var=en-us; PHPSESSID=cf0mqe26f3afuuv9brrv9mh4on; thinkphp_show_page_trace=0|0',
+  'accept-language' => 'en-US,en;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.002177s ]
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.014813s ]
+[ info ] [ RUN ] app\admin\controller\Login->logout[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.008086s ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-10-21T01:05:08+08:00 ] 192.168.20.10 192.168.20.1 GET /admin/login/login.html
+[ log ] 32zs.com/admin/login/login.html [运行时间：0.409055s][吞吐率：2.44req/s] [内存消耗：452.30kb] [文件加载：77]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/en-us.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; think_var=en-us; PHPSESSID=cf0mqe26f3afuuv9brrv9mh4on; thinkphp_show_page_trace=0|0',
+  'accept-language' => 'en-US,en;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.005406s ]
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.028182s ]
+[ info ] [ RUN ] app\admin\controller\Login->login[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Login.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] /home/vagrant/Code/32zs/2.0.0/app/admin/view/login/login.html [ array (
+  0 => 'lang',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.013893s ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-10-21T01:05:12+08:00 ] 192.168.20.10 192.168.20.1 POST /admin/login/runlogin.html
+[ log ] 32zs.com/admin/login/runlogin.html [运行时间：1.002023s][吞吐率：1.00req/s] [内存消耗：3,240.23kb] [文件加载：105]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/en-us.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'runlogin',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; think_var=en-us; PHPSESSID=cf0mqe26f3afuuv9brrv9mh4on; thinkphp_show_page_trace=0|0',
+  'accept-language' => 'en-US,en;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/login/login.html',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://32zs.com',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '41',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+)
+[ info ] [ PARAM ] array (
+  'admin_username' => 'admin',
+  'admin_pwd' => 'gdaibadmin',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.427463s ]
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.026403s ]
+[ info ] [ RUN ] app\admin\controller\Login->runlogin[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Login.php ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.008859s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.072893s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_web_log` [ RunTime:0.103147s ]
+[ sql ] [ SQL ] INSERT INTO `zs_web_log` (`uid` , `ip` , `location` , `os` , `browser` , `url` , `module` , `controller` , `action` , `method` , `data` , `otime`) VALUES (0 , '192.168.20.1' , '局域网 局域网  ' , 'Mac' , 'Chrome(69.0.3497.100)' , '/admin/login/runlogin.html' , 'admin' , 'Login' , 'runlogin' , 'Ajax' , 's:12:\"保密数据\";' , 1540055112) [ RunTime:0.087896s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.031389s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` WHERE  `admin_username` = 'admin'  AND `admin_open` = 1 LIMIT 1 [ RunTime:0.101378s ]
+[ sql ] [ SQL ] UPDATE `zs_admin`  SET `admin_hits`=202,`admin_last_ip`='192.168.20.1',`admin_last_time`=1540055112  WHERE  `admin_id` = 1 [ RunTime:0.100892s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` WHERE  `admin_id` = 1 LIMIT 1 [ RunTime:0.131294s ]
+
+---------------------------------------------------------------
+[ 2018-10-21T01:05:16+08:00 ] 192.168.20.10 192.168.20.1 GET /admin/index/index.html
+[ log ] 32zs.com/admin/index/index.html [运行时间：3.340193s][吞吐率：0.30req/s] [内存消耗：1,913.02kb] [文件加载：84]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/en-us.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; think_var=en-us; PHPSESSID=cf0mqe26f3afuuv9brrv9mh4on; thinkphp_show_page_trace=0|0',
+  'accept-language' => 'en-US,en;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/login/login.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.003430s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.015247s ]
+[ info ] [ RUN ] app\admin\controller\Index->index[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Index.php ]
+[ info ] [ VIEW ] /home/vagrant/Code/32zs/2.0.0/app/admin/view/index/index.html [ array (
+  0 => 'lang',
+  1 => 'menus',
+  2 => 'menus_curr',
+  3 => 'menus_child',
+  4 => 'id_curr',
+  5 => 'admin',
+  6 => 'head_title',
+  7 => 'admin_avatar',
+  8 => 'statistics',
+) ]
+[ info ] [ VIEW ] /home/vagrant/Code/32zs/2.0.0/addons/maintain/maintain.html [ array (
+  0 => 'danger_mode_debug',
+  1 => 'weak_setting_db_password',
+  2 => 'weak_setting_admin_last_change_password',
+  3 => 'system_safe',
+  4 => 'system_pageshow',
+  5 => 'log_size',
+  6 => 'log_file_cnt',
+) ]
+[ info ] [ BEHAVIOR ] Run \addons\maintain\Maintain @maintain [ RunTime:1.557393s ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.008390s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.032842s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.023050s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.093960s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = -1 LIMIT 1 [ RunTime:0.098724s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.093247s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.025881s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 1 LIMIT 1 [ RunTime:0.094514s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.021019s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = '1' LIMIT 1 [ RunTime:0.098935s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.024067s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_school` LIMIT 1 [ RunTime:0.101750s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_recruit_major` [ RunTime:0.021324s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_recruit_major` LIMIT 1 [ RunTime:0.088915s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major` [ RunTime:0.028069s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_major` LIMIT 1 [ RunTime:0.092279s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_min_score` [ RunTime:0.039657s ]
+[ sql ] [ SQL ] SELECT `min_score` FROM `zs_min_score` LIMIT 1 [ RunTime:0.095979s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_enrollment` [ RunTime:0.021146s ]
+[ sql ] [ SQL ] SELECT SUM(enrollment_number) AS tp_sum FROM `zs_enrollment` LIMIT 1 [ RunTime:0.094140s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_member_list` [ RunTime:0.019253s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_member_list` LIMIT 1 [ RunTime:0.093588s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_statistics` [ RunTime:0.027081s ]
+[ sql ] [ SQL ] SELECT `enroll_student_count` FROM `zs_statistics` WHERE  `ydate` = '2018' LIMIT 1 [ RunTime:0.082105s ]
+
+---------------------------------------------------------------
+[ 2018-10-21T01:05:21+08:00 ] 192.168.20.10 192.168.20.1 GET /admin/sys/sys.html
+[ log ] 32zs.com/admin/sys/sys.html [运行时间：1.276276s][吞吐率：0.78req/s] [内存消耗：2,028.13kb] [文件加载：84]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/en-us.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'sys',
+    2 => 'sys',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_var=en-us; PHPSESSID=cf0mqe26f3afuuv9brrv9mh4on; thinkphp_show_page_trace=0|0',
+  'accept-language' => 'en-US,en;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.003957s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.019974s ]
+[ info ] [ RUN ] app\admin\controller\Sys->sys[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Sys.php ]
+[ info ] [ VIEW ] /home/vagrant/Code/32zs/2.0.0/app/admin/view/sys/sys.html [ array (
+  0 => 'lang',
+  1 => 'menus',
+  2 => 'menus_curr',
+  3 => 'menus_child',
+  4 => 'id_curr',
+  5 => 'admin',
+  6 => 'head_title',
+  7 => 'admin_avatar',
+  8 => 'templates',
+  9 => 'map_lat',
+  10 => 'map_lng',
+  11 => 'sys',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.030024s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.025517s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Sys/sys' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.092971s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.086658s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Sys/sys'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.104487s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 6 LIMIT 1 [ RunTime:0.094470s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = 2 ORDER BY `sort` [ RunTime:0.098020s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.053266s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 1 LIMIT 1 [ RunTime:0.129111s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.025814s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = '1' LIMIT 1 [ RunTime:0.079845s ]
+[ error ] [8]Undefined index: schoolimg[/home/vagrant/Code/32zs/2.0.0/data/runtime/temp/1676dff656bcb5fb49800644419509e3.php:336]
+
+---------------------------------------------------------------
+[ 2018-10-21T01:08:55+08:00 ] 192.168.20.10 192.168.20.1 GET /admin/sys/sys.html
+[ log ] 32zs.com/admin/sys/sys.html [运行时间：1.184565s][吞吐率：0.84req/s] [内存消耗：1,879.54kb] [文件加载：82]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/en-us.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'sys',
+    2 => 'sys',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; think_var=en-us; PHPSESSID=cf0mqe26f3afuuv9brrv9mh4on; thinkphp_show_page_trace=0|0',
+  'accept-language' => 'en-US,en;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.002478s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.017603s ]
+[ info ] [ RUN ] app\admin\controller\Sys->sys[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Sys.php ]
+[ info ] [ VIEW ] /home/vagrant/Code/32zs/2.0.0/app/admin/view/sys/sys.html [ array (
+  0 => 'lang',
+  1 => 'menus',
+  2 => 'menus_curr',
+  3 => 'menus_child',
+  4 => 'id_curr',
+  5 => 'admin',
+  6 => 'head_title',
+  7 => 'admin_avatar',
+  8 => 'templates',
+  9 => 'map_lat',
+  10 => 'map_lng',
+  11 => 'sys',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.037755s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.094373s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Sys/sys' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.085089s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.084352s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Sys/sys'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.099621s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 6 LIMIT 1 [ RunTime:0.098148s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = 2 ORDER BY `sort` [ RunTime:0.084644s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.025205s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 1 LIMIT 1 [ RunTime:0.122066s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.031837s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = '1' LIMIT 1 [ RunTime:0.073707s ]
+[ error ] [8]Undefined index: schoolimg[/home/vagrant/Code/32zs/2.0.0/data/runtime/temp/1676dff656bcb5fb49800644419509e3.php:336]
+
+---------------------------------------------------------------
+[ 2018-10-21T01:08:58+08:00 ] 192.168.20.10 192.168.20.1 GET /admin/sys/sys.html
+[ log ] 32zs.com/admin/sys/sys.html [运行时间：1.246057s][吞吐率：0.80req/s] [内存消耗：1,878.35kb] [文件加载：82]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/en-us.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'sys',
+    2 => 'sys',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; think_var=en-us; PHPSESSID=cf0mqe26f3afuuv9brrv9mh4on; thinkphp_show_page_trace=0|0',
+  'accept-language' => 'en-US,en;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.003523s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.023306s ]
+[ info ] [ RUN ] app\admin\controller\Sys->sys[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Sys.php ]
+[ info ] [ VIEW ] /home/vagrant/Code/32zs/2.0.0/app/admin/view/sys/sys.html [ array (
+  0 => 'lang',
+  1 => 'menus',
+  2 => 'menus_curr',
+  3 => 'menus_child',
+  4 => 'id_curr',
+  5 => 'admin',
+  6 => 'head_title',
+  7 => 'admin_avatar',
+  8 => 'templates',
+  9 => 'map_lat',
+  10 => 'map_lng',
+  11 => 'sys',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.029984s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.034893s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Sys/sys' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.079675s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.092913s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Sys/sys'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.078959s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 6 LIMIT 1 [ RunTime:0.107441s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = 2 ORDER BY `sort` [ RunTime:0.126943s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.017737s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 1 LIMIT 1 [ RunTime:0.081918s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.055175s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = '1' LIMIT 1 [ RunTime:0.129197s ]
+[ error ] [8]Undefined index: schoolimg[/home/vagrant/Code/32zs/2.0.0/data/runtime/temp/1676dff656bcb5fb49800644419509e3.php:336]
+
+---------------------------------------------------------------
+[ 2018-10-21T01:09:06+08:00 ] 192.168.20.10 192.168.20.1 GET /admin/index/index.html
+[ log ] 32zs.com/admin/index/index.html [运行时间：3.125239s][吞吐率：0.32req/s] [内存消耗：1,912.80kb] [文件加载：84]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/en-us.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; think_var=en-us; PHPSESSID=cf0mqe26f3afuuv9brrv9mh4on; thinkphp_show_page_trace=0|0',
+  'accept-language' => 'en-US,en;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/login/login.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.002649s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.020257s ]
+[ info ] [ RUN ] app\admin\controller\Index->index[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Index.php ]
+[ info ] [ VIEW ] /home/vagrant/Code/32zs/2.0.0/app/admin/view/index/index.html [ array (
+  0 => 'lang',
+  1 => 'menus',
+  2 => 'menus_curr',
+  3 => 'menus_child',
+  4 => 'id_curr',
+  5 => 'admin',
+  6 => 'head_title',
+  7 => 'admin_avatar',
+  8 => 'statistics',
+) ]
+[ info ] [ VIEW ] /home/vagrant/Code/32zs/2.0.0/addons/maintain/maintain.html [ array (
+  0 => 'danger_mode_debug',
+  1 => 'weak_setting_db_password',
+  2 => 'weak_setting_admin_last_change_password',
+  3 => 'system_safe',
+  4 => 'system_pageshow',
+  5 => 'log_size',
+  6 => 'log_file_cnt',
+) ]
+[ info ] [ BEHAVIOR ] Run \addons\maintain\Maintain @maintain [ RunTime:1.440288s ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.006919s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.040408s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.022560s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.084688s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = -1 LIMIT 1 [ RunTime:0.088425s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.089069s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.029390s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 1 LIMIT 1 [ RunTime:0.083813s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.021707s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = '1' LIMIT 1 [ RunTime:0.103274s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.021614s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_school` LIMIT 1 [ RunTime:0.082661s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_recruit_major` [ RunTime:0.034392s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_recruit_major` LIMIT 1 [ RunTime:0.082874s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_major` [ RunTime:0.021516s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_major` LIMIT 1 [ RunTime:0.098837s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_min_score` [ RunTime:0.020962s ]
+[ sql ] [ SQL ] SELECT `min_score` FROM `zs_min_score` LIMIT 1 [ RunTime:0.079976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_enrollment` [ RunTime:0.020612s ]
+[ sql ] [ SQL ] SELECT SUM(enrollment_number) AS tp_sum FROM `zs_enrollment` LIMIT 1 [ RunTime:0.144958s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_member_list` [ RunTime:0.023059s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_member_list` LIMIT 1 [ RunTime:0.075029s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_statistics` [ RunTime:0.020821s ]
+[ sql ] [ SQL ] SELECT `enroll_student_count` FROM `zs_statistics` WHERE  `ydate` = '2018' LIMIT 1 [ RunTime:0.087860s ]
+
+---------------------------------------------------------------
+[ 2018-10-21T01:09:11+08:00 ] 192.168.20.10 192.168.20.1 POST /admin/sys/clear.html
+[ log ] 32zs.com/admin/sys/clear.html [运行时间：1.140319s][吞吐率：0.88req/s] [内存消耗：4,513.30kb] [文件加载：105]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/en-us.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'sys',
+    2 => 'clear',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; think_var=en-us; PHPSESSID=cf0mqe26f3afuuv9brrv9mh4on; thinkphp_show_page_trace=0|0',
+  'accept-language' => 'en-US,en;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/index/index.html',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://32zs.com',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '0',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.281444s ]
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.014389s ]
+[ info ] [ RUN ] app\admin\controller\Sys->clear[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Sys.php ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.017010s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.037842s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_web_log` [ RunTime:0.024360s ]
+[ sql ] [ SQL ] INSERT INTO `zs_web_log` (`uid` , `ip` , `location` , `os` , `browser` , `url` , `module` , `controller` , `action` , `method` , `data` , `otime`) VALUES (0 , '192.168.20.1' , '局域网 局域网  ' , 'Mac' , 'Chrome(69.0.3497.100)' , '/admin/sys/clear.html' , 'admin' , 'Sys' , 'clear' , 'Ajax' , 'a:0:{}' , 1540055350) [ RunTime:0.097404s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.032256s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.092003s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = -1 LIMIT 1 [ RunTime:0.088869s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.100777s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.021357s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 1 LIMIT 1 [ RunTime:0.077966s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.019812s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = '1' LIMIT 1 [ RunTime:0.099581s ]
+
+---------------------------------------------------------------
+[ 2018-10-21T01:09:15+08:00 ] 192.168.20.10 192.168.20.1 GET /
+[ log ] 32zs.com/ [运行时间：0.785887s][吞吐率：1.27req/s] [内存消耗：582.00kb] [文件加载：81]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/en-us.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'Index',
+    2 => 'index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_var=en-us; PHPSESSID=cf0mqe26f3afuuv9brrv9mh4on; thinkphp_show_page_trace=0|0',
+  'accept-language' => 'en-US,en;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/home/lang/en-us.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.002653s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.149582s ]
+[ info ] [ RUN ] app\home\controller\Index->index[ /home/vagrant/Code/32zs/2.0.0/app/home/controller/Index.php ]
+[ info ] [ VIEW ] /home/vagrant/Code/32zs/2.0.0/app/home/view/default/index.html [ array (
+  0 => 'lang',
+  1 => 'map_lat',
+  2 => 'map_lng',
+  3 => 'site_name',
+  4 => 'site_host',
+  5 => 'school_name',
+  6 => 'site_tpl',
+  7 => 'site_tpl_m',
+  8 => 'site_logo',
+  9 => 'site_img',
+  10 => 'site_icp',
+  11 => 'site_copyright',
+  12 => 'site_co_name',
+  13 => 'site_address',
+  14 => 'site_tel',
+  15 => 'site_admin_email',
+  16 => 'site_qq',
+  17 => 'site_seo_title',
+  18 => 'site_seo_keywords',
+  19 => 'site_seo_description',
+  20 => 'site_tongji',
+  21 => 'yf_theme_path',
+  22 => 'user',
+  23 => 'is_admin',
+  24 => 'center_slideshow_imgs',
+  25 => 'footer_slideshow_imgs',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.097368s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_route` [ RunTime:0.038625s ]
+[ sql ] [ SQL ] SELECT `url`,`full_url` FROM `zs_route` WHERE  (  status=1 ) ORDER BY listorder asc [ RunTime:0.052736s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_options` [ RunTime:0.027955s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_options` WHERE  `option_name` = 'site_options'  AND `option_l` = 'en-us' LIMIT 1 [ RunTime:0.041654s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_hook_addon` [ RunTime:0.076972s ]
+[ sql ] [ SQL ] SELECT `a`.`hook`,`a`.`addon` FROM `zs_hook_addon` `a` INNER JOIN `zs_hook` `b` ON `a`.`hook`=`b`.`name` INNER JOIN `zs_addon` `c` ON `a`.`addon`=`c`.`name` WHERE  ( `a`.`status` = 1 AND `b`.`status` = 1 AND `c`.`status` = 1 ) [ RunTime:0.055170s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.029323s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` WHERE  `news_open` = '1'  AND `news_back` = 0  AND `news_columnid` = 19 LIMIT 1 [ RunTime:0.049857s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` WHERE  `news_open` = '1'  AND `news_back` = 0  AND `news_columnid` = 20 LIMIT 1 [ RunTime:0.038984s ]
+[ error ] [8]Undefined variable: schoolimg[/home/vagrant/Code/32zs/2.0.0/data/runtime/temp/4c7d781d5ddcbaa4643f1caba812c943.php:334]
+
+---------------------------------------------------------------
+[ 2018-10-21T01:09:19+08:00 ] 192.168.20.10 192.168.20.1 GET /admin/sys/sys.html
+[ log ] 32zs.com/admin/sys/sys.html [运行时间：1.380493s][吞吐率：0.72req/s] [内存消耗：1,096.35kb] [文件加载：83]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/en-us.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'sys',
+    2 => 'sys',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; think_var=en-us; PHPSESSID=cf0mqe26f3afuuv9brrv9mh4on; thinkphp_show_page_trace=0|0',
+  'accept-language' => 'en-US,en;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.005337s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.020005s ]
+[ info ] [ RUN ] app\admin\controller\Sys->sys[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Sys.php ]
+[ info ] [ VIEW ] /home/vagrant/Code/32zs/2.0.0/app/admin/view/sys/sys.html [ array (
+  0 => 'lang',
+  1 => 'menus',
+  2 => 'menus_curr',
+  3 => 'menus_child',
+  4 => 'id_curr',
+  5 => 'admin',
+  6 => 'head_title',
+  7 => 'admin_avatar',
+  8 => 'templates',
+  9 => 'map_lat',
+  10 => 'map_lng',
+  11 => 'sys',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.037888s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.021531s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Sys/sys' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.096064s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1 ORDER BY `sort` [ RunTime:0.114907s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.097926s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Sys/sys'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.086086s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 6 LIMIT 1 [ RunTime:0.096023s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = 2 ORDER BY `sort` [ RunTime:0.086537s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.019902s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 1 LIMIT 1 [ RunTime:0.098575s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.021756s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = '1' LIMIT 1 [ RunTime:0.084471s ]
+[ error ] [8]Undefined index: schoolimg[/home/vagrant/Code/32zs/2.0.0/data/runtime/temp/1676dff656bcb5fb49800644419509e3.php:336]
+
+---------------------------------------------------------------
+[ 2018-10-21T01:10:50+08:00 ] 192.168.20.10 192.168.20.1 GET /admin/sys/sys.html
+[ log ] 32zs.com/admin/sys/sys.html [运行时间：0.947097s][吞吐率：1.06req/s] [内存消耗：2,243.77kb] [文件加载：73]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/en-us.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'sys',
+    2 => 'sys',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; think_var=en-us; PHPSESSID=cf0mqe26f3afuuv9brrv9mh4on; thinkphp_show_page_trace=0|0',
+  'accept-language' => 'en-US,en;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.002140s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.012776s ]
+[ info ] [ RUN ] app\admin\controller\Sys->sys[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Sys.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.034375s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.020157s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Sys/sys' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.107993s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.085114s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Sys/sys'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.095168s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 6 LIMIT 1 [ RunTime:0.103293s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = 2 ORDER BY `sort` [ RunTime:0.105060s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.021459s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 1 LIMIT 1 [ RunTime:0.076793s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.020790s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = '1' LIMIT 1 [ RunTime:0.094848s ]
+
+---------------------------------------------------------------
+[ 2018-10-21T01:13:11+08:00 ] 192.168.20.10 192.168.20.1 GET /admin/sys/sys.html
+[ log ] 32zs.com/admin/sys/sys.html [运行时间：1.133228s][吞吐率：0.88req/s] [内存消耗：1,865.55kb] [文件加载：73]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/en-us.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'sys',
+    2 => 'sys',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; think_var=en-us; PHPSESSID=cf0mqe26f3afuuv9brrv9mh4on; thinkphp_show_page_trace=0|0',
+  'accept-language' => 'en-US,en;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.003138s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.018449s ]
+[ info ] [ RUN ] app\admin\controller\Sys->sys[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Sys.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.034549s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.028540s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Sys/sys' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.093426s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.090860s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Sys/sys'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.093413s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 6 LIMIT 1 [ RunTime:0.089815s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = 2 ORDER BY `sort` [ RunTime:0.080803s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.020277s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 1 LIMIT 1 [ RunTime:0.092607s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.023511s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = '1' LIMIT 1 [ RunTime:0.115427s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_options` [ RunTime:0.022451s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_options` WHERE  `option_name` = 'site_options'  AND `option_l` = 'en-us' LIMIT 1 [ RunTime:0.091595s ]
+
+---------------------------------------------------------------
+[ 2018-10-21T01:13:14+08:00 ] 192.168.20.10 192.168.20.1 GET /admin/sys/sys.html
+[ log ] 32zs.com/admin/sys/sys.html [运行时间：1.633264s][吞吐率：0.61req/s] [内存消耗：1,086.83kb] [文件加载：74]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/en-us.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'sys',
+    2 => 'sys',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; think_var=en-us; PHPSESSID=cf0mqe26f3afuuv9brrv9mh4on; thinkphp_show_page_trace=0|0',
+  'accept-language' => 'en-US,en;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.005440s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.141489s ]
+[ info ] [ RUN ] app\admin\controller\Sys->sys[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Sys.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.048885s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_route` [ RunTime:0.028062s ]
+[ sql ] [ SQL ] SELECT `url`,`full_url` FROM `zs_route` WHERE  (  status=1 ) ORDER BY listorder asc [ RunTime:0.074686s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.023314s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Sys/sys' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.108878s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1 ORDER BY `sort` [ RunTime:0.094452s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.090499s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Sys/sys'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.100713s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 6 LIMIT 1 [ RunTime:0.083946s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = 2 ORDER BY `sort` [ RunTime:0.097330s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.050600s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 1 LIMIT 1 [ RunTime:0.087108s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.019997s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = '1' LIMIT 1 [ RunTime:0.082874s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_hook_addon` [ RunTime:0.021397s ]
+[ sql ] [ SQL ] SELECT `a`.`hook`,`a`.`addon` FROM `zs_hook_addon` `a` INNER JOIN `zs_hook` `b` ON `a`.`hook`=`b`.`name` INNER JOIN `zs_addon` `c` ON `a`.`addon`=`c`.`name` WHERE  ( `a`.`status` = 1 AND `b`.`status` = 1 AND `c`.`status` = 1 ) [ RunTime:0.095347s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_options` [ RunTime:0.021869s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_options` WHERE  `option_name` = 'site_options'  AND `option_l` = 'en-us' LIMIT 1 [ RunTime:0.087242s ]
+
+---------------------------------------------------------------
+[ 2018-10-21T01:13:42+08:00 ] 192.168.20.10 192.168.20.1 GET /admin/sys/sys.html
+[ log ] 32zs.com/admin/sys/sys.html [运行时间：1.907372s][吞吐率：0.52req/s] [内存消耗：1,170.70kb] [文件加载：83]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/en-us.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'sys',
+    2 => 'sys',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; think_var=en-us; PHPSESSID=cf0mqe26f3afuuv9brrv9mh4on; thinkphp_show_page_trace=0|0',
+  'accept-language' => 'en-US,en;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.003646s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.245066s ]
+[ info ] [ RUN ] app\admin\controller\Sys->sys[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Sys.php ]
+[ info ] [ VIEW ] /home/vagrant/Code/32zs/2.0.0/app/admin/view/sys/sys.html [ array (
+  0 => 'lang',
+  1 => 'menus',
+  2 => 'menus_curr',
+  3 => 'menus_child',
+  4 => 'id_curr',
+  5 => 'admin',
+  6 => 'head_title',
+  7 => 'admin_avatar',
+  8 => 'templates',
+  9 => 'map_lat',
+  10 => 'map_lng',
+  11 => 'sys',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.038405s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_route` [ RunTime:0.021347s ]
+[ sql ] [ SQL ] SELECT `url`,`full_url` FROM `zs_route` WHERE  (  status=1 ) ORDER BY listorder asc [ RunTime:0.087125s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.029360s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Sys/sys' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.081388s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1 ORDER BY `sort` [ RunTime:0.111436s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.095425s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Sys/sys'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.123782s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 6 LIMIT 1 [ RunTime:0.117836s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = 2 ORDER BY `sort` [ RunTime:0.104910s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.035303s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 1 LIMIT 1 [ RunTime:0.100490s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.051538s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = '1' LIMIT 1 [ RunTime:0.098219s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_hook_addon` [ RunTime:0.021533s ]
+[ sql ] [ SQL ] SELECT `a`.`hook`,`a`.`addon` FROM `zs_hook_addon` `a` INNER JOIN `zs_hook` `b` ON `a`.`hook`=`b`.`name` INNER JOIN `zs_addon` `c` ON `a`.`addon`=`c`.`name` WHERE  ( `a`.`status` = 1 AND `b`.`status` = 1 AND `c`.`status` = 1 ) [ RunTime:0.206041s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_options` [ RunTime:0.053177s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_options` WHERE  `option_name` = 'site_options'  AND `option_l` = 'en-us' LIMIT 1 [ RunTime:0.115072s ]
+[ error ] [8]Undefined index: schoolimg[/home/vagrant/Code/32zs/2.0.0/data/runtime/temp/1676dff656bcb5fb49800644419509e3.php:336]
+
+---------------------------------------------------------------
+[ 2018-10-21T01:14:20+08:00 ] 192.168.20.10 192.168.20.1 GET /admin/sys/sys.html
+[ log ] 32zs.com/admin/sys/sys.html [运行时间：1.172689s][吞吐率：0.85req/s] [内存消耗：2,243.77kb] [文件加载：73]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/en-us.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'sys',
+    2 => 'sys',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; think_var=en-us; PHPSESSID=cf0mqe26f3afuuv9brrv9mh4on; thinkphp_show_page_trace=0|0',
+  'accept-language' => 'en-US,en;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.003629s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.020795s ]
+[ info ] [ RUN ] app\admin\controller\Sys->sys[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Sys.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.029682s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.021190s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Sys/sys' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.090787s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.124727s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Sys/sys'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.146852s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 6 LIMIT 1 [ RunTime:0.091953s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = 2 ORDER BY `sort` [ RunTime:0.109556s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.038084s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 1 LIMIT 1 [ RunTime:0.110930s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.028085s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = '1' LIMIT 1 [ RunTime:0.092602s ]
+
+---------------------------------------------------------------
+[ 2018-10-21T01:14:57+08:00 ] 192.168.20.10 192.168.20.1 GET /admin/sys/sys.html
+[ log ] 32zs.com/admin/sys/sys.html [运行时间：1.013759s][吞吐率：0.99req/s] [内存消耗：1,891.70kb] [文件加载：73]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/en-us.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'sys',
+    2 => 'sys',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; think_var=en-us; PHPSESSID=cf0mqe26f3afuuv9brrv9mh4on; thinkphp_show_page_trace=0|0',
+  'accept-language' => 'en-US,en;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.001978s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.018348s ]
+[ info ] [ RUN ] app\admin\controller\Sys->sys[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Sys.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.036064s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.031748s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Sys/sys' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.081491s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.096230s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Sys/sys'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.086738s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 6 LIMIT 1 [ RunTime:0.079749s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = 2 ORDER BY `sort` [ RunTime:0.090583s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.020664s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 1 LIMIT 1 [ RunTime:0.088312s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.024363s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = '1' LIMIT 1 [ RunTime:0.081688s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_options` [ RunTime:0.024555s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_options` WHERE  `option_name` = 'site_options'  AND `option_l` = 'en-us' LIMIT 1 [ RunTime:0.084272s ]
+
+---------------------------------------------------------------
+[ 2018-10-21T01:15:17+08:00 ] 192.168.20.10 192.168.20.1 GET /admin/sys/sys.html
+[ log ] 32zs.com/admin/sys/sys.html [运行时间：0.931070s][吞吐率：1.07req/s] [内存消耗：1,856.37kb] [文件加载：73]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/en-us.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'sys',
+    2 => 'sys',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; think_var=en-us; PHPSESSID=cf0mqe26f3afuuv9brrv9mh4on; thinkphp_show_page_trace=0|0',
+  'accept-language' => 'en-US,en;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.001134s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.012117s ]
+[ info ] [ RUN ] app\admin\controller\Sys->sys[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Sys.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.032409s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.036615s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Sys/sys' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.110497s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.104932s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Sys/sys'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.088379s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 6 LIMIT 1 [ RunTime:0.086536s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = 2 ORDER BY `sort` [ RunTime:0.084694s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.032603s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 1 LIMIT 1 [ RunTime:0.113790s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.025875s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = '1' LIMIT 1 [ RunTime:0.099654s ]
+
+---------------------------------------------------------------
+[ 2018-10-21T01:15:35+08:00 ] 192.168.20.10 192.168.20.1 GET /admin/sys/sys.html
+[ log ] 32zs.com/admin/sys/sys.html [运行时间：0.904361s][吞吐率：1.11req/s] [内存消耗：1,885.86kb] [文件加载：73]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/en-us.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'sys',
+    2 => 'sys',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; think_var=en-us; PHPSESSID=cf0mqe26f3afuuv9brrv9mh4on; thinkphp_show_page_trace=0|0',
+  'accept-language' => 'en-US,en;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.001316s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.010634s ]
+[ info ] [ RUN ] app\admin\controller\Sys->sys[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Sys.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.042737s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.023150s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Sys/sys' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.097212s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.096254s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Sys/sys'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.093662s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 6 LIMIT 1 [ RunTime:0.094046s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = 2 ORDER BY `sort` [ RunTime:0.096293s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.024254s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 1 LIMIT 1 [ RunTime:0.104678s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.024218s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = '1' LIMIT 1 [ RunTime:0.093094s ]
+
+---------------------------------------------------------------
+[ 2018-10-21T01:16:07+08:00 ] 192.168.20.10 192.168.20.1 GET /admin/sys/sys.html
+[ log ] 32zs.com/admin/sys/sys.html [运行时间：1.277854s][吞吐率：0.78req/s] [内存消耗：1,885.95kb] [文件加载：73]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/en-us.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'sys',
+    2 => 'sys',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; think_var=en-us; PHPSESSID=cf0mqe26f3afuuv9brrv9mh4on; thinkphp_show_page_trace=0|0',
+  'accept-language' => 'en-US,en;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.001028s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.008400s ]
+[ info ] [ RUN ] app\admin\controller\Sys->sys[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Sys.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.053414s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.024808s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Sys/sys' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.096930s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.102879s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Sys/sys'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.085725s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 6 LIMIT 1 [ RunTime:0.428768s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = 2 ORDER BY `sort` [ RunTime:0.098862s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.033265s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 1 LIMIT 1 [ RunTime:0.113034s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.032694s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = '1' LIMIT 1 [ RunTime:0.096212s ]
+
+---------------------------------------------------------------
+[ 2018-10-21T01:16:32+08:00 ] 192.168.20.10 192.168.20.1 GET /admin/sys/sys.html
+[ log ] 32zs.com/admin/sys/sys.html [运行时间：0.963536s][吞吐率：1.04req/s] [内存消耗：2,243.24kb] [文件加载：73]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/en-us.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'sys',
+    2 => 'sys',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; think_var=en-us; PHPSESSID=cf0mqe26f3afuuv9brrv9mh4on; thinkphp_show_page_trace=0|0',
+  'accept-language' => 'en-US,en;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.002217s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.013409s ]
+[ info ] [ RUN ] app\admin\controller\Sys->sys[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Sys.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.044506s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.020278s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Sys/sys' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.101582s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.090485s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Sys/sys'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.076980s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 6 LIMIT 1 [ RunTime:0.083898s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = 2 ORDER BY `sort` [ RunTime:0.092153s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.019724s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 1 LIMIT 1 [ RunTime:0.103974s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.026360s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = '1' LIMIT 1 [ RunTime:0.096005s ]
+
+---------------------------------------------------------------
+[ 2018-10-21T01:16:48+08:00 ] 192.168.20.10 192.168.20.1 GET /admin/sys/sys.html
+[ log ] 32zs.com/admin/sys/sys.html [运行时间：1.208305s][吞吐率：0.83req/s] [内存消耗：1,863.61kb] [文件加载：73]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/en-us.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'sys',
+    2 => 'sys',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; think_var=en-us; PHPSESSID=cf0mqe26f3afuuv9brrv9mh4on; thinkphp_show_page_trace=0|0',
+  'accept-language' => 'en-US,en;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.003212s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.012465s ]
+[ info ] [ RUN ] app\admin\controller\Sys->sys[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Sys.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.036004s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.022846s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Sys/sys' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.101197s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.098680s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Sys/sys'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.088023s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 6 LIMIT 1 [ RunTime:0.114275s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = 2 ORDER BY `sort` [ RunTime:0.088680s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.032758s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 1 LIMIT 1 [ RunTime:0.126516s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.029504s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = '1' LIMIT 1 [ RunTime:0.117947s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_options` [ RunTime:0.048458s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_options` WHERE  `option_name` = 'site_options'  AND `option_l` = 'en-us' LIMIT 1 [ RunTime:0.119957s ]
+
+---------------------------------------------------------------
+[ 2018-10-21T01:17:44+08:00 ] 192.168.20.10 192.168.20.1 GET /admin/sys/sys.html
+[ log ] 32zs.com/admin/sys/sys.html [运行时间：1.222438s][吞吐率：0.82req/s] [内存消耗：1,865.86kb] [文件加载：73]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/en-us.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'sys',
+    2 => 'sys',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; think_var=en-us; PHPSESSID=cf0mqe26f3afuuv9brrv9mh4on; thinkphp_show_page_trace=0|0',
+  'accept-language' => 'en-US,en;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.002069s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.013655s ]
+[ info ] [ RUN ] app\admin\controller\Sys->sys[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Sys.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.043758s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.056393s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Sys/sys' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.095374s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.102556s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Sys/sys'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.102963s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 6 LIMIT 1 [ RunTime:0.089517s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = 2 ORDER BY `sort` [ RunTime:0.096061s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.044083s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 1 LIMIT 1 [ RunTime:0.114007s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.025613s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = '1' LIMIT 1 [ RunTime:0.091860s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_options` [ RunTime:0.024324s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_options` WHERE  `option_name` = 'site_options'  AND `option_l` = 'en-us' LIMIT 1 [ RunTime:0.121151s ]
+
+---------------------------------------------------------------
+[ 2018-10-21T01:18:01+08:00 ] 192.168.20.10 192.168.20.1 GET /admin/sys/sys.html
+[ log ] 32zs.com/admin/sys/sys.html [运行时间：1.060711s][吞吐率：0.94req/s] [内存消耗：2,262.86kb] [文件加载：82]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/en-us.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'sys',
+    2 => 'sys',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; think_var=en-us; PHPSESSID=cf0mqe26f3afuuv9brrv9mh4on; thinkphp_show_page_trace=0|0',
+  'accept-language' => 'en-US,en;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.000961s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.011193s ]
+[ info ] [ RUN ] app\admin\controller\Sys->sys[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Sys.php ]
+[ info ] [ VIEW ] /home/vagrant/Code/32zs/2.0.0/app/admin/view/sys/sys.html [ array (
+  0 => 'lang',
+  1 => 'menus',
+  2 => 'menus_curr',
+  3 => 'menus_child',
+  4 => 'id_curr',
+  5 => 'admin',
+  6 => 'head_title',
+  7 => 'admin_avatar',
+  8 => 'templates',
+  9 => 'map_lat',
+  10 => 'map_lng',
+  11 => 'sys',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.034860s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.038305s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Sys/sys' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.121410s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.099222s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Sys/sys'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.104484s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 6 LIMIT 1 [ RunTime:0.078602s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = 2 ORDER BY `sort` [ RunTime:0.084051s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.037250s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 1 LIMIT 1 [ RunTime:0.098864s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.021088s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = '1' LIMIT 1 [ RunTime:0.095072s ]
+[ error ] [8]Undefined index: schoolimg[/home/vagrant/Code/32zs/2.0.0/data/runtime/temp/1676dff656bcb5fb49800644419509e3.php:336]
+
+---------------------------------------------------------------
+[ 2018-10-21T01:18:17+08:00 ] 192.168.20.10 192.168.20.1 GET /admin/sys/sys.html
+[ log ] 32zs.com/admin/sys/sys.html [运行时间：1.158092s][吞吐率：0.86req/s] [内存消耗：1,893.22kb] [文件加载：73]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/en-us.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'sys',
+    2 => 'sys',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; think_var=en-us; PHPSESSID=cf0mqe26f3afuuv9brrv9mh4on; thinkphp_show_page_trace=0|0',
+  'accept-language' => 'en-US,en;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.001218s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.007673s ]
+[ info ] [ RUN ] app\admin\controller\Sys->sys[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Sys.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.049064s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.029440s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Sys/sys' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.089629s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.087452s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Sys/sys'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.107500s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 6 LIMIT 1 [ RunTime:0.101516s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = 2 ORDER BY `sort` [ RunTime:0.128730s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.066081s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 1 LIMIT 1 [ RunTime:0.121558s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.035858s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = '1' LIMIT 1 [ RunTime:0.096570s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_options` [ RunTime:0.039031s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_options` WHERE  `option_name` = 'site_options'  AND `option_l` = 'en-us' LIMIT 1 [ RunTime:0.083680s ]
+
+---------------------------------------------------------------
+[ 2018-10-21T01:18:29+08:00 ] 192.168.20.10 192.168.20.1 GET /admin/sys/sys.html
+[ log ] 32zs.com/admin/sys/sys.html [运行时间：1.141576s][吞吐率：0.88req/s] [内存消耗：1,883.32kb] [文件加载：80]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/en-us.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'sys',
+    2 => 'sys',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; think_var=en-us; PHPSESSID=cf0mqe26f3afuuv9brrv9mh4on; thinkphp_show_page_trace=0|0',
+  'accept-language' => 'en-US,en;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.001168s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.010195s ]
+[ info ] [ RUN ] app\admin\controller\Sys->sys[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Sys.php ]
+[ info ] [ VIEW ] /home/vagrant/Code/32zs/2.0.0/app/admin/view/sys/sys.html [ array (
+  0 => 'lang',
+  1 => 'menus',
+  2 => 'menus_curr',
+  3 => 'menus_child',
+  4 => 'id_curr',
+  5 => 'admin',
+  6 => 'head_title',
+  7 => 'admin_avatar',
+  8 => 'templates',
+  9 => 'map_lat',
+  10 => 'map_lng',
+  11 => 'sys',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.006745s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.033936s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.022781s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Sys/sys' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.113754s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.088088s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Sys/sys'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.088842s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 6 LIMIT 1 [ RunTime:0.101625s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = 2 ORDER BY `sort` [ RunTime:0.100720s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.031317s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 1 LIMIT 1 [ RunTime:0.100124s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.025301s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = '1' LIMIT 1 [ RunTime:0.084019s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_options` [ RunTime:0.023021s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_options` WHERE  `option_name` = 'site_options'  AND `option_l` = 'en-us' LIMIT 1 [ RunTime:0.110427s ]
+
+---------------------------------------------------------------
+[ 2018-10-21T01:18:29+08:00 ] 192.168.20.10 192.168.20.1 GET /admin/Ueditor/upload?action=config&&noCache=1540055909799
+[ log ] 32zs.com/admin/Ueditor/upload?action=config&&noCache=1540055909799 [运行时间：0.099275s][吞吐率：10.07req/s] [内存消耗：303.35kb] [文件加载：62]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/en-us.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Ueditor',
+    2 => 'upload',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_var=en-us; PHPSESSID=cf0mqe26f3afuuv9brrv9mh4on; thinkphp_show_page_trace=0|0',
+  'accept-language' => 'en-US,en;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/sys/sys.html',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'action' => 'config',
+  'noCache' => '1540055909799',
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.001432s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.008885s ]
+[ info ] [ RUN ] app\admin\controller\Ueditor->upload[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Ueditor.php ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-10-21T01:18:59+08:00 ] 192.168.20.10 192.168.20.1 GET /admin/sys/sys.html
+[ log ] 32zs.com/admin/sys/sys.html [运行时间：1.007346s][吞吐率：0.99req/s] [内存消耗：1,873.92kb] [文件加载：80]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/en-us.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'sys',
+    2 => 'sys',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; think_var=en-us; PHPSESSID=cf0mqe26f3afuuv9brrv9mh4on; thinkphp_show_page_trace=0|0',
+  'accept-language' => 'en-US,en;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.002006s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.015718s ]
+[ info ] [ RUN ] app\admin\controller\Sys->sys[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Sys.php ]
+[ info ] [ VIEW ] /home/vagrant/Code/32zs/2.0.0/app/admin/view/sys/sys.html [ array (
+  0 => 'lang',
+  1 => 'menus',
+  2 => 'menus_curr',
+  3 => 'menus_child',
+  4 => 'id_curr',
+  5 => 'admin',
+  6 => 'head_title',
+  7 => 'admin_avatar',
+  8 => 'templates',
+  9 => 'map_lat',
+  10 => 'map_lng',
+  11 => 'sys',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.006452s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.042690s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.019343s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Sys/sys' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.087994s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `zs_auth_rule` ORDER BY level desc,sort [ RunTime:0.085882s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Sys/sys'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.089795s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 6 LIMIT 1 [ RunTime:0.105193s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 1  AND `pid` = 2 ORDER BY `sort` [ RunTime:0.087072s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.020010s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 1 LIMIT 1 [ RunTime:0.086494s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.024721s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = '1' LIMIT 1 [ RunTime:0.092266s ]
+
+---------------------------------------------------------------
+[ 2018-10-21T01:18:59+08:00 ] 192.168.20.10 192.168.20.1 GET /admin/Ueditor/upload?action=config&&noCache=1540055939633
+[ log ] 32zs.com/admin/Ueditor/upload?action=config&&noCache=1540055939633 [运行时间：0.194512s][吞吐率：5.14req/s] [内存消耗：303.35kb] [文件加载：62]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/en-us.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Ueditor',
+    2 => 'upload',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_var=en-us; PHPSESSID=cf0mqe26f3afuuv9brrv9mh4on; thinkphp_show_page_trace=0|0',
+  'accept-language' => 'en-US,en;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/sys/sys.html',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'action' => 'config',
+  'noCache' => '1540055939633',
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.003518s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.018346s ]
+[ info ] [ RUN ] app\admin\controller\Ueditor->upload[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Ueditor.php ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-10-21T11:18:59+08:00 ] 192.168.20.10 192.168.20.1 GET /
+[ log ] 32zs.com/ [运行时间：1.170550s][吞吐率：0.85req/s] [内存消耗：562.38kb] [文件加载：81]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/en-us.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'Index',
+    2 => 'index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=cf0mqe26f3afuuv9brrv9mh4on; thinkphp_show_page_trace=0|0',
+  'accept-language' => 'en-US,en;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/home/lang/en-us.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.002606s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.013383s ]
+[ info ] [ RUN ] app\home\controller\Index->index[ /home/vagrant/Code/32zs/2.0.0/app/home/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/vagrant/Code/32zs/2.0.0/app/home/view/default/index.html [ array (
+  0 => 'lang',
+  1 => 'map_lat',
+  2 => 'map_lng',
+  3 => 'site_name',
+  4 => 'site_host',
+  5 => 'school_name',
+  6 => 'site_tpl',
+  7 => 'site_tpl_m',
+  8 => 'site_logo',
+  9 => 'site_img',
+  10 => 'site_icp',
+  11 => 'site_copyright',
+  12 => 'site_co_name',
+  13 => 'site_address',
+  14 => 'site_tel',
+  15 => 'site_admin_email',
+  16 => 'site_qq',
+  17 => 'site_seo_title',
+  18 => 'site_seo_keywords',
+  19 => 'site_seo_description',
+  20 => 'site_tongji',
+  21 => 'schoolimg',
+  22 => 'yf_theme_path',
+  23 => 'user',
+  24 => 'is_admin',
+  25 => 'center_slideshow_imgs',
+  26 => 'footer_slideshow_imgs',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.006262s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.036095s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.028710s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` WHERE  `news_open` = '1'  AND `news_back` = 0  AND `news_columnid` = 19 LIMIT 1 [ RunTime:0.092972s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_news` WHERE  `news_open` = '1'  AND `news_back` = 0  AND `news_columnid` = 20 LIMIT 1 [ RunTime:0.099085s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_menu` [ RunTime:0.021814s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_menu` WHERE  `menu_l` = 'en-us'  AND `menu_open` = 1 ORDER BY `listorder`  ASC [ RunTime:0.075782s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'en-us'  AND `news_back` = 0  AND `news_columnid` IN (17) ORDER BY news_time desc LIMIT 7 [ RunTime:0.077717s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_plug_link` [ RunTime:0.019947s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_plug_link` WHERE  `plug_link_l` = 'en-us'  AND `plug_link_typeid` = 3  AND `plug_link_open` = 1 ORDER BY plug_link_order ASC [ RunTime:0.096353s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_plug_link` WHERE  `plug_link_l` = 'en-us'  AND `plug_link_typeid` = 4  AND `plug_link_open` = 1 ORDER BY plug_link_order ASC [ RunTime:0.088574s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'en-us'  AND `news_back` = 0  AND `news_columnid` IN (18) ORDER BY news_time desc LIMIT 7 [ RunTime:0.091905s ]
+[ sql ] [ SQL ] SELECT `news_content`,`news_title`,`n_id`,`news_columnid`,`news_time` FROM `zs_news` `a` WHERE  `news_open` = '1'  AND `news_l` = 'en-us'  AND `news_back` = 0  AND `news_columnid` IN (16) ORDER BY news_time desc LIMIT 7 [ RunTime:0.175999s ]
+
+---------------------------------------------------------------
+[ 2018-10-21T11:18:59+08:00 ] 192.168.20.10 192.168.20.1 GET /home/login/verify.html
+[ log ] 32zs.com/home/login/verify.html [运行时间：0.288183s][吞吐率：3.47req/s] [内存消耗：371.62kb] [文件加载：72]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/en-us.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'login',
+    2 => 'verify',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=cf0mqe26f3afuuv9brrv9mh4on; thinkphp_show_page_trace=0|0; think_var=en-us',
+  'accept-language' => 'en-US,en;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://32zs.com/',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/home/lang/en-us.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.003944s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.022107s ]
+[ info ] [ RUN ] app\home\controller\Login->verify[ /home/vagrant/Code/32zs/2.0.0/app/home/controller/Login.php ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Cron @app_end [ RunTime:0.008184s ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------

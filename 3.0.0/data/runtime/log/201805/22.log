@@ -1,0 +1,188 @@
+[ 2018-05-22T20:53:04+08:00 ] 192.168.10.10 192.168.10.1 GET /admin/examination/exportexamination/recruit_major_id/2.html
+[ log ] 32zs.com/admin/examination/exportexamination/recruit_major_id/2.html [运行时间：2.676066s][吞吐率：0.37req/s] [内存消耗：1,250.78kb] [文件加载：88]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'examination',
+    2 => 'exportexamination',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'if-modified-since' => 'Tue, 22 May 2018 12:52:47 GMT',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; PHPSESSID=40084fsb4ckl7ripf13tmrmbfl; aid=53; thinkphp_show_page_trace=0|0; signin_token=64854185759f12c9e16edada6178097436a270a6; think_var=zh-cn',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'recruit_major_id' => '2',
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.000882s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.010045s ]
+[ info ] [ RUN ] app\admin\controller\Examination->exportExamination[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Examination.php ]
+[ info ] [ VIEW ] /home/vagrant/Code/32zs/2.0.0/app/admin/view/examination/ticket.html [ array (
+  0 => 'lang',
+  1 => 'menus',
+  2 => 'menus_curr',
+  3 => 'menus_child',
+  4 => 'id_curr',
+  5 => 'admin',
+  6 => 'head_title',
+  7 => 'admin_avatar',
+  8 => 'recruit_major',
+  9 => 'examination',
+  10 => 'member',
+) ]
+[ info ] [ VIEW ] /home/vagrant/Code/32zs/2.0.0/app/admin/view/examination/ticket.html [ array (
+  0 => 'lang',
+  1 => 'menus',
+  2 => 'menus_curr',
+  3 => 'menus_child',
+  4 => 'id_curr',
+  5 => 'admin',
+  6 => 'head_title',
+  7 => 'admin_avatar',
+  8 => 'recruit_major',
+  9 => 'examination',
+  10 => 'member',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.040739s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.026050s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Examination/exportexamination' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.084221s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Examination/exportexamination'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.088647s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Examination/exportexamination'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.095683s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.095207s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (15,27,37,108,109,110,111,112,113,114,170,178,179,180,396,345,346,350,351,354,356,363,364,384,388,389,390,397,400,414,417,418,421,422,424,426,428,429,430)  AND `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.105519s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.034955s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 53 LIMIT 1 [ RunTime:0.100775s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.027783s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.091169s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.034933s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 22 LIMIT 1 [ RunTime:0.094422s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_enrollment` [ RunTime:0.029231s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_enrollment` WHERE  `school_id` = 22  AND `recruit_major_id` = 2 LIMIT 1 [ RunTime:0.081439s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_recruit_major` [ RunTime:0.025774s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_recruit_major` WHERE  `recruit_major_id` = 2 LIMIT 1 [ RunTime:0.096677s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_member_list` [ RunTime:0.026193s ]
+[ sql ] [ SQL ] SELECT `a`.`member_list_nickname`,`a`.`member_list_username`,`a`.`member_list_headpic`,`mi`.`ZexamineeNumber` FROM `zs_member_list` `a` INNER JOIN `zs_member_group` `b` ON `a`.`member_list_groupid`=`b`.`member_group_id` INNER JOIN `zs_member_info` `mi` ON `mi`.`member_list_id`=`a`.`member_list_id` INNER JOIN `zs_school` `s` ON `a`.`school_id`=`s`.`school_id` INNER JOIN `zs_major` `m` ON `a`.`major_id`=`m`.`major_id` WHERE  `s`.`school_id` = 22  AND `a`.`major_id` IN ('8','4')  AND `a`.`user_status` = 1 LIMIT 2 [ RunTime:0.093853s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_examination` [ RunTime:0.026537s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_examination` WHERE  `recruit_major_id` = 2  AND `school_id` = 22 LIMIT 1 [ RunTime:0.076903s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_examination_room` [ RunTime:0.029289s ]
+[ sql ] [ SQL ] SELECT `r`.`room_id`,`r`.`room_number`,`r`.`room_name` FROM `zs_examination_room` `er` INNER JOIN `zs_room` `r` ON `r`.`room_id`=`er`.`room_id` WHERE  `er`.`examination_id` = 7 ORDER BY `r`.`room_id`  asc [ RunTime:0.077126s ]
+
+---------------------------------------------------------------
+[ 2018-05-22T20:53:14+08:00 ] 192.168.10.10 192.168.10.1 GET /admin/examination/exportexamination/recruit_major_id/2.html
+[ log ] 32zs.com/admin/examination/exportexamination/recruit_major_id/2.html [运行时间：2.631094s][吞吐率：0.38req/s] [内存消耗：1,250.84kb] [文件加载：88]
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /home/vagrant/Code/32zs/2.0.0/app/lang/zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'examination',
+    2 => 'exportexamination',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'if-modified-since' => 'Tue, 22 May 2018 12:53:04 GMT',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; PHPSESSID=40084fsb4ckl7ripf13tmrmbfl; aid=53; thinkphp_show_page_trace=0|0; signin_token=64854185759f12c9e16edada6178097436a270a6; think_var=zh-cn',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'keep-alive',
+  'host' => '32zs.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'recruit_major_id' => '2',
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\WebLog @module_init [ RunTime:0.001302s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run Closure @action_begin [ RunTime:0.009123s ]
+[ info ] [ RUN ] app\admin\controller\Examination->exportExamination[ /home/vagrant/Code/32zs/2.0.0/app/admin/controller/Examination.php ]
+[ info ] [ VIEW ] /home/vagrant/Code/32zs/2.0.0/app/admin/view/examination/ticket.html [ array (
+  0 => 'lang',
+  1 => 'menus',
+  2 => 'menus_curr',
+  3 => 'menus_child',
+  4 => 'id_curr',
+  5 => 'admin',
+  6 => 'head_title',
+  7 => 'admin_avatar',
+  8 => 'recruit_major',
+  9 => 'examination',
+  10 => 'member',
+) ]
+[ info ] [ VIEW ] /home/vagrant/Code/32zs/2.0.0/app/admin/view/examination/ticket.html [ array (
+  0 => 'lang',
+  1 => 'menus',
+  2 => 'menus_curr',
+  3 => 'menus_child',
+  4 => 'id_curr',
+  5 => 'admin',
+  6 => 'head_title',
+  7 => 'admin_avatar',
+  8 => 'recruit_major',
+  9 => 'examination',
+  10 => 'member',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.033735s ] mysql:dbname=zhaosheng;host=120.76.200.232;port=16822;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.022388s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Examination/exportexamination' ORDER BY level desc,sort LIMIT 1 [ RunTime:0.076218s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Examination/exportexamination'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.085596s ]
+[ sql ] [ SQL ] SELECT `id` FROM `zs_auth_rule` WHERE  `name` = 'admin/Examination/exportexamination'  AND `status` = 1 ORDER BY level desc,sort LIMIT 1 [ RunTime:0.079870s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `zs_auth_rule` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.094061s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `id` IN (15,27,37,108,109,110,111,112,113,114,170,178,179,180,396,345,346,350,351,354,356,363,364,384,388,389,390,397,400,414,417,418,421,422,424,426,428,429,430)  AND `status` = 1  AND `pid` = null ORDER BY `sort` [ RunTime:0.090519s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_admin` [ RunTime:0.023514s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_admin` `a` INNER JOIN `zs_auth_group_access` `b` ON `a`.`admin_id`=`b`.`uid` INNER JOIN `zs_auth_group` `c` ON `b`.`group_id`=`c`.`id` WHERE  `a`.`admin_id` = 53 LIMIT 1 [ RunTime:0.095750s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_news` [ RunTime:0.021679s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_news` WHERE  `news_auto` = null LIMIT 1 [ RunTime:0.082374s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_school` [ RunTime:0.024134s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_school` WHERE  `school_id` = 22 LIMIT 1 [ RunTime:0.083139s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_enrollment` [ RunTime:0.021369s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_enrollment` WHERE  `school_id` = 22  AND `recruit_major_id` = 2 LIMIT 1 [ RunTime:0.079404s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_recruit_major` [ RunTime:0.022660s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_recruit_major` WHERE  `recruit_major_id` = 2 LIMIT 1 [ RunTime:0.087228s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_member_list` [ RunTime:0.021837s ]
+[ sql ] [ SQL ] SELECT `a`.`member_list_nickname`,`a`.`member_list_username`,`a`.`member_list_headpic`,`mi`.`ZexamineeNumber` FROM `zs_member_list` `a` INNER JOIN `zs_member_group` `b` ON `a`.`member_list_groupid`=`b`.`member_group_id` INNER JOIN `zs_member_info` `mi` ON `mi`.`member_list_id`=`a`.`member_list_id` INNER JOIN `zs_school` `s` ON `a`.`school_id`=`s`.`school_id` INNER JOIN `zs_major` `m` ON `a`.`major_id`=`m`.`major_id` WHERE  `s`.`school_id` = 22  AND `a`.`major_id` IN ('8','4')  AND `a`.`user_status` = 1 LIMIT 2 [ RunTime:0.080734s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_examination` [ RunTime:0.032212s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_examination` WHERE  `recruit_major_id` = 2  AND `school_id` = 22 LIMIT 1 [ RunTime:0.087786s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_examination_room` [ RunTime:0.025841s ]
+[ sql ] [ SQL ] SELECT `r`.`room_id`,`r`.`room_number`,`r`.`room_name` FROM `zs_examination_room` `er` INNER JOIN `zs_room` `r` ON `r`.`room_id`=`er`.`room_id` WHERE  `er`.`examination_id` = 7 ORDER BY `r`.`room_id`  asc [ RunTime:0.085222s ]
+
+---------------------------------------------------------------

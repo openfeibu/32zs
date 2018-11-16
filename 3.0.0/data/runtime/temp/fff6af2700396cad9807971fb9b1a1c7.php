@@ -1,0 +1,133 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:61:"/home/vagrant/Code/32zs/3.0.0/app/admin/view/login/login.html";i:1527162836;}*/ ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta charset="utf-8" />
+	<title>用户登录</title>
+	<meta name="description" content="User login page" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+	<link rel="Bookmark" href="__ROOT__/favicon.ico" >
+    <link rel="Shortcut Icon" href="__ROOT__/favicon.ico" />
+	<!-- bootstrap & fontawesome必须的css -->
+	<link rel="stylesheet" href="__PUBLIC__/ace/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="__PUBLIC__/font-awesome/css/font-awesome.min.css" />
+	<!-- ACE样式-->
+	<link rel="stylesheet" href="__PUBLIC__/ace/css/ace.min.css" />
+	<!--[if lte IE 9]>
+	<link rel="stylesheet" href="__PUBLIC__/ace/css/ace-part2.min.css" />
+	<![endif]-->
+	<link rel="stylesheet" href="__PUBLIC__/ace/css/ace.min.css" />
+	<!--[if !IE]> -->
+    <script src="__PUBLIC__/others/jquery.min-2.2.1.js"></script>
+    <!-- <![endif]-->
+    <!-- 如果为IE,则引入jq1.12.1 -->
+    <!--[if IE]>
+    <script src="__PUBLIC__/others/jquery.min-1.12.1.js"></script>
+    <![endif]-->
+	<!--[if lte IE 9]>
+	<link rel="stylesheet" href="__PUBLIC__/ace/css/ace-ie.css" />
+	<![endif]-->
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+	<script src="__PUBLIC__/others/html5shiv.min.js"></script>
+	<script src="__PUBLIC__/others/respond.min.js"></script>
+	<![endif]-->
+		<!-- 通用css/JS/后增加 -->
+	<link rel="stylesheet" href="__PUBLIC__/common/css/common.css?v=201805241"/>
+	<script src="__PUBLIC__/common/js/common.js"></script>
+</head>
+<body class="login-layout blur-login">
+<div class="main-container">
+	<div class="main-content">
+				<div class="login-container">
+						<div class="login-box ">
+						<div class="login-box-title">
+							<div class="login-logo"><img src="__PUBLIC__/img/login-logo.png" alt=""></div>
+							<p>三二分段招生系统（广东农工商职业技术学院）</p>
+						</div>
+						<form class="ajaxForm3" name="runlogin" id="runlogin" method="post" action="<?php echo url('admin/Login/runlogin'); ?>">
+
+								<label >
+											<span class="block input-icon input-icon-right">
+												<input type="text" class="form-control" name="admin_username" id="admin_username" placeholder="用户名" required/>
+
+											</span>
+								</label>
+
+								<label >
+											<span class="block input-icon input-icon-right">
+												<input type="password" class="form-control" name="admin_pwd" id="admin_pwd" placeholder="输入密码" required/>
+
+											</span>
+								</label>
+								<button type="submit" class="login-submit">
+										<span class="bigger-110">登录</span>
+								</button>
+								<div class="clearfix rememberme">
+									<label class="inline">
+										<input name="rememberme" type="checkbox" class="ace" />
+										<span class="lbl"> 记住账号</span>
+									</label>
+								</div>
+						</form>
+						</div><!-- /.login-box -->
+				</div>
+	</div><!-- /.main-content -->
+</div><!-- /.main-container -->
+<div class="fb-footer-fixed">为了更好的体验，建议您使用谷歌、火狐、IE9及以上版本、360极速模式等高版本的浏览器！</div>
+<!-- 基本的js -->
+<!--[if !IE]> -->
+<script src="__PUBLIC__/others/jquery.min-2.2.1.js"></script>
+<!-- <![endif]-->
+<!-- 如果为IE,则引入jq1.12.1 -->
+<!--[if IE]>
+<script src="__PUBLIC__/others/jquery.min-1.12.1.js"></script>
+<![endif]-->
+<!-- jquery.form、layer、三二分段的js -->
+<script src="__PUBLIC__/others/bootstrap.min.js"></script>
+<script src="__PUBLIC__/others/jquery.form.js"></script>
+<script src="__PUBLIC__/layer/layer_zh-cn.js"></script>
+<script src="__PUBLIC__/others/maxlength.js"></script>
+<script src="__PUBLIC__/yfcmf/yfcmf.js"></script>
+<script src="http://static.geetest.com/static/tools/gt.js"></script>
+<script>
+    var handler = function (captchaObj) {
+        captchaObj.appendTo("#captcha");
+        captchaObj.onSuccess(function () {
+            //验证成功执行
+        });
+        captchaObj.onReady(function () {
+            //加载完毕执行
+        });
+    };
+
+    $('.login-box form label input[type="text"],.login-box form label input[type="password"]').focus(function(){
+    	$(this).parents("span").addClass("active");
+    })
+    $('.login-box form label input[type="text"],.login-box form label input[type="password"]').blur(function(){
+    	$(this).parents("span").removeClass("active");
+    })
+     $('.login-box form label input[type="text"],.login-box form label input[type="password"]').on("onpropertychange, input",changeFun);
+
+     function changeFun(){
+    	var val1= $('.login-box form label input[type="text"]').val()
+    	var val2= $('.login-box form label input[type="password"]').val()
+
+    	if(val1.length !=0 && val2.length !=0 ){
+    		$(".login-box .login-submit").addClass("active")
+    	}else{
+    		$(".login-box .login-submit").removeClass("active")
+
+    	}
+    }
+     setTimeout(function(){
+     	changeFun();
+     },3000)
+</script>
+<!-- 如果为触屏,则引入jquery.mobile -->
+<script type="text/javascript">
+	if('ontouchstart' in document.documentElement) document.write("<script src='__PUBLIC__/others/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+</script>
+</body>
+</html>
