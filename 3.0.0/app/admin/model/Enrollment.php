@@ -67,7 +67,7 @@ class Enrollment extends Model
             $major = MajorModel::get_major_detail($value['major_id'],$value['school_id']);
             $subject_list = $major['subjects'];
             $major_score_data = $score_model->get_member_subject_score($subject_list,$value['member_list_id']);
-            var_dump($major_score_data);
+
             $major_score_arr = $major_score_data['major_score_arr'];
             $major_subject_name_arr = $major['major_subject_name_arr'];
 
@@ -83,7 +83,7 @@ class Enrollment extends Model
 
             $data[$key]['recruit_major_name'] = $recruit_major['recruit_major_name'];
         }
-        exit;
+
         array_multisort(array_column($data,'admission_status'),SORT_DESC,array_column($data,'total_score'),SORT_DESC,$data);
         foreach ($data as $key => $value) {
             $data[$key]['ranking'] = $ranking;
