@@ -70,13 +70,11 @@ class Member extends Base
 		];
 
 		$member_model=new MemberList;
-		$member_list = $member_model->getMemberList($map,'');
+		$member_list_data = $member_model->getMemberList($map,'');
 
-		$show=$member_list->render();
-		/*
-		$show=preg_replace("(<a[^>]*page[=|/](\d+).+?>(.+?)<\/a>)","<a href='javascript:ajax_page($1);'>$2</a>",$show);*/
+		$show=$member_list_data['page'];
 
-		$data = $member_list->all();
+		$data = $member_list_data['member_list'];
 		$data = $member_model->handleMemberList($data);
 
         if($this->admin['group_id'] == 5)
@@ -855,7 +853,8 @@ class Member extends Base
 		$map = ['a.school_id' => $this->admin['school_id']] ;
 		$member_model=new MemberList;
 		$data = $member_model->getMemberList($map,'',0);
-		$data = $member_model->handleMemberList2($data);
+        $member_list = $data['member_list'];
+		$data = $member_model->handleMemberList2($member_list);
 
 		$field_titles = ['中职考生号','高考考生号','姓名','身份证号码','中职所在专业','中职学校','对口高职专业','户口所在地','生源地','考生联系人','联系电话','联系地址','邮编'];
         $fields = ['ZexamineeNumber','GexamineeNumber','member_list_nickname','member_list_username','major_name','school_name','recruit_major_name','domicile','documentType','addressee','tell','address','zipCode'];
@@ -866,7 +865,8 @@ class Member extends Base
 	{
 		$member_model=new MemberList;
 		$data = $member_model->getMemberList([],'',0);
-		$data = $member_model->handleMemberList2($data);
+        $member_list = $data['member_list'];
+        $data = $member_model->handleMemberList2($member_list);
 
 		$field_titles = ['中职考生号','高考考生号','姓名','身份证号码','中职所在专业','中职学校','对口高职专业','理论成绩','技能成绩','总分','户口所在地','生源地','考生联系人','联系电话','联系地址','邮编'];
         $fields = ['ZexamineeNumber','GexamineeNumber','member_list_nickname','member_list_username','major_name','school_name','recruit_major_name','major_score_total','recruit_score','total_score','domicile','documentType','addressee','tell','address','zipCode'];
@@ -885,7 +885,8 @@ class Member extends Base
 		}
 		$member_model=new MemberList;
 		$data = $member_model->getMemberList($map,'',0);
-		$data = $member_model->handleMemberList2($data);
+        $member_list = $data['member_list'];
+        $data = $member_model->handleMemberList2($member_list);
 		require_once(EXTEND_PATH . 'tcpdf/examples/lang/eng.php');
         require_once(EXTEND_PATH . 'tcpdf/TCPDF.php');
 		$pdf = new \tcpdf\TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);

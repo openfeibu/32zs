@@ -13,6 +13,8 @@ use think\Model;
 use think\Db;
 use app\admin\model\RecruitMajor as RecruitMajorModel;
 use app\admin\model\Major as MajorModel;
+use app\admin\model\Score as ScoreModel;
+use app\admin\model\Subject as SubjectModel;
 
 /**
  * 考生模型
@@ -89,11 +91,25 @@ class MemberList extends Model
         $member_list->where(get_year_where('a'));
 		$member_list = $member_list->field('a.*,b.*,m.major_id,m.major_name,m.major_code,m.major_name,s.school_id,s.school_name,mi.*')->order('a.school_id','asc')->order('a.major_id','asc')->order('a.member_list_id','desc');
 		if($is_page){
-			$member_list = $member_list->paginate(config('paginate.list_rows'),false,['query'=>get_query()]);
+            $member_list = $member_list->paginate(config('paginate.list_rows'),false,['query'=>get_query()]);
+            $data['page'] = $member_list->render();
+            $member_list = $member_list->all();
 		}else{
 			$member_list= $member_list->select();
 		}
-		return $member_list;
+		$score_model  = new ScoreModel();
+		foreach ($member_list as $key => $member)
+        {
+            /*
+            $subject_list = SubjectModel::get_subject_list($member['major_id'],$member['school_id']);
+            $major_score_data = $score_model->get_member_subject_score($subject_list,$member['member_list_id'],1);
+            $member_list[$key]['major_score_arr'] = $major_score_data['major_score_arr'];
+            $member_list[$key]['major_score_status'] = $major_score_data['major_score_status'];
+            $member_list[$key]['major_subject_score_arr'] = $major_score_data['major_subject_score_arr'];
+            */
+        }
+        $data['member_list'] = $member_list;
+		return $data;
 	}
 	public function handleMemberList($data)
 	{
@@ -101,25 +117,19 @@ class MemberList extends Model
 			$recruit_major = RecruitMajorModel::get_recruit_major($value['school_id'],$value['major_id']);
             $data[$k]['recruit_major_name'] = $recruit_major['recruit_major_name'];
 			$data[$k]['recruit_major_code'] = $recruit_major['recruit_major_code'];
-			$major_score_arr = [];
-			$major_score_desc = '';
-			$major_score_total = 0;
+/*
 			$major = MajorModel::get_major_detail($value['major_id'],$value['school_id']);
             $major_subject_name_arr = $major['major_subject_name_arr'];
-			if($value['major_score']){
-				$major_score_arr = json_decode($value['major_score'],true);
-				$major_score_arr = handle_major_score_arr($major_subject_name_arr,$major_score_arr);
-				$major_score_desc = major_score_desc($major_subject_name_arr,$major_score_arr);
-				$major_score_total = handle_major_score($major_score_arr);
-			}
-			else{
-				$major_score_arr = json_decode($value['major_score'],true);
-				$major_score_arr = handle_major_score_arr($major_subject_name_arr,$major_score_arr);
-			}
+            $major_score_arr = $value['major_score_arr'];
+            $major_score_arr = handle_major_score_arr($major_subject_name_arr,$major_score_arr);
+            $major_score_desc = major_score_desc($major_subject_name_arr,$major_score_arr);
+            $major_score_total = handle_major_score($major_score_arr);
+
 			$data[$k]['major_score_arr'] = $major_score_arr;
 			$data[$k]['major_score_desc'] = $major_score_desc;
 			$data[$k]['major_score_total'] = $major_score_total;
 			$data[$k]['total_score'] = $major_score_total + floatval($value['recruit_score']);
+*/
 		}
 		return $data;
 	}
@@ -128,23 +138,18 @@ class MemberList extends Model
 		foreach ($data as $k => $value) {
 			$recruit_major = RecruitMajorModel::get_recruit_major($value['school_id'],$value['major_id']);
 			$data[$k]['recruit_major_name'] = $recruit_major['recruit_major_name'];
-			$major_score_arr = [];
-		   	$major_score_total = 0;
-			$major = MajorModel::get_major_detail($value['major_id'],$value['school_id']);
+/*
+            $major = MajorModel::get_major_detail($value['major_id'],$value['school_id']);
             $major_subject_name_arr = $major['major_subject_name_arr'];
-			if($value['major_score']){
-				$major_score_arr = json_decode($value['major_score'],true);
-				$major_score_arr = handle_major_score_arr($major_subject_name_arr,$major_score_arr);
-				$major_score_total = handle_major_score($major_score_arr);
-			}
-			else{
-				$major_score_arr = json_decode($value['major_score'],true);
-				$major_score_arr = handle_major_score_arr($major_subject_name_arr,$major_score_arr);
-			}
+            $major_score_arr = $value['major_score_arr'];
+            $major_score_arr = handle_major_score_arr($major_subject_name_arr,$major_score_arr);
+            $major_score_total = handle_major_score($major_score_arr);
+
 			$data[$k]['major_score_total'] = $major_score_total;
 			$data[$k]['total_score'] = $major_score_total + floatval($value['recruit_score']);
 			$data[$k]['member_list_username'] = $value['member_list_username']."\t";
             $data[$k]['ZexamineeNumber'] = $value['ZexamineeNumber']."\t";
+*/
 		}
 		return $data;
 	}

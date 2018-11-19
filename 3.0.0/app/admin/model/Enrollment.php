@@ -13,6 +13,7 @@ use think\Model;
 use think\Db;
 use app\admin\model\Major as MajorModel;
 use app\admin\model\RecruitMajor as RecruitMajorModel;
+use app\admin\model\Score as ScoreModel;
 
 class Enrollment extends Model
 {
@@ -45,8 +46,6 @@ class Enrollment extends Model
     }
     public static function get_enroll_member_list($enrollment,$recruit_major,$school_id)
     {
-        $min_score = Db::name('min_score')->find();
-        $min_score = $min_score ? $min_score['min_score'] : 0;
         $major_ids = array_filter(explode(',',$enrollment['major_ids']));
         $where['s.school_id'] = $school_id;
         $where['a.major_id'] = array('in',$major_ids);
@@ -63,33 +62,28 @@ class Enrollment extends Model
         $data = $member_list;
 
         $ranking = 1;
+        $score_model = new ScoreModel();
         foreach ($data as $key => $value) {
             $major = MajorModel::get_major_detail($value['major_id'],$value['school_id']);
-            $major_score_arr = [];
-            $major_score_desc = '';
-            $major_score_total = 0;
-            $major_score_key = $major['major_score_key'] ? array_filter(json_decode($major['major_score_key'],true)) : [];
-            if($value['major_score']){
-                $major_score_arr = json_decode($value['major_score'],true);
-                $major_score_desc = major_score_desc($major_score_key,$major_score_arr);
-                $major_score_total = handle_major_score($major_score_arr);
-            }
-            else{
-                $major_score_arr = json_decode($value['major_score'],true);
-                $major_score_arr = handle_major_score_arr($major_score_key,$major_score_arr);
-            }
+            $subject_list = $major['subjects'];
+            $major_score_data = $score_model->get_member_subject_score($subject_list,$value['member_list_id']);
+            var_dump($major_score_data);
+            $major_score_arr = $major_score_data['major_score_arr'];
+            $major_subject_name_arr = $major['major_subject_name_arr'];
+
+            $major_score_desc = major_score_desc($major_subject_name_arr,$major_score_arr);
+            $major_score_total = handle_major_score($major_score_arr);
+
             $data[$key]['major_score_arr'] = $major_score_arr;
             $data[$key]['major_score_desc'] = $major_score_desc;
             $data[$key]['major_score_total'] = $major_score_total;
-            $data[$key]['recruit_score'] = $recruit_score =  floatval(sprintf('%.2f',$value['recruit_score']));
-            $data[$key]['total_score'] = sprintf('%.2f',$major_score_total + $value['recruit_score']);
-            $data[$key]['admission_status'] = 1;
-            if($value['recruit_score'] < $min_score)
-            {
-                $data[$key]['admission_status'] = 0;
-            }
+
+            $data[$key]['total_score'] = $major_score_total;
+            $data[$key]['admission_status'] = $major_score_data['admission_status'];
+
             $data[$key]['recruit_major_name'] = $recruit_major['recruit_major_name'];
         }
+        exit;
         array_multisort(array_column($data,'admission_status'),SORT_DESC,array_column($data,'total_score'),SORT_DESC,$data);
         foreach ($data as $key => $value) {
             $data[$key]['ranking'] = $ranking;

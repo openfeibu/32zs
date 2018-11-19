@@ -41,35 +41,33 @@
 	<div class="main-content">
 				<div class="login-container">
 						<div class="login-box ">
-						<div class="login-box-title">
-							<div class="login-logo"><img src="__PUBLIC__/img/login-logo.png" alt=""></div>
-							<p>三二分段招生系统（广东农工商职业技术学院）</p>
-						</div>
-						<form class="ajaxForm3" name="runlogin" id="runlogin" method="post" action="{:url('admin/Login/runlogin')}">
+                            <div class="login-box-title">
+                                <div class="login-logo"><img src="__PUBLIC__/img/login-logo.png" alt=""></div>
+                                <p>中高职贯通招生管理系统（广东农工商职业技术学院）</p>
+                            </div>
+                            <form class="ajaxForm3" name="runlogin" id="runlogin" method="post" action="{:url('admin/Login/runlogin')}">
+                                <label >
+                                    <span class="block input-icon input-icon-right">
+                                        <input type="text" class="form-control" name="admin_username" id="admin_username" placeholder="用户名" required/>
 
-								<label >
-											<span class="block input-icon input-icon-right">
-												<input type="text" class="form-control" name="admin_username" id="admin_username" placeholder="用户名" required/>
+                                    </span>
+                                </label>
 
-											</span>
-								</label>
-
-								<label >
-											<span class="block input-icon input-icon-right">
-												<input type="password" class="form-control" name="admin_pwd" id="admin_pwd" placeholder="输入密码" required/>
-
-											</span>
-								</label>
-								<button type="submit" class="login-submit">
-										<span class="bigger-110">登录</span>
-								</button>
-								<div class="clearfix rememberme">
-									<label class="inline">
-										<input name="rememberme" type="checkbox" class="ace" />
-										<span class="lbl"> 记住账号</span>
-									</label>
-								</div>
-						</form>
+                                <label >
+                                    <span class="block input-icon input-icon-right">
+                                        <input type="password" class="form-control" name="admin_pwd" id="admin_pwd" placeholder="输入密码" required/>
+                                    </span>
+                                </label>
+                                <button type="submit" class="login-submit">
+                                    <span class="bigger-110">登录</span>
+                                </button>
+                                <div class="clearfix rememberme">
+                                    <label class="inline">
+                                        <input name="rememberme" type="checkbox" class="ace" />
+                                        <span class="lbl"> 记住账号</span>
+                                    </label>
+                                </div>
+                            </form>
 						</div><!-- /.login-box -->
 				</div>
 	</div><!-- /.main-content -->

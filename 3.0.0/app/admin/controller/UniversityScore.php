@@ -147,7 +147,7 @@ class UniversityScore extends Base
 
         $school = Db::name('school')->where(['school_id' =>$school_id ])->find();
 
-        $title = $school['school_name'].'  '.$major['major_name'].'专业   核定理论成绩单';
+        $title = $school['school_name'].'  '.$major['major_name'].'专业   转段考核成绩单';
 
         $major_score = $major['score'] ? json_decode($major['score'],true) :[];
         $major_score = array_filter($major_score);
@@ -162,7 +162,7 @@ class UniversityScore extends Base
             $field_titles[$i] = $mv;
             $i++;
         }
-        $field_titles[$i] = '核定理论成绩';
+        $field_titles[$i] = '转段考核成绩';
         $field_titles[$i+1] = '审核状态';
 
         $fields = ['no','member_list_nickname','ZexamineeNumber','member_list_username','major_name','major_score_total'];
@@ -175,7 +175,7 @@ class UniversityScore extends Base
         $fields[$i] = 'major_score_total';
         $fields[$i+1] = 'status_desc';
 
-        $table = $school['school_name'].$major['major_name'].'专业核定理论成绩单'.date('Ymd');
+        $table = $school['school_name'].$major['major_name'].'专业转段考核成绩单'.date('Ymd');
 
         $this->score_list_export_pdf($field_titles,$fields,$data,$table,$title);
         return false;
@@ -324,7 +324,7 @@ class UniversityScore extends Base
 
         $subject_list = SubjectModel::get_subject_list($major_id, $school_id, '', $subject_ids);
 
-        $data = $this->scoreModel->getMajorScoreList($map,'','',$subject_list,0);
+        $data = $this->scoreModel->getMajorScoreList($map,$where,'',$subject_list,0);
 
         $score_list = $data['score_list'];
         $major = MajorModel::get_major_detail($major_id,$school_id);
@@ -351,7 +351,7 @@ class UniversityScore extends Base
             $j++;
         }
 
-        $table = $school['school_name'].$major_name.'基础理论成绩录入模板';
+        $table = $school['school_name'].$major_name.'转段考核成绩录入模板';
 
         export_excel($score_list,$table,$field_titles,$fields);
 
