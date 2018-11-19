@@ -78,7 +78,7 @@ class Index extends Base
 			$recruit_major_count = Db::name('recruit_major')->count();
 			$major_count = Db::name('major')->count();
 			$min_score = Db::name('min_score')->value('min_score');
-			$enroll_count = Db::name('enrollment')->sum('enrollment_number');
+			$enroll_count = Db::name('enrollment')->where(get_year_where())->sum('enrollment_number');
 			$student_count = Db::name('member_list')->count();
 			$enroll_student_count =  Db::name('statistics')->where('ydate',$ydate)->value('enroll_student_count');
 			$statistics = [
