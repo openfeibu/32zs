@@ -297,7 +297,7 @@ class Enrollment extends Base
             foreach($enrollment as $ek => $ev)
             {
                 $admin_id++;
-                $admin_username = 'aib'.str_pad($admin_id,3,"0",STR_PAD_LEFT);
+                $admin_username = 'gdaib'.str_pad($admin_id,3,"0",STR_PAD_LEFT);
                 AdminModel::add($admin_username,'','123456','','',input('admin_open',1),'',3,$ev['school_id'],json_encode(array('0' => trim($ev['major_ids'],','))));
             }
             foreach ($new_recruit_majors as $nrmk => $recruit_major)
