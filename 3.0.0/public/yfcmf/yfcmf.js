@@ -1355,7 +1355,7 @@ $(function(){
 				<div class="col-sm-2">\
 				<input type="text" name="room_name[]" value="" />\
 				</div>\
-				<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 容纳数 </label>\
+				<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 容纳人数： </label>\
 				<div class="col-sm-2"><input type="text" name="room_number[]" value="" /></div>\
 				</div>';
 			$(this).parent().parent().before(html);

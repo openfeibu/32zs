@@ -13,6 +13,7 @@ use app\admin\model\Major as MajorModel;
 use app\admin\model\RecruitMajor as RecruitMajorModel;
 use app\admin\model\MemberList;
 use app\admin\model\Enrollment as EnrollmentModel;
+use app\admin\model\Score as ScoreModel;
 use think\Db;
 use think\Cache;
 
@@ -106,30 +107,23 @@ class Matriculate extends Base
 
     		$data = $member_list;
             $ranking = 1;
+            $score_model = new ScoreModel();
     		foreach ($data as $key => $value) {
                 $major = MajorModel::get_major_detail($value['major_id'],$value['school_id']);
-    			$major_score_arr = [];
-    			$major_score_desc =  '';
-                $major_score_total = 0;
+                $subject_list = $major['subjects'];
+                $major_score_data = $score_model->get_member_subject_score($subject_list,$value['member_list_id']);
+
+                $major_score_arr = $major_score_data['major_score_arr'];
     			$major_subject_name_arr = $major['major_subject_name_arr'];
-    			if($value['major_score']){
-    				$major_score_arr = json_decode($value['major_score'],true);
-    				$major_score_desc = major_score_desc($major_subject_name_arr,$major_score_arr);
-    				$major_score_total = handle_major_score($major_score_arr);
-    			}
-    			else{
-    				$major_score_arr = json_decode($value['major_score'],true);
-    				$major_score_arr = handle_major_score_arr($major_subject_name_arr,$major_score_arr);
-    			}
+
+                $major_score_desc = major_score_desc($major_subject_name_arr,$major_score_arr);
+                $major_score_total = handle_major_score($major_score_arr);
+
     			$data[$key]['major_score_arr'] = $major_score_arr;
     			$data[$key]['major_score_desc'] = $major_score_desc;
     			$data[$key]['major_score_total'] = $major_score_total;
-    			$data[$key]['total_score'] = $major_score_total + $value['recruit_score'];
-                $data[$key]['admission_status'] = 1;
-                if($value['recruit_score'] < $min_score)
-                {
-                    $data[$key]['admission_status'] = 0;
-                }
+    			$data[$key]['total_score'] = $major_score_total;
+                $data[$key]['admission_status'] = $major_score_data['admission_status'];
                 $data[$key]['recruit_major_name'] = $recruit_major['recruit_major_name'];
                 $data[$key]['member_list_username'] = $value['member_list_username']."\t";
                 $data[$key]['ZexamineeNumber'] = $value['ZexamineeNumber']."\t";

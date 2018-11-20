@@ -8,6 +8,7 @@ use app\admin\model\Major as MajorModel;
 use app\admin\model\Enrollment as EnrollmentModel;
 use app\admin\model\MemberList;
 use app\admin\model\Examination as ExaminationModel;
+use app\admin\model\Subject as SubjectModel;
 
 class Examination extends Base
 {
@@ -86,6 +87,32 @@ class Examination extends Base
     {
         $rooms = Db::name('room')->where('school_id',$this->admin['school_id'])->order('room_id','asc')->select();
         $this->assign('rooms',$rooms);
+
+        $major_ids = json_decode($this->admin['major_id'],true);
+        $data = array();
+
+        foreach ($major_ids as $key => $major_id)
+        {
+            $subject_list = SubjectModel::get_subject_list($major_id,$this->admin['school_id']);
+            $data[$key]['subject_list'] = $subject_list;
+            $enrollment = EnrollmentModel::get_enrollment_major($this->admin['school_id'],$major_id);
+            $data[$key]['recruit_major_name'] = $enrollment['recruit_major_name'];
+            $major = Db::name('major')->find($major_id);
+            $data[$key]['major_name'] = $major['major_name'];
+            $data[$key]['major_id'] = $major['major_id'];
+            $member_count = Db::name('member_list')->where(['major_id' => ['in',$major['major_id']],'school_id' => $this->admin['school_id'],'user_status' => 1])->where(get_year_where())->count();
+            $data[$key]['member_count'] = $member_count;
+            $data[$key]['is_examination'] = 0;
+            $examination_list = Db::name('examination')->where('school_id',$this->admin['school_id'])->where('major_id',$major_id)->select();
+            if($examination_list)
+            {
+
+            }else{
+
+            }
+        }
+        $this->assign('data',$data);
+        return $this->fetch();
         $recruit_major_data = EnrollmentModel::get_enrollment_recruit_major($this->admin['school_id']);
 
         foreach ($recruit_major_data as $rk => $recruit_major) {

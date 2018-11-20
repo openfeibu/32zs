@@ -12,6 +12,7 @@
 								<th>对口高职专业</th>
 								<th>中职专业</th>
                                 <th>已审核人数</th>
+                                <th>科目安排</th>
                                 <th>考场安排</th>
                                 <th>日期安排</th>
                                 <th>时间安排</th>
@@ -20,39 +21,46 @@
 							</thead>
 
 							<tbody >
-                                {foreach name='recruit_major_data' item='v'}
+                                {foreach name='data' item='v'}
+                                {foreach name="v['subject_list']" item="subject"}
                                 <tr>
                                     <td height="28" >
-                                        <input type="hidden" name="recruit_major_id" value="{$v.recruit_major_id}">
+                                        <input type="hidden" name="major_id" value="{$v.major_id}">
                                     </td>
 									<td>{$v.recruit_major_name}</td>
                                     <td>
-                                        {foreach name="v['majors']" item='major'}
-                                            {$major.major_name}
-                                        {/foreach}
+                                        {$v.major_name}
                                     </td>
                                     <td class="member_count" data-value="{$v.member_count}">{$v.member_count}</td>
                                     <td width="400px">
+                                        {foreach name="v['subject_list']" item="subject_two"}
+                                        <label>
+                                            <input type="checkbox" name="subject_id" value="{$subject_two.subject_id}" class="subject_id" {if $subject_two.subject_id == $subject.subject_id} checked {/if} />{$subject_two.subject_name}
+                                        </label>
+                                        {/foreach}
+                                    </td>
+                                    <td width="400px">
                                         {foreach name="rooms" item='rv'}
                                         <label>
-                                            <input type="checkbox" name="room_id" value="{$rv.room_id}" class="room_id" attr-value="{$rv.room_number}" {if in_array($rv['room_id'],$v['room_id'])}checked{/if}/>{$rv.room_name}({$rv.room_number}人)
+                                            <input type="checkbox" name="room_id" value="{$rv.room_id}" class="room_id" attr-value="{$rv.room_number}" />{$rv.room_name}({$rv.room_number}人)
                                         </label>
                                         {/foreach}
                                     </td>
                                     <td>
-                                        <input type="text" class="layui-input date" id="date_{$v.recruit_major_id}" name="date" style="width:100px;" value="{$v.examination.date|default=date('Y-m-d')}">
+                                        <input type="text" class="layui-input date" id="date_{$v.major_id}_{$subject.subject_id}" name="date" style="width:100px;" value="{$v.examination.date|default=date('Y-m-d')}">
                                     </td>
                                     <td>
-                                        <input type="text" class="layui-input starttime" id="starttime_{$v.recruit_major_id}" name="starttime" style="width:80px;margin-right:5px;" value="{$v.examination.starttime|default='00:00'}">
-                                        <input type="text" class="layui-input endtime" id="endtime_{$v.recruit_major_id}" name="starttime" style="width:80px;" value="{$v.examination.endtime|default='00:00'}"></td>
+                                        <input type="text" class="layui-input starttime" id="starttime_{$v.major_id}_{$subject.subject_id}" name="starttime" style="width:80px;margin-right:5px;" value="{$v.examination.starttime|default='00:00'}">
+                                        <input type="text" class="layui-input endtime" id="endtime_{$v.major_id}_{$subject.subject_id}" name="starttime" style="width:80px;" value="{$v.examination.endtime|default='00:00'}"></td>
                                     <td>
                             			<div class="hidden-sm hidden-xs action-buttons">
                             				<button class="btn btn-fb-blue fb-radio examination-btn examination-submit" {if $v['is_examination'] == 1}{else}disabled{/if}>保存</button>
-                                            <button class="btn btn-fb-blue fb-radio examination-btn examination-submit download" {if $v['is_examination'] == 1 }{else}disabled{/if} style="width:100px" href='{:url('admin/Examination/exportExamination',['recruit_major_id' => $v['recruit_major_id']])}'>导出准考证</button>
-                                            <button class="btn btn-fb-blue fb-radio examination-btn examination-submit download" {if $v['is_examination'] == 1 }{else}disabled{/if} style="width:100px" href='{:url('admin/Examination/exportExaminationSeats',['recruit_major_id' => $v['recruit_major_id']])}'>导出座位贴</button>
+                                            <button class="btn btn-fb-blue fb-radio examination-btn examination-submit download" {if $v['is_examination'] == 1 }{else}disabled{/if} style="width:100px" href='{:url('admin/Examination/exportExamination',['major_id' => $v['major_id']])}'>导出准考证</button>
+                                            <button class="btn btn-fb-blue fb-radio examination-btn examination-submit download" {if $v['is_examination'] == 1 }{else}disabled{/if} style="width:100px" href='{:url('admin/Examination/exportExaminationSeats',['major_id' => $v['major_id']])}'>导出座位贴</button>
                             			</div>
                                     </td>
                                 </tr>
+                                {/foreach}
                                 {/foreach}
 							</tbody>
 						</table>
@@ -63,20 +71,22 @@
 	</div><!-- /.page-content -->
     <script>
         $(function(){
-            {foreach name='recruit_major_data' item='v'}
+            {foreach name='data' item='v'}
+            {foreach name="v['subject_list']" item='subject'}
             laydate.render({
-              elem: '#date_{$v.recruit_major_id}'
+              elem: '#date_{$v.major_id}_{$subject.subject_id}'
             });
             laydate.render({
-              elem: '#starttime_{$v.recruit_major_id}'
+              elem: '#starttime_{$v.major_id}_{$subject.subject_id}'
               ,type: 'time'
               ,format: 'HH:mm'
             });
             laydate.render({
-              elem: '#endtime_{$v.recruit_major_id}'
+              elem: '#endtime_{$v.major_id}_{$subject.subject_id}'
               ,type: 'time'
               ,format: 'HH:mm'
             });
+            {/foreach}
             {/foreach}
             $(".examination-submit").click(function(){
                 load = layer.load(1);

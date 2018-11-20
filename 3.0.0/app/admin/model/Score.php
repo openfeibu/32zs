@@ -306,7 +306,7 @@ class Score extends Model
         $subject_score_list = array_column($subject_score_list,NULL,'subject_id');
         $major_score_status = 1;
         $admission_status = 1;
-        if(count($score_subject_id_arr) < count($subject_score_list))
+        if(count($score_subject_id_arr) < count($subject_list) || count($subject_list) == 0)
         {
             $major_score_status = 0;
             $admission_status = 0;
