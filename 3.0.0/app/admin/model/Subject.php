@@ -17,23 +17,30 @@ class Subject extends Model
 {
     protected $tableName = 'subject';
 
-    public static function get_subject_list($major_id,$school_id,$year='',$subject_ids='')
+    public static function get_subject_list($major_id,$school_id,$year='',$subject_ids='',$where=[])
     {
-        $cache_name = $major_id.'_'.$school_id.'_'.$subject_ids.'_'.$year.'_'.'subject_list';
-        $subject_list_cache = Cache::get($cache_name);
-        if($subject_list_cache)
+        if(!$where)
         {
-            return $subject_list_cache;
+            $cache_name = $major_id.'_'.$school_id.'_'.$subject_ids.'_'.$year.'_'.'subject_list';
+            $subject_list_cache = Cache::get($cache_name);
+            if($subject_list_cache)
+            {
+                return $subject_list_cache;
+            }
         }
         $subject_list =  Db::name('subject')->where(['major_id' => $major_id , 'school_id' => $school_id]);
         if($subject_ids)
         {
             $subject_list = $subject_list->where('subject_id','in',$subject_ids);
         }
+        if($where)
+        {
+            $subject_list = $subject_list->where($where);
+        }
         $subject_list = $subject_list->select();
-
-        Cache::tag($major_id.'_'.$school_id.'_'.'subject_list')->set($major_id.'_'.$school_id.'_'.$subject_ids.'_'.$year.'_'.'subject_list', $subject_list);
-
+        if(!$where) {
+            Cache::tag($major_id . '_' . $school_id . '_' . 'subject_list')->set($major_id . '_' . $school_id . '_' . $subject_ids . '_' . $year . '_' . 'subject_list', $subject_list);
+        }
         return $subject_list;
     }
 }

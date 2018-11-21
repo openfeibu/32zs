@@ -48,41 +48,7 @@ class Examination extends Base
         }
         $this->success('已保存',url('admin/Examination/rooms'));
     }
-    /*
-    public function createExamination()
-    {
-        $rooms = Db::name('room')->where('school_id',$this->admin['school_id'])->order('room_id','asc')->select();
-        $this->assign('rooms',$rooms);
-        $major_ids = json_decode($this->admin['major_id'],true);
-        $major_list = MajorModel::get_secondary_vocat_major_list($major_ids,$this->admin['school_id']);
-        $recruit_major_data = array();
-        $member_count = Db::name('member_list')->where(['major_id' => ['in',$major_ids],'school_id' => $this->admin['school_id'],'user_status' => 1])->count();
-        foreach ($major_list as $key => $major) {
-            $recruit_major_id = $major['recruit_major_id'];
-            $recruit_major_data[$recruit_major_id]['recruit_major_name'] = $major['recruit_major_name'];
-            $recruit_major_data[$recruit_major_id]['recruit_major_id'] = $recruit_major_id;
-            $recruit_major_data[$recruit_major_id]['majors'][] =  $major;
-        }
-        foreach($recruit_major_data as $rk => $recruit_major)
-        {
-            $examination = Db::name('examination')->where('recruit_major_id',$recruit_major['recruit_major_id'])->where('school_id',$this->admin['school_id'])->find();
-            $room_id = [];
-            $recruit_major_data[$rk]['examination'] = [];
-            if($examination)
-            {
-                $examination_rooms = Db::name('examination_room')->where('examination_id',$examination['examination_id'])->select();
-                foreach($examination_rooms as $ex => $examination_room){
-                    $room_id[] = $examination_room['room_id'];
-                }
-                $recruit_major_data[$rk]['examination'] = $examination;
-            }
-            $recruit_major_data[$rk]['room_id'] = $room_id;
-        }
 
-        $this->assign('member_count',$member_count);
-        $this->assign('recruit_major_data',$recruit_major_data);
-        return $this->fetch();
-    }*/
     public function createExamination()
     {
         $rooms = Db::name('room')->where('school_id',$this->admin['school_id'])->order('room_id','asc')->select();
@@ -93,8 +59,47 @@ class Examination extends Base
 
         foreach ($major_ids as $key => $major_id)
         {
-            $subject_list = SubjectModel::get_subject_list($major_id,$this->admin['school_id']);
+            $examination_list = Db::name('examination')->where('school_id',$this->admin['school_id'])->where('major_id',$major_id)->select();
+            $examination_list_data = array();
+            $all_examination_subject_id_arr = array();
+            foreach ($examination_list as $examination_key => $examination)
+            {
+                $examination_list_data[$examination_key] = $examination;
+
+                $examination_subject_list = Db::name('examination_subject')->alias('es')
+                    ->join(config('database.prefix').'subject s','es.subject_id = s.subject_id')
+                    ->where('es.examination_id',$examination['examination_id'])
+                    ->field('s.subject_name,s.subject_id,es.examination_id')
+                    ->select();
+
+                $examination_subject_id_arr = array_column($examination_subject_list,'subject_id');
+                $all_examination_subject_id_arr = array_merge($examination_subject_id_arr,$all_examination_subject_id_arr);
+                $examination_list_data[$examination_key]['examination_subject_list'] = $examination_subject_list;
+                $examination_list_data[$examination_key]['examination_subject_id_arr'] = $examination_subject_id_arr;
+
+                $examination_room_list = Db::name('examination_room')->alias('er')
+                    ->join(config('database.prefix').'room r','r.room_id = er.room_id')
+                    ->where('er.examination_id',$examination['examination_id'])
+                    ->field('r.room_name,r.room_id,er.examination_id')
+                    ->select();
+                $examination_room_id_arr = array_column($examination_room_list,'room_id');
+                $examination_list_data[$examination_key]['examination_room_list'] = $examination_room_list;
+                $examination_list_data[$examination_key]['examination_room_id_arr'] = $examination_room_id_arr;
+
+            }
+
+            $data[$key]['examination_list_data'] = $examination_list_data;
+            $data[$key]['all_examination_subject_id_arr'] = $all_examination_subject_id_arr;
+            $where = [];
+            if(count($all_examination_subject_id_arr))
+            {
+                $where = ['subject_id' => ['not in',$all_examination_subject_id_arr]];
+            }
+
+            $subject_list = SubjectModel::get_subject_list($major_id,$this->admin['school_id'],'','');
             $data[$key]['subject_list'] = $subject_list;
+            $left_subject_list = SubjectModel::get_subject_list($major_id,$this->admin['school_id'],'','',$where);
+            $data[$key]['left_subject_list'] = $left_subject_list;
             $enrollment = EnrollmentModel::get_enrollment_major($this->admin['school_id'],$major_id);
             $data[$key]['recruit_major_name'] = $enrollment['recruit_major_name'];
             $major = Db::name('major')->find($major_id);
@@ -103,63 +108,42 @@ class Examination extends Base
             $member_count = Db::name('member_list')->where(['major_id' => ['in',$major['major_id']],'school_id' => $this->admin['school_id'],'user_status' => 1])->where(get_year_where())->count();
             $data[$key]['member_count'] = $member_count;
             $data[$key]['is_examination'] = 0;
-            $examination_list = Db::name('examination')->where('school_id',$this->admin['school_id'])->where('major_id',$major_id)->select();
-            if($examination_list)
-            {
-
-            }else{
-
-            }
         }
         $this->assign('data',$data);
-        return $this->fetch();
-        $recruit_major_data = EnrollmentModel::get_enrollment_recruit_major($this->admin['school_id']);
-
-        foreach ($recruit_major_data as $rk => $recruit_major) {
-            $major_id_arr = array_filter(explode(',',$recruit_major['major_ids']));
-            $member_count = Db::name('member_list')->where(['major_id' => ['in',$major_id_arr],'school_id' => $this->admin['school_id'],'user_status' => 1])->count();
-            $recruit_major_data[$rk]['member_count'] = $member_count;
-            $major_list = MajorModel::get_secondary_vocat_major_list($major_id_arr,$this->admin['school_id']);
-            $recruit_major_data[$rk]['majors'] = $major_list;
-            $examination = ExaminationModel::getExamination($recruit_major['recruit_major_id'],$this->admin['school_id']);
-            $room_id = [];
-            $recruit_major_data[$rk]['examination'] = [];
-            $recruit_major_data[$rk]['is_examination'] = 0;
-            if($examination)
-            {
-                $examination_rooms = Db::name('examination_room')->where('examination_id',$examination['examination_id'])->select();
-                foreach($examination_rooms as $ex => $examination_room){
-                    $room_id[] = $examination_room['room_id'];
-                }
-                $recruit_major_data[$rk]['examination'] = $examination;
-                $recruit_major_data[$rk]['is_examination'] = 1;
-            }
-            $recruit_major_data[$rk]['room_id'] = $room_id;
+        if(request()->isAjax()){
+            return $this->fetch('examination_table');
         }
-
-        $this->assign('recruit_major_data',$recruit_major_data);
         return $this->fetch();
     }
     public function storeExamination()
     {
         $post_data = input('post.');
-        $data['recruit_major_id'] = $recruit_major_id = $post_data['recruit_major_id'];
+        $data['major_id'] = $major_id = $post_data['major_id'];
+        $data['examination_id'] = $examination_id = $post_data['examination_id'] ?? 0;
         $data['date'] = $date = $post_data['date'];
         $data['starttime'] = $starttime = $post_data['starttime'];
         $data['endtime'] = $endtime = $post_data['endtime'];
         $data['school_id'] = $this->admin['school_id'];
         $room_ids = $post_data['room_id'];
+        $subject_ids = $post_data['subject_id'];
         if(strtotime($starttime) >= strtotime($endtime))
         {
             $this->error('时间安排不正确');
         }
-        $examination = ExaminationModel::getExamination($recruit_major_id,$this->admin['school_id']);
+        if(!count($subject_ids))
+        {
+            $this->error('请选择考试科目');
+        }
+        $examination = (new ExaminationModel())->find($examination_id);
         foreach ($room_ids as $key => $room_id) {
             $other_examination_rooms = Db::name('examination')->alias('e')
                                 ->join(config('database.prefix').'examination_room er','er.examination_id = e.examination_id')
-                                ->join(config('database.prefix').'room r','r.room_id = er.room_id')
-                                ->where('e.recruit_major_id','<>',$recruit_major_id)
-                                ->where('e.school_id',$this->admin['school_id'])
+                                ->join(config('database.prefix').'room r','r.room_id = er.room_id');
+            if($examination)
+            {
+                $other_examination_rooms = $other_examination_rooms->where('e.examination_id','<>',$examination['examination_id']);
+            }
+            $other_examination_rooms = $other_examination_rooms->where('e.school_id',$this->admin['school_id'])
                                 ->where('r.room_id',$room_id)
                                 ->field('e.*,r.room_name')
                                 ->select();
@@ -188,6 +172,7 @@ class Examination extends Base
                 'endtime' => $post_data['endtime'],
             ]);
             Db::name('examination_room')->where('examination_id',$examination['examination_id'])->delete();
+            Db::name('examination_subject')->where('examination_id',$examination['examination_id'])->delete();
             $examination_id = $examination['examination_id'];
         }else{
             Db::name('examination')->insert($data);
@@ -196,17 +181,34 @@ class Examination extends Base
         foreach ($room_ids as $key => $room_id) {
             Db::name('examination_room')->insert(['room_id' => $room_id,'examination_id' => $examination_id]);
         }
-        $this->success('已保存',url('admin/Examination/createExamination'));
+        foreach ($subject_ids as $key => $subject_id) {
+            Db::name('examination_subject')->insert(['subject_id' => $subject_id,'examination_id' => $examination_id]);
+        }
+        $this->success('已保存',url('admin/Examination/createExamination'),['examination_id' => $examination_id]);
+    }
+    public function deleteExamination()
+    {
+        $examination_id = input('examination_id','');
+        $examination = ExaminationModel::get($examination_id);
+        if(!$examination)
+        {
+            $this->error('考试安排不存在');
+        }
+        $examination->delete();
+        Db::name('examination_room')->where('examination_id',$examination['examination_id'])->delete();
+        Db::name('examination_subject')->where('examination_id',$examination['examination_id'])->delete();
+        $this->success('删除成功',url('admin/Examination/createExamination'));
     }
     public function exportExamination()
     {
-        $recruit_major_id = input('recruit_major_id');
-        $school_id = $this->admin['school_id'];
-        $enrollment = Db::name('enrollment')->where(['school_id' => $school_id,'recruit_major_id' => $recruit_major_id])->find();
-        $recruit_major = Db::name('recruit_major')->where(['recruit_major_id' => $recruit_major_id])->find();
-        $major_ids = array_filter(explode(',',$enrollment['major_ids']));
-        $where['s.school_id'] = $school_id;
-        $where['a.major_id'] = array('in',$major_ids);
+        $examination_id = input('examination_id');
+        $examination = ExaminationModel::get($examination_id);
+        if(!$examination)
+        {
+            $this->error('考试安排不存在');
+        }
+        $where['s.school_id'] = $examination['school_id'];
+        $where['a.major_id'] = $examination['major_id'];
         $member_model=new MemberList;
         $member_list = $member_model->alias('a')->join(config('database.prefix').'member_group b','a.member_list_groupid=b.member_group_id')
                 ->join(config('database.prefix').'member_info mi','mi.member_list_id = a.member_list_id')
@@ -214,12 +216,13 @@ class Examination extends Base
                 ->join(config('database.prefix').'major m','a.major_id = m.major_id')
                 ->where($where)
                 ->where('a.user_status',1)
+                ->where(get_year_where('a'))
                 //->where('a.member_list_id','in',['138','160'])
                 ->field('a.member_list_nickname,a.member_list_username,a.member_list_headpic, mi.ZexamineeNumber')
-                //->limit(2)
+                ->limit(2)
                 ->select();
-        $examination = ExaminationModel::getExamination($recruit_major['recruit_major_id'],$this->admin['school_id']);
-        $examination_rooms = Db::name('examination_room')->alias('er')
+
+        $examination_room_list = Db::name('examination_room')->alias('er')
                             ->join(config('database.prefix').'room r','r.room_id = er.room_id')
                             ->where('er.examination_id',$examination['examination_id'])
                             ->field('r.room_id,r.room_number,r.room_name')
@@ -227,7 +230,7 @@ class Examination extends Base
                             ->select();
         $i = 0;
         $rooms_data = [];
-        foreach ($examination_rooms as $erk => $erv) {
+        foreach ($examination_room_list as $erk => $erv) {
             $room_number = $erv['room_number'];
             for ($num=1; $num <= $room_number; $num++) {
                 $rooms_data[$i] =[
@@ -237,16 +240,24 @@ class Examination extends Base
                 $i++;
             }
         }
-
+        $examination_subject_list = Db::name('examination_subject')->alias('es')
+            ->join(config('database.prefix').'subject s','es.subject_id = s.subject_id')
+            ->where('es.examination_id',$examination['examination_id'])
+            ->field('s.subject_name,s.subject_id,es.examination_id')
+            ->select();
+        $examination_subject_name_arr = array_column($examination_subject_list,'subject_name');
+        $examination_subject_names = implode(' ',$examination_subject_name_arr);
+        $recruit_major = RecruitMajorModel::get_recruit_major($examination['school_id'],$examination['major_id']);
         $this->assign('recruit_major',$recruit_major);
         $this->assign('examination',$examination);
+        $this->assign('examination_subject_names',$examination_subject_names);
 
         require_once(EXTEND_PATH . 'tcpdf/examples/lang/eng.php');
         require_once(EXTEND_PATH . 'tcpdf/TCPDF.php');
 		$pdf = new \tcpdf\TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 		$pdf->SetCreator(PDF_CREATOR);
 		$pdf->SetAuthor(config('pdf_common.author'));
-		$pdf->SetTitle("专业技能考核准考证");
+		$pdf->SetTitle("转段考核准考证");
 		$pdf->SetSubject('TCPDF Tutorial');
 		$pdf->SetKeywords('TCPDF, PDF, example, test, guide');
 		$pdf->setPrintHeader(false);
@@ -285,13 +296,15 @@ class Examination extends Base
     }
     public function exportExaminationSeats()
     {
-        $recruit_major_id = input('recruit_major_id');
-        $school_id = $this->admin['school_id'];
-        $enrollment = Db::name('enrollment')->where(['school_id' => $school_id,'recruit_major_id' => $recruit_major_id])->find();
-        $recruit_major = Db::name('recruit_major')->where(['recruit_major_id' => $recruit_major_id])->find();
-        $major_ids = array_filter(explode(',',$enrollment['major_ids']));
-        $where['s.school_id'] = $school_id;
-        $where['a.major_id'] = array('in',$major_ids);
+        $examination_id = input('examination_id');
+        $examination = ExaminationModel::get($examination_id);
+        if(!$examination)
+        {
+            $this->error('考试安排不存在');
+        }
+        $where['s.school_id'] = $examination['school_id'];
+        $where['a.major_id'] = $examination['major_id'];
+        $recruit_major = RecruitMajorModel::get_recruit_major($examination['school_id'],$examination['major_id']);
         $member_model=new MemberList;
         $member_list = $member_model->alias('a')->join(config('database.prefix').'member_group b','a.member_list_groupid=b.member_group_id')
                 ->join(config('database.prefix').'member_info mi','mi.member_list_id = a.member_list_id')
@@ -299,10 +312,11 @@ class Examination extends Base
                 ->join(config('database.prefix').'major m','a.major_id = m.major_id')
                 ->where($where)
                 ->where('a.user_status',1)
+                ->where(get_year_where('a'))
                 ->field('a.member_list_nickname,a.member_list_username,a.member_list_headpic, mi.ZexamineeNumber')
                 //->limit(11)
                 ->select();
-        $examination = ExaminationModel::getExamination($recruit_major['recruit_major_id'],$this->admin['school_id']);
+
         $examination_rooms = Db::name('examination_room')->alias('er')
                             ->join(config('database.prefix').'room r','r.room_id = er.room_id')
                             ->where('er.examination_id',$examination['examination_id'])
@@ -378,7 +392,7 @@ class Examination extends Base
 			$pdf->AddPage();
 		}
 		$pdf->lastPage();
-		$pdf->Output($recruit_major['recruit_major_name']."专业技能考核座位贴" . '.pdf', 'D');
+		$pdf->Output($recruit_major['recruit_major_name']."转段考核座位贴" . '.pdf', 'D');
         exit;
     }
 }

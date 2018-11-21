@@ -1451,24 +1451,199 @@ $(function(){
             }
         }
     });
-	$(".room_id").change(function(){
-		var member_count = parseInt($(this).parents("tr").find(".member_count").attr('data-value'));
-		count = 0;
-		$(this).parents("tr").find(".room_id:checkbox:checked").each(function(){
-			count += parseInt($(this).attr('attr-value'));
-		});
-		console.log('count'+count);
-		console.log('member_count'+member_count);
-		if(count >= member_count)
-		{
-			$(this).parents("tr").find('.examination-btn').attr('disabled',false);
-		}
-		else{
-			$(this).parents("tr").find('.examination-btn').attr('disabled',true);
-		}
-	});
+    $("body").on('change','.room_id',function(){
+        var member_count = parseInt($(this).parents("tr").find(".member_count").attr('data-value'));
+        count = 0;
+        $(this).parents("tr").find(".room_id:checkbox:checked").each(function(){
+            count += parseInt($(this).attr('attr-value'));
+        });
+        console.log('count'+count);
+        console.log('member_count'+member_count);
+        if(count >= member_count)
+        {
+            $(this).parents("tr").find('.examination-btn').attr('disabled',false);
+        }
+        else{
+            $(this).parents("tr").find('.examination-btn').attr('disabled',true);
+        }
+    });
+
+    $("body").on('change','.subject_id',function(){
+        var $tr = $(this).closest("tr");
+        var rank = $tr.attr('rank');
+        var major_id = $(this).attr('attr-major-id');
+        var subject_id = $(this).val();
+        var is_checked = $(this).prop('checked');
+        if(is_checked)
+        {
+            $('.'+major_id+'_'+subject_id).prop('checked',false);
+            $(this).prop('checked',true);
+        }else{
+            /*
+             var last_tr = $tr.parent().find('tr:last');
+             var last_rank = last_tr.attr('rank');
+             */
+            var last_rank = 0;
+            $('.examination').each(function(index_one,this_one) {
+                var this_rank = $(this_one).attr('rank');
+                if(this_rank > last_rank)
+                {
+                    last_rank = this_rank;
+                }
+            })
+            var max_rank = parseInt(last_rank)+1;
+            var clone_tr = $tr.clone();
+            $tr.after(clone_tr);
+            clone_tr.attr('rank',max_rank);
+            clone_tr.attr('id','examination_'+max_rank);
+            clone_tr.find('.subject_id').prop('checked',false);
+            clone_tr.find('.room_id').prop('checked',false);
+            clone_tr.find('button').prop('disabled',true);
+            clone_tr.find('.'+major_id+'_'+subject_id).prop('checked',true);
+            clone_tr.find("#date_"+rank).attr('id','date_'+max_rank);
+            clone_tr.find("#starttime_"+rank).attr('id','starttime_'+max_rank);
+            clone_tr.find("#endtime_"+rank).attr('id','endtime_'+max_rank);
+            laydate.render({
+                elem: '#date_'+max_rank
+            });
+            laydate.render({
+                elem: '#starttime_'+max_rank
+                ,type: 'time'
+                ,format: 'HH:mm'
+            });
+            laydate.render({
+                elem: '#endtime_'+max_rank
+                ,type: 'time'
+                ,format: 'HH:mm'
+            });
+        }
+
+        $('.examination_'+major_id).each(function(index_one,this_one) {
+            var length = $(this_one).find('.subject_id:checked').length;
+            if(length == 0)
+            {
+                $(this_one).remove();
+            }
+        });
+    })
+    $("body").on('click','.examination-submit',function(){
+        load = layer.load(1);
+        var pobject = $(this).closest("tr");
+        var major_id = pobject.find("input[name='major_id']").val();
+        var examination_id = pobject.find("input[name='examination_id']").val();
+        var date = pobject.find(".date").val();
+        var starttime = pobject.find(".starttime").val();
+        var endtime = pobject.find(".endtime").val();
+        var room_id = [];
+        var subject_id = [];
+        pobject.find("input[name='room_id']:checked").each(function(i){
+            room_id[i] = $(this).val();
+        });
+        pobject.find("input[name='subject_id']:checked").each(function(i){
+            subject_id[i] = $(this).val();
+        });
+        var is_download = $(this).hasClass('download');
+        var $this = $(this);
+        $.ajax({
+            url: "/admin/examination/storeExamination",
+            type:'POST',
+            async:true,
+            data:{'major_id':major_id,'date':date,'starttime':starttime,'endtime':endtime,'room_id':room_id,'subject_id':subject_id,'examination_id':examination_id},
+            success: function(data){
+                if (data.code == 1) {
+                    if(is_download){
+                        if(examination_id)
+                        {
+                            layer.close(load);
+                            window.location.href=$this.attr('href');
+                        }else{
+                            $.ajax({
+                                url:"/admin/examination/createExamination",
+                                type:"GET",
+                                data:{},
+                                success: function(data,status){
+                                    layer.close(load);
+                                    $("#ajax-data").html(data);
+                                }
+                            });
+                            window.location.href=$this.attr('href') + '?examination_id='+data.data.examination_id;
+                        }
+
+                    }
+                    else{
+                        layer.close(load);
+                        layer.alert(data.msg, {icon: 6});
+                        window.location.href=data.url;
+                    }
+                }else if(data.code == 0){
+                    layer.close(load);
+                    layer.alert(data.msg, {icon: 5});
+                }
+            }
+        });
+    });
+    $("body").on('click','.examination-delete',function(){
+        load = layer.load(1);
+        var pobject = $(this).closest("tr");
+        var examination_id = pobject.find("input[name='examination_id']").val();
+        var $this = $(this);
+        $.ajax({
+            url: "/admin/examination/deleteExamination",
+            type:'POST',
+            data:{'examination_id':examination_id},
+            success: function(data){
+                layer.close(load);
+                if (data.code == 1) {
+                    layer.alert(data.msg, {icon: 6});
+                    window.location.href=data.url;
+                }else if(data.code == 0){
+                    layer.alert(data.msg, {icon: 5});
+                }
+            }
+        });
+    });
+
 });
 function member_active()
 {
 
+}
+function downloadFile(url,skip_url){
+    var form=$("<form>");//定义form表单,通过表单发送请求
+    form.attr("style","display:none");//设置为不显示
+    form.attr("target","");
+    form.attr("method","get");//设置请求类型
+    form.attr("action",url);//设置请求路径
+    $("body").append(form);//添加表单到页面(body)中
+    form.submit();//表单提交
+
+    window.location.href=skip_url;
+}
+function download(url,name) {
+    var url = url;
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', url, true);    // 也可以使用POST方式，根据接口
+    xhr.responseType = "blob";  // 返回类型blob
+    // 定义请求完成的处理函数，请求前也可以增加加载框/禁用下载按钮逻辑
+    xhr.onload = function () {
+        // 请求完成
+        if (this.status === 200) {
+            // 返回200
+            var blob = this.response;
+            var reader = new FileReader();
+            reader.readAsDataURL(blob);  // 转换为base64，可以直接放入a表情href
+            reader.onload = function (e) {
+                // 转换完成，创建一个a标签用于下载
+                var a = document.createElement('a');
+                a.download = name;
+                a.href = e.target.result;
+                $("body").append(a);  // 修复firefox中无法触发click
+                a.click();
+                $(a).remove();
+            }
+        }
+    };
+    // 发送ajax请求
+    xhr.send()
+    return 1;
 }

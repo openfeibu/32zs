@@ -14,8 +14,8 @@ use think\Db;
 
 class Examination extends Model
 {
-    public static function getExamination($recruit_major_id,$school_id)
+    public static function getExamination($major_id,$school_id)
     {
-        return Db::name('examination')->where('recruit_major_id',$recruit_major_id)->where('school_id',$school_id)->find();
+        return Db::name('examination')->where('major_id',$major_id)->where('school_id',$school_id)->find();
     }
 }

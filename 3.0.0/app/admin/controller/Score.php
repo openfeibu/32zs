@@ -8,6 +8,7 @@
 // +----------------------------------------------------------------------
 namespace app\admin\controller;
 
+use app\admin\model\RecruitMajor;
 use app\admin\model\School as SchoolModel;
 use app\admin\model\Major as MajorModel;
 use app\admin\model\RecruitMajor as RecruitMajorModel;
@@ -135,11 +136,7 @@ class Score extends Base
 
 		foreach($score_list as $key => $val)
 		{
-            $recruit_major = Db::name('recruit_major')->alias('rm')
-                                    ->join(config('database.prefix').'enrollment e','e.recruit_major_id = rm.recruit_major_id')
-                                    ->where(array('e.major_ids' => array('LIKE' , '%,'.$val['major_id'].',%')))
-                                    ->where(array('e.school_id' => $val['school_id']))
-                                    ->find();
+            $recruit_major = RecruitMajor::get_recruit_major($val['school_id'],$val['major_id']);
             $score_list[$key]['recruit_major_name'] = $recruit_major['recruit_major_name'];
             $major = MajorModel::get_major_detail($val['major_id'],$val['school_id']);
             $major_subject_name_arr = $major['major_subject_name_arr'];
