@@ -26,7 +26,7 @@
 					<div class="form-group">
 						<label class="control-label no-padding-right" for="form-field-1" style="width:110px !important;">中职学校： </label>
 						<div class="col-sm-2">
-							<select name="school_id" class="ajax_change" id="school_id">
+							<select name="school_id" id="school2">
 								{foreach name="school_list" item="v"}
 								<option value="{$v.school_id}" {if condition="$school_id eq $v['school_id']"}selected="selected"{/if}>{$v.school_name}</option>
 								{/foreach}
