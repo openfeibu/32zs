@@ -351,6 +351,14 @@ $configs= [
         '1' => '已审核',
         '2' => '审核不通过'
     ],
+    'member_status' => [
+        '0' => '未审核',
+        '1' => '已审核',
+    ],
+    'member_status_desc' => [
+        '0' => '<span class="text-fb-orange">未审核</span>',
+        '1' => '<span class="text-fb-blue">已审核</span>',
+    ],
     'pdf_common' => [
         'header_name' => '2018年广东农工商职业技术学院三二分段招生',
         'author' => 'Gouweiba',

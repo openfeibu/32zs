@@ -449,7 +449,6 @@ margin: 5px;
         <!--endtprint1-->
         <div class="clearfix form-actions printHide">
             <div class="col-md-offset-3 col-md-9"  href="{:url('admin/Member/member_active')}" data-id="{$member_list_edit.member_list_id}">
-
                 {if isset($last_member_list_id)}
                 <button class="btn-button-page btn-fb-orange btn-fb-radio btn-height-40" type="button" {if $last_member_list_id}onclick="javascript:window,location.href='{:url('member/member_edit',['member_list_id' => $last_member_list_id])}';"{else}disabled{/if}>
                     上一位

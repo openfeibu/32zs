@@ -219,7 +219,7 @@ class Score extends Model
             $score_list[$key]['major_score_desc'] = $major_score_desc;
             $major_score_status = $val['major_score_status'] ? $val['major_score_status'] : 0 ;
             $score_list[$key]['major_score_status'] = $major_score_status ;
-            $score_list[$key]['status_desc'] = $status[$major_score_status] ;
+            $score_list[$key]['status_desc'] = $status[$major_score_status];
             $major_score_total = handle_major_score($major_score_arr);
             $score_list[$key]['major_score_total'] = $major_score_total;
             $j = 0;

@@ -305,7 +305,8 @@ class Enrollment extends Base
                 $admin_username = $pinyin->permalink($recruit_major['recruit_major_name'],'');
                 AdminModel::add($admin_username,'','123456','','',input('admin_open',1),'',4,0,0,$recruit_major['recruit_major_id']);
             }
-            echo 'success';exit;
+            $this->success('导入成功',url('admin/Enrollment/enrollment'));
+
             //    var_dump($recruit_major);exit;
             echo '-----------------------------------错误-----------------------------------';
             var_dump($errors);
