@@ -112,7 +112,14 @@ class Member extends Base
 			return $this->fetch();
 		}
 	}
-
+	public function sec_vocat_member_list()
+    {
+        return $this->member_list();
+    }
+    public function university_member_list()
+    {
+        return $this->member_list();
+    }
 	/*
      * 添加用户显示
      */
