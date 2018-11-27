@@ -261,6 +261,7 @@ class Member extends Base
 		$recruit_major = RecruitMajorModel::get_recruit_major($member_list_edit['school_id'],$member_list_edit['major_id']);
 		$this->assign('recruit_major',$recruit_major);
         $school_id = input('school_id','');
+        $where = $map = [];
 		if($this->admin['group_id'] == 3) {
             $major_ids = json_decode($this->admin['major_id'], true);
             $where['a.major_id'] = array('in', $major_ids);
