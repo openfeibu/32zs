@@ -102,7 +102,7 @@ $(function(){
         });
 		$("#downexcel").click(function(){
 			var major_id = $("#major").val();
-			var school_id = $('#school').val();
+			var school_id = $('#school2').val();
 			load = layer.load(1);
 			$.ajax({
 			    url:"{:url('admin/UniversityScore/check_major_score_import')}",
