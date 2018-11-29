@@ -6,27 +6,19 @@
            <!--startprint1-->
            <table width="800" style="margin:0 auto;border-radio:5px;">
                 <tr class="line-table-height" style="color:#333;font-size:16px;background:#971f21;color:#fff;line-height:35px">
-                   <td class="k-s-content"  width="40%">科目</td>
+                   <td class="k-s-content"  width="40%">转段考核科目</td>
                    <td class="k-s-content" >成绩</td>
                </tr>
                {if condition="!empty($major_score_arr)"}
-               {foreach name="major_score_key" item="v" key="k"}
+               {foreach name="subject_list" item="v" key="k"}
                <tr class="line-table-height">
-                   <td class="k-s-content"  width="40%">{$v}</td>
+                   <td class="k-s-content"  width="40%">{$v.subject_name}</td>
                    <td class="k-s-content" >{if isset($major_score_arr[$k])}{$major_score_arr[$k]}{/if}</td>
                </tr>
                {/foreach}
                <tr class="line-table-height">
-                   <td class="k-s-content" width="40%" >核定理论成绩</td>
-                   <td class="k-s-content" >{$major_score_total}</td>
-               </tr>
-               <tr class="line-table-height">
-                   <td class="k-s-content" width="40%" >技能考核成绩</td>
-                   <td class="k-s-content" >{$recruit_score}</td>
-               </tr>
-               <tr class="line-table-height">
                    <td class="k-s-content" width="40%" >总分</td>
-                   <td class="k-s-content" >{$total_score}</td>
+                   <td class="k-s-content" >{$major_score_total}</td>
                </tr>
                {else/}
                <tr class="line-table-height">
