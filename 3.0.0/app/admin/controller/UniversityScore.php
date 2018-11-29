@@ -13,6 +13,7 @@ use app\admin\model\Major as MajorModel;
 use app\admin\model\RecruitMajor as RecruitMajorModel;
 use app\admin\model\Score as ScoreModel;
 use app\admin\model\Subject as SubjectModel;
+use app\admin\model\Export as ExportModel;
 use think\Db;
 use think\Cache;
 use think\Loader;
@@ -24,6 +25,7 @@ class UniversityScore extends Base
         parent::__construct();
         $this->schoolModel = new SchoolModel();
         $this->scoreModel = new ScoreModel();
+        $this->exprot_model = new ExportModel();
     }
 
     public function score_list()
@@ -149,16 +151,13 @@ class UniversityScore extends Base
 
         $title = $school['school_name'].'  '.$major['major_name'].'专业   转段考核成绩单';
 
-        $major_score = $major['score'] ? json_decode($major['score'],true) :[];
-        $major_score = array_filter($major_score);
-
         $major_subject_name_arr = $major['major_subject_name_arr'];
 
-        $data = $this->scoreModel->handleMajorScoreList($data,$major_subject_name_arr,config("status_title"));
+        $data = $this->scoreModel->handleMajorScoreList($data['score_list'],$major_subject_name_arr,config("status_title"));
 
         $field_titles = ['序号','姓名','中职考生号','身份证号'];
         $i = 4;
-        foreach ($major_score as $k => $mv) {
+        foreach ($major_subject_name_arr as $k => $mv) {
             $field_titles[$i] = $mv;
             $i++;
         }
@@ -167,7 +166,7 @@ class UniversityScore extends Base
 
         $fields = ['no','member_list_nickname','ZexamineeNumber','member_list_username','major_name','major_score_total'];
         $i = 4; $j = 0;
-        foreach ($major_score as $k => $mv) {
+        foreach ($major_subject_name_arr as $k => $mv) {
             $fields[$i] = 'major_'.$j;
             $i++;
             $j++;
@@ -177,7 +176,7 @@ class UniversityScore extends Base
 
         $table = $school['school_name'].$major['major_name'].'专业转段考核成绩单'.date('Ymd');
 
-        $this->score_list_export_pdf($field_titles,$fields,$data,$table,$title);
+        $this->exprot_model->score_list_export_pdf($field_titles,$fields,$data,$table,$title);
         return false;
 
     }
