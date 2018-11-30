@@ -759,9 +759,16 @@ class Member extends Base
             }
 
 	        foreach ( $res as $k => $v ){
+                if ($k == 1)
+                {
+                    $title_arr = $v;
+                    $id_number_key = array_search("身份证",$title_arr) ?? array_search("身份证号",$title_arr) ;
+                    $zexaminee_number_key = array_search("中职考生号",$title_arr) ;
+                    $name_key = array_search("姓名",$title_arr) ;
+                }
 	            if ($k != 1 && trim($v[0])){
 	                $data=array();
-					$member_list_username = trim($v[0]);
+					$member_list_username = trim($v[$id_number_key]);
 					//通过身份证号查询出性别与生日
 					$birth = get_birth($member_list_username);
 					$sex = get_sex($member_list_username);
@@ -772,7 +779,7 @@ class Member extends Base
 	    				'member_list_username'=>$member_list_username,
 	    				'member_list_salt' => $member_list_salt,
 	    				'member_list_pwd'=>encrypt_password($member_list_pwd,$member_list_salt),
-	    				'member_list_nickname'=>$v[1],
+	    				'member_list_nickname'=>$v[$name_key],
 	    				'member_list_open'=>1,
 	    				'member_list_addtime'=>time(),
 	    				'user_status'=>0,
@@ -792,6 +799,7 @@ class Member extends Base
 	        			$data['prize'] = json_encode(config('prize'));
 	        			$data['family'] = json_encode(config('family'));
 						$data['date'] = $birth;
+                        $data['ZexamineeNumber'] = $zexaminee_number_key ? $v[$zexaminee_number_key] : '' ;
 						$data['sex'] = $sex;
 	        			$info = Db::name('member_info')->insert($data);
 	                }
