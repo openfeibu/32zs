@@ -353,7 +353,7 @@ function complete(data) {
 		window.location.href = data.url;
     } else {
 		if(typeof index!="undefined"){layer.close(index);}
-        ayer.alert(data.msg, {icon: 5});
+        layer.alert(data.msg, {icon: 5});
         window.location.href = data.url;
         return false;
     }
