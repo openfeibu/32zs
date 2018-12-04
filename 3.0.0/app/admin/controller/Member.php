@@ -77,7 +77,7 @@ class Member extends Base
 		$data = $member_list_data['member_list'];
 		$data = $member_model->handleMemberList($data);
 
-        if($this->admin['group_id'] == 5)
+        if(in_array($this->admin['group_id'],['5','1']))
         {
             $school_list = Db::name('school')->select();
             $this->assign('school_list', $school_list);
