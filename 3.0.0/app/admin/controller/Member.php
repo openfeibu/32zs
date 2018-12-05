@@ -757,7 +757,7 @@ class Member extends Base
             {
                 $this->error ('学生人数超过招生计划数'.$enrollment['enrollment_number'].'人',url('admin/Member/member_import'));
             }
-
+            $member_data = array();
 	        foreach ( $res as $k => $v ){
                 if ($k == 1)
                 {
@@ -768,49 +768,93 @@ class Member extends Base
                 }
 	            if ($k != 1 && trim($v[0])){
 	                $data=array();
+                    $member_list_nickname = trim($v[$name_key]);
 					$member_list_username = trim($v[$id_number_key]);
-					//通过身份证号查询出性别与生日
-					$birth = get_birth($member_list_username);
-					$sex = get_sex($member_list_username);
-	                $member_list_salt = random(10);
-	                $member_list_pwd = substr($member_list_username, -6);
-	                $sl_data = [
-	                    'member_list_groupid' => 1,
-	    				'member_list_username'=>$member_list_username,
-	    				'member_list_salt' => $member_list_salt,
-	    				'member_list_pwd'=>encrypt_password($member_list_pwd,$member_list_salt),
-	    				'member_list_nickname'=>$v[$name_key],
-	    				'member_list_open'=>1,
-	    				'member_list_addtime'=>time(),
-	    				'user_status'=>0,
-	    				'score'=>0,
-	    				'coin'=>0,
-	    				'school_id' => $school_id,
-	    				'major_id' => input('major_id'),
-                        'year' => input('year',date('Y'))
-	                ];
-	                $result = MemberList::create($sl_data);
+                    $s_idcard = is_idcard($member_list_username);
+                    if(!$s_idcard)
+                    {
+                        $this->error ($member_list_nickname.'身份证数据不正确（第'.($k+1).'行）');
+                    }
 
-	                if($result)
-	                {
-	                    $data['member_list_id'] = $result->member_list_id;
-	        			$data['certificate'] = json_encode(config('certificate'));
-	        			$data['resume'] = json_encode(config('resume'));
-	        			$data['prize'] = json_encode(config('prize'));
-	        			$data['family'] = json_encode(config('family'));
-						$data['date'] = $birth;
-                        $data['ZexamineeNumber'] = $zexaminee_number_key ? $v[$zexaminee_number_key] : '' ;
-						$data['sex'] = $sex;
-	        			$info = Db::name('member_info')->insert($data);
-	                }
-	                if (!$result){
-	                    $this->error ('导入数据失败',url('admin/Member/member_import'));
-	                }
+                    $member_data[$k]['member_list_username'] = $member_list_username;
+                    $member_data[$k]['member_list_nickname'] = $member_list_nickname;
+                    $member_data[$k]['ZexamineeNumber'] = $zexaminee_number_key ? $v[$zexaminee_number_key] : '' ;
+
 	            }
 			}
-			$this->success ('导入数据成功',url('admin/Member/member_list'));
+
+            $this->assign('member_data',$member_data);
+            $this->assign('major_id',$major_id);
+            $this->assign('school_id',$school_id);
+            return $this->fetch('ajax_member_import');
+
 		}
 	}
+	public function member_data_runimport()
+    {
+        $school_id = input('school_id');
+        $major_id = input('major_id');
+
+        $member_list_nicknames = input('member_list_nickname/a');
+        $member_list_usernames = input('member_list_username/a');
+        $ZexamineeNumbers = input('ZexamineeNumber/a');
+        $members = array();
+
+        foreach ($member_list_nicknames as $key => $member_list_nickname)
+        {
+            $member_list_username = $member_list_usernames[$key];
+
+            //通过身份证号查询出性别与生日
+            $birth = get_birth($member_list_username);
+            $sex = get_sex($member_list_username);
+            $member_list_salt = random(10);
+            $member_list_pwd = substr($member_list_username, -6);
+
+            $sl_data = [
+                'member_list_groupid' => 1,
+                'member_list_username'=>$member_list_username,
+                'member_list_salt' => $member_list_salt,
+                'member_list_pwd'=>encrypt_password($member_list_pwd,$member_list_salt),
+                'member_list_nickname'=> $member_list_nickname,
+                'member_list_open'=>1,
+                'member_list_addtime'=>time(),
+                'user_status'=>0,
+                'score'=>0,
+                'coin'=>0,
+                'school_id' => $school_id,
+                'major_id' => input('major_id'),
+                'year' => input('year',date('Y'))
+            ];
+
+            $result = MemberList::create($sl_data);
+
+            if($result)
+            {
+                $data['member_list_id'] = $result->member_list_id;
+                $data['certificate'] = json_encode(config('certificate'));
+                $data['resume'] = json_encode(config('resume'));
+                $data['prize'] = json_encode(config('prize'));
+                $data['family'] = json_encode(config('family'));
+                $data['date'] = $birth;
+                $data['ZexamineeNumber'] = $ZexamineeNumbers[$key];
+                $data['sex'] = $sex;
+                $info = Db::name('member_info')->insert($data);
+            }
+            if (!$result){
+                $this->error ('导入数据失败',url('admin/Member/member_import'));
+            }
+
+        }
+        Db::name('member_info')->insertAll($members);
+        if($this->admin['group_id'] == 3)
+        {
+            $this->success ('导入数据成功',url('admin/Member/sec_vocat_member_list'));
+        }
+        else{
+            $this->success ('导入数据成功',url('admin/Member/member_list'));
+        }
+
+    }
 
 	private function getMemberInfo($user)
 	{
