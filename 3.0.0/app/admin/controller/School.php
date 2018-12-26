@@ -268,8 +268,14 @@ class School extends Base
     public function subject_delete()
     {
         $subject_id = input('subject_id');
-
+		$subject = Db::name('subject')->find($subject_id);
         SubjectModel::where('subject_id',$subject_id)->delete();
+
+		Db::name('major_score')->where('subject_id',$subject_id)->delete();
+		
+		Cache::clear($subject['major_id'].'_'.$subject['school_id'].'_'.'subject_list');
+        SubjectModel::get_subject_list($subject['major_id'],$subject['school_id']);
+
         $this->success('删除科目成功');
     }
 	public function major_edit()
