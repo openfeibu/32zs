@@ -9,6 +9,7 @@
 			<div class="col-xs-12">
 				<form class="form-horizontal ajaxForm" name="major_list_add" method="post" action="{:url('admin/Subject/subject_runedit')}">
 					<input type="hidden" name='major_id' value="{$major.major_id}">
+					<input type="hidden" name='school_id' value="{$school.school_id}">
 					{if $major['major_subject_name_arr']}
 					{foreach name="major['subjects']" key="k" item="v"}
 					<div class="form-group">
