@@ -76,6 +76,7 @@ class Subject extends Base
     public function subject_runedit()
     {
         $major_id= input('major_id');
+        //$school_id = input('school_id');
         $enrollment_id = input('enrollment_id');
         $enrollment = EnrollmentModel::find($enrollment_id);
         if(!$enrollment)
@@ -105,18 +106,21 @@ class Subject extends Base
         }
         foreach ($subject_names as $key => $subject_name)
         {
-            $data = [
-                'major_id' => $major_id,
-                'school_id' => $this->admin['school_id'],
-                'subject_name' => trim($subject_name),
-                'enrollment_id' => trim(input('enrollment_id')),
-                'year' => trim(input('year')),
-                'max_score' => $max_scores[$key],
-            ];
-            $rst = SubjectModel::create($data);
+            if(trim($subject_name))
+            {
+                $data = [
+                    'major_id' => $major_id,
+                    'school_id' => $enrollment['school_id'],
+                    'subject_name' => trim($subject_name),
+                    'enrollment_id' => trim(input('enrollment_id')),
+                    'year' => trim(input('year')),
+                    'max_score' => $max_scores[$key],
+                ];
+                $rst = SubjectModel::create($data);
+            }
         }
         Cache::clear($major_id.'_'.$enrollment['school_id'].'_'.'subject_list');
-        SubjectModel::get_subject_list($major_id,$this->admin['school_id']);
+        SubjectModel::get_subject_list($major_id,$enrollment['school_id']);
         $this->success('修改成功',url('admin/Subject/subject_list'));
     }
     public function subject_delete()
