@@ -1026,7 +1026,16 @@ $(function () {
 			type:"POST",
 			data:$form.serialize(),
 			success: function(data,status){
-				if(typeof load!="undefined"){layer.close(load);}
+                var query = location.href.split("?")[1];
+                if (!query) {
+                    // 如果没有查询条件，则显示默认第1个章节
+                    history.pushState(null, "",
+                        location.href + "?" + $form.serialize());
+                } else {
+                    history.pushState(null, "",
+                        location.href.split("?")[0] + "?" + $form.serialize());
+                }
+                if(typeof load!="undefined"){layer.close(load);}
 				$("#ajax-data").html(data);
 
 			}
@@ -1045,6 +1054,21 @@ $(function () {
             }
         });
     });
+
+    window.addEventListener("popstate", function() {
+        console.log("popstate called ,href="+location.href +", state = "+history.state);
+        load = layer.load(2);
+        $.ajax({
+            url:location.href,
+            type:"POST",
+            data:{},
+            success: function(data,status){
+                if(typeof load!="undefined"){layer.close(load);}
+                $("#ajax-data").html(data);
+            }
+        });
+    });
+
     })(jQuery);
 (function ($) {
 	$('body').on('change','.submit_change',function () {
@@ -1070,7 +1094,16 @@ $(function () {
 			type:"POST",
 			data:$(this).parents("form").serialize(),
 			success: function(data,status){
-				$("#ajax-data").html(data);
+                var query = location.href.split("?")[1];
+                if (!query) {
+                    // 如果没有查询条件，则显示默认第1个章节
+                    history.pushState(null, "",
+                        location.href + "?" + $form.serialize());
+                } else {
+                    history.pushState(null, "",
+                        location.href.split("?")[0] + "?" + $form.serialize());
+                }
+                $("#ajax-data").html(data);
 			}
 		});
         return false;
