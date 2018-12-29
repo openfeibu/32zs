@@ -317,6 +317,13 @@ $(function () {
         dataType: 'json'
     });
 });
+$(function () {
+    $('.ajaxForm5').ajaxForm({
+        beforeSubmit:beforeAjaxForm,
+        success: complete5, // 这是提交后的方法
+        dataType: 'json'
+    });
+});
 /* 会员增加编辑表单，带检查 */
 $(function () {
     $('.memberform').ajaxForm({
@@ -387,6 +394,16 @@ function complete4(data) {
     } else {
         $("#verify").val('');
         $("#verify_img").click();
+        layer.alert(data.msg, {icon: 5});
+    }
+}
+function complete5(data) {
+    if(typeof load!="undefined"){layer.close(load);}
+    if (data.code == 1) {
+        if(typeof index!="undefined"){layer.close(index);}
+        layer.alert(data.msg, {icon: 6});
+        location.reload();
+    } else {
         layer.alert(data.msg, {icon: 5});
     }
 }
