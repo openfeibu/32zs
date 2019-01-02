@@ -48,6 +48,7 @@ class Base extends Common
 		{
 			$recruit_major = Db::name('recruit_major')->where(['recruit_major_id' => $admin['recruit_major_id']])->find();
 			$head_title = '('.$recruit_major['recruit_major_name'].')';
+            $this->recruit_major_name = $recruit_major['recruit_major_name'];
 		}
 		if(isset($admin['school_id']) && $admin['school_id'])
 		{

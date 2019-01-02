@@ -14,6 +14,8 @@ use think\Cache;
 
 class Export extends Model
 {
+    public $header_name = '';
+
     public function score_list_export_pdf($field_titles=array(),$fields=array(),$data=array(),$table='Newfile',$title){
 
         set_time_limit(120);
@@ -28,7 +30,7 @@ class Export extends Model
         $pdf->SetSubject('TCPDF Tutorial');
         $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
         //设置页眉页脚
-        $pdf->SetHeaderData('', '', config('pdf_common.header_name'),$title,array(66,66,66), array(0,0,0));
+        $pdf->SetHeaderData('', '', $this->header_name,$title,array(66,66,66), array(0,0,0));
         $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
         $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
         $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);//设置默认等宽字体
@@ -37,7 +39,7 @@ class Export extends Model
         $pdf->SetFooterMargin(30);
         $pdf->SetAutoPageBreak(TRUE, 40);//设置自动分页符
         $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
-        $pdf->setLanguageArray($l);
+        //$pdf->setLanguageArray($l);
         $pdf->SetFont('droidsansfallback', '');
         $pdf->AddPage();
 
@@ -108,7 +110,7 @@ class Export extends Model
         $pdf->SetSubject('TCPDF Tutorial');
         $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
         //设置页眉页脚
-        $pdf->SetHeaderData('', '', config('pdf_common.header_name'),$title,array(66,66,66), array(0,0,0));
+        $pdf->SetHeaderData('', '', $this->header_name,$title,array(66,66,66), array(0,0,0));
         $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
         $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
         $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);//设置默认等宽字体
@@ -117,7 +119,7 @@ class Export extends Model
         $pdf->SetFooterMargin(30);
         $pdf->SetAutoPageBreak(TRUE, 30);//设置自动分页符
         $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
-        $pdf->setLanguageArray($l);
+        //$pdf->setLanguageArray($l);
         $pdf->SetFont('droidsansfallback', '');
         $pdf->AddPage();
 
@@ -199,7 +201,7 @@ class Export extends Model
         $pdf->SetFooterMargin(30);
         $pdf->SetAutoPageBreak(TRUE, 30);//设置自动分页符
         $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
-        $pdf->setLanguageArray($l);
+        //$pdf->setLanguageArray($l);
         $pdf->SetFont('droidsansfallback', '');
         $pdf->AddPage();
 

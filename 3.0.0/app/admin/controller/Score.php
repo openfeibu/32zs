@@ -220,7 +220,8 @@ class Score extends Base
     public function check_score_list_export()
     {
         $major_id = input('major_id','');
-        $unauditing_count = Db::name('member_list')->alias('m')->join(config('database.prefix').'major_score ms','m.member_list_id = ms.member_list_id','left')->where('ms.major_score_status IS NUll or ms.major_score_status <= 0')->where(['m.major_id' => $major_id,'m.school_id' => $this->admin['school_id']])->count();
+
+        $unauditing_count = Db::name('member_list')->alias('m')->join(config('database.prefix').'major_score ms','m.member_list_id = ms.member_list_id','left')->join(config('database.prefix').'subject s','s.subject_id = ms.subject_id')->where('ms.major_score_status IS NUll or ms.major_score_status <= 0')->where(['m.major_id' => $major_id,'m.school_id' => $this->admin['school_id']])->group('m.member_list_id')->count();
         if($unauditing_count>0)
         {
             $this -> error("该专业存在未审核成绩，无法导出。");
@@ -244,11 +245,14 @@ class Score extends Base
         $data = $this->scoreModel->getMajorScoreList($map,'','',$subject_list,0);
 
         $major = MajorModel::get_major_detail($major_id,$this->admin['school_id']);
+        $recruit_major = Db::name('recruit_major')->alias('rm')
+            ->join(config('database.prefix').'enrollment e','e.recruit_major_id = rm.recruit_major_id')
+            ->where(array('e.major_ids' => array('LIKE' , '%,'.$major_id.',%')))
+            ->find();
 
         $school = Db::name('school')->where(['school_id' =>$this->admin['school_id'] ])->find();
 
-        $title = $school['school_name'].'  '.$major['major_name'].'专业   转段考核成绩单';
-
+        $title = '对口  '.$school['school_name'].'  '.get_grade().$major['major_name'].'  转段考核总成绩单';
 
         $major_subject_name_arr = $major['major_subject_name_arr'];
 
@@ -260,7 +264,7 @@ class Score extends Base
             $field_titles[$i] = $mv;
             $i++;
         }
-        $field_titles[$i] = '转段考核成绩';
+        $field_titles[$i] = '转段考核总成绩';
         $field_titles[$i+1] = '审核状态';
 
         $fields = ['no','member_list_nickname','ZexamineeNumber','member_list_username','major_name','major_score_total'];
@@ -272,9 +276,8 @@ class Score extends Base
         }
         $fields[$i] = 'major_score_total';
         $fields[$i+1] = 'status_desc';
-
-        $table = $school['school_name'].$major['major_name'].'专业转段考核成绩单'.date('Ymd');
-
+        $table = $school['school_name'].get_grade().$major['major_name'].'转段考核总成绩单'.date('Ymd');
+        $this->exprot_model->header_name = sprintf(config('pdf_common.header_name'),$recruit_major['recruit_major_name']);
         $this->exprot_model->score_list_export_pdf($field_titles,$fields,$data,$table,$title);
         return false;
 
@@ -451,7 +454,7 @@ class Score extends Base
             $j++;
         }
 
-        $table = '转段考核成绩录入模板（'.$major_name.'）';
+        $table = '转段成绩录入模板（'.$major_name.'）';
 
         export_excel($score_list,$table,$field_titles,$fields);
 
