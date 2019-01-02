@@ -1836,6 +1836,7 @@ function formatdate($date){
 /* 统一年份where */
 function get_year_where($table_name='',$year='')
 {
+    $year = '2018';
     if($year)
     {
         $this_year = $year;
@@ -1878,4 +1879,107 @@ function filter_array($arr, $values = ['', null, false, 0, '0',[]]) {
         }
     }
     return array_filter($arr);
+}
+
+function math_random($min = 0, $max = 1)
+{
+    return $min + mt_rand()/mt_getrandmax()*($max-$min);
+}
+
+function curl_get($url, array $params = array(), $timeout = 5)
+{
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+    $file_contents = curl_exec($ch);
+    curl_close($ch);
+    return $file_contents;
+}
+
+
+function curl_post($url, array $params = array(), $timeout)
+{
+    $ch = curl_init();//初始化
+    curl_setopt($ch, CURLOPT_URL, $url);//抓取指定网页
+    curl_setopt($ch, CURLOPT_HEADER, 0);//设置header
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);//要求结果为字符串且输出到屏幕上
+    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+    curl_setopt($ch, CURLOPT_POST, 1);//post提交方式
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
+    $data = curl_exec($ch);//运行curl
+    curl_close($ch);
+    return ($data);
+}
+
+function curl_get_https($url)
+{
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_HEADER, false);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.1 Safari/537.11');
+    $res = curl_exec($ch);
+    $rescode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
+    return $res;
+}
+/*
+*功能：php完美实现下载远程图片保存到本地
+*参数：文件url,保存文件目录,保存文件名称，使用的下载方式
+*当保存文件名称为空时则使用远程文件原来的名称
+*/
+function save_image($url,$folder='',$filename='',$header=array()){
+    if(trim($url)==''){
+        return array('file_name'=>'','save_path'=>'','error'=>1);
+    }
+    $save_dir = ROOT_PATH.'data'.DS.'upload'.DS;
+
+    if(trim($folder) !=''){
+        $save_dir .= $folder;
+    }
+
+    if(trim($filename)==''){//保存文件名
+        $ext=strrchr($url,'.');
+        if($ext != '.gif' || $ext != '.jpg'){
+            return array('file_name'=>'','save_path'=>'','error'=>3);
+        }
+        $filename=time().$ext;
+    }
+    if(0!==strrpos($save_dir,'/')){
+        $save_dir.='/';
+    }
+    //创建保存目录
+    if(!file_exists($save_dir)&&!mkdir($save_dir,0777,true)){
+        return array('file_name'=>'','save_path'=>'','error'=>5);
+    }
+
+    //获取远程文件所采用的方法
+
+    $ch=curl_init();
+    $timeout=5;
+    curl_setopt($ch,CURLOPT_URL,$url);
+    curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
+    curl_setopt($ch,CURLOPT_CONNECTTIMEOUT,$timeout);
+    curl_setopt($ch, CURLOPT_HEADER, 0);
+    if(is_array($header)){
+        curl_setopt($ch, CURLOPT_HTTPHEADER  , $header);
+    }
+
+    $get_cookie_file = ROOT_PATH.'data'.DS.'cookie'.DS.'test'.DS.'test.txt';
+
+    curl_setopt($ch, CURLOPT_COOKIEJAR, $get_cookie_file );   // 拿到的cookies文件，并存到本地
+    curl_setopt($ch, CURLOPT_COOKIEFILE, $get_cookie_file);  // 访问其他页面时，发送的cookie信息文件
+    $img=curl_exec($ch);
+    curl_close($ch);
+
+
+    //$size=strlen($img);
+    //文件大小
+    $fp2=@fopen($save_dir.$filename,'a');
+    fwrite($fp2,$img);
+    fclose($fp2);
+    unset($img,$url);
+    return array('file_name'=>$filename,'save_path'=>$save_dir.$filename,'error'=>0);
 }
