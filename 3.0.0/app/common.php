@@ -1860,6 +1860,10 @@ function get_year()
     $year = '2018';
     return $year;
 }
+function get_grade()
+{
+    return get_year().'级';
+}
 /**
  * 去除多维数组中的空值
  * @author
