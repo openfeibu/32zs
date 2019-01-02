@@ -30,7 +30,7 @@ class Index extends Base
 		//日期时间戳
 		list($start_t, $end_t) = Time::today();
 		list($start_y, $end_y) = Time::yesterday();
-		$ydate = date('Y');
+		$ydate = get_year();
 		$statistics = array();
 		//中职专业负责人
         if($this->admin['group_id'] == 3)
