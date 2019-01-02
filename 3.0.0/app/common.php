@@ -1857,6 +1857,7 @@ function get_year_where($table_name='',$year='')
 function get_year()
 {
     $year = Cache::get('year') ? Cache::get('year') : date('Y');
+    $year = '2018';
     return $year;
 }
 /**
