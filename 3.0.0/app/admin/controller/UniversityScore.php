@@ -176,7 +176,7 @@ class UniversityScore extends Base
 
         $table = $school['school_name'].get_grade().$major['major_name'].'转段考核总成绩单'.date('Ymd');
         $this->exprot_model->header_name = sprintf(config('pdf_common.header_name'),$this->recruit_major_name);
-        $this->exprot_model->recruit_score_list_export_pdf($field_titles,$fields,$data,$table,$title);
+        $this->exprot_model->university_score_list_export_pdf($field_titles,$fields,$data,$table,$title);
         return false;
 
     }
