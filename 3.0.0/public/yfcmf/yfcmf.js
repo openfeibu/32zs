@@ -1258,6 +1258,17 @@ $(function(){
 			}
 		});
 	});
+    $(".university_school_id").change(function(){
+        var school_id = $(this).val();
+        $.ajax({
+            url: "/admin/School/university_ajax_major",
+            data:{'school_id':school_id},
+            success: function(data){
+                console.log(data.html)
+                $("#major").html(data.html);
+            }
+        });
+    })
 	$("#school_checkbox").change(function(){
 		var school_id = $(this).val();
 		$.ajax({
