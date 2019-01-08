@@ -1266,6 +1266,7 @@ $(function(){
             success: function(data){
                 console.log(data.html)
                 $("#major").html(data.html);
+                $("#major").trigger('change');
             }
         });
     })
