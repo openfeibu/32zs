@@ -24,9 +24,14 @@ class Major extends Model
         $major = Db::name('major')->cache(true)->find($major_id);
         return $major;
     }
-	public static function get_major_list($school_id)
+	public static function get_major_list($school_id,$recruit_major_id = 0)
 	{
-		$enrollments = Db::name('enrollment')->where(['school_id' => $school_id])->where(get_year_where())->select();
+		$enrollments = Db::name('enrollment');
+        if($recruit_major_id)
+        {
+            $enrollments = $enrollments->where(['recruit_major_id' => $recruit_major_id]);
+        }
+        $enrollments = $enrollments->where(['school_id' => $school_id])->where(get_year_where())->select();
 		$arr = [];
 		foreach ($enrollments as $key => $enrollment) {
 			$major_id_arr = explode(',',$enrollment['major_ids']);

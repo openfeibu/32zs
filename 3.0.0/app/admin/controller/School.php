@@ -543,6 +543,26 @@ class School extends Base
 			];
 		}
 	}
+	public function university_ajax_major()
+    {
+        if (!request()->isAjax()){
+            $this->error('提交方式不正确');
+        }else{
+            $school_id = input('school_id','0');
+
+            $major_list = MajorModel::get_major_list($school_id,$this->admin['recruit_major_id']);
+
+            $html = '';
+            foreach($major_list as $key => $major)
+            {
+                $html .= "<option value='".$major['major_id']."'>".$major['major_name']."</option>";
+            }
+            return [
+                'code' => 200,
+                'html' => $html,
+            ];
+        }
+    }
 	public function ajax_enrollment_recruit_major()
 	{
 		if (!request()->isAjax()){

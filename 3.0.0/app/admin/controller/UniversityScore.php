@@ -41,7 +41,7 @@ class UniversityScore extends Base
             ->find();
 
         $school_id = input('school_id', $school_list[0]['school_id']);
-        $major_list = MajorModel::get_major_list($school_id);
+        $major_list = MajorModel::get_major_list($school_id,$this->admin['recruit_major_id']);
 
         $major_id = input('major_id', $major_list['0']['major_id']);
 
