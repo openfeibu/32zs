@@ -41,6 +41,7 @@ class UniversityScore extends Base
             ->find();
 
         $school_id = input('school_id', $school_list[0]['school_id']);
+
         $major_list = MajorModel::get_major_list($school_id,$this->admin['recruit_major_id']);
 
         $major_id = input('major_id', $major_list['0']['major_id']);
@@ -61,18 +62,20 @@ class UniversityScore extends Base
             $where .= '( ms.major_score_status IS NULL or ms.major_score_status <= 0)';
         }
 
-        $subject_ids = isset($_POST['subject_id']) ? implode(',', $_POST['subject_id']) : '';
+        $subject_ids = input('subject_id/a') ? implode(',', input('subject_id/a')) : '';
 
         $subject_list = SubjectModel::get_subject_list($major_id, $school_id, '', $subject_ids);
 
         $major_subject_name_arr = array_column($subject_list, 'subject_name');
+        $major_subject_id_arr = array_column($subject_list, 'subject_id');
+
         $this->assign('major_subject_name_arr', $major_subject_name_arr);
 
         $data = $this->scoreModel->getMajorScoreList($map, $where, $search_key, $subject_list);
 
         $score_list = $data['score_list'];
 
-        $major = MajorModel::get_major_detail($major_id, $admin['school_id']);
+        $major = MajorModel::get_major_detail($major_id, $school_id);
 
         $status = config("status");
 
@@ -88,6 +91,7 @@ class UniversityScore extends Base
         $this->assign('data', $score_list);
         $this->assign('page', $page);
         $this->assign('search_key', $search_key);
+        $this->assign('major_subject_id_arr', $major_subject_id_arr);
         $this->assign('all_subject_list', $major['subjects']);
 
         if (request()->isAjax()) {
@@ -120,7 +124,18 @@ class UniversityScore extends Base
     {
         $major_id = input('major_id','');
         $school_id = input('school_id', '');
-        $unauditing_count = Db::name('member_list')->alias('m')->join(config('database.prefix').'major_score ms','m.member_list_id = ms.member_list_id','left')->join(config('database.prefix').'subject s','s.subject_id = ms.subject_id')->where('ms.major_score_status IS NUll or ms.major_score_status <= 0')->where(['m.major_id' => $major_id,'m.school_id' => $school_id])->where(get_year_where('m'))->group('m.member_list_id')->count();
+        $subject_ids = input('subject_id/a');
+        $unauditing_count = Db::name('member_list')->alias('m')
+            ->join(config('database.prefix').'major_score ms','m.member_list_id = ms.member_list_id','left')
+            ->join(config('database.prefix').'subject s','s.subject_id = ms.subject_id');
+        if($subject_ids)
+        {
+            $unauditing_count = $unauditing_count->where('s.subject_id','in',$subject_ids);
+        }
+        $unauditing_count = $unauditing_count->where('ms.major_score_status IS NUll or ms.major_score_status <= 0')
+            ->where(['m.major_id' => $major_id,'m.school_id' => $school_id])
+            ->where(get_year_where('m'))->group('m.member_list_id')
+            ->count();
         if($unauditing_count>0)
         {
             $this -> error("该专业存在未审核成绩，无法导出。");
@@ -139,7 +154,7 @@ class UniversityScore extends Base
 
         $map['ms.major_score_status'] = 1;
 
-        $subject_ids = isset($_POST['subject_id']) ? implode(',', $_POST['subject_id']) : '';
+        $subject_ids = input('subject_id/a') ? implode(',', input('subject_id/a')) : '';
 
         $subject_list = SubjectModel::get_subject_list($major_id, $school_id, '', $subject_ids);
 
@@ -151,7 +166,9 @@ class UniversityScore extends Base
 
         $title = '对口  '.$school['school_name'].'  '.get_grade().$major['major_name'].'  转段考核总成绩单';
 
-        $major_subject_name_arr = $major['major_subject_name_arr'];
+        $major_subject_name_arr = array_column($subject_list, 'subject_name');
+
+        //$major_subject_name_arr = $major['major_subject_name_arr'];
 
         $data = $this->scoreModel->handleMajorScoreList($data['score_list'],$major_subject_name_arr,config("status_title"));
 
@@ -319,7 +336,7 @@ class UniversityScore extends Base
 
         $where = "ms.major_score_status IS NUll or ms.major_score_status <= 0";
 
-        $subject_ids = isset($_POST['subject_id']) ? implode(',', $_POST['subject_id']) : '';
+        $subject_ids = input('subject_id/a') ? implode(',', input('subject_id/a')) : '';
 
         $subject_list = SubjectModel::get_subject_list($major_id, $school_id, '', $subject_ids);
 

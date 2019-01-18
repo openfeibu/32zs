@@ -38,6 +38,7 @@ class Subject extends Model
             $subject_list = $subject_list->where($where);
         }
         $subject_list = $subject_list->select();
+
         if(!$where) {
             Cache::tag($major_id . '_' . $school_id . '_' . 'subject_list')->set($major_id . '_' . $school_id . '_' . $subject_ids . '_' . $year . '_' . 'subject_list', $subject_list);
         }

@@ -9,6 +9,16 @@
 			<div class="clearfix"></div>
 			<form name="admin_list_sea" class="form-search" id="list-filter" method="post" action="{:url('admin/universityScore/score_list')}">
 				<div class="fb-state-search  margintop5">
+					{if $all_subject_list}
+					选择科目：
+					{foreach name="all_subject_list" item="v"}
+					<input name="subject_id[]" type="checkbox" value="{$v.subject_id}" class="input " {if in_array($v['subject_id'],$major_subject_id_arr)} checked {/if}> {$v.subject_name}
+					{/foreach}
+					{/if}
+					<button class="btn btn-sm btn-success ajax_change">确定</button>
+				</div>
+				<div class="clearfix"></div>
+				<div class="fb-state-search  margintop5">
 					审核状态：
 					<select name="major_score_status" class="ajax_change">
 						<option value="">所有</option>
@@ -68,15 +78,24 @@
 		$("#score_list_export").click(function(){
 			var major_id = $('#major').val();
             var school_id = $('#school_id').val();
+			var subject_id = [];
+			$("input[name='subject_id[]']:checked").each(function(i){
+				subject_id[i] =$(this).val();
+			});
 			load = layer.load(1);
 			$.ajax({
 			    url:"{:url('admin/UniversityScore/check_score_list_export')}",
 				type:"POST",
-				data:{'major_id':major_id,'school_id':school_id},
+				data:{'major_id':major_id,'school_id':school_id,'subject_id':subject_id},
 				success: function(data){
 					if(typeof load!="undefined"){layer.close(load);}
 					if (data.code == 1) {
-				        window.location.href="{:url('admin/UniversityScore/score_list_export')}?major_id="+major_id+"&school_id="+school_id;
+						var url = "{:url('admin/UniversityScore/score_list_export')}?major_id="+major_id+"&school_id="+school_id;
+						for(var i=0;i<subject_id.length;i++){
+							url += "&subject_id[]="+subject_id[i];
+						}
+						url  = encodeURI(url);
+						window.location.href=url;
 				    } else {
 				        layer.alert(data.msg, {icon: 5});
 						return false;
