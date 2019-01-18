@@ -140,7 +140,18 @@ class Url
             } else {
                 $paramType = Config::get('url_param_type');
                 foreach ($vars as $var => $val) {
-                    if ('' !== trim($val)) {
+                    if(is_array($val))
+                    {
+                        foreach ($val as $val_key => $val_val)
+                        {
+                            if ($paramType) {
+                                $url .= $depr . urlencode($val_val);
+                            } else {
+                                $url .= $depr . urlencode($var .'[]'). $depr . urlencode($val_val);
+                            }
+                        }
+                    }
+                    else if ('' !== trim($val)) {
                         if ($paramType) {
                             $url .= $depr . urlencode($val);
                         } else {
