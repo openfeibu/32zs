@@ -61,8 +61,11 @@ class UniversityScore extends Base
         } else {
             $where .= '( ms.major_score_status IS NULL or ms.major_score_status <= 0)';
         }
-
+        $subject_id =  input('subject_id');
+        /*
         $subject_ids = input('subject_id/a') ? implode(',', input('subject_id/a')) : '';
+        */
+        $subject_ids = $subject_id;
 
         $subject_list = SubjectModel::get_subject_list($major_id, $school_id, '', $subject_ids);
 
@@ -93,6 +96,7 @@ class UniversityScore extends Base
         $this->assign('search_key', $search_key);
         $this->assign('major_subject_id_arr', $major_subject_id_arr);
         $this->assign('all_subject_list', $major['subjects']);
+        $this->assign('subject_id', $subject_id);
 
         if (request()->isAjax()) {
             return $this->fetch('ajax_score_list');
@@ -124,13 +128,14 @@ class UniversityScore extends Base
     {
         $major_id = input('major_id','');
         $school_id = input('school_id', '');
-        $subject_ids = input('subject_id/a');
+        //$subject_ids = input('subject_id/a');
+        $subject_id = input('subject_id');
         $unauditing_count = Db::name('member_list')->alias('m')
             ->join(config('database.prefix').'major_score ms','m.member_list_id = ms.member_list_id','left')
             ->join(config('database.prefix').'subject s','s.subject_id = ms.subject_id');
-        if($subject_ids)
+        if($subject_id)
         {
-            $unauditing_count = $unauditing_count->where('s.subject_id','in',$subject_ids);
+            $unauditing_count = $unauditing_count->where('s.subject_id','=',$subject_id);
         }
         $unauditing_count = $unauditing_count->where('ms.major_score_status IS NUll or ms.major_score_status <= 0')
             ->where(['m.major_id' => $major_id,'m.school_id' => $school_id])
@@ -138,7 +143,7 @@ class UniversityScore extends Base
             ->count();
         if($unauditing_count>0)
         {
-            $this -> error("该专业存在未审核成绩，无法导出。");
+            $this->error("该专业存在未审核成绩，无法导出。");
         }
         $this->success('导出');
     }
@@ -154,7 +159,9 @@ class UniversityScore extends Base
 
         $map['ms.major_score_status'] = 1;
 
-        $subject_ids = input('subject_id/a') ? implode(',', input('subject_id/a')) : '';
+        $subject_id = input('subject_id');
+        //$subject_ids = input('subject_id/a') ? implode(',', input('subject_id/a')) : '';
+        $subject_ids = $subject_id;
 
         $subject_list = SubjectModel::get_subject_list($major_id, $school_id, '', $subject_ids);
 
@@ -164,7 +171,13 @@ class UniversityScore extends Base
 
         $school = Db::name('school')->where(['school_id' =>$school_id ])->find();
 
-        $title = '对口  '.$school['school_name'].'  '.get_grade().$major['major_name'].'  转段考核总成绩单';
+        if($subject_id)
+        {
+            $file_name = '过程考核成绩单';
+        }else{
+            $file_name = '转段考核总成绩单';
+        }
+        $title = '对口  '.$school['school_name'].'  '.get_grade().$major['major_name'].'  '.$file_name;
 
         $major_subject_name_arr = array_column($subject_list, 'subject_name');
 
@@ -178,20 +191,28 @@ class UniversityScore extends Base
             $field_titles[$i] = $mv;
             $i++;
         }
-        $field_titles[$i] = '转段考核总成绩';
-        $field_titles[$i+1] = '审核状态';
-
-        $fields = ['no','member_list_nickname','ZexamineeNumber','member_list_username','major_name','major_score_total'];
+        if($subject_id)
+        {
+            $field_titles[$i] = '审核状态';
+        }else{
+            $field_titles[$i] = '转段考核总成绩';
+            $field_titles[$i+1] = '审核状态';
+        }
+        $fields = ['no','member_list_nickname','ZexamineeNumber','member_list_username','major_name'];
         $i = 4; $j = 0;
         foreach ($major_subject_name_arr as $k => $mv) {
             $fields[$i] = 'major_'.$j;
             $i++;
             $j++;
         }
-        $fields[$i] = 'major_score_total';
-        $fields[$i+1] = 'status_desc';
-
-        $table = $school['school_name'].get_grade().$major['major_name'].'转段考核总成绩单'.date('Ymd');
+        if($subject_id)
+        {
+            $fields[$i] = 'status_desc';
+        }else{
+            $fields[$i] = 'major_score_total';
+            $fields[$i + 1] = 'status_desc';
+        }
+        $table = $school['school_name'].get_grade().$major['major_name'].$file_name.date('Ymd');
         $this->exprot_model->header_name = sprintf(config('pdf_common.header_name'),$this->recruit_major_name);
         $this->exprot_model->university_score_list_export_pdf($field_titles,$fields,$data,$table,$title);
         return false;

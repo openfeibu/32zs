@@ -11,8 +11,12 @@
 				<div class="fb-state-search  margintop5">
 					{if $all_subject_list}
 					选择科目：
+					<!--{foreach name="all_subject_list" item="v"}-->
+					<!--<input name="subject_id[]" type="checkbox" value="{$v.subject_id}" class="input " {if in_array($v['subject_id'],$major_subject_id_arr)} checked {/if}> {$v.subject_name}-->
+					<!--{/foreach}-->
+					<input name="subject_id" type="radio" value="" class="input radio_all" {if !$subject_id} checked {/if}> 全部
 					{foreach name="all_subject_list" item="v"}
-					<input name="subject_id[]" type="checkbox" value="{$v.subject_id}" class="input " {if in_array($v['subject_id'],$major_subject_id_arr)} checked {/if}> {$v.subject_name}
+					<input name="subject_id" type="radio" value="{$v.subject_id}" class="input" {if $subject_id && $subject_id == $v['subject_id']} checked {/if}> {$v.subject_name}
 					{/foreach}
 					{/if}
 					<button class="btn btn-sm btn-success ajax_change">确定</button>
@@ -78,10 +82,13 @@
 		$("#score_list_export").click(function(){
 			var major_id = $('#major').val();
             var school_id = $('#school_id').val();
+			/*
 			var subject_id = [];
 			$("input[name='subject_id[]']:checked").each(function(i){
 				subject_id[i] =$(this).val();
 			});
+			*/
+			var subject_id = $("input[name='subject_id']:checked").val();
 			load = layer.load(1);
 			$.ajax({
 			    url:"{:url('admin/UniversityScore/check_score_list_export')}",
@@ -91,8 +98,14 @@
 					if(typeof load!="undefined"){layer.close(load);}
 					if (data.code == 1) {
 						var url = "{:url('admin/UniversityScore/score_list_export')}?major_id="+major_id+"&school_id="+school_id;
+						/*
 						for(var i=0;i<subject_id.length;i++){
 							url += "&subject_id[]="+subject_id[i];
+						}
+						*/
+						if(subject_id)
+						{
+							url += "&subject_id="+subject_id;
 						}
 						url  = encodeURI(url);
 						window.location.href=url;
