@@ -393,4 +393,24 @@ class UniversityScore extends Base
         export_excel($score_list,$table,$field_titles,$fields);
 
     }
+    public function ajax_subjects()
+    {
+        if (!request()->isAjax()){
+            $this->error('提交方式不正确');
+        }else {
+            $school_id = input('school_id', '0');
+            $major_list = MajorModel::get_major_list($school_id);
+            $major_id = input('major_id', $major_list['0']['major_id']);
+            $major_id = input('major_id', $major_id);
+            $subject_list = SubjectModel::get_subject_list($major_id, $school_id);
+            $html = '<input name="subject_id" type="radio" value="" class="input radio_all" checked> 全部';
+            foreach ($subject_list as $key => $subject) {
+                $html .= '<input name="subject_id" type="radio" value="'.$subject['subject_id'].'" class="input" >'.$subject['subject_name'];
+            }
+            return [
+                'code' => 200,
+                'html' => $html,
+            ];
+        }
+    }
 }

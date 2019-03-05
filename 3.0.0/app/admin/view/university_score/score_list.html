@@ -8,9 +8,10 @@
 			</div>
 			<div class="clearfix"></div>
 			<form name="admin_list_sea" class="form-search" id="list-filter" method="post" action="{:url('admin/universityScore/score_list')}">
-				<div class="fb-state-search  margintop5">
-					{if $all_subject_list}
+				<div class="fb-state-search  margintop5" id="">
 					选择科目：
+					{if $all_subject_list}
+					<div id="subjects" style="display: inline">
 					<!--{foreach name="all_subject_list" item="v"}-->
 					<!--<input name="subject_id[]" type="checkbox" value="{$v.subject_id}" class="input " {if in_array($v['subject_id'],$major_subject_id_arr)} checked {/if}> {$v.subject_name}-->
 					<!--{/foreach}-->
@@ -18,8 +19,12 @@
 					{foreach name="all_subject_list" item="v"}
 					<input name="subject_id" type="radio" value="{$v.subject_id}" class="input" {if $subject_id && $subject_id == $v['subject_id']} checked {/if}> {$v.subject_name}
 					{/foreach}
+					</div>
+					{else}
+					<div id="subject">
+					</div>
 					{/if}
-					<button class="btn btn-sm btn-success ajax_change">确定</button>
+					<button type="button" class="btn btn-sm btn-success ajax_btn" id="subject_btn">确定</button>
 				</div>
 				<div class="clearfix"></div>
 				<div class="fb-state-search  margintop5">
@@ -36,7 +41,7 @@
 						{/foreach}
 					</select>
 					中职专业：
-					<select name="major_id" class="ajax_change" id="major">
+					<select name="major_id" class="university_major_id" id="major">
 						{foreach name='major_list' item='v'}
 						<option value="{$v.major_id}" {if $major_id == $v['major_id']}selected{/if}>{$v.major_name}</option>
 						{/foreach}
