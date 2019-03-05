@@ -1041,6 +1041,30 @@ $(function () {
 			}
 		});
     });
+    $('body').on('click','.ajax_btn',function () {
+        load = layer.load(2);
+        var $form = $(this).parents("form");
+
+        $.ajax({
+            url:$form.attr('action'),
+            type:"POST",
+            data:$form.serialize(),
+            success: function(data,status){
+                var query = location.href.split("?")[1];
+                if (!query) {
+                    // 如果没有查询条件，则显示默认第1个章节
+                    history.pushState(null, "",
+                        location.href + "?" + $form.serialize());
+                } else {
+                    history.pushState(null, "",
+                        location.href.split("?")[0] + "?" + $form.serialize());
+                }
+                if(typeof load!="undefined"){layer.close(load);}
+                $("#ajax-data").html(data);
+
+            }
+        });
+    });
     $('body').on('click','.range_inputs .applyBtn',function () {
         var reservation=$('#reservation');
         var $form = reservation.parents("form");
@@ -1263,10 +1287,26 @@ $(function(){
         $.ajax({
             url: "/admin/School/university_ajax_major",
             data:{'school_id':school_id},
+            async:false,
             success: function(data){
                 console.log(data.html)
                 $("#major").html(data.html);
                 $("#major").trigger('change');
+            }
+        });
+    })
+    $("body").on("change",".university_major_id",function(){
+        var school_id = $(".university_school_id").val();
+        var major_id = $(this).val();
+        $.ajax({
+            url: "/admin/UniversityScore/ajax_subjects",
+            data:{'school_id':school_id,"major_id":major_id},
+            async:false,
+            success: function(data){
+                console.log(data.html)
+                $("#subjects").html(data.html);
+                $("#subjects").trigger('change');
+                $("#subject_btn").click();
             }
         });
     })
