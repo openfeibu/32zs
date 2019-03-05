@@ -1299,7 +1299,7 @@ $(function(){
         var school_id = $(".university_school_id").val();
         var major_id = $(this).val();
         $.ajax({
-            url: "/admin/UniversityScore/ajax_subjects",
+            url: "/admin/university_score/ajax_subjects",
             data:{'school_id':school_id,"major_id":major_id},
             async:false,
             success: function(data){
