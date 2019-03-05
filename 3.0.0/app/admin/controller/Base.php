@@ -83,14 +83,14 @@ class Base extends Common
         $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);//设置自动分页符
         $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
         $pdf->setLanguageArray($l);
-        $pdf->SetFont('droidsansfallback', '');
+        $pdf->SetFont('stsongstdlight', '');
         $pdf->AddPage();
 
         $pdf->SetFillColor(245, 245, 245);
         $pdf->SetTextColor(0);
         $pdf->SetDrawColor(66, 66, 66);
         $pdf->SetLineWidth(0.3);
-        $pdf->SetFont('droidsansfallback', '',9);
+        $pdf->SetFont('stsongstdlight', '',9);
         // Header
         $num_headers = count($field_titles);
         for($i = 0; $i < $num_headers; ++$i) {
@@ -107,7 +107,7 @@ class Base extends Common
                 $pdf->SetTextColor(0);
                 $pdf->SetDrawColor(66, 66, 66);
                 $pdf->SetLineWidth(0.3);
-                $pdf->SetFont('droidsansfallback', '',9);
+                $pdf->SetFont('stsongstdlight', '',9);
                 // Header
                 for($i = 0; $i < $num_headers; ++$i) {
                     $pdf->Cell(180/$num_headers, 8, $field_titles[$i], 1, 0, 'C', 1);
@@ -118,7 +118,7 @@ class Base extends Common
             $pdf->SetFillColor(245, 245, 245);
             $pdf->SetTextColor(40);
             $pdf->SetLineWidth(0.1);
-            $pdf->SetFont('droidsansfallback', '');
+            $pdf->SetFont('stsongstdlight', '');
 
             foreach($fields as $i=>$name){
 				$pdf->MultiCell(180/$num_headers, 6, $list[$name], $border=1, $align='C',$fill, $ln=0, $x='', $y='',  $reseth=true, $stretch=0,$ishtml=false, $autopadding=true, $maxh=0, $valign='C', $fitcell=true);
