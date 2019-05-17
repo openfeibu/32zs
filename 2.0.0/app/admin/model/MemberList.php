@@ -117,7 +117,7 @@ class MemberList extends Model
 			$data[$k]['major_score_arr'] = $major_score_arr;
 			$data[$k]['major_score_desc'] = $major_score_desc;
 			$data[$k]['major_score_total'] = $major_score_total;
-			$data[$k]['total_score'] = $major_score_total + $value['recruit_score'];
+			$data[$k]['total_score'] = $major_score_total + floatval($value['recruit_score']);
 		}
 		return $data;
 	}

@@ -23,24 +23,24 @@ class Import extends Base
     {
         if (! empty ( $_FILES ['file_stu'] ['name'] )){
             $tmp_file = $_FILES ['file_stu'] ['tmp_name'];
-			$file_types = explode ( ".", $_FILES ['file_stu'] ['name'] );
-			$file_type = $file_types [count ( $file_types ) - 1];
-			/*判别是不是.xls文件，判别是不是excel文件*/
-			if (strtolower ( $file_type ) != "xls"){
-				$this->error ( '不是Excel文件，重新上传',url('admin/Import/index'));
-			}
-			/*设置上传路径*/
-			$savePath =ROOT_PATH. 'public/excel/';
-			/*以时间来命名上传的文件*/
-			$str = time ();
-			$file_name = $str . "." . $file_type;
-			if (! copy ( $tmp_file, $savePath . $file_name )){
-				$this->error ('上传失败',url('admin/Import/index'));
-			}
-			$res = read ( $savePath . $file_name );
-			if (!$res){
-				$this->error ('数据处理失败',url('admin/Import/index'));
-			}
+            $file_types = explode ( ".", $_FILES ['file_stu'] ['name'] );
+            $file_type = $file_types [count ( $file_types ) - 1];
+            /*判别是不是.xls文件，判别是不是excel文件*/
+            if (strtolower ( $file_type ) != "xls"){
+                $this->error ( '不是Excel文件，重新上传',url('admin/Import/index'));
+            }
+            /*设置上传路径*/
+            $savePath =ROOT_PATH. 'public/excel/';
+            /*以时间来命名上传的文件*/
+            $str = time ();
+            $file_name = $str . "." . $file_type;
+            if (! copy ( $tmp_file, $savePath . $file_name )){
+                $this->error ('上传失败',url('admin/Import/index'));
+            }
+            $res = read ( $savePath . $file_name );
+            if (!$res){
+                $this->error ('数据处理失败',url('admin/Import/index'));
+            }
             $schools = $major = $recruit_major = $enrollment = array();
             $errors = array();
             $recruit_major_id = $major_id = $school_id = 0;
@@ -120,7 +120,7 @@ class Import extends Base
                             $major[$k]['major_id'] = $major_id;
                         }
                         $major_codes[] = $major_code;
-                        
+
                     }else{
                         $errors[] = $major_data.'_出错了,  请检测正则问题';
                     }
@@ -141,7 +141,7 @@ class Import extends Base
             $recruit_major = assoc_unique($recruit_major,'recruit_major_code');
             $major = assoc_unique($major,'major_code');
             $schools = assoc_unique($schools,'school_name');
-		
+
             DB::name('school')->insertAll($schools);
             DB::name('recruit_major')->insertAll($recruit_major);
             DB::name('major')->insertAll($major);
@@ -152,11 +152,11 @@ class Import extends Base
                 $i++;
                 $admin_username = str_pad($i,3,"0",STR_PAD_LEFT);
                 $admin_username =
-                AdminModel::add($admin_username,'','123456','','',input('admin_open',1),'',3,$ev['school_id'],json_encode(array('0' => $ev['major_ids'])));
+                    AdminModel::add($admin_username,'','123456','','',input('admin_open',1),'',3,$ev['school_id'],json_encode(array('0' => $ev['major_ids'])));
             }
             echo 'success';exit;
-			
-        //    var_dump($recruit_major);exit;
+
+            //    var_dump($recruit_major);exit;
             echo '-----------------------------------错误-----------------------------------';
             var_dump($errors);
             echo '--------------------------------高职专业--------------------------------------';
@@ -167,48 +167,48 @@ class Import extends Base
             var_dump($schools);
             echo '------------------------------招生计划----------------------------------------';
             var_dump($enrollment);
-			exit;
+            exit;
             foreach ( $res as $k => $v ){
-               if ($k != 1 && trim($v[0])){
-                   $data=array();
-                   $member_list_username = trim($v[0]);
-                   //通过身份证号查询出性别与生日
-                   $birth = get_birth($member_list_username);
-                   $sex = get_sex($member_list_username);
-                   $member_list_salt = random(10);
-                   $member_list_pwd = substr($member_list_username, -6);
-                   $sl_data = [
-                       'member_list_groupid' => 1,
-                       'member_list_username'=>$member_list_username,
-                       'member_list_salt' => $member_list_salt,
-                       'member_list_pwd'=>encrypt_password($member_list_pwd,$member_list_salt),
-                       'member_list_nickname'=>$v[1],
-                       'member_list_open'=>1,
-                       'member_list_addtime'=>time(),
-                       'user_status'=>0,
-                       'score'=>0,
-                       'coin'=>0,
-                       'school_id' => $school_id,
-                       'major_id' => input('major_id')
-                   ];
-                   $result = MemberList::create($sl_data);
+                if ($k != 1 && trim($v[0])){
+                    $data=array();
+                    $member_list_username = trim($v[0]);
+                    //通过身份证号查询出性别与生日
+                    $birth = get_birth($member_list_username);
+                    $sex = get_sex($member_list_username);
+                    $member_list_salt = random(10);
+                    $member_list_pwd = substr($member_list_username, -6);
+                    $sl_data = [
+                        'member_list_groupid' => 1,
+                        'member_list_username'=>$member_list_username,
+                        'member_list_salt' => $member_list_salt,
+                        'member_list_pwd'=>encrypt_password($member_list_pwd,$member_list_salt),
+                        'member_list_nickname'=>$v[1],
+                        'member_list_open'=>1,
+                        'member_list_addtime'=>time(),
+                        'user_status'=>0,
+                        'score'=>0,
+                        'coin'=>0,
+                        'school_id' => $school_id,
+                        'major_id' => input('major_id')
+                    ];
+                    $result = MemberList::create($sl_data);
 
-                   if($result)
-                   {
-                       $data['member_list_id'] = $result->member_list_id;
-                       $data['certificate'] = json_encode(config('certificate'));
-                       $data['resume'] = json_encode(config('resume'));
-                       $data['prize'] = json_encode(config('prize'));
-                       $data['family'] = json_encode(config('family'));
-                       $data['date'] = $birth;
-                       $data['sex'] = $sex;
-                       $info = Db::name('member_info')->insert($data);
-                   }
-                   if (!$result){
-                       $this->error ('导入数据失败',url('admin/Member/member_import'));
-                   }
-               }
-           }
+                    if($result)
+                    {
+                        $data['member_list_id'] = $result->member_list_id;
+                        $data['certificate'] = json_encode(config('certificate'));
+                        $data['resume'] = json_encode(config('resume'));
+                        $data['prize'] = json_encode(config('prize'));
+                        $data['family'] = json_encode(config('family'));
+                        $data['date'] = $birth;
+                        $data['sex'] = $sex;
+                        $info = Db::name('member_info')->insert($data);
+                    }
+                    if (!$result){
+                        $this->error ('导入数据失败',url('admin/Member/member_import'));
+                    }
+                }
+            }
         }
     }
     public function import_data()
