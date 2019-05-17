@@ -69,12 +69,13 @@
     $('.nowtime').html(new Date().toLocaleString()+' 星期'+'日一二三四五六'.charAt(new Date().getDay()));
    },1000);
    $(".personal_table input").blur(function(){
+    that = $(this);
     if($(this).hasClass("noBlur")){
         return false;
     }else{
         setTimeout(function () {
-            var value  = $(this).val();
-            var name = $(this).attr('name');
+            var value  =that.val();
+            var name = that.attr('name');
             $.post("{:url('home/center/update_info')}", {'name': name, 'value': value}, function (data) {
                 if ($("." + name).length > 0) {
                     $("." + name).text(value);
