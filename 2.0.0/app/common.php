@@ -1673,6 +1673,22 @@ function get_sex($idcard)
 {
     return substr(trim($idcard), -2, 1) % 2 ? '男' : '女';
 }
+/* 根据身份证获取性别 */
+function sex_value($number)
+{
+    switch($number)
+	{
+		case "1":
+			return "男";
+			break;
+		case "2":
+			return "女";
+			break;
+		case "3":
+			return "保密";
+			break;
+	}
+}
 function is_idcard($id)
 {
     $id = strtoupper($id);

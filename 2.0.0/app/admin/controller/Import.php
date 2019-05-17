@@ -120,11 +120,7 @@ class Import extends Base
                             $major[$k]['major_id'] = $major_id;
                         }
                         $major_codes[] = $major_code;
-                        $major[$k] = [
-                            'major_name' => $major_name,
-                            'major_code' => $major_code,
-                            'major_id' => $major_id
-                        ];
+                        
                     }else{
                         $errors[] = $major_data.'_出错了,  请检测正则问题';
                     }
@@ -145,6 +141,7 @@ class Import extends Base
             $recruit_major = assoc_unique($recruit_major,'recruit_major_code');
             $major = assoc_unique($major,'major_code');
             $schools = assoc_unique($schools,'school_name');
+		
             DB::name('school')->insertAll($schools);
             DB::name('recruit_major')->insertAll($recruit_major);
             DB::name('major')->insertAll($major);
@@ -158,6 +155,7 @@ class Import extends Base
                 AdminModel::add($admin_username,'','123456','','',input('admin_open',1),'',3,$ev['school_id'],json_encode(array('0' => $ev['major_ids'])));
             }
             echo 'success';exit;
+			
         //    var_dump($recruit_major);exit;
             echo '-----------------------------------错误-----------------------------------';
             var_dump($errors);
@@ -168,7 +166,8 @@ class Import extends Base
             echo '------------------------------中职学校----------------------------------------';
             var_dump($schools);
             echo '------------------------------招生计划----------------------------------------';
-            var_dump($enrollment);exit;
+            var_dump($enrollment);
+			exit;
             foreach ( $res as $k => $v ){
                if ($k != 1 && trim($v[0])){
                    $data=array();

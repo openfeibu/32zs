@@ -65,8 +65,8 @@ class MemberList extends Model
 		$member['resume'] = json_decode($member['resume'],true);
 		$member['prize'] = json_decode($member['prize'],true);
 		$member['family'] = json_decode($member['family'],true);
-		$member['sex'] = get_sex($member['member_list_username']);
-		$member['date'] = get_birth($member['member_list_username']);
+		$member['sex'] = ($member['member_list_sex'] && $member['member_list_sex'] <3)  ? sex_value($member['member_list_sex']) : get_sex($member['member_list_username']);
+		$member['date'] = $member['birthday'] ? date('Y年m月',strtotime($member['birthday'])) : get_birth($member['member_list_username']);
 		$member['documentType'] = mb_substr($member['documentType'],0,6,'utf-8');
 		$member['domicile'] = mb_substr($member['domicile'],0,6,'utf-8');
 		return $member;
