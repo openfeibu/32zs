@@ -415,7 +415,9 @@ choose: function(datas){ //选择日期完毕的回调
         // }
         // console.log(data);
      });
-}
+},done: function(value, date, endDate){
+       console.log('done:'+value);
+    }
 });
 laydate({
 elem: '#resumeAfterDate_0',
