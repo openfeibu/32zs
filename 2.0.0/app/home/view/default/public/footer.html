@@ -74,12 +74,14 @@
     if($(this).hasClass("noBlur")){
         return false;
     }else{
-        $.post("{:url('home/center/update_info')}",{'name':name,'value':value},function(data){
-            if($("."+name).length>0){
-                $("."+name).text(value);
-            }
-            console.log(data);
-         });
+        setTimeout(function () {
+            $.post("{:url('home/center/update_info')}", {'name': name, 'value': value}, function (data) {
+                if ($("." + name).length > 0) {
+                    $("." + name).text(value);
+                }
+                console.log(data);
+            });
+        },10);
     }
 
    });
