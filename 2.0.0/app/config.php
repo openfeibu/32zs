@@ -352,11 +352,11 @@ $configs= [
         '2' => '审核不通过'
     ],
     'pdf_common' => [
-        'header_name' => '2018年广东农工商职业技术学院三二分段招生',
+        'header_name' => '2019年广东农工商职业技术学院三二分段招生',
         'author' => 'Gouweiba',
     ],
     'higher_school_name' => '广东农工商职业技术学院',
-    'date' => '2018'
+    'date' => '2019'
 ];
 //动态设置
 if(file_exists($file=ROOT_PATH."data/conf/config.php")){
