@@ -46,7 +46,7 @@ class Center extends Base
 		$major_score_desc = $major_score_total = $total_score = '';
 		$recruit_score = '';
 		if($this->user['major_score']){
-			$major_score_arr = json_decode($this->user['major_score'],true);
+			$major_score_arr = array_filter(json_decode($this->user['major_score'],true));
 			$major_score_desc = major_score_desc($major_score_key,$major_score_arr);
 			$major_score_total = handle_major_score($major_score_arr);
 			$recruit_score = $this->user['recruit_score'];
