@@ -1,0 +1,53 @@
+{if $data}
+
+<tr>
+    <th  width="60px">
+        <label class="pos-rel">
+            <input type="checkbox" class="ace" id="chkAll" onclick="CheckAll(this.form)" value="全选">
+            <span class="lbl"></span>
+        </label>
+
+    </th>
+    <th width="60px">ID</th>
+    <th>姓名</th>
+    <th>中职考生号</th>
+    <th>身份证</th>
+    <th>中职专业</th>
+    {foreach name="$major_subject_name_arr" item="v"}
+    <th align="center">{$v}</th>
+    {/foreach}
+</tr>
+
+{foreach name="data" item="v"}
+<tr>
+    <td height="28" >
+        <label class="pos-rel">
+            <input name="n_id[]" id="navid" class="ace" type="checkbox" value="{$v.member_list_id}" {if $v['major_score_status'] ==1}disabled{/if}>
+            <span class="lbl"></span>
+        </label>
+    </td>
+    <td>{$v.member_list_id}</td>
+    <td>{$v.member_list_nickname}</td>
+    <td>{$v.ZexamineeNumber}</td>
+    <td height="28" >{$v.member_list_username}</td>
+    <td>{$v.major_name}</td>
+    {foreach name="$v['major_subject_score_arr']" item="val" key="key"}
+    {if $val['score'] != '' && ($val['score'] < $val['max_score'] * 0.6)}
+    <td data-id="{$v.member_list_id}" subject-id="{$val.subject_id}" status="{$val.major_resit_score_status}">
+        <input name="major_resit_score[]" value="{$val.major_resit_score}"  class="major_resit_score score_input" {if $val['major_resit_score_status']==1}disabled{/if} >
+    </td>
+    {else}
+    <td>
+    \
+    </td>
+    {/if}
+    {/foreach}
+    </td>
+</tr>
+{/foreach}
+<tr><td colspan="20"><div class="fb-page">{$page}</div></td></tr>
+{else}
+<tr>
+    <td height="50" colspan="20" align="center">暂无数据</td>
+</tr>
+{/if}
