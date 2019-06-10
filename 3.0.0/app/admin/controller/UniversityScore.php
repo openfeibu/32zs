@@ -413,4 +413,145 @@ class UniversityScore extends Base
             ];
         }
     }
+    /*
+    public function fail_score_list()
+    {
+        $subject_id =  input('subject_id');
+        $search_key = trim(input('search_key', ''));
+
+        $school_list = $this->schoolModel->get_school_list_rmi($this->admin['recruit_major_id']);
+        $school_id = input('school_id', $school_list[0]['school_id']);
+
+        $major_list = MajorModel::get_major_list($school_id,$this->admin['recruit_major_id']);
+
+        $major_id = input('major_id', $major_list['0']['major_id']);
+
+        $major = MajorModel::get_major_detail($major_id, $school_id);
+
+        $all_subject_list = $major['subjects'];
+
+        if($all_subject_list)
+        {
+            if(!$subject_id)
+            {
+                $subject = $all_subject_list[0];
+                $subject_id = $subject['subject_id'];
+            }else{
+                $subject = SubjectModel::where('subject_id',$subject_id);
+            }
+            $pass_score = $subject['max_score'] * 0.6;
+
+            $where = "ms.major_score_status = 1 AND ms.major_score < ".$pass_score ." AND ms.subject_id =".$subject_id;
+
+            $subject_list = SubjectModel::get_subject_list($major_id, $school_id, '', $subject_id);
+
+            $major_subject_name_arr = array_column($subject_list, 'subject_name');
+            $major_subject_id_arr = array_column($subject_list, 'subject_id');
+
+            $this->assign('major_subject_name_arr', $major_subject_name_arr);
+
+            $data = $this->scoreModel->getFailMajorScoreList($where,$search_key, $subject_list);
+
+            $score_list = $data['score_list'];
+
+            $major = MajorModel::get_major_detail($major_id, $school_id);
+
+            $status = config("status");
+
+            $score_list = $this->scoreModel->handleMajorScoreList($score_list, $major_subject_name_arr, $status);
+
+            $page = $data['page'];
+
+            $this->assign('major_id', $major_id);
+            $this->assign('school_id',$school_id);
+            $this->assign('school_list',$school_list);
+            $this->assign('major_list', $major_list);
+            $this->assign('data', $score_list);
+            $this->assign('page', $page);
+            $this->assign('search_key', $search_key);
+            $this->assign('major_subject_id_arr', $major_subject_id_arr);
+            $this->assign('all_subject_list', $major['subjects']);
+            $this->assign('subject_id', $subject_id);
+
+            if (request()->isAjax()) {
+                return $this->fetch('ajax_fail_score_list');
+            } else {
+                return $this->fetch('fail_score_list');
+            }
+
+        }
+
+
+    }
+    */
+    public function fail_score_list()
+    {
+        $search_key = trim(input('search_key', ''));
+
+        $school_list = $this->schoolModel->get_school_list_rmi($this->admin['recruit_major_id']);
+        $school_id = input('school_id', $school_list[0]['school_id']);
+
+        $major_list = MajorModel::get_major_list($school_id,$this->admin['recruit_major_id']);
+
+        $major_id = input('major_id', $major_list['0']['major_id']);
+
+        $major = MajorModel::get_major_detail($major_id, $school_id);
+
+        $all_subject_list = $major['subjects'];
+
+        $fail_member_list_ids = [];
+
+        foreach ($all_subject_list as $key => $subject)
+        {
+            $subject_id = $subject['subject_id'];
+
+            $pass_score = $subject['max_score'] * 0.6;
+
+            $where = "ms.major_score_status = 1 AND ms.major_score < ".$pass_score ." AND ms.subject_id =".$subject_id;
+
+            $member_list_ids = Db::name('major_score')->alias("ms")
+                ->join(config('database.prefix').'member_list m','m.member_list_id = ms.member_list_id')
+                ->join(config('database.prefix').'major mj','mj.major_id = m.major_id')
+                ->where($where)
+                ->column('ms.member_list_id');
+
+            $fail_member_list_ids = array_merge($fail_member_list_ids,$member_list_ids);
+        }
+        $fail_member_list_id_where = implode(',',$fail_member_list_ids);
+        $where = "ms.member_list_id in (".$fail_member_list_id_where.") ";
+
+        $major_subject_name_arr = array_column($all_subject_list, 'subject_name');
+        $major_subject_id_arr = array_column($all_subject_list, 'subject_id');
+
+        $this->assign('major_subject_name_arr', $major_subject_name_arr);
+
+        $data = $this->scoreModel->getFailMajorScoreList($where, $search_key, $all_subject_list);
+
+        $score_list = $data['score_list'];
+
+        $major = MajorModel::get_major_detail($major_id, $school_id);
+
+        $status = config("status");
+
+        $score_list = $this->scoreModel->handleMajorScoreList($score_list, $major_subject_name_arr, $status);
+
+        $page = $data['page'];
+
+        $this->assign('major_id', $major_id);
+        $this->assign('school_id',$school_id);
+        $this->assign('school_list',$school_list);
+        $this->assign('major_list', $major_list);
+        $this->assign('data', $score_list);
+        $this->assign('page', $page);
+        $this->assign('search_key', $search_key);
+        $this->assign('major_subject_id_arr', $major_subject_id_arr);
+        $this->assign('all_subject_list', $all_subject_list);
+        $this->assign('subject_id', $subject_id);
+
+        if (request()->isAjax()) {
+            return $this->fetch('ajax_fail_score_list');
+        } else {
+            return $this->fetch('fail_score_list');
+        }
+    }
 }
