@@ -98,11 +98,7 @@ class Import extends Base
                         $major[$k]['major_id'] = $major_id;
                     }
                     $major_codes[] = $major_code;
-                    $major[$k] = [
-                        'major_name' => $major_name,
-                        'major_code' => $major_code,
-                        'major_id' => $major_id
-                    ];
+                   
                 }
             }
             foreach($res as $k => $v)

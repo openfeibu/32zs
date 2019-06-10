@@ -12,6 +12,19 @@
 return [
     // 数据库类型
     'type'           => 'mysql',
+	
+	// 服务器地址
+    'hostname'       => '127.0.0.1',
+    // 数据库名
+    'database'       => 'new32zs',
+    // 用户名
+    'username'       => 'root',
+    // 密码
+    'password'       => 'gdaib2018',
+    // 端口
+    'hostport'       => '3306',
+	
+	/*
     // 服务器地址
     'hostname'       => '120.76.200.232',
     // 数据库名
@@ -22,6 +35,7 @@ return [
     'password'       => 'bgyrtksithv,1*&($AC',
     // 端口
     'hostport'       => '16822',
+	*/
     // 连接dsn
     'dsn'            => '',
     // 数据库连接参数
