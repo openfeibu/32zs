@@ -232,6 +232,49 @@ class Score extends Model
 		}
 		return $score_list;
 	}
+
+    public function getFailMajorScoreList($where,$search_key,$subject_list)
+    {
+        $score_list = Db::name('major_score')->alias("ms")
+            ->join(config('database.prefix').'member_list m','m.member_list_id = ms.member_list_id')
+            ->join(config('database.prefix').'member_info mi','m.member_list_id = mi.member_list_id')
+            ->join(config('database.prefix').'major mj','mj.major_id = m.major_id')
+            ->where('m.member_list_username|m.member_list_nickname|mi.ZexamineeNumber','like',"%".$search_key."%")
+            ->where($where)
+            ->order('m.major_id asc')
+            ->order('m.member_list_id desc')
+            ->field('m.member_list_nickname , m.member_list_username, m.member_list_id,m.year,mj.major_name,mj.major_name,m.major_id,m.school_id,mi.ZexamineeNumber');
+
+        $score_list = $score_list->paginate(config('paginate.list_rows'),false,['query'=>get_query()]);
+
+        $page = $score_list->render();
+        $score_list = $score_list->all();
+
+        foreach($score_list as $key => $member)
+        {
+            $major_score_arr = $major_subject_score_arr = array();
+
+            if(empty($subject_list))
+            {
+                $subject_list = SubjectModel::get_subject_list($member['major_id'],$member['school_id']);
+            }
+
+            $major_score_data = $this->get_member_subject_score($subject_list,$member['member_list_id']);
+            $major_score_arr = $major_score_data['major_score_arr'];
+            $major_score_status = $major_score_data['major_score_status'];
+            $major_subject_score_arr = $major_score_data['major_subject_score_arr'];
+            $score_list[$key]['major_score_arr'] = $major_score_arr;
+            $score_list[$key]['major_subject_score_arr'] = $major_subject_score_arr;
+            $score_list[$key]['major_score_status'] = $major_score_status;
+        }
+
+
+        $data['page'] = $page;
+        $data['score_list'] = $score_list;
+        return $data;
+
+    }
+
 	public function getRecruitMajorScoreList($map,$where,$search_key = '',$is_page = 1)
 	{
         $score_list =  Db::name('recruit_major_score')->alias("rms")
@@ -288,6 +331,7 @@ class Score extends Model
                 'subject_id' => $subject['subject_id'],
                 'subject_name' => $subject['subject_name'],
                 'score' => $score ? $score['major_score'] : '',
+                'max_score' => $subject['max_score'],
                 'major_score_status' => $score ? $score['major_score_status'] : 0,
             ];
         }
@@ -327,10 +371,64 @@ class Score extends Model
                 $major_score_status = '';
                 $admission_status = 0;
             }
+            $major_resit_score = Db::name('major_resit_score')->where(['member_list_id' => $member_list_id,'subject_id' => $subject['subject_id']])->find();
             $major_subject_score_arr[] = [
                 'subject_id' => $subject['subject_id'],
                 'subject_name' => $subject['subject_name'],
                 'score' => $major_score,
+                'max_score' => $subject['max_score'],
+                'major_score_status' => $major_score_status,
+                'major_resit_score' => $major_resit_score ? $major_resit_score['major_resit_score'] : '',
+                'major_resit_score_status' => $major_resit_score ? $major_resit_score['major_resit_score_status'] : '',
+            ];
+            $major_score_arr[] = $major_score;
+        }
+        return [
+            'major_score_arr' => $major_score_arr,
+            'major_score_status' => $major_score_status,
+            'major_subject_score_arr' => $major_subject_score_arr,
+            'admission_status' => $admission_status
+        ];
+    }
+    public function get_member_subject_resit_score($subject_list,$member_list_id,$major_score_status=NULL)
+    {
+        $subject_id_arr = array_column($subject_list,'subject_id');
+        $subject_score_list = DB::name('major_score')->where('member_list_id',$member_list_id)->where(array('subject_id' => array('in',$subject_id_arr)));
+        if($major_score_status)
+        {
+            $subject_score_list->where('major_score_status',$major_score_status);
+        }
+        $subject_score_list = $subject_score_list->field('major_score,major_score_status,subject_id')->order('subject_id','asc')->select();
+        $score_subject_id_arr = array_column($subject_score_list,'subject_id');
+        $subject_score_list = array_column($subject_score_list,NULL,'subject_id');
+        $major_score_status = 1;
+        $admission_status = 1;
+        if(count($score_subject_id_arr) < count($subject_list) || count($subject_list) == 0)
+        {
+            $major_score_status = 0;
+            $admission_status = 0;
+        }
+        $major_score_arr = $major_subject_score_arr = array();
+        foreach ($subject_list as $subject_key => $subject)
+        {
+            if(in_array($subject['subject_id'],$score_subject_id_arr))
+            {
+                $major_score = $subject_score_list[$subject['subject_id']]['major_score'];
+                $major_score_status = $subject_score_list[$subject['subject_id']]['major_score_status'];
+                if($major_score < $subject['max_score'] * 0.6)
+                {
+                    $admission_status = 0;
+                }
+            }else{
+                $major_score = '';
+                $major_score_status = '';
+                $admission_status = 0;
+            }
+            $major_subject_score_arr[] = [
+                'subject_id' => $subject['subject_id'],
+                'subject_name' => $subject['subject_name'],
+                'score' => $major_score,
+                'max_score' => $subject['max_score'],
                 'major_score_status' => $major_score_status,
             ];
             $major_score_arr[] = $major_score;
