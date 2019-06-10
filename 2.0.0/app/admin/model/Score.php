@@ -163,7 +163,7 @@ class Score extends Model
 		$no = 1;
 		foreach($score_list as $key => $val)
 		{
-            $major_score_arr = array_filter(json_decode($val['major_score'],true));
+            $major_score_arr = $val['major_score'] ? array_filter(json_decode($val['major_score'],true)) : [];
             $major_score_desc = major_score_desc($major_score_key,$major_score_arr);
             $major_score_arr = handle_major_score_arr($major_score_key,$major_score_arr);
             $score_list[$key]['major_score_arr'] = $major_score_arr;

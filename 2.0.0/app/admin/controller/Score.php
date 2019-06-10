@@ -627,7 +627,7 @@ class Score extends Base
         if($recruit_score_status != ''){
             $where = 'ms.recruit_score_status = '.$recruit_score_status;
         }else{
-            $map['ms.recruit_score'] = ['<>','NULL'];
+            //$map['ms.recruit_score'] = ['<>','NULL'];
         }
 
         $score_list = $this->scoreModel->getRecruitMajorScoreList($map,$where,$search_key);
