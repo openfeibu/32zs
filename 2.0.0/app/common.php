@@ -1302,18 +1302,18 @@ function handle_avatar($url,$member_list_nickname,$school_name)
     $app_url = config('app_url');
     if (empty($url)) {
         //$url为空
-        $url = '/data/upload/'.$school_name.'/'.$member_list_nickname;
-        if(is_file(ROOT_PATH.$url.'.jpg'))
+        $avatar_url = '/data/upload/'.$school_name.'/'.$member_list_nickname;
+        if(is_file(ROOT_PATH.$avatar_url.'.jpg'))
         {
-            return $app_url.$url.'jpg';
+            return $app_url.$avatar_url.'jpg';
         }
-        else if(is_file(ROOT_PATH.$url.'.png'))
+        else if(is_file(ROOT_PATH.$avatar_url.'.png'))
         {
-            return $app_url.$url.'.png';
+            return $app_url.$avatar_url.'.png';
         }
-        else if(is_file(ROOT_PATH.$url.'.jpeg'))
+        else if(is_file(ROOT_PATH.$avatar_url.'.jpeg'))
         {
-            return $app_url.$url.'.jpeg';
+            return $app_url.$avatar_url.'.jpeg';
         }
     }
     return $url;
