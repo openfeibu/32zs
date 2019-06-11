@@ -1302,7 +1302,7 @@ function handle_avatar($url,$member_list_nickname,$school_name)
     $app_url = config('app_url');
     if (empty($url)) {
         //$url为空
-        $avatar_url = '/data/upload/'.$school_name.'/'.$member_list_nickname;
+        $avatar_url = '/data/upload/'.trim($school_name).'/'.trim($member_list_nickname);
         if(is_file(ROOT_PATH.$avatar_url.'.jpg'))
         {
             return $app_url.$avatar_url.'jpg';
