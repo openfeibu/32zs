@@ -1297,6 +1297,27 @@ function get_imgurl2($url, $cat=0)
     }
 
 }
+function handle_avatar($url,$member_list_nickname,$school_name)
+{
+    $app_url = config('app_url');
+    if (empty($url)) {
+        //$url为空
+        $url = '/data/upload/avatar/'.$school_name.'/'.$member_list_nickname;
+        if(is_file(ROOT_PATH.$url.'.jpg'))
+        {
+            return $app_url.$url.'jpg';
+        }
+        else if(is_file(ROOT_PATH.$url.'.png'))
+        {
+            return $app_url.$url.'.png';
+        }
+        else if(is_file(ROOT_PATH.$url.'.jpeg'))
+        {
+            return $app_url.$url.'.jpeg';
+        }
+    }
+    return $url;
+}
 /**
  * 获取当前request参数数组,去除值为空
  * @return array

@@ -215,14 +215,15 @@ class Member extends Base
 		$this->assign('info',$info);
 		$this->assign('school_list',$school_list);
 		$this->assign('major_list',$major_list);
+        $school = Db::name('school')->where(array('school_id' => $member_list_edit['school_id']))->find();
+        $this->assign('school',$school);
+        $member_list_edit['member_list_headpic'] = handle_avatar($member_list_edit['member_list_headpic'],$member_list_edit['member_list_nickname'],$school['school_name']);
 		$this->assign('member_list_edit',$member_list_edit);
 		$this->assign('province',$province);
 		$this->assign('city',$city);
 		$this->assign('town',$town);
 		$this->assign('member_group',$member_group);
 
-		$school = Db::name('school')->where(array('school_id' => $member_list_edit['school_id']))->find();
-		$this->assign('school',$school);
 		$recruit_major = RecruitMajorModel::get_recruit_major($member_list_edit['school_id'],$member_list_edit['major_id']);
 		$this->assign('recruit_major',$recruit_major);
 

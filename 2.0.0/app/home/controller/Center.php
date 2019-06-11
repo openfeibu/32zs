@@ -33,6 +33,7 @@ class Center extends Base
 		$this->assign('school',$school);
 		$recruit_major = RecruitMajorModel::get_recruit_major($this->user['school_id'],$this->user['major_id']);
 		$this->assign('recruit_major',$recruit_major);
+        $this->user['member_list_headpic'] = handle_avatar($this->user['member_list_headpic'],$this->user['member_list_nickname'],$school['school_name']);
 		$this->assign($this->user);
 		$this->assign('info',$info);
 		$this->assign('date',$date);
