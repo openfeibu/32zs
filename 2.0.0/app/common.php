@@ -1301,20 +1301,23 @@ function handle_avatar($url,$member_list_nickname,$school_name)
 {
     $app_url = config('app_url');
     if (empty($url)) {
+		/*
         //$url为空
         $avatar_url = '/data/upload/'.trim($school_name).'/'.trim($member_list_nickname);
-        if(is_file(ROOT_PATH.$avatar_url.'.jpg'))
+		$gb_avatar_url = iconv('UTF-8','GB2312',$avatar_url);
+        if(is_file(ROOT_PATH.$gb_avatar_url.'.jpg'))
         {
-            return $app_url.$avatar_url.'jpg';
+            return $app_url.$avatar_url.'.jpg';
         }
-        else if(is_file(ROOT_PATH.$avatar_url.'.png'))
+        else if(is_file(ROOT_PATH.$gb_avatar_url.'.png'))
         {
             return $app_url.$avatar_url.'.png';
         }
-        else if(is_file(ROOT_PATH.$avatar_url.'.jpeg'))
+        else if(is_file(ROOT_PATH.$gb_avatar_url.'.jpeg'))
         {
             return $app_url.$avatar_url.'.jpeg';
         }
+		*/
     }
     return $url;
 }
