@@ -1698,7 +1698,7 @@ function sex_value($number)
 {
     switch($number)
 	{
-		case 1：
+        case 1:
 			return "男";
 			break;
 		case 2:
