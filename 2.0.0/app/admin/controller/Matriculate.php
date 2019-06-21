@@ -113,7 +113,7 @@ class Matriculate extends Base
                 $major_score_total = 0;
     			$major_score_key = $major['major_score_key'] ? array_filter(json_decode($major['major_score_key'],true)) : [];
     			if($value['major_score']){
-    				$major_score_arr = json_decode($value['major_score'],true);
+                    $major_score_arr = array_filter(json_decode($value['major_score'],true));
     				$major_score_desc = major_score_desc($major_score_key,$major_score_arr);
     				$major_score_total = handle_major_score($major_score_arr);
     			}
