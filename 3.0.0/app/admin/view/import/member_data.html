@@ -1,0 +1,35 @@
+{extend name="admin@public/base" /}
+{block name="main-content"}
+	<div class="page-content">
+
+		<div class="">
+
+			<div class="col-xs-12">
+
+				<form class="form-horizontal" name="excel_runimport" method="post" action="{:url('admin/Import/get_member_data')}"  enctype="multipart/form-data">
+
+						<div class="col-sm-3">
+							<a href="javascript:;" class="file  btn-fb-blue btn-fb-radio">
+								<input type="file" name="file_stu" id="file_stu"  class="file"  required/>
+								选择上传文件
+							</a>
+							<span class="input-group-btn" style="float:inherit; left:140px;">
+								<button type="submit" class="btn btn-xs  btn-purple btn-fb-orange btn-fb-radio" >
+									导入
+								</button>
+							</span>
+
+
+						</div>
+					<div class="form-group">
+						<p id="file_name" style="text-align:center;"></p>
+					</div>
+					<div class="space-4"></div>
+				</form>
+			</div>
+		</div>
+
+
+	</div><!-- /.page-content -->
+
+{/block}
