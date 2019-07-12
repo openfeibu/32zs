@@ -38,9 +38,9 @@ class ScoreListTCPDF extends \tcpdf\TCPDF
         $html = '
 <table border="0" cellspacing="3" cellpadding="4">
     <tr>
-        <td>中职专业负责人签名：</td>
         <td></td>
-        <td width="100px;">中职学校盖章:</td>
+        <td></td>
+        <td width="100px;">高职学校盖章:</td>
     </tr>
     <tr>
 		<td></td>
