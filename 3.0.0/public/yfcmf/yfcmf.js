@@ -1497,7 +1497,7 @@ $(function(){
 		var reg = /^[0-9]+.?[0-9]*$/;
 		$this = $(this);
 		value = $this.val();
-        if(!reg.test(value)){
+        if(!reg.test(value) && !empty(value)){
 			$this.after('<span class="save_span">格式不正确</span>');
 			$('.save_span').fadeOut('normal').remove();
 			$this.val('');
