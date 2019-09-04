@@ -117,7 +117,7 @@ class UniversityScore extends Base
             $where = 'member_list_id ='.$ids;
         }
 
-        $rst=Db::name('major_score')->where($where)->setField('major_score_status',1);
+        $rst=Db::name('major_score')->where($where)->where('major_score','<>','')->setField('major_score_status',1);
         if($rst!==false){
             $this->success("操作成功",url('admin/universityScore/score_list',array('page' => $p)));
         }else{
