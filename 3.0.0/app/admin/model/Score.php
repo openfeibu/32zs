@@ -371,17 +371,17 @@ class Score extends Model
                 $major_score_status = '';
                 $admission_status = 0;
             }
-			/*
+
             $major_resit_score = Db::name('major_resit_score')->where(['member_list_id' => $member_list_id,'subject_id' => $subject['subject_id']])->find();
-			*/
+
             $major_subject_score_arr[] = [
                 'subject_id' => $subject['subject_id'],
                 'subject_name' => $subject['subject_name'],
                 'score' => $major_score,
                 'max_score' => $subject['max_score'],
                 'major_score_status' => $major_score_status,
-                //'major_resit_score' => $major_resit_score ? $major_resit_score['major_resit_score'] : '',
-                //'major_resit_score_status' => $major_resit_score ? $major_resit_score['major_resit_score_status'] : '',
+                'major_resit_score' => $major_resit_score ? $major_resit_score['major_resit_score'] : '',
+                'major_resit_score_status' => $major_resit_score ? $major_resit_score['major_resit_score_status'] : '',
             ];
             $major_score_arr[] = $major_score;
         }

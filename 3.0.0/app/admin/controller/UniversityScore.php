@@ -517,25 +517,33 @@ class UniversityScore extends Base
 
             $fail_member_list_ids = array_merge($fail_member_list_ids,$member_list_ids);
         }
-        $fail_member_list_id_where = implode(',',$fail_member_list_ids);
-        $where = "ms.member_list_id in (".$fail_member_list_id_where.") ";
-
         $major_subject_name_arr = array_column($all_subject_list, 'subject_name');
         $major_subject_id_arr = array_column($all_subject_list, 'subject_id');
 
         $this->assign('major_subject_name_arr', $major_subject_name_arr);
 
-        $data = $this->scoreModel->getFailMajorScoreList($where, $search_key, $all_subject_list);
+        $fail_member_list_id_where = implode(',',$fail_member_list_ids);
+        if(!$fail_member_list_id_where)
+        {
+            $score_list = [];
+            $page = [];
+        }else{
 
-        $score_list = $data['score_list'];
+            $where = "ms.member_list_id in (".$fail_member_list_id_where.") ";
 
-        $major = MajorModel::get_major_detail($major_id, $school_id);
 
-        $status = config("status");
+            $data = $this->scoreModel->getFailMajorScoreList($where, $search_key, $all_subject_list);
 
-        $score_list = $this->scoreModel->handleMajorScoreList($score_list, $major_subject_name_arr, $status);
+            $score_list = $data['score_list'];
 
-        $page = $data['page'];
+            $major = MajorModel::get_major_detail($major_id, $school_id);
+
+            $status = config("status");
+
+            $score_list = $this->scoreModel->handleMajorScoreList($score_list, $major_subject_name_arr, $status);
+
+            $page = $data['page'];
+        }
 
         $this->assign('major_id', $major_id);
         $this->assign('school_id',$school_id);
