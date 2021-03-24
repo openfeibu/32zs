@@ -1,0 +1,26 @@
+<input name="school_id" value="{:input('school_id','')}" type="hidden" />
+{if isset($data) && $data}
+<tr>
+    <th></th>
+    <th width="60px">ID</th>
+    <th>姓名</th>
+    <th>身份证</th>
+    <th>中职学校</th>
+    <th>中职专业</th>
+    <th>技能考核成绩</th>
+</tr>
+{foreach name="data" item="v"}
+<tr>
+    <td></td>
+    <td><input name="n_id[]" class="ace" type="hidden" value="{$v.member_list_id}">{$v.member_list_id}</td>
+    <td height="28" >{$v.member_list_nickname}</td>
+    <td>{$v.member_list_username}</td>
+    <td>{$v.school_name}</td>
+    <td>{$v.major_name}</td>
+    <td><input type="text" name="recruit_major_score[]" value="{$v.recruit_major_score}" class="score_input" data-id="{$v.member_list_id}"></td>
+</tr>
+{/foreach}
+<tr ><td colspan="20" align="center"><button class="btn btn-fb-blue fb-radio" id="import_btn" type="submit" style="width:100px;">确认后提交</button></td></tr>
+{else}
+
+{/if}

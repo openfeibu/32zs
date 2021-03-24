@@ -1,0 +1,491 @@
+<link rel="stylesheet" href="{$yf_theme_path}public/css/bootstrap.css">
+{include file="public:head_center" /}
+<script src="{$yf_theme_path}public/js/bootstrap.js"></script>
+<script src="{$yf_theme_path}public/js/laydate.js"></script>
+<script src="__PUBLIC__/layer/layer_zh-cn.js"></script>
+    <!--加载Css-->
+    {switch name="lang"}
+        {case value="zh-cn"}{load href="__PUBLIC__/shearphoto/css/ShearPhoto_f_zh-cn.css" /}{/case}
+        {case value="en-us"}{load href="__PUBLIC__/shearphoto/css/ShearPhoto_f_en-us.css" /}{/case}
+        {default /}{load href="__PUBLIC__/shearphoto/css/ShearPhoto_f_zh-cn.css" /}
+    {/switch}
+    <!-- 主体内容 S -->
+    <div class="main w1000" style="background:#fff;">
+        <!--startprint1-->
+        <div class="personal_table">
+                <table width="656px">
+                    <tbody><tr style="height:30px;">
+                        <td colspan="2">
+
+                        </td>
+                        <td colspan="1" style="text-align: right;">
+                            <span style="font-size: 13px;color: grey;">广东农工商职业技术学院</span>
+                        </td>
+                    </tr>
+                    <tr><td colspan="3" style="text-align: center;font-size: 25px;font-weight: bold;border-top:1px solid #000000;line-height:48px;">{$info.year}年中高职贯通报名表</td></tr>
+
+                </tbody></table>
+                <br>
+                <table width="656px" class="k-w-table line_table subform">
+                    <tbody><tr class="line-table-height">
+                        <td class="k-s-content low_width_1 title" style="text-align: center;">姓&nbsp;&nbsp;名</td>
+                        <td class="k-s-content low_width_2 content"><input type="text" name="name" value="{$info.member_list_nickname}" disabled/></td>
+                        <td class="k-s-content low_width_3 title">性&nbsp;&nbsp;别</td>
+                        <td class="k-s-content low_width_4 content">
+                            <input type="text" name="sex" value="{$info.sex}" valType="n" leng="18" disabled/>
+                            <select class="" name="" id="sexSelect">
+                                <option value="男">男</option>
+                                <option value="女">女</option>
+                            </select>
+                        </td>
+                        <td class="k-s-content low_width_5 title">高考考生号</td>
+                        <td class="k-s-content low_width_6 content"><input type="text" name="GexamineeNumber" value="{$info.GexamineeNumber}"/></td>
+                        <td class="k-s-content low_width_7" rowspan="5" style="text-align: center;position:relative">
+
+
+                                <img  style="width: 125px; height: 175px; display: inline;" src="{if $user.member_list_headpic}{$user.member_list_headpic|get_imgurl=1}{else}{$yf_theme_path}public/images/defaultGraph.jpg{/if} " height="175px" width="125px"  class="headicon" {if condition="$user['user_status'] neq 1"}data-toggle="modal" data-target="#myModal"  title="建议使用ie9以上浏览器，360浏览器建议使用极速模式"{/if}>
+
+
+                        </td>
+                    </tr>
+                    <tr class="line-table-height">
+                        <td class="k-s-content low_width_1 title">出生年月</td>
+                        <td class="k-s-content content"><input type="text" class="noBlur" name="date" value="{$info.date}" id="birth" disabled/></td>
+                        <td class="k-s-content low_width_3 title">民&nbsp;&nbsp;族</td>
+                        <td class="k-s-content content"><input type="text" name="nation" value="{$info.nation}"/></td>
+                        <td class="k-s-content title">政治面貌</td>
+                        <td class="k-s-content content"><input type="text" name="politicalOutlook" value="{$info.politicalOutlook}"/></td>
+                    </tr>
+                    <tr class="line-table-height">
+
+                        <td class="k-s-content low_width_1 title">所在学校</td>
+                        <td class="k-s-content content" colspan="2">
+                            <input type="text" name="school" value="{$school.school_name}" disabled/>
+                        </td>
+                        <td class="k-s-content low_width_1 title">身份证号</td>
+                        <td class="k-s-content content" colspan="2"><input type="text" name="cardId" value="{$info.member_list_username}" disabled/></td>
+
+                    </tr>
+                    <tr class="line-table-height">
+                        <td class="k-s-content title">生源地</td>
+                       <td class="k-s-content content">
+                           <input type="text" name="documentType" value="{$info.documentType}"/>
+                       </td>
+                        <td class="k-s-content  title">户籍地</td>
+                        <td class="k-s-content content"><input type="text" name="domicile" value="{$info.domicile}"/></td>
+                        <td class="k-s-content low_width_1 title">所在专业</td>
+                        <td class="k-s-content content">
+                            {$major.major_name}
+                        </td>
+
+
+                    </tr>
+                    <tr class="line-table-height">
+                        <td class="k-s-content low_width_1 title">报考专业</td>
+                        <td class="k-s-content content" colspan="1">
+                            {$recruit_major.recruit_major_name}
+                        </td>
+                        <td class="k-s-content title" colspan="1">中职考生号</td>
+                        <td class="k-s-content content">
+                        <input type="text" name="ZexamineeNumber" value="{$info.ZexamineeNumber}"/>
+                        </td>
+                         <td class="k-s-content title" colspan="1">考生类别</td>
+                        <td class="k-s-content content">
+                            <input type="text" name="candidateCategory" value="{$info.candidateCategory}"/>
+                        </td>
+                    </tr>
+                    <!-- 第6行 -->
+                    <tr class="line-table-height">
+                        <td class="k-s-content low_width_1 title " colspan="2">接收邮寄通知书地址</td>
+                        <td class="k-s-content content" colspan="3">
+                            <input type="text" name="address" value="{$info.address}"/>
+                        </td>
+                        <td class="k-s-content title">邮编</td>
+                        <td class="k-s-content content" colspan="1">
+                            <input type="text" name="zipCode" value="{$info.zipCode}"/>
+                        </td>
+                    </tr>
+                    <tr class="line-table-height">
+                        <td class="k-s-content low_width_1 title"  colspan="2">收件人</td>
+                        <td class="k-s-content content" colspan="2">
+                            <input type="text" name="addressee" value="{$info.addressee}"/>
+                        </td>
+                        <td class="k-s-content title" colspan="1">联系电话</td>
+                        <td class="k-s-content content" colspan="2">
+                            <input type="text" name="tell" value="{$info.tell}"/>
+                        </td>
+                    </tr>
+                    <tr class="line-table-height">
+                        <td class="k-s-content title" colspan="2">技能证书名称</td>
+                        <td class="k-s-content title" colspan="1">级别</td>
+                        <td class="k-s-content title" colspan="2">颁发单位</td>
+                        <td class="k-s-content title" colspan="2">获得时间</td>
+
+                    </tr>
+                    <tr class="line-table-height">
+                        <td class="k-s-content title" colspan="2"><input type="text" name="certificateName_0" value="{$info.certificate.0.certificateName}"/></td>
+                        <td class="k-s-content title" colspan="1"><input type="text" name="certificateLevel_0" value="{$info.certificate.0.certificateLevel}"/></td>
+                        <td class="k-s-content title" colspan="2"><input type="text" name="certificateCompany_0" value="{$info.certificate.0.certificateCompany}"/></td>
+                        <td class="k-s-content title" colspan="2"><input type="text" name="certificateDate_0" value="{$info.certificate.0.certificateDate}"/></td>
+
+                    </tr>
+                    <tr class="line-table-height">
+                        <td class="k-s-content title" colspan="2"><input type="text" name="certificateName_1" value="{$info.certificate.1.certificateName}"/></td>
+                        <td class="k-s-content title" colspan="1"><input type="text" name="certificateLevel_1" value="{$info.certificate.1.certificateLevel}"value="{$info.certificate.0.certificateName}"/></td>
+                        <td class="k-s-content title" colspan="2"><input type="text" name="certificateCompany_1" value="{$info.certificate.1.certificateCompany}"/></td>
+                        <td class="k-s-content title" colspan="2"><input type="text" name="certificateDate_1" value="{$info.certificate.1.certificateDate}"/></td>
+
+                    </tr>
+                    <tr class="line-table-height">
+                        <td class="k-s-content title" colspan="2"><input type="text" name="certificateName_2" value="{$info.certificate.2.certificateName}"/></td>
+                        <td class="k-s-content title" colspan="1"><input type="text" name="certificateLevel_2" value="{$info.certificate.2.certificateLevel}"/></td>
+                        <td class="k-s-content title" colspan="2"><input type="text" name="certificateCompany_2" value="{$info.certificate.2.certificateCompany}"/></td>
+                        <td class="k-s-content title" colspan="2"><input type="text" name="certificateDate_2" value="{$info.certificate.2.certificateDate}"/></td>
+                    </tr>
+
+                    <tr class="line-table-height">
+                        <td class="k-s-content title" colspan="7" style="text-align:left;text-indent:1em">简历（从初中开始填起）</td>
+                    </tr>
+                    <tr class="line-table-height">
+                        <td class="k-s-content title" colspan="1">自何年何月</td>
+                        <td class="k-s-content title" colspan="1">至何年何月</td>
+                        <td class="k-s-content title" colspan="3">在何地、何单位学习或工作</td>
+                        <td class="k-s-content title" colspan="2">任何职务</td>
+
+                    </tr>
+                    <tr class="line-table-height">
+                        <td class="k-s-content title" colspan="1"><input type="text" name="resumeBeforeDate_0" value="{$info.resume.0.resumeBeforeDate}" class="noBlur" id="resumeBeforeDate_0"/></td>
+                        <td class="k-s-content title" colspan="1"><input type="text" name="resumeAfterDate_0" value="{$info.resume.0.resumeAfterDate}" class="noBlur" id="resumeAfterDate_0"/></td>
+                        <td class="k-s-content title" colspan="3"><input type="text" name="resumeWork_0" value="{$info.resume.0.resumeWork}"/></td>
+                        <td class="k-s-content title" colspan="2"><input type="text" name="resumePost_0" value="{$info.resume.0.resumePost}"/></td>
+
+                    </tr>
+                    <tr class="line-table-height">
+                         <td class="k-s-content title" colspan="1"><input type="text" name="resumeBeforeDate_1" value="{$info.resume.1.resumeBeforeDate}" class="noBlur" id="resumeBeforeDate_1"/></td>
+                        <td class="k-s-content title" colspan="1"><input type="text" name="resumeAfterDate_1" value="{$info.resume.1.resumeAfterDate}" class="noBlur" id="resumeAfterDate_1"/></td>
+                        <td class="k-s-content title" colspan="3"><input type="text" name="resumeWork_1" value="{$info.resume.1.resumeWork}"/></td>
+                        <td class="k-s-content title" colspan="2"><input type="text" name="resumePost_1" value="{$info.resume.1.resumePost}"/></td>
+
+                    </tr>
+                    <tr class="line-table-height">
+                          <td class="k-s-content title" colspan="1"><input type="text" name="resumeBeforeDate_2" value="{$info.resume.2.resumeBeforeDate}" class="noBlur" id="resumeBeforeDate_2"/></td>
+                        <td class="k-s-content title" colspan="1"><input type="text" name="resumeAfterDate_2" value="{$info.resume.2.resumeAfterDate}" class="noBlur" id="resumeAfterDate_2"/></td>
+                        <td class="k-s-content title" colspan="3"><input type="text" name="resumeWork_2" value="{$info.resume.2.resumeWork}"/></td>
+                        <td class="k-s-content title" colspan="2"><input type="text" name="resumePost_2" value="{$info.resume.2.resumePost}"/></td>
+
+                    </tr>
+                    <tr class="line-table-height">
+                        <td class="k-s-content title" colspan="7" style="text-align:left;text-indent:1em">获奖情况：</td>
+                    </tr>
+                    <tr class="line-table-height">
+                        <td class="k-s-content title" colspan="2">时间</td>
+                        <td class="k-s-content title" colspan="2">奖项</td>
+                        <td class="k-s-content title" colspan="3">发证单位</td>
+
+                    </tr>
+                     <tr class="line-table-height">
+                        <td class="k-s-content title" colspan="2"><input type="text" name="prizeDate_0"  value="{$info.prize.0.prizeDate}" class="noBlur" id="prizeDate_0"/></td>
+                        <td class="k-s-content title" colspan="2"><input type="text" name="prizeName_0"  value="{$info.prize.0.prizeName}"/></td>
+                        <td class="k-s-content title" colspan="3"><input type="text" name="prizeCompany_0"  value="{$info.prize.0.prizeCompany}"/></td>
+
+                    </tr>
+                     <tr class="line-table-height">
+                        <td class="k-s-content title" colspan="2"><input type="text" name="prizeDate_1"  value="{$info.prize.1.prizeDate}" class="noBlur" id="prizeDate_1"/></td>
+                        <td class="k-s-content title" colspan="2"><input type="text" name="prizeName_1"  value="{$info.prize.1.prizeName}"/></td>
+                        <td class="k-s-content title" colspan="3"><input type="text" name="prizeCompany_1"  value="{$info.prize.1.prizeCompany}"/></td>
+                    </tr>
+                     <tr class="line-table-height">
+                        <td class="k-s-content title" colspan="1">处分情况</td>
+                        <td class="k-s-content title" colspan="6">
+                            <input type="text" name="punishment" />
+                        </td>
+                    </tr>
+                    <tr class="line-table-height">
+                        <td class="k-s-content title" style="text-align:left;text-indent:1em" colspan="7">家庭主要社会关系</td>
+                    </tr>
+                    <tr class="line-table-height">
+                        <td class="k-s-content title" colspan="1">关系</td>
+                        <td class="k-s-content title" colspan="1">姓名</td>
+                        <td class="k-s-content title" colspan="3">工作单位</td>
+                        <td class="k-s-content title" colspan="2">电话</td>
+                    </tr>
+                     <tr class="line-table-height">
+                       <td class="k-s-content title" colspan="1">
+                            <input type="text" name="familyPunishment_0" value="{$info.family.0.familyPunishment}"/>
+                        </td>
+                        <td class="k-s-content title" colspan="1">
+                            <input type="text" name="familyName_0" value="{$info.family.0.familyName}"/>
+                        </td>
+                        <td class="k-s-content title" colspan="3">
+                            <input type="text" name="familyWork_0" value="{$info.family.0.familyWork}"/>
+                        </td>
+                        <td class="k-s-content title" colspan="2">
+                            <input type="text" name="familyTell_0" value="{$info.family.0.familyTell}"/>
+                        </td>
+                    </tr>
+                    <tr class="line-table-height">
+                        <td class="k-s-content title" colspan="1">
+                            <input type="text" name="familyPunishment_1" value="{$info.family.1.familyPunishment}" />
+                        </td>
+                        <td class="k-s-content title" colspan="1">
+                            <input type="text" name="familyName_1" value="{$info.family.1.familyName}"/>
+                        </td>
+                        <td class="k-s-content title" colspan="3">
+                            <input type="text" name="familyWork_1" value="{$info.family.1.familyWork}"/>
+                        </td>
+                        <td class="k-s-content title" colspan="2">
+                            <input type="text" name="familyTell_1" value="{$info.family.1.familyTell}"/>
+                        </td>
+                    </tr>
+                    <tr class="line-table-height">
+                        <td class="k-s-content title" colspan="1">
+                            <input type="text" name="familyPunishment_2" value="{$info.family.2.familyPunishment}"/>
+                        </td>
+                        <td class="k-s-content title" colspan="1">
+                            <input type="text" name="familyName_2" value="{$info.family.2.familyName}"/>
+                        </td>
+                        <td class="k-s-content title" colspan="3">
+                            <input type="text" name="familyWork_2" value="{$info.family.2.familyWork}"/>
+                        </td>
+                        <td class="k-s-content title" colspan="2">
+                            <input type="text" name="familyTell_2" value="{$info.family.2.familyTell}"/>
+                        </td>
+                    </tr>
+
+
+                    <tr class="line-table-height2">
+                        <td class="k-s-content title">中职学校报考审核 意见</td>
+                        <td class="k-s-content content_area" colspan="3">
+                           （盖公章）
+                        </td>
+                        <td class="k-s-content title">高职学校审核意见</td>
+                        <td class="k-s-content content_area" colspan="2">
+
+                        </td>
+                    </tr>
+                </tbody></table>
+        </div>
+        <!--endtprint1-->
+
+        {if condition="$user['user_status'] eq 1"}
+        <button class="print printHide" onclick="preview(1)">打印</button>
+        {else}
+         <button class="unprint printHide" >请完善资料，审核通过后可打印</button>
+        {/if}
+    </div>
+
+    <script  type="text/javascript" src="__PUBLIC__/shearphoto/js/ShearPhoto.js" ></script>
+<script  type="text/javascript"  src="__PUBLIC__/shearphoto/js/alloyimage.js" ></script>
+<script  type="text/javascript"  src="__PUBLIC__/shearphoto/js/handle_f.js" ></script>
+<script type="text/javascript">
+    var SHEAR = {
+        PATH_RES: '__PUBLIC__',
+        PATH_AVATAR: '__ROOT__/data/upload/avatar',
+        URL:"{:url('home/Center/avatar')}",
+    };
+</script>
+
+    <!-- 显示模态框（Modal） -->
+        <div class="modal fade modal-avatar printHide" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display:none;">
+            <div class="modal-dialog" style="width:60%;">
+                <div class="modal-content"  style="min-width:620px;">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">
+                            选择头像
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                    <div id="shearphoto_loading">{:lang('program loading')}......</div>
+                                    <div id="shearphoto_main">
+
+                                        <div class="primary">
+                                            <div id="main">
+                                                <div class="point"></div>
+                                                <div id="SelectBox">
+                                                    <form    id="ShearPhotoForm" enctype="multipart/form-data" method="post"  target="POSTiframe">
+                                                        <a href="javascript:;" id="selectImage"><input type="file"  name="UpFile" autocomplete="off"/></a>
+                                                    </form>
+
+                                                </div>
+                                                <div id="relat">
+                                                    <div id="black"></div>
+                                                    <div id="movebox">
+                                                        <div id="smallbox">
+                                                            <img src="__PUBLIC__/shearphoto/images/default.gif" class="MoveImg"  style="max-width:300%"/>
+                                                        </div>
+                                                        <i id="borderTop"></i>
+                                                        <i id="borderLeft"></i>
+                                                        <i id="borderRight"></i>
+                                                        <i id="borderBottom"></i>
+                                                        <i id="BottomRight"></i>
+                                                        <i id="TopRight"></i>
+                                                        <i id="Bottomleft"></i>
+                                                        <i id="Topleft"></i>
+                                                        <i id="Topmiddle"></i>
+                                                        <i id="leftmiddle"></i>
+                                                        <i id="Rightmiddle"></i>
+                                                        <i id="Bottommiddle"></i>
+                                                    </div>
+                                                    <img src="__PUBLIC__/shearphoto/images/default.gif" class="BigImg" />
+                                                </div>
+                                            </div>
+                                            <div style="clear: both"></div>
+                                            <div id="Shearbar">
+                                                <a id="LeftRotate" href="javascript:;"><em></em>向左转</a>
+                                                <em class="hint L"></em>
+                                                <div class="ZoomDist" id="ZoomDist">
+                                                    <div id="Zoomcentre"></div>
+                                                    <div id="ZoomBar"></div>
+                                                    <span class="progress"></span>
+                                                </div>
+                                                <em class="hint R"></em>
+                                                <a id="RightRotate" href="javascript:;">向右转<em></em></a>
+                                                <p class="Psava">
+                                                    <a id="againIMG"  href="javascript:;">重新选择</a>
+                                                    <a id="saveShear" href="javascript:;">保存</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div style="clear: both"></div>
+                                    </div>
+                                    <div id="photoalbum">
+                                        <i id="close"></i>
+                                        <ul>
+                                            <li><img src="__PUBLIC__/shearphoto/file/photo/1.jpg" serveUrl="file/photo/1.jpg" /></li>
+                                            <li><img src="__PUBLIC__/shearphoto/file/photo/2.jpg" serveUrl="file/photo/2.jpg" /></li>
+                                            <li><img src="__PUBLIC__/shearphoto/file/photo/3.jpg" serveUrl="file/photo/3.jpg" /></li>
+                                            <li><img src="__PUBLIC__/shearphoto/file/photo/4.jpg" serveUrl="file/photo/4.jpg" /></li>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+    <!-- 主体内容 E -->
+<script type="text/javascript">
+laydate.skin('dahong')
+laydate({
+elem: '#birth',
+format: 'YYYY年MM月', // 分隔符可以任意定义，该例子表示只显示年月
+choose: function(datas){ //选择日期完毕的回调
+    $.post("{:url('home/center/update_info')}",{'name':'date','value':datas},function(data){
+        // if($("."+name).length>0){
+        //     $("."+name).text(value);
+        // }
+        // console.log(data);
+     });
+}
+});
+laydate({
+elem: '#resumeBeforeDate_0',
+format: 'YYYY年MM月', // 分隔符可以任意定义，该例子表示只显示年月
+choose: function(datas){ //选择日期完毕的回调
+    $.post("{:url('home/center/update_info')}",{'name':'resumeBeforeDate_0','value':datas},function(data){
+        // if($("."+name).length>0){
+        //     $("."+name).text(value);
+        // }
+        // console.log(data);
+     });
+}
+});
+laydate({
+elem: '#resumeBeforeDate_1',
+format: 'YYYY年MM月', // 分隔符可以任意定义，该例子表示只显示年月
+choose: function(datas){ //选择日期完毕的回调
+    $.post("{:url('home/center/update_info')}",{'name':'resumeBeforeDate_1','value':datas},function(data){
+        // if($("."+name).length>0){
+        //     $("."+name).text(value);
+        // }
+        // console.log(data);
+     });
+}
+});
+laydate({
+elem: '#resumeBeforeDate_2',
+format: 'YYYY年MM月', // 分隔符可以任意定义，该例子表示只显示年月
+choose: function(datas){ //选择日期完毕的回调
+    $.post("{:url('home/center/update_info')}",{'name':'resumeBeforeDate_2','value':datas},function(data){
+        // if($("."+name).length>0){
+        //     $("."+name).text(value);
+        // }
+        // console.log(data);
+     });
+}
+});
+laydate({
+elem: '#resumeAfterDate_0',
+format: 'YYYY年MM月', // 分隔符可以任意定义，该例子表示只显示年月
+choose: function(datas){ //选择日期完毕的回调
+    $.post("{:url('home/center/update_info')}",{'name':'resumeAfterDate_0','value':datas},function(data){
+        // if($("."+name).length>0){
+        //     $("."+name).text(value);
+        // }
+        // console.log(data);
+     });
+}
+});
+laydate({
+elem: '#resumeAfterDate_1',
+format: 'YYYY年MM月', // 分隔符可以任意定义，该例子表示只显示年月
+choose: function(datas){ //选择日期完毕的回调
+    $.post("{:url('home/center/update_info')}",{'name':'resumeAfterDate_1','value':datas},function(data){
+        // if($("."+name).length>0){
+        //     $("."+name).text(value);
+        // }
+        // console.log(data);
+     });
+}
+});
+laydate({
+elem: '#resumeAfterDate_2',
+format: 'YYYY年MM月', // 分隔符可以任意定义，该例子表示只显示年月
+choose: function(datas){ //选择日期完毕的回调
+    $.post("{:url('home/center/update_info')}",{'name':'resumeAfterDate_2','value':datas},function(data){
+        // if($("."+name).length>0){
+        //     $("."+name).text(value);
+        // }
+        // console.log(data);
+     });
+}
+});
+laydate({
+elem: '#prizeDate_0',
+format: 'YYYY年MM月DD日', // 分隔符可以任意定义，该例子表示只显示年月
+choose: function(datas){ //选择日期完毕的回调
+    $.post("{:url('home/center/update_info')}",{'name':'prizeDate_0','value':datas},function(data){
+        // if($("."+name).length>0){
+        //     $("."+name).text(value);
+        // }
+        // console.log(data);
+     });
+}
+});
+laydate({
+elem: '#prizeDate_1',
+format: 'YYYY年MM月DD日',// 分隔符可以任意定义，该例子表示只显示年月
+choose: function(datas){ //选择日期完毕的回调
+    $.post("{:url('home/center/update_info')}",{'name':'prizeDate_1','value':datas},function(data){
+        // if($("."+name).length>0){
+        //     $("."+name).text(value);
+        // }
+        // console.log(data);
+     });
+}
+});
+{if condition="$user['user_status'] eq 1"}
+
+{/if}
+</script>
+{if condition="$user['user_status'] eq 1"}
+<script>
+$(".subform").find("input").attr('disabled',true);
+$(".subform").find("select").attr('disabled',true);
+$(".subform").find("textarea").attr('disabled',true);
+</script>
+{/if}
+
+{include file="public:footer" /}

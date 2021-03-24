@@ -1,0 +1,125 @@
+{extend name="admin@public/base" /}
+{block name="main-content"}
+	<div class="page-content">
+
+		<div class="">
+
+			<div class="col-xs-12">
+
+				<form class="form-horizontal ajaxScoreForm" name="excel_runimport" method="post" action="{:url('admin/UniversityScore/major_score_runimport')}"  enctype="multipart/form-data">
+					<div style="margin-bottom:10px;">
+						<div style="float:left;margin-right:10px">
+		                    <p>注意事项：</p>
+							<p>1、确保系统内已有考生基础数据，已设好科目，才能导入。</p>
+							<!-- <p>2、导出的模板表格中仅含未审核成绩的考生及其科目信息。</p> -->
+							<p>2、在模板上登记成绩时，仅填分数即可，勿修改其他信息。</p>
+							<p>操作流程：</p>
+							<p>选择专业->导出模板->登记成绩->选择专业->导入成绩->确认提交</p>
+						</div>
+						<div class="file_sl"  style="float:left">
+								<img src="__PUBLIC__/img/sl.png" alt="" >
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="fb-export"><a href="javascript:;" id="downexcel">下载对应专业转段成绩录入模板</a></div>
+					<div class="clearfix"></div>
+					<div class="form-group">
+						<label class="control-label no-padding-right" for="form-field-1" style="width:110px !important;">中职学校： </label>
+						<div class="col-sm-2">
+							<select name="school_id" id="school2">
+								{foreach name="school_list" item="v"}
+								<option value="{$v.school_id}" {if condition="$school_id eq $v['school_id']"}selected="selected"{/if}>{$v.school_name}</option>
+								{/foreach}
+							</select>
+						</div>
+						<label class="control-label no-padding-right" for="form-field-1" style="width:150px !important;">中职专业： </label>
+						<div class="col-sm-2">
+							<select name="major_id"  class="col-sm-12" id="major" required>
+								{foreach name='major_list' item='v'}
+								<option value="{$v.major_id}">{$v.major_name}</option>
+								{/foreach}
+							</select>
+						</div>
+
+						<div class="col-sm-3">
+							<a href="javascript:;" class="file  btn-fb-blue btn-fb-radio">
+								<input type="file" name="file_stu" id="file_stu"  class="file"  required/>
+								选择上传文件
+							</a>
+							<span class="input-group-btn" style="float:inherit; left:140px;">
+								<button type="submit" class="btn btn-xs  btn-purple btn-fb-orange btn-fb-radio">
+									导入
+								</button>
+							</span>
+
+
+						</div>
+
+					</div>
+					<div class="space-4"></div>
+					<div class="form-group">
+						<p id="file_name" style="text-align:center;"></p>
+					</div>
+					<div class="space-4"></div>
+				</form>
+                <div>
+
+                </div>
+			</div>
+            <div class="row">
+    			<div class="col-xs-12">
+    				<div>
+    					<form id="leftnav" class="ajaxForm" name="leftnav" method="post" action="{:url('admin/UniversityScore/major_score_export_runimport')}" >
+    						<table class="table table-striped table-bordered table-hover" id="dynamic-table ">
+    							<tbody id="ajax-data">
+                                    {include file="university_score/ajax_major_score_import"/}
+    							</tbody>
+    						</table>
+    					</form>
+
+    				</div>
+    			</div>
+
+    		</div>
+		</div>
+	</div><!-- /.page-content -->
+<script type="text/javascript">
+$(function(){
+    $(function () {
+        $('.ajaxScoreForm').ajaxForm({
+    		beforeSubmit:beforeAjaxForm,
+            success: function(data){
+                if(typeof load!="undefined"){layer.close(load);}
+                if (data.code == 0) {
+            		if(typeof index!="undefined"){layer.close(index);}
+            		layer.alert(data.msg, {icon: 5});
+                } else {
+                    $("#ajax-data").html(data);
+                    $('body,html').animate({scrollTop: $('#import_btn').offset().top}, 500);
+                }
+            }, // 这是提交后的方法
+            dataType: 'json'
+        });
+		$("#downexcel").click(function(){
+			var major_id = $("#major").val();
+			var school_id = $('#school2').val();
+			load = layer.load(1);
+			$.ajax({
+			    url:"{:url('admin/UniversityScore/check_major_score_import')}",
+				type:"POST",
+				data:{'major_id':major_id,'school_id':school_id},
+				success: function(data){
+					if(typeof load!="undefined"){layer.close(load);}
+					if (data.code == 1) {
+				        window.location.href = "{:url('admin/UniversityScore/major_score_export_forimport')}?major_id="+major_id+"&school_id="+school_id;
+				    } else {
+				        layer.alert(data.msg, {icon: 5});
+						return false;
+				    }
+				}
+			});
+		})
+    });
+});
+</script>
+{/block}

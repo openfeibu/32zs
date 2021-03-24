@@ -1,0 +1,38 @@
+{extend name="admin@public/base" /}
+{block name="main-content"}
+	<div class="page-content">
+
+		<div class="row">
+			<div class="col-xs-12">
+				<div id="ajax-data">
+                    {include file="examination/examination_table"/}
+				</div>
+			</div>
+		</div>
+
+	</div><!-- /.page-content -->
+    <script>
+        $(function(){
+            <?php $i = 0; ?>
+            {foreach name='data' item='v'}
+            {foreach name="v['subject_list']" item='subject'}
+            <?php $i++; ?>
+            laydate.render({
+              elem: '#date_{$i}'
+            });
+            laydate.render({
+              elem: '#starttime_{$i}'
+              ,type: 'time'
+              ,format: 'HH:mm'
+            });
+            laydate.render({
+              elem: '#endtime_{$i}'
+              ,type: 'time'
+              ,format: 'HH:mm'
+            });
+            {/foreach}
+            {/foreach}
+
+        });
+    </script>
+{/block}

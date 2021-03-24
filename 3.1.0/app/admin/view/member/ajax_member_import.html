@@ -1,0 +1,22 @@
+
+{if isset($member_data) && $member_data}
+<input name="major_id" value="{$major_id}" type="hidden" />
+<input name="school_id" value="{$school_id}" type="hidden" />
+<tr>
+    <th>序</th>
+    <th>姓名</th>
+    <th>身份证</th>
+    <th>中职考生号</th>
+</tr>
+
+{foreach name="member_data" key="k" item="val"}
+<tr>
+    <td>{$k-1}</td>
+    <td>{$val.member_list_nickname}<input type="hidden" name="member_list_nickname[]" value="{$val.member_list_nickname}"></td>
+    <td>{$val.member_list_username}<input type="hidden" name="member_list_username[]" value="{$val.member_list_username}"></td>
+    <td>{$val.ZexamineeNumber}<input type="hidden" name="ZexamineeNumber[]" value="{$val.ZexamineeNumber}"></td>
+</tr>
+{/foreach}
+<tr ><td colspan="20" align="center"><button class="btn btn-fb-blue fb-radio"  id="import_btn" type="submit" style="width:100px;">确认后提交</button></td></tr>
+
+{/if}

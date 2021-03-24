@@ -1,0 +1,183 @@
+{extend name="admin@public/base" /}
+{block name="main-content"}
+            <div class="page-content">
+                <!--主题-->
+                <div class="page-header">
+                    <span>个人中心</span>
+                </div>
+                <div>
+                    <div id="user-profile-1" class="user-profile row">
+                        <div class="col-xs-12 col-sm-3 center">
+                            <div>
+                                <!-- #section:pages/profile.picture -->
+								<span class="profile-picture">
+									<a href="#">
+                                        <img id="avatar" class="editable" src="{$admin['admin_avatar']|get_imgurl=1}" width="150"  data-toggle="modal" data-target="#myModal" />
+                                    </a>
+								</span>
+
+                                <!-- /section:pages/profile.picture -->
+                                <div class="space-4"></div>
+                                <div class="width-80 label label-info label-xlg arrowed-in arrowed-in-right">
+                                    <div class="inline position-relative">
+                                        <a  class="user-title-label" >
+                                            <i class="ace-icon fa fa-circle light-green"></i>
+                                            &nbsp;
+                                            <span class="white">{$admin['title']}</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                          <div class="profile-contact-info">
+                                <div class="profile-contact-links align-center">
+                                    <span id="edit" class="btn btn-link" data-toggle="modal" data-target="#myModaledit">
+                                        修改密码
+                                    </span>
+                                </div>
+                                <div class="space-6"></div>
+                            </div>
+
+                            <!-- #section:pages/profile.contact -->
+
+
+                        </div>
+
+                        <div class="col-xs-12 col-sm-9">
+
+
+                            <!-- #section:pages/profile.info -->
+                            <div class="profile-user-info profile-user-info-striped">
+                                <div class="profile-info-row">
+                                    <div class="profile-info-name"> 用户名 </div>
+
+                                    <div class="profile-info-value">
+                                        <span class="editable" id="username">{$admin['admin_username']}</span>													</div>
+                                </div>
+
+                                <!-- <div class="profile-info-row">
+                                    <div class="profile-info-name"> 联系电话 </div>
+
+                                    <div class="profile-info-value">
+                                        <span class="editable" id="tel">{$admin['admin_tel']|default='未设置'}</span>													</div>
+                                </div>
+
+                                <div class="profile-info-row">
+                                    <div class="profile-info-name"> 真实姓名 </div>
+
+                                    <div class="profile-info-value">
+                                        <span class="editable" id="realname">{$admin.admin_realname|default='未设置'}</span>													</div>
+                                </div> -->
+
+                                <div class="profile-info-row">
+                                    <div class="profile-info-name"> 上次登录时间 </div>
+
+                                    <div class="profile-info-value">
+                                        <span class="editable" id="lasttime">{if condition="$admin.admin_last_time eq ''"}未登陆过{else /}{$admin.admin_last_time|date="Y-m-d H:i:s",###}{/if}</span>													</div>
+                                </div>
+                                <div class="profile-info-row">
+                                    <div class="profile-info-name"> 上次登录IP </div>
+
+                                    <div class="profile-info-value">
+                                        <span class="editable" id="lastip">{if condition="$admin.admin_ip eq ''"}未登陆过{else /}{$admin.admin_ip}{/if}</span>													</div>
+                                </div>
+                                <div class="profile-info-row">
+                                    <div class="profile-info-name"> 本次登录IP </div>
+
+                                    <div class="profile-info-value">
+                                        <span class="editable" id="loginip">{$admin.admin_ip}</span>													</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <link href="__PUBLIC__/shearphoto/css/ShearPhoto.css" rel="stylesheet" type="text/css" media="all">
+                <script  type="text/javascript" src="__PUBLIC__/shearphoto/js/ShearPhoto.js" ></script>
+                <script  type="text/javascript"  src="__PUBLIC__/shearphoto/js/alloyimage.js" ></script>
+                <script  type="text/javascript"  src="__PUBLIC__/shearphoto/js/handle.js" ></script>
+                <script type="text/javascript">
+                    var SHEAR = {
+                        PATH_RES: '__PUBLIC__',
+                        PATH_AVATAR: '__ROOT__/data/upload/avatar',
+                        URL:"{:url('admin/Admin/avatar')}",
+                    };
+                </script>
+
+                <!-- 显示修改资料模态框（Modal） -->
+                <div class="modal fade in" id="myModaledit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <form class="form-horizontal ajaxForm2" name="admin_runedit" method="post" action="{:url('admin/Admin/admin_runedit')}">
+                        <input type="hidden" name="admin_id" value="{$admin.admin_id}" />
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" id="gb"  data-dismiss="modal"
+                                            aria-hidden="true">×
+                                    </button>
+                                    <h4 class="modal-title" id="myModalLabel2">
+                                        修改用户信息
+                                    </h4>
+                                </div>
+                                <div class="modal-body">
+
+
+                                    <div class="row">
+                                        <div class="col-xs-12">
+
+
+                                            <!--<div class="form-group">
+                                                <label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 用户邮箱：  </label>
+                                                <div class="col-sm-10">
+                                                    <input type="email" name="admin_email" id="admin_email" value="{$admin.admin_email}" class="col-xs-10 col-sm-5" required/>
+                                                    <span class="lbl col-xs-12 col-sm-7"><span class="red">*</span>用于密码找回，请认真填写</span>
+                                                </div>
+                                            </div>
+                                            <div class="space-4"></div> -->
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 登录密码：  </label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" name="admin_pwd" id="admin_pwd" maxlength="15" minlength="6" placeholder="为空不修改密码" class="col-xs-10 col-sm-5" />
+                                                    <span class="lbl col-xs-12 col-sm-7"><span class="red">*</span>密码必须大于6位，小于15位</span>
+                                                </div>
+                                            </div>
+                                            <div class="space-4"></div>
+                                            <!-- <div class="form-group">
+                                                <label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 手机号码：  </label>
+                                                <div class="col-sm-10">
+                                                    <input type="number" name="admin_tel" id="admin_tel" value="{$admin.admin_tel}" class="col-xs-10 col-sm-5" required/>
+                                                    <span class="lbl col-xs-12 col-sm-7"><span class="red">*</span>只能填写数字</span>
+                                                </div>
+                                            </div>
+                                            <div class="space-4"></div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 通用网名：  </label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" name="admin_realname" id="admin_realname" value="{$admin.admin_realname}"  class="col-xs-10 col-sm-5" required/>
+                                                    <span class="lbl col-xs-12 col-sm-7"><span class="red">*</span>用于发布信息所有人，且在前端显示</span>
+                                                </div>
+                                            </div>
+                                            <div class="space-4"></div> -->
+                                            <!-- <div class="form-group">
+                                                <label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 是否审核： </label>
+                                                <div class="col-sm-10" style="padding-top:5px;">
+                                                    <input name="admin_open" id="admin_open" {if condition="$admin['admin_open'] eq 1"}checked{/if}  value="1" class="ace ace-switch ace-switch-4 btn-flat" type="checkbox" />
+                                                    <span class="lbl">默认关闭</span>
+                                                </div>
+                                            </div>
+                                            <div class="space-4"></div> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-primary">
+                                        提交保存
+                                    </button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                                        关闭
+                                    </button>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal-dialog -->
+                    </form>
+                </div><!-- /.modal -->
+            </div>
+{/block}

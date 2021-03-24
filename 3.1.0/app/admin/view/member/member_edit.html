@@ -1,0 +1,315 @@
+{extend name="admin@public/base" /}
+{block name="main-content"}
+
+{load href="__PUBLIC__/shearphoto/css/ShearPhoto_f_zh-cn.css" /}
+	<div class="page-content ">
+		<!--主题-->
+		<div class="page-header printHide">
+			<h1>
+				您当前操作
+				<small>
+					<i class="ace-icon fa fa-angle-double-right"></i>
+					修改中职考生信息
+				</small>
+			</h1>
+		</div>
+		<div class="row printHide">
+			<div class="col-xs-12">
+				<form class="form-horizontal memberform" name="member_list_edit" method="post" action="{:url('admin/Member/member_runedit')}">
+					<input type="hidden" name="member_list_id" id="member_list_id" value="{$member_list_edit.member_list_id}" />
+					<!-- <div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 所属用户组： </label>
+						<div class="col-sm-10">
+							<select name="member_list_groupid"  class="col-sm-4 selector" required>
+								<option value="">请选择所属用户组</option>
+								{foreach name="member_group" item="v"}
+									<option  value="{$v.member_group_id}" {if condition="$member_list_edit['member_list_groupid'] eq $v['member_group_id']"}selected{/if}>{$v.member_group_name}</option>
+								{/foreach}
+							</select>
+						</div>
+					</div>
+					<div class="space-4"></div> -->
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 身份证号码：  </label>
+						<div class="col-sm-10">
+							<input type="text" name="member_list_username" id="member_list_username" value="{$member_list_edit.member_list_username}" placeholder="输入登录用户名" class="col-xs-10 col-sm-4" required/>
+							<span class="lbl">&nbsp;&nbsp;<span class="red">*</span>必填</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 登入密码：  </label>
+						<div class="col-sm-10">
+							<input type="text" name="member_list_pwd" id="member_list_pwd" placeholder="输入新的密码" class="col-xs-10 col-sm-4" maxlength="8" minlength="6"/>
+							<span class="lbl">&nbsp;&nbsp;<span class="red">*</span>如不修改请留空，密码必须大于6位，小于15位</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 姓名：  </label>
+						<div class="col-sm-10">
+							<input type="text" name="member_list_nickname" id="member_list_nickname" value="{$member_list_edit.member_list_nickname}"  placeholder="输入姓名" class="col-xs-10 col-sm-4" required/>
+                            <span class="lbl">&nbsp;&nbsp;<span class="red">*</span>必填</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+                    {if $admin['major_id']}
+                    <div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 所属中职专业: </label>
+						<div class="col-sm-10">
+							<select name="major_id"  class="col-sm-5" id="major" required>
+								{foreach name="major_list" item="v"}
+									<option value="{$v.major_id}" {if condition="$v['major_id'] eq $member_list_edit.major_id"}selected{/if} >{$v.major_name}</option>
+								{/foreach}
+							</select>
+                            <span class="lbl">&nbsp;&nbsp;<span class="red">*</span>必填</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+                    {else}
+					<div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 所属中职: </label>
+						<div class="col-sm-10">
+							<select name="school_id"  class="col-sm-5" id="school2" required>
+								<option value="">请选择所属中职</option>
+								{foreach name="school_list" item="v"}
+									<option value="{$v.school_id}" {if condition="$v['school_id'] eq $member_list_edit.school_id"}selected{/if} >{$v.school_name}</option>
+								{/foreach}
+							</select>
+                            <span class="lbl">&nbsp;&nbsp;<span class="red">*</span>必填</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 所属中职专业: </label>
+						<div class="col-sm-10">
+							<select name="major_id"  class="col-sm-5" id="major" required>
+								{foreach name="major_list" item="v"}
+									<option value="{$v.major_id}" {if condition="$v['major_id'] eq $member_list_edit.major_id"}selected{/if} >{$v.major_name}</option>
+								{/foreach}
+							</select>
+                            <span class="lbl">&nbsp;&nbsp;<span class="red">*</span>必填</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+                    {/if}
+					<!-- <div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 是否开启（禁止后用户将不能登录）： </label>
+						<div class="col-sm-10" style="padding-top:5px;">
+							<input name="member_list_open" {if condition='$member_list_edit.member_list_open eq 1'}checked{/if} id="member_list_open" value="1" class="ace ace-switch ace-switch-4 btn-flat" type="checkbox" />
+							<span class="lbl">&nbsp;&nbsp;默认关闭</span>
+						</div>
+					</div>
+					<div class="space-4"></div> -->
+
+					<!-- <div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 审核： </label>
+						<div class="col-sm-10" style="padding-top:5px;">
+							<input name="user_status" {if condition='$member_list_edit.user_status eq 1'}checked{/if} id="user_status" value="1" class="ace ace-switch ace-switch-4 btn-flat" type="checkbox" />
+							<span class="lbl">&nbsp;&nbsp;默认未通过</span>
+						</div>
+					</div>
+					<div class="space-4"></div>-->
+
+					<div class="clearfix form-actions">
+						<div class="col-md-offset-3 col-md-9">
+							<button class="btn btn-fb-blue fb-radio" type="submit">
+								保存
+							</button>
+
+
+							<button class="btn fb-radio btn-fb-orange" type="reset" onclick="window.history.go(-1);" onclick="window.history.go(-1);">
+
+								返回
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		{if condition="$member_list_edit['user_status']"}
+		<?php
+		$auth=new app\admin\model\AuthRule;
+		$id_curr=$auth->get_url_id();
+        if($auth->check_auth($id_curr))
+		{
+		?>
+
+		<?php
+		}
+		?>
+		{/if}
+        <!--startprint1-->
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="personal_table">
+					<input type="hidden" name="member_list_id" value="{$member_list_edit.member_list_id}" />
+					{include file="member/member_table_show"/}
+				</div>
+			</div>
+
+		</div>
+        <!--endtprint1-->
+        <div class="clearfix form-actions printHide">
+            <div class="col-md-offset-3 col-md-9"  href="{:url('admin/Member/member_active')}" data-id="{$member_list_edit.member_list_id}">
+                {if $admin['group_id'] == 1 || $admin['group_id'] == 5}
+                {if condition='$member_list_edit.user_status eq 1'}
+                <button class="btn btn-info btn-info member_status_btn2 btn-fb-radio" type="button" url="{:url('admin/Member/member_unactive')}">
+                    驳回审核
+                </button>
+                {else}
+                <button class="btn btn-info btn-primary member_status_btn2 btn-fb-radio" type="button">
+                    通过审核
+                </button>
+                {/if}
+                {else}
+                {if condition='$member_list_edit.user_status eq 1'}
+                <button class="btn btn-info btn-info member_status_btn btn-fb-radio" type="button" disabled="">
+                    已通过审核,不可更改
+                </button>
+
+                {else}
+                <button class="btn btn-info btn-primary member_status_btn btn-fb-radio" type="button">
+                    通过审核
+                </button>
+                {/if}
+                {if isset($last_member_list_id)}
+                <button class="btn-button-page btn-fb-orange btn-fb-radio btn-height-40" type="button" {if $last_member_list_id}onclick="javascript:window,location.href='{:url('member/member_edit',['member_list_id' => $last_member_list_id])}';"{else}disabled{/if}>
+                    上一位
+                </button>
+                {/if}
+                {if isset($next_member_list_id)}
+                <button class="btn-button-page btn-fb-orange btn-fb-radio btn-height-40" type="button" {if $next_member_list_id}onclick="javascript:window,location.href='{:url('member/member_edit',['member_list_id' => $next_member_list_id])}';"{else}disabled{/if}>
+                    下一位
+                </button>
+                {/if}
+                <!-- <button class="btn btn-info btn-primary printHide" onclick="preview(1)">打印</button> -->
+                {/if}
+            </div>
+        </div>
+	</div><!-- /.page-content -->
+
+
+    <script type="text/javascript">
+     {if condition='$member_list_edit.user_status eq 1'}
+     $('.personal_table').find('input').attr('disabled',true);
+     {/if}
+    </script>
+
+    <script  type="text/javascript" src="__PUBLIC__/shearphoto/js/ShearPhoto.js" ></script>
+<script  type="text/javascript"  src="__PUBLIC__/shearphoto/js/alloyimage.js" ></script>
+<script  type="text/javascript"  src="__PUBLIC__/shearphoto/js/handle_f.js" ></script>
+<script type="text/javascript">
+    var SHEAR = {
+        PATH_RES: '__PUBLIC__',
+        PATH_AVATAR: '__ROOT__/data/upload/avatar',
+        URL:"{:url('admin/Member/avatar',['member_list_id' => $member_list_edit['member_list_id']])}",
+    };
+</script>
+
+    <!-- 显示模态框（Modal） -->
+        <div class="modal fade modal-avatar printHide" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display:none;">
+            <div class="modal-dialog" style="width:60%;">
+                <div class="modal-content"  style="min-width:620px;">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">
+                            选择头像
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                    <div id="shearphoto_loading">{:lang('program loading')}......</div>
+                                    <div id="shearphoto_main">
+
+                                        <div class="primary">
+                                            <div id="main">
+                                                <div class="point"></div>
+                                                <div id="SelectBox">
+                                                    <form    id="ShearPhotoForm" enctype="multipart/form-data" method="post"  target="POSTiframe">
+                                                        <a href="javascript:;" id="selectImage"><input type="file"  name="UpFile" autocomplete="off"/></a>
+                                                    </form>
+
+                                                </div>
+                                                <div id="relat">
+                                                    <div id="black"></div>
+                                                    <div id="movebox">
+                                                        <div id="smallbox">
+                                                            <img src="__PUBLIC__/shearphoto/images/default.gif" class="MoveImg"  style="max-width:300%"/>
+                                                        </div>
+                                                        <i id="borderTop"></i>
+                                                        <i id="borderLeft"></i>
+                                                        <i id="borderRight"></i>
+                                                        <i id="borderBottom"></i>
+                                                        <i id="BottomRight"></i>
+                                                        <i id="TopRight"></i>
+                                                        <i id="Bottomleft"></i>
+                                                        <i id="Topleft"></i>
+                                                        <i id="Topmiddle"></i>
+                                                        <i id="leftmiddle"></i>
+                                                        <i id="Rightmiddle"></i>
+                                                        <i id="Bottommiddle"></i>
+                                                    </div>
+                                                    <img src="__PUBLIC__/shearphoto/images/default.gif" class="BigImg" />
+                                                </div>
+                                            </div>
+                                            <div style="clear: both"></div>
+                                            <div id="Shearbar">
+                                                <a id="LeftRotate" href="javascript:;"><em></em>向左转</a>
+                                                <em class="hint L"></em>
+                                                <div class="ZoomDist" id="ZoomDist">
+                                                    <div id="Zoomcentre"></div>
+                                                    <div id="ZoomBar"></div>
+                                                    <span class="progress"></span>
+                                                </div>
+                                                <em class="hint R"></em>
+                                                <a id="RightRotate" href="javascript:;">向右转<em></em></a>
+                                                <p class="Psava">
+                                                    <a id="againIMG"  href="javascript:;">重新选择</a>
+                                                    <a id="saveShear" href="javascript:;">保存</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div style="clear: both"></div>
+                                    </div>
+                                    <div id="photoalbum">
+                                        <i id="close"></i>
+                                        <ul>
+                                            <li><img src="__PUBLIC__/shearphoto/file/photo/1.jpg" serveUrl="file/photo/1.jpg" /></li>
+                                            <li><img src="__PUBLIC__/shearphoto/file/photo/2.jpg" serveUrl="file/photo/2.jpg" /></li>
+                                            <li><img src="__PUBLIC__/shearphoto/file/photo/3.jpg" serveUrl="file/photo/3.jpg" /></li>
+                                            <li><img src="__PUBLIC__/shearphoto/file/photo/4.jpg" serveUrl="file/photo/4.jpg" /></li>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+<script type="text/javascript">
+function preview(oper)
+{
+if (oper < 10)
+{
+bdhtml=window.document.body.innerHTML;//获取当前页的html代码
+sprnstr="<!--startprint"+oper+"-->";//设置打印开始区域
+eprnstr="<!--endprint"+oper+"-->";//设置打印结束区域
+prnhtml=bdhtml.substring(bdhtml.indexOf(sprnstr)+18); //从开始代码向后取html
+prnhtmlprnhtml=prnhtml.substring(0,prnhtml.indexOf(eprnstr));//从结束代码向前取html
+window.document.body.innerHTML=prnhtml;
+window.print();
+window.document.body.innerHTML=bdhtml;
+} else {
+window.print();
+}
+}
+</script>
+{/block}
+{block name="scripts"}
+	<script type="text/javascript" src="__PUBLIC__/others/region.js"></script>
+{/block}

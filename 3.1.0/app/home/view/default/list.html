@@ -1,0 +1,26 @@
+{include file="public:head" /}
+    <!-- 主体内容 S -->
+    <div class="main w1000">
+        <div class="fb-source">
+            <ul>
+                <li>
+                    <a href="__ROOT__/">首页</a>
+                    <span >\</span>
+                </li>
+                <li>
+                    <a>{$menu.menu_name}</a>
+                    <span >\</span>
+                </li>
+
+            </ul>
+        </div>
+        <!-- 通知公告 -->
+        <div class="fb-list" id="news_list">
+            {include file="ajax_list" /}
+        </div>
+        <!-- 通知公告 -->
+
+    </div>
+    <!-- 主体内容 E -->
+
+{include file="public:footer" /}

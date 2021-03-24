@@ -1,0 +1,35 @@
+<input name="major_id" value="{:input('major_id','')}" type="hidden" />
+<input name="school_id" value="{:input('school_id','')}" type="hidden" />
+{if isset($data) && $data}
+
+<tr>
+    <th></th>
+    <th>考生ID</th>
+    <th>姓名</th>
+    <th>身份证</th>
+    <th>中职专业</th>
+    {foreach name="$excel_subject_list" item="v"}
+    <th align="center">{$v.subject_name} </th>
+    {/foreach}
+</tr>
+
+{foreach name="data" item="v"}
+<tr>
+    <td></td>
+    <td><input name="n_id[]" class="ace" type="hidden" value="{$v.member_list_id}">{$v.member_list_id}</td>
+    <td>{$v.member_list_nickname}</td>
+    <td height="28" >{$v.member_list_username}</td>
+    <td>{$v.major_name}</td>
+    {foreach name="$v['major_subject_score_arr']" item="val" key="key"}
+    <td data-id="{$v.member_list_id}" subject-id="{$val.subject_id}">
+        <input type="text" name="major_score_{$v.member_list_id}[]" value="{$val.score}" class="score_input" >
+        <input type="hidden" name="subject_id_{$v.member_list_id}[]" value="{$val.subject_id}" >
+    </td>
+    {/foreach}
+    </td>
+</tr>
+{/foreach}
+<tr ><td colspan="20" align="center"><button class="btn btn-fb-blue fb-radio"  id="import_btn" type="submit" style="width:100px;">确认后提交</button></td></tr>
+{else}
+
+{/if}

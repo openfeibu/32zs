@@ -1,0 +1,69 @@
+{if $data}
+
+<tr>
+    <th  width="60px">
+        <label class="pos-rel">
+            <input type="checkbox" class="ace" id="chkAll" onclick="CheckAll(this.form)" value="全选">
+            <span class="lbl"></span>
+        </label>
+
+    </th>
+    <th width="60px">ID</th>
+    <th>姓名</th>
+    <!-- <th>中职考生号</th> -->
+    <th>身份证</th>
+    <th>中职学校</th>
+    <th>中职专业</th>
+    {foreach name="$major_subject_name_arr" item="v"}
+    <th align="center">{$v} </th>
+    {/foreach}
+    {if !$subject_id}
+    <th>合计</th>
+    {/if}
+    <!--<th>成绩审核状态</th>-->
+</tr>
+
+{foreach name="data" item="v"}
+<tr>
+    <td height="28" >
+        <label class="pos-rel">
+            <input name="n_id[]" id="navid" class="ace" type="checkbox" value="{$v.member_list_id}" {if $v['major_score_status'] ==1}disabled{/if}>
+            <span class="lbl"></span>
+        </label>
+    </td>
+    <td>{$v.member_list_id}</td>
+    <!--
+    <td>{if $v['major_score_status'] ==1}{$v.member_list_nickname}{else}<a href="{:url('admin/score/score_add',array('member_list_id'=>$v['member_list_id']))}">{$v.member_list_nickname}</a>{/if}</td>
+    -->
+    <td>{$v.member_list_nickname}</td>
+    <!-- <td>{$v.ZexamineeNumber}</td> -->
+    <td height="28" >{$v.member_list_username}</td>
+    <td>{$v.school_name}</td>
+    <td>{$v.major_name}</td>
+    {foreach name="$v['major_subject_score_arr']" item="val" key="key"}
+    <td data-id="{$v.member_list_id}" subject-id="{$val.subject_id}" status="{$val.major_score_status}"><input name="major_score[]" value="{$val.score}" {if $val['major_score_status']==1}disabled{/if} class="major_score score_input"></td>
+    {/foreach}
+    </td>
+    {if !$subject_id}
+    <td>{$v.major_score_total}</td>
+    {/if}
+    <!--<td class="status_{$v.member_list_id}">{$v['status_desc']}</td>-->
+    <!-- <td>
+        <div class="hidden-sm hidden-xs action-buttons">
+            <a href="{:url('admin/score/score_add',array('member_list_id'=>$v['member_list_id']))}" title="修改">
+                <i class="ace-icon fa fa-edit bigger-130"></i>
+            </a>
+            <a class=" confirm-rst-url-btn" data-info="确定要删除吗？" href="{:url('admin/score/score_del',array('member_list_id'=>$v['member_list_id']))}" title="删除">
+                <i class="ace-icon fa fa-trash-o bigger-130"></i>
+            </a>
+        </div>
+    </td> -->
+</tr>
+{/foreach}
+<tr><td colspan="20"><div class="fb-page">{$page}</div></td></tr>
+{else}
+<tr>
+    <td height="50" colspan="20" align="center">暂无数据</td>
+</tr>
+{/if}
+<!-- <tr><td colspan="20"><div class="fb-page">{$page}</div></td></tr> -->

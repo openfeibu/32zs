@@ -1,0 +1,22 @@
+<input name="school_id"  value="{:input('school_id','')}" type="hidden" />
+<input name="major_id"  value="{:input('major_id','')}" type="hidden" />
+
+{foreach name="data" item="v"}
+<tr>
+    <td class="hidden-xs" height="28" >
+        <label class="pos-rel">
+            <input name="n_id[]" id="navid" class="ace" type="checkbox" value="{$v.member_list_id}" {if $v['recruit_major_score_status'] == 1}disabled{/if}>
+            <span class="lbl"></span>
+        </label>
+    </td>
+    <td>{$v.member_list_id}</td>
+    <td height="28" >{$v.member_list_nickname}</td>
+    <td>{$v.ZexamineeNumber}</td>
+    <td>{$v.member_list_username}</td>
+    <td>{$v.school_name}</td>
+    <td>{$v.major_name}</td>
+    <td><input type="text" name="recruit_major_score" value="{$v.recruit_major_score}" class="recruit_major_score score_input" data-id="{$v.member_list_id}" {if $v['recruit_major_score_status'] ==1}disabled{/if}></td>
+   <td><span class="status_{$v.member_list_id}">{$v['status_desc']}</span></td>
+</tr>
+{/foreach}
+<tr><td colspan="20"><div class="fb-page">{$page}</div></td></tr>
