@@ -1674,9 +1674,6 @@ $(function(){
         }
     });
 
-    $("body").on('focus','.major_resit_score',function(){
-        $(this).val('')
-    })
     //2019.10.31 fhy
     $("body").on('blur','.major_resit_score',function(){
         console.log('major_resit_score');
