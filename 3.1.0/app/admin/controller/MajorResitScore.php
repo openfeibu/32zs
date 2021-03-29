@@ -35,15 +35,84 @@ class MajorResitScore extends Base
         $this->assign('admin_group',$admin_group[0]);
         Session::set('admin_group',$admin_group[0]);
     }
+    public function fail_score_list()
+    {
+        $search_key = trim(input('search_key', ''));
+        $major_score_status = input('major_score_status', '');
+        $school_list = $this->schoolModel->get_school_list_rmi($this->admin['recruit_major_id']);
+        $school_id = input('school_id',$school_list[0]['school_id']);
+        //查询专业名称
+        $major_list = MajorModel::get_major_list($school_id,$this->admin['recruit_major_id']);
+        $major_id = input('major_id', $major_list['0']['major_id']);
+        $subject_list = SubjectModel::get_subject_list1($major_id, $school_id, get_year());
 
+        if(!$subject_list)
+        {
+            return $this->error ('请先录入科目');
+        }
+
+        $subject_id =  input('subject_id',$subject_list[0]['subject_id']);
+        $subject_id_key =  array_search($subject_id, array_column($subject_list, 'subject_id'));
+
+        $subject = $subject_list[$subject_id_key];
+
+        $major_subject_name_arr = array_column($subject_list, 'subject_name');
+        $major_subject_id_arr = array_column($subject_list, 'subject_id');
+
+        $major_resit_score_list = Db::name('major_resit_score')->alias("mrs")
+            ->join(config('database.prefix').'major_score ms','ms.member_list_id = mrs.member_list_id AND ms.subject_id = mrs.subject_id','right')
+            ->join(config('database.prefix').'member_list m','m.member_list_id = ms.member_list_id')
+            ->join(config('database.prefix').'member_info mi','m.member_list_id = mi.member_list_id')
+            ->join(config('database.prefix').'major mj','mj.major_id = m.major_id')
+            ->join(config('database.prefix').'school sc','m.school_id = sc.school_id')
+            ->where(get_year_where('m'))
+            ->where('ms.subject_id',$subject_id)
+            ->where('ms.major_score','<',$subject['max_score'] * 0.6)
+            ->where('ms.major_score','<>','')
+            ->where('(ms.major_score_status=1 or mrs.major_resit_score>0)');
+        if($major_resit_score_list){
+            $major_resit_score_list = $major_resit_score_list->where('m.member_list_username|m.member_list_nickname|mi.ZexamineeNumber','like',"%".$search_key."%");
+        }
+        $major_resit_score_list = $major_resit_score_list->order('m.member_list_id desc')
+            ->group('m.member_list_id')
+            ->field('m.member_list_nickname , m.member_list_username, m.member_list_id,m.year,mj.major_name,mj.major_name,m.major_id,m.school_id,mi.ZexamineeNumber,sc.school_name,ms.major_score,mrs.major_resit_score,mrs.major_resit_score_status,ms.subject_id')
+            ->paginate(config('paginate.list_rows'),false,['query'=>get_query()]);
+        //dump($major_resit_score_list);
+        $this->assign('major_id', $major_id);
+        $this->assign('school_id',$school_id);
+        $this->assign('school_list',$school_list);
+        $this->assign('major_list', $major_list);
+        $this->assign('data', $major_resit_score_list->all());
+        $this->assign('page', $major_resit_score_list->render());
+        $this->assign('search_key', $search_key);
+        $this->assign('major_subject_id_arr', $major_subject_id_arr);
+        $this->assign('subject_list', $subject_list);
+        $this->assign('subject_id', $subject_id);
+        $this->assign('subject', $subject);
+        $this->assign('major_score_status', $major_score_status);
+
+        $major_score_status_list = ['','0','1'];
+        $this->assign('major_score_status_list', $major_score_status_list);
+        $this->assign('major_subject_name_arr', $major_subject_name_arr);
+
+
+
+        if (request()->isAjax()) {
+            return $this->fetch('major_resit_score/ajax_fail_score_list');
+        } else {
+            return $this->fetch('major_resit_score/fail_score_list');
+        }
+    }
     //2019.11.1
     /**
+     * 废除于2021.03.26
      * 补考成绩管理
      * @return mixed
      * @throws \think\db\exception\DataNotFoundException
      * @throws \think\db\exception\ModelNotFoundException
      * @throws \think\exception\DbException
      */
+    /*
     public function fail_score_list()
     {
         $search_key = trim(input('search_key', ''));
@@ -197,7 +266,7 @@ class MajorResitScore extends Base
             return $this->fetch('major_resit_score/fail_score_list');
         }
     }
-
+    */
     //修改数据
     public function fail_score_runadd()
     {
@@ -212,10 +281,10 @@ class MajorResitScore extends Base
             $major_score = array_filter($major_score);
             foreach ($major_score as $key => $val)
             {
-                $data = $this->MajorResitScoreModel->majorrecruitScoreAdd($member_list_id,$subject_id[$key],$val);
+                $data = $this->MajorResitScoreModel->majorResitScoreAdd($member_list_id,$subject_id[$key],$val);
             }
         }else{
-            $data = $this->MajorResitScoreModel->majorrecruitScoreAdd($member_list_id,$subject_id,$major_score);
+            $data = $this->MajorResitScoreModel->majorResitScoreAdd($member_list_id,$subject_id,$major_score);
         }
 
         if($data['error']){
@@ -242,8 +311,8 @@ class MajorResitScore extends Base
             foreach ($value as $val) {
                 $where['member_list_id'] = $key;
                 $where['subject_id'] = $val;
-                 $rst=Db::name('recruit_major_score')->where($where)
-                    ->setField('recruit_major_score_status',1);
+                 $rst=Db::name('major_resit_score')->where($where)
+                    ->setField('major_resit_score_status',1);
             }
         }
 
@@ -253,7 +322,30 @@ class MajorResitScore extends Base
             $this -> error("操作失败！",url('admin/MajorResitScore/fail_score_list',array('page' => $p)));
         }
     }
+    public function score_del()
+    {
 
+        $p = $this->request->post('p');
+        $data = $this->request->post();
+        if(!isset($data['major_resit_obj'])){
+            $this -> error("请选择列表",url('admin/MajorResitScore/fail_score_list',array('page' => $p)));
+        }
+        $major_resit_objs = $data['major_resit_obj'];
+        foreach ($major_resit_objs as $key => $value) {
+            foreach ($value as $val) {
+                $where['member_list_id'] = $key;
+                $where['subject_id'] = $val;
+                $rst=Db::name('major_resit_score')->where($where)->delete();
+            }
+        }
+
+        if($rst!==false){
+            $this->success('删除成功',url('admin/MajorResitScore/fail_score_list',array('p' => $p)));
+        }else{
+            $this -> error("删除失败！",url('admin/MajorResitScore/fail_score_list',array('page' => $p)));
+        }
+
+    }
 
     //导出
     public function check_score_list_export()
@@ -263,13 +355,13 @@ class MajorResitScore extends Base
         //$subject_ids = input('subject_id/a');
         $subject_id = input('subject_id');
         $unauditing_count = Db::name('member_list')->alias('m')
-            ->join(config('database.prefix').'recruit_major_score ms','m.member_list_id = ms.member_list_id','left')
+            ->join(config('database.prefix').'major_resit_score mrs','m.member_list_id = mrs.member_list_id','left')
             ->join(config('database.prefix').'subject s','s.subject_id = ms.subject_id');
         if($subject_id)
         {
             $unauditing_count = $unauditing_count->where('s.subject_id','=',$subject_id);
         }
-        $unauditing_count = $unauditing_count->where('ms.recruit_major_score_status IS NUll or ms.recruit_major_score_status <= 0')
+        $unauditing_count = $unauditing_count->where('mrs.major_resit_score_status IS NUll or mrs.major_resit_score_status <= 0')
             ->where(['m.major_id' => $major_id,'m.school_id' => $school_id])
             ->where(get_year_where('m'))->group('m.member_list_id')
             ->count();
@@ -279,6 +371,11 @@ class MajorResitScore extends Base
         }
         $this->success('导出');
     }
+    /** 待修改 2021.03.26
+     * 需修改内容：
+     * 1、需先了解此处需求，是导出补考成绩，还是全部成绩
+     * 2、recruit_major_score 表需改为 major_resit_score
+    */
     public function score_list_export()
     {
         $major_id = input('major_id','');

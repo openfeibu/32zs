@@ -211,7 +211,7 @@ class Score extends Model
                 // $subject_list = SubjectModel::get_subject_list($member['major_id'],$member['school_id']);
             // }
             // 
-                $nowyear = get_year();
+            $nowyear = get_year();
             
             if(!$one_subject_list){
                 $subject_list = SubjectModel::get_subject_list1($member['major_id'],$member['school_id'],$nowyear);
@@ -223,7 +223,6 @@ class Score extends Model
                 $major_score_status = 0;
             }
             $major_score_data = $this->get_member_subject_score($subject_list,$member['member_list_id']);
-
             // dump($major_score_data);
 
             $major_score_arr = $major_score_data['major_score_arr'];
@@ -391,37 +390,31 @@ class Score extends Model
     public function get_member_subject_score($subject_list,$member_list_id,$major_score_status=NULL)
     {
         $subject_id_arr = array_column($subject_list,'subject_id');
-        // dump($subject_id_arr);
+        //dump($subject_list,$member_list_id);
 
         $subject_score_list = DB::name('major_score')->where('member_list_id',$member_list_id)->where(array('subject_id' => array('in',$subject_id_arr)));
         if($major_score_status!== null)
         {
             $subject_score_list->where('major_score_status',$major_score_status);
         }
-        
 
         $subject_score_list = $subject_score_list->field('major_score,major_score_status,subject_id')->order('subject_id','asc')->select();
+
         $score_subject_id_arr = array_column($subject_score_list,'subject_id');
         $subject_score_list = array_column($subject_score_list,NULL,'subject_id');
         $major_score_status = 1;
         $admission_status = 1;
-        // dump($subject_score_list);
-        
         if(count($score_subject_id_arr) < count($subject_list) || count($subject_list) == 0)
         {
             $major_score_status = 0;
             $admission_status = 0;
         }
         $major_score_arr = $major_subject_score_arr = array();
-        // dump($subject_list[1]);
-        // dump($score_subject_id_arr);
         foreach ($subject_list as $subject_key => $subject)
         {
             if(in_array($subject['subject_id'],$score_subject_id_arr))
             {
-                // dump($subject['subject_id']);
                 $major_score = $subject_score_list[$subject['subject_id']]['major_score'];
-
                 $major_score_status = $subject_score_list[$subject['subject_id']]['major_score_status'];
                 if($major_score < $subject['max_score'] * 0.6)
                 {
@@ -433,24 +426,17 @@ class Score extends Model
                 $major_score_status = '';
                 $admission_status = 0;
             }
-
-            // $major_resit_score = Db::name('major_resit_score')->where(['member_list_id' => $member_list_id,'subject_id' => $subject['subject_id']])->find();
-            $major_resit_score = Db::name('recruit_major_score')->where(['member_list_id' => $member_list_id,'subject_id' => $subject['subject_id']])->find();
-            
-            //2019.11.8 判断补考成绩是否大于原始
-            // if($major_resit_score){
-            //     if(!empty($major_resit_score['recruit_major_score']) && $major_resit_score['recruit_major_score'] > $major_score && $major_resit_score['recruit_major_score_status'] == 1){
-            //         $major_score = 60;
-            //         // $major_score = $major_resit_score['recruit_major_score'];
-            //     }
-            // }
-            //2020.10.29 判断补考成绩是否大于60
-            if($major_resit_score){
-                if(!empty($major_resit_score['recruit_major_score']) && $major_resit_score['recruit_major_score'] >= 60 && $major_resit_score['recruit_major_score_status'] == 1){
-                    $major_score = 60;
-                    // $major_score = $major_resit_score['recruit_major_score'];
-                }else {
-                     $major_score = $major_resit_score['recruit_major_score'];
+            $major_resit_score = Db::name('major_resit_score')->where(['member_list_id' => $member_list_id,'subject_id' => $subject['subject_id']])->find();
+            if($major_score_status)
+            {
+                //var_dump($major_resit_score);
+                //2020.03.26
+                if($major_resit_score){
+                    if(!empty($major_resit_score['major_resit_score']) && $major_resit_score['major_resit_score'] >= 60 && $major_resit_score['major_resit_score_status'] == 1){
+                        $major_score = 60;
+                    }else {
+                        $major_score = $major_resit_score['major_resit_score'];
+                    }
                 }
             }
 
@@ -460,14 +446,15 @@ class Score extends Model
                 'score' => $major_score,
                 'max_score' => $subject['max_score'],
                 'major_score_status' => $major_score_status,
-                'major_resit_score' => $major_resit_score ? $major_resit_score['recruit_major_score'] : '',
-                'major_resit_score_status' => $major_resit_score ? $major_resit_score['recruit_major_score_status'] : '',
+                'major_resit_score' => $major_resit_score ? $major_resit_score['major_resit_score'] : '',
+                'major_resit_score_status' => $major_resit_score ? $major_resit_score['major_resit_score_status'] : '',
             ];
             $major_score_arr[] = $major_score;
             // dump($major_subject_score_arr);
         }
         // dump($major_score_arr);
         // dump($major_subject_score_arr);
+       // var_dump($major_subject_score_arr,$member_list_id);exit;
         return [
             'major_score_arr' => $major_score_arr,
             'major_score_status' => $major_score_status,

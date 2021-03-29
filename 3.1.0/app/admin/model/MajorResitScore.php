@@ -19,24 +19,24 @@ use app\admin\model\Subject as SubjectModel;
  */
 class MajorResitScore extends Model
 {
-    public function majorrecruitScoreAdd($member_list_id,$subject_id,$major_score)
+    public function majorResitScoreAdd($member_list_id,$subject_id,$major_resit_score)
     {
         $rstdata['error'] = 0;
         $rstdata['content'] = '';
-        $major_score_data = Db::name('recruit_major_score')->where(array('member_list_id' => $member_list_id,'subject_id' => $subject_id))->find();
-        if($major_score_data)
+        $major_resit_score_data = Db::name('major_resit_score')->where(array('member_list_id' => $member_list_id,'subject_id' => $subject_id))->find();
+        if($major_resit_score_data)
         {
-            if($major_score_data['recruit_major_score_status'] == 1)
+            if($major_resit_score_data['major_resit_score_status'] == 1)
             {
                 $rstdata['error'] = 1;
                 $rstdata['content'] = '提交失败。已打印通过不能修改';
                 return $rstdata;
             }
             $data = [
-                'recruit_major_score' => $major_score,
-                'recruit_major_score_status' => 0,
+                'major_resit_score' => $major_resit_score,
+                'major_resit_score_status' => 0,
             ];
-            $rst = Db::name('recruit_major_score')->where(array('recruit_major_score_id' => $major_score_data['recruit_major_score_id']))->update($data);
+            $rst = Db::name('major_resit_score')->where(array('major_resit_score_id' => $major_resit_score_data['major_resit_score_id']))->update($data);
             if($rst!==false){
                 $rstdata['content'] = '提交成功。';
                 return $rstdata;
@@ -49,9 +49,9 @@ class MajorResitScore extends Model
         $data = [
             'member_list_id' => $member_list_id,
             'subject_id' => $subject_id,
-            'recruit_major_score' => $major_score
+            'major_resit_score' => $major_resit_score
         ];
-        $rst = Db::name('recruit_major_score')->insert($data);
+        $rst = Db::name('major_resit_score')->insert($data);
         if($rst !== false){
             $rstdata['content'] = '提交成功。';
             return $rstdata;
@@ -61,72 +61,7 @@ class MajorResitScore extends Model
             return $rstdata;
         }
     }
-    public function recruitScoreAdd($member_list_id,$recruit_major_score)
-    {
-        if(!$member_list_id){
-            return [
-                'code' => 0,
-                'msg' => '参数错误'
-            ];
-        }
-        $recruit_major_score_data = Db::name('recruit_major_score')->where(array('member_list_id' => $member_list_id))->find();
-        if($recruit_major_score_data)
-        {
-            if($recruit_major_score_data['recruit_major_score_status'] == 1)
-            {
-                return [
-                    'code' => 0,
-                    'msg' => '提交失败，已打印通过请勿重复提交'
-                ];
-            }
-            if($recruit_major_score_data['recruit_major_score'] == $recruit_major_score){
-                return [
-                    'code' => 2,
-                    'msg' => ''
-                ];
-            }
-            $data = [
-                'recruit_major_score' => $recruit_major_score,
-                'recruit_major_score_status' => 0,
-            ];
-            $rst = Db::name('major_score')->where(array('member_list_id' => $member_list_id))->update($data);
-            if($rst!==false){
-                return [
-                    'code' => 1,
-                    'msg' => '提交成功，请等待考生打印'
-                ];
-            }else{
-                return [
-                    'code' => 0,
-                    'msg' => '提交失败'
-                ];
-            }
-        }
-        else{
-            $data = [
-                'member_list_id' => $member_list_id,
-                'recruit_major_score' => $recruit_major_score,
-                'recruit_major_score_status' => 0,
-            ];
-            $rst = Db::name('recruit_major_score')->insert($data);
-            if($rst!==false){
-                return [
-                    'code' => 1,
-                    'msg' => '提交成功，请等待考生打印'
-                ];
-            }else{
-                return [
-                    'code' => 0,
-                    'msg' => '提交失败'
-                ];
-            }
-        }
 
-        return [
-            'code' => 0,
-            'msg' => '参数错误'
-        ];
-    }
     //打印时候调用
     public function getMajorScoreList($map,$where,$search_key='',$subject_list=array(),$is_page = 1)
     {
@@ -242,7 +177,7 @@ class MajorResitScore extends Model
         return $score_list;
     }
 
-    //获取列表
+    //获取列表 废弃 2021.03.26
     public function getFailMajorScoreList($where,$search_key,$subject_list,$major_score_status=NULL)
     {
         // echo $where;
@@ -410,6 +345,7 @@ class MajorResitScore extends Model
             'admission_status' => $admission_status
         ];
     }
+    //废弃 2021.03.26
     public function get_member_subject_resit_score($subject_list,$member_list_id,$major_score_status=NULL)
     {
         $subject_id_arr = array_column($subject_list,'subject_id');

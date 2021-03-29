@@ -44,6 +44,7 @@ class Major extends Model
 	}
 	public static function get_major_detail($major_id,$school_id,$year='')
 	{
+        $year = $year ? $year : get_year();
         $major = self::get_major($major_id);
 		$major['major_subject_name_arr'] = [];
 
@@ -68,6 +69,7 @@ class Major extends Model
     //2019.12.28 编辑科目
     public static function get_major_detail1($major_id,$school_id,$year='')
     {
+        $year = $year ? $year : get_year();
         $major = self::get_major($major_id);
         $major['major_subject_name_arr'] = [];
 

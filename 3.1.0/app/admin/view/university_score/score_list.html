@@ -96,16 +96,6 @@
 				<br>
 				<div class="fb-state-search  margintop5">
 					审核状态：
-					<!-- <input name="major_score_status" type="radio" value="" id="major_score_status"　class="ajax_change"  style="display: none"> 
-					<label for="major_score_status" {if $major_score_status == ''}class="selected"{/if}>所有</label>
-					<input name="major_score_status" type="radio" value="0" id="major_score_status＿0"　class="ajax_change" {if $major_score_status == '0'}checked{/if} style="display: none"> 
-					<label for="major_score_status＿0">
-						未审核
-					</label>
-					<input name="major_score_status" type="radio" value="1" id="major_score_status＿1"　class="ajax_change" {if $major_score_status == '1'}checked{/if} style="display: none">
-					<label for="major_score_status＿1">
-						 已审核
-					</label> -->
 					{foreach name="major_score_status_list" item="val" key="key"}
 					<input name="major_score_status" type="radio" value="{$val}" id="major_score_status＿{$val}"　class="ajax_change" {if $major_score_status == $val}checked{/if} style="display: none">
 					<label for="major_score_status＿{$val}" {if $major_score_status === $val}class="selected"{/if}>
@@ -121,16 +111,6 @@
 					</label>
 					{/foreach}
 				</div>
-				<!-- <div class="fb-state-search  margintop5">
-					
-					中职专业：
-						{foreach name='major_list' item='v'}
-						<input name="major_id" type="radio" value="{$v.major_id}" id="major_id{$v.major_id}"　class="university_major_id" {if $v.major_id == $major_id}checked{/if} style="display: none">
-						<label for="major_id{$v.major_id}" {if $major_id == $v['major_id']}class="selected"{/if}>{$v.major_name}</label>
-						{/foreach}
-				</div> -->
-
-				
 
 				<div class="col-xs-12 col-sm-3  ">
 					<div class="input-group">

@@ -3,6 +3,7 @@
 	<div class="page-content">
 		<div class="row maintop">
 			 <button id="btnsubmit" class="btn-unactive">驳回审核</button>
+			<button id="resitSubmit" class="active_submit">驳回补考成绩审核</button>
 			<form name="admin_list_sea" class="form-search" id="list-filter" method="post" action="{:url('admin/score/score_all')}">
 
 				<div class="fb-state-search  margintop5">
@@ -77,8 +78,14 @@
 <script>
 
 	//$("#school").change();
-	$('body').on('click','.btn-unactive',function(){
+	$('body').on('click','#btnsubmit',function(){
 		url = "{:url('admin/score/score_unactive')}";
+		$("#score_form").attr('action',url);
+		$(".ajaxForm").submit();
+		return true;
+	});
+	$('body').on('click','#resitSubmit',function(){
+		url = "{:url('admin/score/resit_score_unactive')}";
 		$("#score_form").attr('action',url);
 		$(".ajaxForm").submit();
 		return true;

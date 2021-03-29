@@ -2,13 +2,15 @@
 {block name="main-content"}
 	<div class="page-content">
 		<div class="row maintop">
-			
+			<!--
 			<div class="fb-export">
 				<a href="javascript:;" id="score_list_export"  title="按中职专业导出成绩">按中职专业导出成绩</a>
 			</div>
+			-->
 			<div class="fb-export">
 			{if $admin_group['group_id'] == 4}
 			<button id="member_active_submit" class="btn btn-white btn-yellow  btn-active">批量审核</button>
+			<button id="score_delete_submit" class="btn btn-white btn-yellow btn-active active_submit">删除成绩</button>
 			{/if}
 			</div>
 			<div class="clearfix"></div>
@@ -37,8 +39,6 @@
 				</style>
 				<div class="fb-state-search  margintop5">
 				中职学校：
-				<!-- <input name="school_id" type="radio" value="" id="school_id_null" class="fail_school_id_input" {if !$school_id} checked {/if} style="display: none"> 
-				<label for="school_id_null" {if !$school_id} class="selected" {/if}>全部</label> -->
 				{foreach name="school_list" item="v"}
 					<input name="school_id" type="radio" value="{$v.school_id}" class="fail_school_id_input" id="school{$v.school_id}" {if condition="$school_id eq $v['school_id']"}checked{/if} style="display: none"> 
 					<label for="school{$v.school_id}">{$v.school_name}
@@ -66,11 +66,10 @@
 
 				<div class="fb-state-search  margintop5" id="">
 				     选择科目：
-				     {if $all_subject_list}
-				     <input name="subject_id" type="radio" value="" id="subject_id_null" class="subject_id_input radio_all" {if !$subject_id} checked {/if} style="display: none"> 
-				     <label for="subject_id_null" {if !$subject_id} class="selected" {/if}>全部</label>
+				     {if $subject_list}
+				     <input name="subject_id" type="radio" value="" id="subject_id_null" class="subject_id_input radio_all" {if !$subject_id} checked {/if} style="display: none">
 				     <div id="subjects" style="display: inline">
-				     {foreach name="all_subject_list" item="v"}
+				     {foreach name="subject_list" item="v"}
 				     <input name="subject_id" type="radio" value="{$v.subject_id}" class="subject_id_input" id="subject_id_{$v.subject_id}" {if $subject_id && $subject_id == $v['subject_id']}checked {/if} style="display: none"> 
 				     <label for="subject_id_{$v.subject_id}" {if $subject_id == $v.subject_id}class="selected"{/if}>{$v.subject_name}</label>
 				     
@@ -143,19 +142,16 @@
 	</div><!-- /.page-content -->
 	<script type="text/javascript">
 		$('body').on('click','#member_active_submit',function(){
-
+			$( ".ajaxForm5" ).attr( 'action' ,"{:url('admin/MajorResitScore/score_active')}");
 			$(".ajaxForm5").submit()
 			return true;
 		});
-		/*
-			2019.11.6
-		 */
-		// $("input[name=subject_id]").click(function(){
-		// 	$("form[name=admin_list_sea]").submit()
-		//     // var sex = $(this).val();
-		//     // alert(sex);
-		// });
-		/**/
+		$('body').on('click','#score_delete_submit',function(){
+			$( ".ajaxForm5" ).attr( 'action' ,"{:url('admin/MajorResitScore/score_del')}");
+			$(".ajaxForm5").submit()
+			return true;
+		});
+
 		
 		$("#score_list_export").click(function(){
 			// var major_id = $('#major').val();

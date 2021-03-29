@@ -16,59 +16,24 @@
     <th>补考成绩</th>
 </tr>
 
-<!-- {foreach name="data" item="v"}
-<tr>
-    <td height="28" >
-        <label class="pos-rel">
-            <input name="n_id[]" id="navid" class="ace" type="checkbox" value="{$v.member_list_id}" {if $v['major_score_status'] ==1}disabled{/if}>
-            <span class="lbl"></span>
-        </label>
-    </td>
-    <td>{$v.member_list_id}</td>
-    <td>{$v.member_list_nickname}</td>
-    <td>{$v.ZexamineeNumber}</td>
-    <td height="28" >{$v.member_list_username}</td>
-    <td>{$v.major_name}</td>
-    {foreach name="$v['major_subject_score_arr']" item="val" key="key"}
-
-       {if $val['score'] == '' && $admin_group['group_id'] != 4 }
-       <td></td>
-       {else}
-        <td data-id="{$v.member_list_id}" subject-id="{$val.subject_id}" status="{$val.major_score_status}">
-        <input name="major_resit_score[]" value="{if $val.score >= 60}60{else}{$val.score}{/if}"  class="major_resit_score score_input" {if $val['major_score_status']==1 || $admin_group['group_id']!=4}disabled{/if} >
-        </td>
-       {/if}
-
-    {/foreach}
-    </td>
-</tr>
-{/foreach} -->
-
 {foreach name="data" item="v"}
-    {foreach name="$v['major_subject_score_arr']" item="val" key="key"}
-        {if $val['score'] != ''}
-            <tr>
-                <td height="28" >
-                    <label class="pos-rel">
-                        <!-- <input name="n_id[]" id="navid" class="ace" type="checkbox" value="{$v.member_list_id}" {if $v['major_score_status'] ==1}disabled{/if}> -->
-
-                        <input name="major_resit_obj[{$v.member_list_id}][]" id="navid" class="ace" type="checkbox" value="{$val.subject_id}" {if $v['major_score_status'] ==1}disabled{/if}>
-
-                        <span class="lbl"></span>
-                    </label>
-                </td>
-                <td>{$v.member_list_id}</td>
-                <td>{$v.member_list_nickname}</td>
-                <!-- <td>{$v.ZexamineeNumber}</td> -->
-                <td height="28" >{$v.member_list_username}</td>
-                <td>{$v.major_name}</td>
-                <td>{$val['subject_name']}</td>
-                <td data-id="{$v.member_list_id}" subject-id="{$val.subject_id}" status="{$val.major_score_status}">
-                    <input name="major_resit_score[]" value="{if $val.score >= 60}60{else}{$val.score}{/if}"  class="major_resit_score score_input" {if $val['major_score_status']==1 || $admin_group['group_id']!=4}disabled{/if} >
-                </td>
-            </tr>
-        {/if}
-    {/foreach}
+    <tr>
+        <td height="28" >
+            <label class="pos-rel">
+                <input name="major_resit_obj[{$v.member_list_id}][]" id="navid" class="ace" type="checkbox" value="{$v.subject_id}" {if $v['major_resit_score_status'] ==1}disabled{/if}>
+                <span class="lbl"></span>
+            </label>
+        </td>
+        <td>{$v.member_list_id}</td>
+        <td>{$v.member_list_nickname}</td>
+        <!-- <td>{$v.ZexamineeNumber}</td> -->
+        <td height="28" >{$v.member_list_username}</td>
+        <td>{$v.major_name}</td>
+        <td>{$subject['subject_name']}</td>
+        <td data-id="{$v.member_list_id}" subject-id="{$v.subject_id}" status="{$v.major_resit_score_status}">
+            <input name="major_resit_score[]" value="{$v.major_resit_score}"  class="major_resit_score score_input" {if $v['major_resit_score_status']==1 || $admin_group['group_id']!=4}disabled{/if} >
+        </td>
+    </tr>
 {/foreach}
 <tr><td colspan="20"><div class="fb-page">{$page}</div></td></tr>
 

@@ -3,6 +3,7 @@
 	<div class="page-content">
 		<div class="row maintop">
 			<button id="member_active_submit" class="btn btn-white btn-yellow  btn-active">批量审核</button>
+			<button id="score_delete_submit" class="btn btn-white btn-yellow">删除成绩</button>
 			<div class="fb-export">
 				<a href="javascript:;" id="score_list_export"  title="按中职专业导出成绩">按中职专业导出成绩</a>
 			</div>
@@ -70,8 +71,13 @@
 	</div><!-- /.page-content -->
 	<script type="text/javascript">
 		$('body').on('click','#member_active_submit',function(){
-
+			$( "#ajaxForm5" ).attr( 'action' ,"{:url('admin/universityScore/score_active')}");
 			$(".ajaxForm5").submit()
+			return true;
+		});
+		$('body').on('click','#score_delete_submit',function(){
+			$( "#ajaxForm5" ).attr( 'action' ,"{:url('admin/universityScore/score_active')}");
+			$(".ajaxDeleteForm").submit()
 			return true;
 		});
 		$("#score_list_export").click(function(){

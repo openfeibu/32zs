@@ -98,7 +98,7 @@ class Score extends Base
             return $this->fetch();
         }
     }
-	 public function score_all()
+    public function score_all()
     {
         $search_key= trim(input('search_key',''));
         $major_id = input('major_id','');
@@ -134,7 +134,7 @@ class Score extends Base
         else{
             $data = $this->scoreModel->getMajorScoreList($map,$where,$search_key);
         }
-
+//dump($data);exit;
 		$score_list = $data['score_list'];
 		$status = config("status");
 
@@ -325,7 +325,26 @@ class Score extends Base
 			$this -> error("操作失败！",url('admin/score/score_all',array('page' => $p)));
 		}
 	}
+    public function resit_score_unactive()
+    {
+        $p = input('p');
+        $ids = input('n_id/a');
+        if(empty($ids)){
+            $this -> error("请选择列表",url('admin/score/score_all',array('page' => $p)));
+        }
+        if(is_array($ids)){
+            $where = 'member_list_id in('.implode(',',$ids).')';
+        }else{
+            $where = 'member_list_id='.$ids;
+        }
 
+        $rst=Db::name('major_resit_score')->where($where)->setField('major_resit_score_status',0);
+        if($rst!==false){
+            $this->success("操作成功",url('admin/score/score_all',array('page' => $p)));
+        }else{
+            $this -> error("操作失败！",url('admin/score/score_all',array('page' => $p)));
+        }
+    }
     public function major_score_import()
     {
         $major_ids = json_decode($this->admin['major_id'],true);
